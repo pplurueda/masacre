@@ -4,8 +4,6 @@ export class MasacreActor extends Actor {
     prepareDerivedData() {
       super.prepareDerivedData();
   
-      // Clamp health within the appropriate range.
-      //const { health } = this.system.resources;
-      //health.value = Math.clamp(health.value, health.min, health.max);
+      this.system.rank = this.items.find(item => item.type == "rank");
     }
   }

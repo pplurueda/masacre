@@ -17,7 +17,7 @@ export class CharacterSheet extends ActorSheet {
     }
 
     get template() {
-        return `systems/masacre/templates/sheets/actors/${this.actor.type}Sheet.hbs`;
+        return `systems/masacre/templates/sheets/actors/characterSheet.hbs`;
     } 
 
     getData() {

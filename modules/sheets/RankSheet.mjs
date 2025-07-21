@@ -1,6 +1,6 @@
 import {Masacre} from "../config.js"
 
-export class MasacreItemSheet extends ItemSheet {
+export class RankSheet extends ItemSheet {
 
     constructor(actor, options) {
 
@@ -11,13 +11,13 @@ export class MasacreItemSheet extends ItemSheet {
 
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["masacre", "sheet", "item"],
+            classes: ["masacre", "sheet", "rank"],
             width: "850"
         });
     }
 
     get template() {
-        return `systems/masacre/templates/sheets/items/${this.actor.type}Sheet.hbs`;
+        return `systems/masacre/templates/sheets/items/rankSheet.hbs`;
     } 
 
     getData() {

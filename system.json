@@ -40,7 +40,7 @@
         },
         "Item": {
             "weapon": {},
-            "range": {}
+            "rank": {}
         }
     }
 }

@@ -1,20 +1,35 @@
 {
     "masacre":{
-        "name": "Nombre",
-        "rank": "Rango",
-        "reputation": "Reputación",
-        "deathAliens": "Aliens Muertos",
-        "deathAliensCurrent": "Misión Actual",
-        "deathAliensTotal": "Total",
-        "wounds": "Salud",
-        "woundsMadeMess": "Hecho un desastre",
-        "woundsCrippled": "Tullido",
-        "woundsDeath": "Muerte",
-        "combatSkillAcronym": "HC",
-        "nonCombatSkillAcronym": "HFC",
-        "alienSkillAcronym": "HA",
-        "combatSkill": "Habilidad de Combate",
-        "nonCombatSkill": "Habilidad Fuera de Combate",
-        "alienSkill": "Habilidad Alienígena"
+        "general": {
+            "name": "Nombre"
+        },
+
+        "character": {
+            "rank": "Rango",
+            "reputation": "Reputación",
+            "deathAliens": "Aliens Muertos",
+            "deathAliensCurrent": "Misión Actual",
+            "deathAliensTotal": "Total",
+            "wounds": "Salud",
+            "woundsMadeMess": "Hecho un desastre",
+            "woundsCrippled": "Tullido",
+            "woundsDeath": "Muerte",
+            "combatSkillAcronym": "HC",
+            "nonCombatSkillAcronym": "HFC",
+            "combatSkill": "Habilidad de Combate",
+            "nonCombatSkill": "Habilidad Fuera de Combate"
+        },
+
+        "alien": {
+            "alienSkillAcronym": "HA",
+            "alienSkill": "Habilidad Alienígena"
+        },
+
+        "rank": {
+            "value": "Valor",
+            "description": "Descripción",
+            "quote": "Cita",
+            "equipment": "Equipo"
+        }
     }
 }

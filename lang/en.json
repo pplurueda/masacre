@@ -1,20 +1,32 @@
 {
     "masacre":{
-        "name": "Name",
-        "rank": "Rank",
-        "reputation": "Reputation",
-        "deathAliens": "Death Aliens",
-        "deathAliensCurrent": "Current mission",
-        "deathAliensTotal": "Total",
-        "wounds": "Health",
-        "woundsMadeMess": "Made Mes",
-        "woundsCrippled": "Crippled",
-        "woundsDeath": "Dead",
-        "combatSkillAcronym": "CS",
-        "nonCombatSkillAcronym": "OCS",
-        "alienSkillAcronym": "AS",
-        "combatSkill": "Combat Skill",
-        "nonCombatSkill": "Out of Combat Skill",
-        "alienSkill": "Alien Skill"
+        "general": {
+            "name": "Name"
+        },
+
+        "character": {
+            "rank": "Rank",
+            "reputation": "Reputation",
+            "deathAliens": "Death Aliens",
+            "deathAliensCurrent": "Current mission",
+            "deathAliensTotal": "Total",
+            "wounds": "Health",
+            "woundsMadeMess": "Made Mes",
+            "woundsCrippled": "Crippled",
+            "woundsDeath": "Dead",
+            "combatSkillAcronym": "CS",
+            "nonCombatSkillAcronym": "OCS",
+            "alienSkillAcronym": "AS",
+            "combatSkill": "Combat Skill",
+            "nonCombatSkill": "Out of Combat Skill",
+            "alienSkill": "Alien Skill"
+        },
+
+        "rank": {
+            "value": "Value",
+            "description": "Description",
+            "quote": "Quote",
+            "equipment": "Equipment"
+        }
     }
 }

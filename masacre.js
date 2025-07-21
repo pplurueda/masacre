@@ -7,7 +7,10 @@ import {RankDataModel} from './modules/documents/dataModels/RankDataModel.mjs';
 import {MasacreActor} from './modules/documents/MasacreActor.mjs';
 import {MasacreItem} from './modules/documents/MasacreItem.mjs';
 
-//import {MasacreCharacterSheet} from './modules/sheets/MasacreCharacterSheet.mjs';
+import {CharacterSheet} from './modules/sheets/CharacterSheet.mjs';
+import {AlienSheet} from './modules/sheets/AlienSheet.mjs';
+
+import {RankSheet} from './modules/sheets/RankSheet.mjs';
 
 async function preloadHandlebarsTemplates() {
     const paths = [];
@@ -31,15 +34,12 @@ Hooks.once("init", function(){
         rank: RankDataModel
     };
 
-    /* console.log("INIT");
-    console.log(CONFIG);
-    console.log(game.i18n.localize("masacre.name")); */
+    Actors.unregisterSheet("core", ActorSheet);
+    Actors.registerSheet("masacre", CharacterSheet, {makeDefault: true, types: ["character"]});
+    Actors.registerSheet("masacre", AlienSheet, {makeDefault: true, types: ["alien"]});
 
-    //Items.unregisterSheet("core", ItemSheet);
-    //Items.registerSheet("masacre", stormbringerItemSheet, { makeDefault: true });
-
-    //Actors.unregisterSheet("core", ActorSheet);
-    //Actors.registerSheet("masacre", MasacreCharacterSheet, { makeDefault: true });
+    Items.unregisterSheet("core", ItemSheet);
+    Items.registerSheet("masacre", RankSheet, {types: ["rank"]});
 
     preloadHandlebarsTemplates();
 
@@ -56,4 +56,10 @@ Hooks.once("init", function(){
         
         return ret; 
     });
+
+    Handlebars.registerHelper('concat', function(...args) {
+        // Remove last argument (Handlebars options object)
+        args.pop();
+        return args.join('');
+      });
 });
