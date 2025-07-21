@@ -16,9 +16,18 @@
     <div>{{localize "masacre.character.reputation"}}</div>
     <input name="system.reputation" type="text" value="{{actor.system.reputation}}" placeholder="{{localize 'masacre.character.reputation'}}"/>
 
-    <div>{{localize "masacre.character.rank"}}</div>
-    <div>{{concat actor.system.rank.name "[" actor.system.rank.system.value "]"}}</div>
-    {{!-- <input name="system.rank" type="text" value="{{actor.system.rank}}" placeholder="{{localize 'masacre.character.rank'}}"/> --}}
+    <li data-item-id="{{actor.system.rank.id}}">
+        <div>{{localize "masacre.character.rank"}}</div>
+        <div>{{concat actor.system.rank.name "[" actor.system.rank.system.value "]"}}</div>
+        <div class="itemControls">
+            <a class="itemControl" data-action="edit" title="{{'masacre.edit'}}">
+                <i class="fas fa-edit"></i>
+            </a>
+            <a class="itemControl" data-action="delete" title="{{'masacre.delete'}}">
+                <i class="fas fa-trash"></i>
+            </a>
+        </div>
+    </li>
 
     <h1>{{localize "masacre.character.deathAliens"}}</h1>
     <div>{{localize "masacre.character.deathAliensCurrent"}}</div>

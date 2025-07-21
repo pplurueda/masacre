@@ -1,7 +1,9 @@
 {
     "masacre":{
         "general": {
-            "name": "Nombre"
+            "name": "Nombre",
+            "edit": "Editar",
+            "delete": "Eliminar"
         },
 
         "character": {
