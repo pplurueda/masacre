@@ -1,0 +1,19 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header>
+        <div class="characterHeader">
+            <!-- Character Portrait -->
+            <div class="characterPortrait">
+                <img src="{{actor.img}}" data-edit="img" title={{actor.name}} height="100px"/>
+            </div>
+            
+            <div>{{localize "masacre.name"}}</div>
+            <div class="fieldName">
+                <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'masacre.name'}}"/></h1>
+            </div>
+        </div>
+    </header>
+
+    <h1>{{localize "masacre.alienSkillAcronym"}}</h1>
+    <div>{{localize "masacre.alienSkill"}}</div>
+    <input name="system.alienSkill" type="number" value="{{actor.system.alienSkill}}"/>
+</form>

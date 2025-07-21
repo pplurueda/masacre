@@ -1,0 +1,43 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header>
+        <div class="characterHeader">
+            <!-- Character Portrait -->
+            <div class="characterPortrait">
+                <img src="{{actor.img}}" data-edit="img" title={{actor.name}} height="100px"/>
+            </div>
+            
+            <div>{{localize "masacre.name"}}</div>
+            <div class="fieldName">
+                <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'masacre.name'}}"/></h1>
+            </div>
+        </div>
+    </header>
+
+    <div>{{localize "masacre.reputation"}}</div>
+    <input name="system.reputation" type="text" value="{{actor.system.reputation}}" placeholder="{{localize 'masacre.reputation'}}"/>
+
+    <div>{{localize "masacre.rank"}}</div>
+    <input name="system.rank" type="text" value="{{actor.system.rank}}" placeholder="{{localize 'masacre.rank'}}"/>
+
+    <h1>{{localize "masacre.deathAliens"}}</h1>
+    <div>{{localize "masacre.deathAliensCurrent"}}</div>
+    <input name="system.deathAliens.current" type="number" value="{{actor.system.deathAliens.current}}"/>
+    <div>{{localize "masacre.deathAliensTotal"}}</div>
+    <input name="system.deathAliens.total" type="number" value="{{actor.system.deathAliens.total}}"/>
+
+    <h1>{{localize "masacre.wounds"}}</h1>
+    <div>{{localize "masacre.woundsMadeMess"}}</div>
+    <input name="system.wounds.madeMess" type="checkbox" {{#if actor.system.wounds.madeMess}}checked{{/if}}/>
+    <div>{{localize "masacre.woundsCrippled"}}</div>
+    <input name="system.wounds.crippled" type="checkbox" {{#if actor.system.wounds.crippled}}checked{{/if}}/>
+    <div>{{localize "masacre.woundsDeath"}}</div>
+    <input name="system.wounds.death" type="checkbox" {{#if actor.system.wounds.death}}checked{{/if}}/>
+
+    <h1>{{localize "masacre.combatSkillAcronym"}}</h1>
+    <div>{{localize "masacre.combatSkill"}}</div>
+    <input name="system.combatSkill" type="number" value="{{actor.system.combatSkill}}"/>
+
+    <h1>{{localize "masacre.nonCombatSkillAcronym"}}</h1>
+    <div>{{localize "masacre.nonCombatSkill"}}</div>
+    <input name="system.nonCombatSkill" type="number" value="{{actor.system.nonCombatSkill}}"/>
+</form>

@@ -1,0 +1,46 @@
+{
+    "id": "masacre",
+    "title": "3:16 Masacre en la Galaxia",
+    "description": "Sistema para jugar a 3:16 Masacre en la Galaxia",
+    "version": "0.0.1",
+    "compatibility": {
+        "minimum": "13",
+        "verified": "13",
+        "maximum": "13"
+      },
+    "authors": [
+        {
+            "name": "Pan"
+        }
+    ],
+    "esmodules": [
+        "masacre.js"
+    ],
+    "styles":[
+        "masacre.css"
+    ],
+    "packs": [
+    ],
+    "languages": [
+        {
+            "lang": "es",
+            "name": "Spanish",
+            "path": "lang/es.json"
+        }
+    ],
+    "socket": false,
+    "gridDistances": 5,
+    "gridUnits": "m",
+    "primaryTokenAttribute": "puntosVida",
+    "initiative": "@Destreza",
+    "documentTypes": {
+        "Actor": {
+            "character": {},
+            "alien": {}
+        },
+        "Item": {
+            "weapon": {},
+            "range": {}
+        }
+    }
+}
