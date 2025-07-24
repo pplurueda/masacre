@@ -5,7 +5,8 @@ export class FlashbackDataModel extends foundry.abstract.TypeDataModel {
         return {
           description: new StringField({ required: true, blank: true }),
           state: new StringField({ required: true, blank: true }),
-          type: new StringField({ required: true, blank: true })        
+          type: new StringField({ required: true, blank: true }),
+          editable: new BooleanField({ required: true, initial: true })        
         }
       };
 

@@ -145,7 +145,8 @@ export class CharacterSheet extends ActorSheet {
             system: {
                 state: game.i18n.format("masacre.character.flashbackDisabled"),
                 description: game.i18n.format("masacre.character.flashbackHateHome"),
-                type: game.i18n.format("masacre.character.flashbackTypeWeakness")
+                type: game.i18n.format("masacre.character.flashbackTypeWeakness"),
+                editable: false
             }
         };
         await actor.createEmbeddedDocuments("Item", [itemData10]);
