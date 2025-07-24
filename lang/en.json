@@ -29,6 +29,13 @@
             "description": "Description",
             "quote": "Quote",
             "equipment": "Equipment"
+        },
+
+        "weapon": {
+            "description": "Description",
+            "cc": "CC",
+            "cd": "CD",
+            "ld": "LD"
         }
     }
 }

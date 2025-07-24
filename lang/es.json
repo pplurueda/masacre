@@ -32,6 +32,13 @@
             "description": "Descripción",
             "quote": "Cita",
             "equipment": "Equipo"
+        },
+
+        "weapon": {
+            "description": "Descripción",
+            "cc": "C/C",
+            "cd": "CD",
+            "ld": "LD"
         }
     }
 }

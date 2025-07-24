@@ -1,0 +1,27 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header>
+        <div class="characterHeader">
+            <!-- Character Portrait -->
+            <div class="characterPortrait">
+                <img src="{{item.img}}" data-edit="img" title={{item.name}} height="100px"/>
+            </div>
+            
+            <div>{{localize "masacre.general.name"}}</div>
+            <div class="fieldName">
+                <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'masacre.general.name'}}"/></h1>
+            </div>
+        </div>
+    </header>
+
+    <div>{{localize "masacre.weapon.description"}}</div>
+    <input name="system.description" type="text" value="{{item.system.description}}"/>
+
+    <div>{{localize "masacre.weapon.cc"}}</div>
+    <input name="system.cc" type="text" value="{{item.system.cc}}"/>
+
+    <div>{{localize "masacre.weapon.cd"}}</div>
+    <input name="system.cd" type="text" value="{{item.system.cd}}"/>
+
+    <div>{{localize "masacre.weapon.ld"}}</div>
+    <input name="system.ld" type="text" value="{{item.system.ld}}"/>
+</form>

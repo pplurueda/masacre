@@ -1,0 +1,16 @@
+.masacre.sheet.characterSheet .sheet {
+  width: 500px;
+  height: 500px;
+}
+.masacre.sheet.alienSheet .sheet {
+  width: 500px;
+  height: 500px;
+}
+.masacre.sheet.rankSheet .sheet {
+  width: 500px;
+  height: 500px;
+}
+.masacre.sheet.weaponSheet .sheet {
+  width: 500px;
+  height: 500px;
+}

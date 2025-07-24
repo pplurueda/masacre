@@ -11,8 +11,7 @@ export class RankSheet extends ItemSheet {
 
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["masacre", "sheet", "rank"],
-            width: "850"
+            classes: ["masacre", "sheet", "rankSheet"]
         });
     }
 

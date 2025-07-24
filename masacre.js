@@ -3,6 +3,7 @@ import {Masacre} from './modules/config.js';
 import {CharacterDataModel} from './modules/documents/dataModels/CharacterDataModel.mjs';
 import {AlienDataModel} from './modules/documents/dataModels/AlienDataModel.mjs';
 import {RankDataModel} from './modules/documents/dataModels/RankDataModel.mjs';
+import {WeaponDataModel} from './modules/documents/dataModels/WeaponDataModel.mjs';
 
 import {MasacreActor} from './modules/documents/MasacreActor.mjs';
 import {MasacreItem} from './modules/documents/MasacreItem.mjs';
@@ -10,6 +11,7 @@ import {MasacreItem} from './modules/documents/MasacreItem.mjs';
 import {CharacterSheet} from './modules/sheets/CharacterSheet.mjs';
 import {AlienSheet} from './modules/sheets/AlienSheet.mjs';
 
+import {WeaponSheet} from './modules/sheets/WeaponSheet.mjs';
 import {RankSheet} from './modules/sheets/RankSheet.mjs';
 
 async function preloadHandlebarsTemplates() {
@@ -31,7 +33,8 @@ Hooks.once("init", function(){
 
     CONFIG.Item.documentClass = MasacreItem;
     CONFIG.Item.dataModels = {
-        rank: RankDataModel
+        rank: RankDataModel,
+        weapon: WeaponDataModel
     };
 
     Actors.unregisterSheet("core", ActorSheet);
@@ -40,6 +43,7 @@ Hooks.once("init", function(){
 
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("masacre", RankSheet, {types: ["rank"]});
+    Items.registerSheet("masacre", WeaponSheet, {types: ["weapon"]});
 
     preloadHandlebarsTemplates();
 
