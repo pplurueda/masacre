@@ -24,7 +24,15 @@
             "alienSkill": "Alien Skill",
             "mandelBriteArmor": "MandelBrite Armor",
             "combatDrugs": "Combat Drugs",
-            "oncePerPlanet": "Once per planet"
+            "oncePerPlanet": "Once per planet",
+            "flashback": "Flashback",
+            "flashbackDisabled": "Not available",
+            "flashbackEnabled": "Available",
+            "flashbackUsed": "Used",
+            "flashbackType": "Type",
+            "flashbackTypeStrength": "Strength",
+            "flashbackTypeWeakness": "Weakness",
+            "flashbackHateHome": "Hate Home"
         },
 
         "rank": {

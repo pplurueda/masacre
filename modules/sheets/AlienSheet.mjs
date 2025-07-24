@@ -1,4 +1,4 @@
-import {Masacre} from "../config.js"
+import {masacre} from "../config.js"
 
 export class AlienSheet extends ActorSheet {
 

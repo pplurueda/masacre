@@ -22,7 +22,15 @@
             "nonCombatSkill": "Habilidad Fuera de Combate",
             "mandelBriteArmor": "Armadura MandelBrite",
             "combatDrugs": "Drogas de Combate",
-            "oncePerPlanet": "Una vez por planeta"
+            "oncePerPlanet": "Una vez por planeta",
+            "flashback": "Flashback",
+            "flashbackDisabled": "Aún no disponible",
+            "flashbackEnabled": "Disponible",
+            "flashbackUsed": "Usado",
+            "flashbackType": "Tipo",
+            "flashbackTypeStrength": "Cualidad",
+            "flashbackTypeWeakness": "Defecto",
+            "flashbackHateHome": "Odio al hogar"
         },
 
         "alien": {

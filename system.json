@@ -45,7 +45,8 @@
         },
         "Item": {
             "weapon": {},
-            "rank": {}
+            "rank": {},
+            "flashback": {}
         }
     }
 }

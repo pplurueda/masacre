@@ -1,9 +1,10 @@
-import {Masacre} from './modules/config.js';
+import {masacre} from './modules/config.js';
 
 import {CharacterDataModel} from './modules/documents/dataModels/CharacterDataModel.mjs';
 import {AlienDataModel} from './modules/documents/dataModels/AlienDataModel.mjs';
 import {RankDataModel} from './modules/documents/dataModels/RankDataModel.mjs';
 import {WeaponDataModel} from './modules/documents/dataModels/WeaponDataModel.mjs';
+import {FlashbackDataModel} from './modules/documents/dataModels/FlashbackDataModel.mjs';
 
 import {MasacreActor} from './modules/documents/MasacreActor.mjs';
 import {MasacreItem} from './modules/documents/MasacreItem.mjs';
@@ -13,11 +14,14 @@ import {AlienSheet} from './modules/sheets/AlienSheet.mjs';
 
 import {WeaponSheet} from './modules/sheets/WeaponSheet.mjs';
 import {RankSheet} from './modules/sheets/RankSheet.mjs';
+import {FlashbackSheet} from './modules/sheets/FlashbackSheet.mjs';
 
 async function preloadHandlebarsTemplates() {
     const paths = [
         "systems/masacre/templates/partials/weaponItemPartial.hbs",
-        "systems/masacre/templates/partials/weaponListPartial.hbs"
+        "systems/masacre/templates/partials/weaponListPartial.hbs"/* ,
+        "systems/masacre/templates/partials/flashbackItemPartial.hbs",
+        "systems/masacre/templates/partials/flashbackListPartial.hbs" */
     ];
 
     return(loadTemplates(paths))
@@ -25,19 +29,20 @@ async function preloadHandlebarsTemplates() {
 
 Hooks.once("init", function(){
 
-    CONFIG.Masacre = Masacre;
+    CONFIG.masacre = masacre;
     CONFIG.debug.hooks = false;
 
     CONFIG.Actor.documentClass = MasacreActor;
     CONFIG.Actor.dataModels = {
         character: CharacterDataModel,
-        alien: AlienDataModel
+        alien: AlienDataModel        
     };
 
     CONFIG.Item.documentClass = MasacreItem;
     CONFIG.Item.dataModels = {
         rank: RankDataModel,
-        weapon: WeaponDataModel
+        weapon: WeaponDataModel,
+        flashback: FlashbackDataModel
     };
 
     Actors.unregisterSheet("core", ActorSheet);
@@ -47,6 +52,7 @@ Hooks.once("init", function(){
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("masacre", RankSheet, {types: ["rank"]});
     Items.registerSheet("masacre", WeaponSheet, {types: ["weapon"]});
+    Items.registerSheet("masacre", FlashbackSheet, {types: ["flashback"]});
 
     preloadHandlebarsTemplates();
 

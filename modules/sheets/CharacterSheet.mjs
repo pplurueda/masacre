@@ -1,4 +1,4 @@
-import {Masacre} from "../config.js"
+import {masacre} from "../config.js"
 
 export class CharacterSheet extends ActorSheet {
 
@@ -34,13 +34,121 @@ export class CharacterSheet extends ActorSheet {
         //html.find('.equipoEquipado').click(this._itemEquipado.bind(this));
     }
 
-    getData() {
+    async getData() {
         const data = super.getData();        
-
         data.config = CONFIG.Masacre;
-        
+
+        const actor = data.actor;
+
+        await this._createFlashbacks(actor);
         
         return data;
+    }
+
+    async _createFlashbacks(actor) {
+     
+        if(actor.system.flashbacks.length > 0) return;
+
+        const itemData1 = {
+            name: "Flashback 1", 
+            type: "flashback",
+            system: {
+                state: game.i18n.format("masacre.character.flashbackEnabled"),
+                type: game.i18n.format("masacre.character.flashbackTypeStrength")
+            }
+        };
+        await actor.createEmbeddedDocuments("Item", [itemData1]);
+
+        const itemData2 = {
+            name: "Flashback 2", 
+            type: "flashback",
+            system: {
+                state: game.i18n.format("masacre.character.flashbackDisabled"),
+                type: game.i18n.format("masacre.character.flashbackTypeStrength")
+            }
+        };
+        await actor.createEmbeddedDocuments("Item", [itemData2]);
+
+        const itemData3 = {
+            name: "Flashback 3", 
+            type: "flashback",
+            system: {
+                state: game.i18n.format("masacre.character.flashbackDisabled"),
+                type: game.i18n.format("masacre.character.flashbackTypeStrength")
+            }
+        };
+        await actor.createEmbeddedDocuments("Item", [itemData3]);
+
+        const itemData4 = {
+            name: "Flashback 4", 
+            type: "flashback",
+            system: {
+                state: game.i18n.format("masacre.character.flashbackDisabled"),
+                type: game.i18n.format("masacre.character.flashbackTypeStrength")
+            }
+        };
+        await actor.createEmbeddedDocuments("Item", [itemData4]);
+
+        const itemData5 = {
+            name: "Flashback 5", 
+            type: "flashback",
+            system: {
+                state: game.i18n.format("masacre.character.flashbackDisabled"),
+                type: game.i18n.format("masacre.character.flashbackTypeStrength")
+            }
+        };
+        await actor.createEmbeddedDocuments("Item", [itemData5]);
+
+        const itemData6 = {
+            name: "Flashback 6", 
+            type: "flashback",
+            system: {
+                state: game.i18n.format("masacre.character.flashbackEnabled"),
+                type: game.i18n.format("masacre.character.flashbackTypeWeakness")
+            }
+        };
+        await actor.createEmbeddedDocuments("Item", [itemData6]);
+
+        const itemData7 = {
+            name: "Flashback 7", 
+            type: "flashback",
+            system: {
+                state: game.i18n.format("masacre.character.flashbackDisabled"),
+                type: game.i18n.format("masacre.character.flashbackTypeWeakness")
+            }
+        };
+        await actor.createEmbeddedDocuments("Item", [itemData7]);
+
+        const itemData8 = {
+            name: "Flashback 8", 
+            type: "flashback",
+            system: {
+                state: game.i18n.format("masacre.character.flashbackDisabled"),
+                type: game.i18n.format("masacre.character.flashbackTypeWeakness")
+            }
+        };
+        await actor.createEmbeddedDocuments("Item", [itemData8]);
+
+        const itemData9 = {
+            name: "Flashback 9", 
+            type: "flashback",
+            system: {
+                state: game.i18n.format("masacre.character.flashbackDisabled"),
+                type: game.i18n.format("masacre.character.flashbackTypeWeakness")
+            }
+        };
+        await actor.createEmbeddedDocuments("Item", [itemData9]);
+
+        const itemData10 = {
+            name: "Flashback 10", 
+            type: "flashback",
+            system: {
+                state: game.i18n.format("masacre.character.flashbackDisabled"),
+                description: game.i18n.format("masacre.character.flashbackHateHome"),
+                type: game.i18n.format("masacre.character.flashbackTypeWeakness")
+            }
+        };
+        await actor.createEmbeddedDocuments("Item", [itemData10]);
     }
 
     async _onItemControl(event) {
