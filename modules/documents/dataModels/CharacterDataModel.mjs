@@ -17,7 +17,9 @@ export class CharacterDataModel extends ActorDataModel {
             death: new BooleanField({ required: true, initial: false })
           }),
           combatSkill: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          nonCombatSkill: new NumberField({ required: true, integer: true, min: 0, initial: 0 })
+          nonCombatSkill: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
+          mandelBriteArmorUsed: new BooleanField({ required: true, initial: false }),
+          combatDrugUsed: new BooleanField({ required: true, initial: false }),
         }
       };
 

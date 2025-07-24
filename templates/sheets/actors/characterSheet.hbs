@@ -43,6 +43,12 @@
     <div>{{localize "masacre.character.woundsDeath"}}</div>
     <input name="system.wounds.death" type="checkbox" {{#if actor.system.wounds.death}}checked{{/if}}/>
 
+    <h1>{{localize "masacre.character.oncePerPlanet"}}</h1>
+    <div>{{localize "masacre.character.mandelBriteArmor"}}</div>
+    <input name="system.mandelBriteArmorUsed" type="checkbox" {{#if actor.system.mandelBriteArmorUsed}}checked{{/if}}/>
+    <div>{{localize "masacre.character.combatDrugs"}}</div>
+    <input name="system.combatDrugUsed" type="checkbox" {{#if actor.system.combatDrugUsed}}checked{{/if}}/>
+
     <h1>{{localize "masacre.character.combatSkillAcronym"}}</h1>
     <div>{{localize "masacre.character.combatSkill"}}</div>
     <input name="system.combatSkill" type="number" value="{{actor.system.combatSkill}}"/>

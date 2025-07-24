@@ -19,7 +19,10 @@
             "combatSkillAcronym": "HC",
             "nonCombatSkillAcronym": "HFC",
             "combatSkill": "Habilidad de Combate",
-            "nonCombatSkill": "Habilidad Fuera de Combate"
+            "nonCombatSkill": "Habilidad Fuera de Combate",
+            "mandelBriteArmor": "Armadura MandelBrite",
+            "combatDrugs": "Drogas de Combate",
+            "oncePerPlanet": "Una vez por planeta"
         },
 
         "alien": {

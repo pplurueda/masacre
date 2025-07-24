@@ -21,7 +21,10 @@
             "alienSkillAcronym": "AS",
             "combatSkill": "Combat Skill",
             "nonCombatSkill": "Out of Combat Skill",
-            "alienSkill": "Alien Skill"
+            "alienSkill": "Alien Skill",
+            "mandelBriteArmor": "MandelBrite Armor",
+            "combatDrugs": "Combat Drugs",
+            "oncePerPlanet": "Once per planet"
         },
 
         "rank": {
