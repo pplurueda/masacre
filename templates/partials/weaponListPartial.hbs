@@ -1,0 +1,21 @@
+<section class = "listaArmas" data-group="primary" data-tab="combate">
+{{!--     <p class="titulo">{{localize "stormbringer.CaC"}}</p>
+    <div class="titulos">
+        <div></div>
+        <div class = "listaPrimeraColumna" colspan="2">{{localize "stormbringer.items.nombre"}}</div>
+        <div class = "listaColumna">{{localize "stormbringer.items.ataque"}}</div>
+        <div class = "listaColumna">{{localize "stormbringer.items.parada"}}</div>
+        <div class = "listaColumna">{{localize "stormbringer.items.fuerzaNecesaria"}}</div>
+        <div class = "listaColumna">{{localize "stormbringer.items.destrezaNecesaria"}}</div>
+        <div class = "listaColumna">{{localize "stormbringer.items.daño"}}</div>
+        <div class = "listaColumna">{{localize "stormbringer.items.longitudCM"}}</div>
+        <div class = "listaColumna">{{localize "stormbringer.items.precioGB"}}</div>
+        <div></div>
+    </div> --}}
+
+    {{#each actor.system.weapons as |item id|}}
+        <li class="item" data-item-id="{{item._id}}">
+            {{> "systems/masacre/templates/partials/weaponItemPartial.hbs" item}}
+        </li>
+    {{/each}}
+</section>

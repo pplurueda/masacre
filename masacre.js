@@ -15,7 +15,10 @@ import {WeaponSheet} from './modules/sheets/WeaponSheet.mjs';
 import {RankSheet} from './modules/sheets/RankSheet.mjs';
 
 async function preloadHandlebarsTemplates() {
-    const paths = [];
+    const paths = [
+        "systems/masacre/templates/partials/weaponItemPartial.hbs",
+        "systems/masacre/templates/partials/weaponListPartial.hbs"
+    ];
 
     return(loadTemplates(paths))
 }
