@@ -40,12 +40,12 @@ export class CharacterSheet extends ActorSheet {
 
         const actor = data.actor;
 
-        await this._createFlashbacks(actor);
+        //await this._createFlashbacks(actor);
         
         return data;
     }
 
-    async _createFlashbacks(actor) {
+    /* async _createFlashbacks(actor) {
      
         if(actor.system.flashbacks.length > 0) return;
 
@@ -150,7 +150,7 @@ export class CharacterSheet extends ActorSheet {
             }
         };
         await actor.createEmbeddedDocuments("Item", [itemData10]);
-    }
+    } */
 
     async _onItemControl(event) {
 

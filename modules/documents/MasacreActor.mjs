@@ -13,6 +13,6 @@ export class MasacreActor extends Actor {
 
       this.system.rank = this.items.find(item => item.type == "rank");
       this.system.weapons = this.items.filter(item => item.type == "weapon");
-      this.system.flashbacks = this.items.filter(item => item.type == "flashback");
+      //this.system.flashbacks = this.items.filter(item => item.type == "flashback");
     }
   }
