@@ -6,8 +6,8 @@ import {RankDataModel} from './modules/documents/dataModels/RankDataModel.mjs';
 import {WeaponDataModel} from './modules/documents/dataModels/WeaponDataModel.mjs';
 import {FlashbackDataModel} from './modules/documents/dataModels/FlashbackDataModel.mjs';
 
-import {MasacreActor} from './modules/documents/MasacreActor.mjs';
-import {MasacreItem} from './modules/documents/MasacreItem.mjs';
+import {MasacreActor} from './modules/objects/MasacreActor.mjs';
+import {MasacreItem} from './modules/objects/MasacreItem.mjs';
 
 import {CharacterSheet} from './modules/sheets/CharacterSheet.mjs';
 import {AlienSheet} from './modules/sheets/AlienSheet.mjs';
@@ -19,9 +19,9 @@ import {FlashbackSheet} from './modules/sheets/FlashbackSheet.mjs';
 async function preloadHandlebarsTemplates() {
     const paths = [
         "systems/masacre/templates/partials/weaponItemPartial.hbs",
-        "systems/masacre/templates/partials/weaponListPartial.hbs"/* ,
-        "systems/masacre/templates/partials/flashbackItemPartial.hbs",
-        "systems/masacre/templates/partials/flashbackListPartial.hbs" */
+        "systems/masacre/templates/partials/weaponListPartial.hbs",
+        "systems/masacre/templates/partials/flashbacksPartial.hbs",
+        "systems/masacre/templates/partials/flashbackItemPartial.hbs"
     ];
 
     return(loadTemplates(paths))

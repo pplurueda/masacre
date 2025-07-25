@@ -13,6 +13,7 @@
         <div></div>
     </div> --}}
 
+    <div><h1>{{localize "masacre.character.weapons"}}</h1></div>
     {{#each actor.system.weapons as |item id|}}
         <li class="item" data-item-id="{{item._id}}">
             {{> "systems/masacre/templates/partials/weaponItemPartial.hbs" item}}

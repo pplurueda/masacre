@@ -30,7 +30,9 @@
             "flashbackType": "Tipo",
             "flashbackTypeStrength": "Cualidad",
             "flashbackTypeWeakness": "Defecto",
-            "flashbackHateHome": "Odio al hogar"
+            "flashbackHateHome": "Odio al hogar",
+            "weapons": "Armas",
+            "brawl": "Pelea"
         },
 
         "alien": {

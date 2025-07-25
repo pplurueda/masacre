@@ -32,7 +32,9 @@
             "flashbackType": "Type",
             "flashbackTypeStrength": "Strength",
             "flashbackTypeWeakness": "Weakness",
-            "flashbackHateHome": "Hate Home"
+            "flashbackHateHome": "Hate Home",
+            "weapons": "Weapons",
+            "brawl": "Brawl"
         },
 
         "rank": {
