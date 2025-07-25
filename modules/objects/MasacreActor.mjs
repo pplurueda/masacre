@@ -11,8 +11,10 @@ export class MasacreActor extends Actor {
 
       if (this.type !== "character") return;
 
+      const rank = this.items.find(i => i.type == "rank");
+
       this.system.rank = this.items.find(item => item.type == "rank");
       this.system.weapons = this.items.filter(item => item.type == "weapon");
-      //this.system.flashbacks = this.items.filter(item => item.type == "flashback");
+      this.system.equipment = rank.system.equipment;
     }
   }
