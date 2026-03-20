@@ -1,66 +1,169 @@
-<form class="{{cssClass}}" autocomplete="off">
-    <header>
-        <div class="characterHeader">
-            <!-- Character Portrait -->
-            <div class="characterPortrait">
-                <img src="{{actor.img}}" data-edit="img" title={{actor.name}} height="100px"/>
-            </div>
-            
-            <div>{{localize "masacre.general.name"}}</div>
-            <div class="fieldName">
-                <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'masacre.name'}}"/></h1>
-            </div>
-        </div>
+{{!-- <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Personaje - Tres Dieciséis</title>
+    <link rel="stylesheet" href="style.less">
+</head>
+<body> --}}
+
+<form class="{{cssClass}}">
+    <header class="sheet-header">
+        <h1>{{toUpperCase (localize "masacre.general.threeSixteen")}}</h1>
+        <h2 class="flashbacks-title">{{toUpperCase (localize "masacre.character.flashback")}}</h2>
     </header>
 
-    <div>{{localize "masacre.character.reputation"}}</div>
-    <input name="system.reputation" type="text" value="{{actor.system.reputation}}" placeholder="{{localize 'masacre.character.reputation'}}"/>
+    <main class="main-content">
+        <!-- Columna Izquierda -->
+        <div class="column left-column">
+            <section class="character-info">
+                <div class="field">
+                    <label for="nombre">{{localize "masacre.general.name"}}</label>
+                    <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'masacre.name'}}"/>
+                </div>
+                <div class="field">
+                    <label for="reputacion">{{localize "masacre.character.reputation"}}</label>
+                    <input name="system.reputation" type="text" value="{{actor.system.reputation}}" placeholder="{{localize 'masacre.character.reputation'}}"/>
+                </div>
+                <div class="field">
+                    <label for="rango">{{localize "masacre.character.rank"}}</label>
+                    <li data-item-id="{{actor.system.rank.id}}">
+                        <div>{{concat actor.system.rank.name "[" actor.system.rank.system.value "]"}}</div>
+                        <div class="itemControls">
+                            <a class="itemControl" data-action="edit" title="{{'masacre.edit'}}">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a class="itemControl" data-action="delete" title="{{'masacre.delete'}}">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </div>
+                    </li>
+                </div>
+            </section>
 
-    <li data-item-id="{{actor.system.rank.id}}">
-        <div>{{localize "masacre.character.rank"}}</div>
-        <div>{{concat actor.system.rank.name "[" actor.system.rank.system.value "]"}}</div>
-        <div class="itemControls">
-            <a class="itemControl" data-action="edit" title="{{'masacre.edit'}}">
-                <i class="fas fa-edit"></i>
-            </a>
-            <a class="itemControl" data-action="delete" title="{{'masacre.delete'}}">
-                <i class="fas fa-trash"></i>
-            </a>
+            <section class="creatures-killed">
+                <h3 class="section-title">{{toUpperCase (localize "masacre.character.deathAliens")}}</h3>
+                <div class="field">
+                    <label for="total">{{localize "masacre.character.deathAliensTotal"}}</label>
+                    <input name="system.deathAliens.total" type="number" value="{{actor.system.deathAliens.total}}"/>
+                </div>
+                <div class="field">
+                    <label for="mision">{{localize "masacre.character.deathAliensCurrent"}}</label>
+                    <input name="system.deathAliens.current" type="number" value="{{actor.system.deathAliens.current}}"/>
+                </div>
+            </section>
+
+            <section class="health">
+                <h3 class="section-title">{{toUpperCase (localize "masacre.character.wounds")}}</h3>
+                <div class="health-statuses">
+                    <div class="check-field"><label><input name="system.wounds.madeMess" type="checkbox" {{#if actor.system.wounds.madeMess}}checked{{/if}}/>{{localize "masacre.character.woundsMadeMess"}}</label></div>
+                    <div class="check-field"><label><input name="system.wounds.crippled" type="checkbox" {{#if actor.system.wounds.crippled}}checked{{/if}}/>{{localize "masacre.character.woundsCrippled"}}</label></div>
+                    <div class="check-field"><label><input name="system.wounds.death" type="checkbox" {{#if actor.system.wounds.death}}checked{{/if}}/>{{localize "masacre.character.woundsDeath"}}</label></div>
+                </div>
+            </section>
+            
+            <section class="once-per-planet">
+                <h4>Una vez por planeta</h4>
+                <div class="items">
+                    <div class="item">
+                        <label>ARMADURA MANDELBRITE</label>
+                        <input name="system.mandelBriteArmorUsed" type="checkbox" class="item-box" {{#if actor.system.mandelBriteArmorUsed}}checked{{/if}}/>
+                        <span>TACHAR TRAS USAR</span>
+                    </div>
+                    <div class="item">
+                        <label>DROGAS DE COMBATE</label>
+                        <input name="system.combatDrugUsed" type="checkbox" class="item-box" {{#if actor.system.combatDrugUsed}}checked{{/if}}/>
+                        <span>TACHAR TRAS USAR</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="weapons">
+                <h3 class="section-title">{{toUpperCase (localize "masacre.character.weapons")}}</h3>
+                <div class="weapon-list">
+                    <div class="weapon-header">
+                        <span class="weapon-col weapon-col-desc">{{localize "masacre.weapon.description"}}</span>
+                        <span class="weapon-col weapon-col-stat">{{localize "masacre.weapon.cc"}}</span>
+                        <span class="weapon-col weapon-col-stat">{{localize "masacre.weapon.cd"}}</span>
+                        <span class="weapon-col weapon-col-stat">{{localize "masacre.weapon.ld"}}</span>
+                        <span class="weapon-col weapon-col-controls"></span>
+                    </div>
+                    {{#each weapons as |weapon|}}
+                    <li class="weapon-row" data-item-id="{{weapon._id}}">
+                        <span class="weapon-col weapon-col-desc">{{weapon.name}}</span>
+                        <span class="weapon-col weapon-col-stat">{{weapon.system.cc}}</span>
+                        <span class="weapon-col weapon-col-stat">{{weapon.system.cd}}</span>
+                        <span class="weapon-col weapon-col-stat">{{weapon.system.ld}}</span>
+                        <span class="weapon-col weapon-col-controls">
+                            <a class="itemControl" data-action="edit" title="{{localize 'masacre.general.edit'}}">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a class="itemControl" data-action="delete" title="{{localize 'masacre.general.delete'}}">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </span>
+                    </li>
+                    {{/each}}
+                </div>
+            </section>
         </div>
-    </li>
 
-    <h1>{{localize "masacre.character.deathAliens"}}</h1>
-    <div>{{localize "masacre.character.deathAliensCurrent"}}</div>
-    <input name="system.deathAliens.current" type="number" value="{{actor.system.deathAliens.current}}"/>
-    <div>{{localize "masacre.character.deathAliensTotal"}}</div>
-    <input name="system.deathAliens.total" type="number" value="{{actor.system.deathAliens.total}}"/>
+        <!-- Columna Central -->
+        <div class="column center-column">
+            <div class="stat-box">
+                <div class="stat-label">
+                    <span class="stat-abbr">HC</span>
+                    <span class="stat-desc">HABILIDAD DE COMBATE</span>
+                </div>
+                <div class="stat-square">
+                    <input name="system.combatSkill" type="number" value="{{actor.system.combatSkill}}" min="0"/>
+                </div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">
+                    <span class="stat-abbr">HFC</span>
+                    <span class="stat-desc">HABILIDAD FUERA DE COMBATE</span>
+                </div>
+                <div class="stat-square">
+                    <input name="system.nonCombatSkill" type="number" value="{{actor.system.nonCombatSkill}}" min="0"/>
+                </div>
+            </div>
+        </div>
 
-    <h1>{{localize "masacre.character.wounds"}}</h1>
-    <div>{{localize "masacre.character.woundsMadeMess"}}</div>
-    <input name="system.wounds.madeMess" type="checkbox" {{#if actor.system.wounds.madeMess}}checked{{/if}}/>
-    <div>{{localize "masacre.character.woundsCrippled"}}</div>
-    <input name="system.wounds.crippled" type="checkbox" {{#if actor.system.wounds.crippled}}checked{{/if}}/>
-    <div>{{localize "masacre.character.woundsDeath"}}</div>
-    <input name="system.wounds.death" type="checkbox" {{#if actor.system.wounds.death}}checked{{/if}}/>
+        <!-- Columna Derecha -->
+        <div class="column right-column">
+            <section class="qualities">
+                <h3 class="section-title-centered">CUALIDADES</h3>
+                <ul>
+                    <li><label><input type="checkbox" class="checked-slash" checked> <input type="text"></label></li>
+                    <li><label><input type="checkbox" class="checked-slash" unchecked> <input type="text"></label></li>
+                    <li><label><input type="checkbox" class="checked-slash" unchecked> <input type="text"></label></li>
+                    <li><label><input type="checkbox" class="checked-slash" unchecked> <input type="text"></label></li>
+                    <li><label><input type="checkbox" class="checked-slash" unchecked> <input type="text"></label></li>
+                </ul>
+            </section>
 
-    <h1>{{localize "masacre.character.oncePerPlanet"}}</h1>
-    <div>{{localize "masacre.character.mandelBriteArmor"}}</div>
-    <input name="system.mandelBriteArmorUsed" type="checkbox" {{#if actor.system.mandelBriteArmorUsed}}checked{{/if}}/>
-    <div>{{localize "masacre.character.combatDrugs"}}</div>
-    <input name="system.combatDrugUsed" type="checkbox" {{#if actor.system.combatDrugUsed}}checked{{/if}}/>
+            <section class="flaws">
+                <h3 class="section-title-centered">DEFECTOS</h3>
+                <ul>
+                    <li><label><input type="checkbox" class="checked-slash" checked> <input type="text"></label></li>
+                    <li><label><input type="checkbox" class="checked-slash" unchecked>> <input type="text"></label></li>
+                    <li><label><input type="checkbox" class="checked-slash" unchecked>> <input type="text"></label></li>
+                    <li><label><input type="checkbox" class="checked-slash" unchecked>> <input type="text"></label></li>
+                </ul>
+            </section>
 
-    <h1>{{localize "masacre.character.combatSkillAcronym"}}</h1>
-    <div>{{localize "masacre.character.combatSkill"}}</div>
-    <input name="system.combatSkill" type="number" value="{{actor.system.combatSkill}}"/>
+            <div class="check-field hate-home">
+                <label><input type="checkbox"> Odio al hogar</label>
+            </div>
 
-    <h1>{{localize "masacre.character.nonCombatSkillAcronym"}}</h1>
-    <div>{{localize "masacre.character.nonCombatSkill"}}</div>
-    <input name="system.nonCombatSkill" type="number" value="{{actor.system.nonCombatSkill}}"/>
-
-    <h1>{{localize "masacre.character.equipment"}}</h1>
-    <div>{{actor.system.equipment}}</div>
-
-    {{> "systems/masacre/templates/partials/weaponListPartial.hbs"}}
-
-    {{> "systems/masacre/templates/partials/flashbacksPartial.hbs"}}
+            <section class="notes">
+                <h3 class="section-title">EQUIPO, MEDALLAS Y NOTAS</h3>
+            </section>
+        </div>
+    </main>
 </form>
+
+{{!-- </body>
+</html> --}}
