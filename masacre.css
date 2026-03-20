@@ -52,7 +52,6 @@ form {
   font-weight: bold;
   letter-spacing: 0.1em;
   padding-bottom: 2px;
-  border-bottom: 1px solid #000000;
   margin-top: 0;
   text-align: center;
   border-bottom: none;
@@ -70,22 +69,14 @@ section {
   margin-right: 5px;
   white-space: nowrap;
 }
-.field input[type="text"] {
-  background: transparent;
-  border: none;
-  border-bottom: 1.5px solid #888888;
-  width: 100%;
-}
-.field input[type="text"]:focus {
-  outline: none;
-  border-bottom-color: #000000;
-}
+.field input[type="text"],
 .field input[type="number"] {
   background: transparent;
   border: none;
   border-bottom: 1.5px solid #888888;
   width: 100%;
 }
+.field input[type="text"]:focus,
 .field input[type="number"]:focus {
   outline: none;
   border-bottom-color: #000000;
@@ -161,6 +152,13 @@ input[type="checkbox"]:checked.checked-slash::before {
   height: 30px;
   border: 2px solid #000000;
   margin: 5px auto;
+  display: block;
+}
+.once-per-planet .item .item-box:checked::before {
+  content: '✖';
+  font-size: 24px;
+  top: 2px;
+  left: 4px;
 }
 .once-per-planet .item span {
   font-size: 0.6em;

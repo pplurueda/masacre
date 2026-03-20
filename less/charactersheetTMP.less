@@ -2,94 +2,120 @@
 @import './abstracts/variables.less';
 @import './mixins.less';
 
-.input-line-style() {
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid @color-border;
-  width: 100%;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  &:focus {
-    outline: none;
-    border-bottom-color: @color-ink;
-  }
+// ──────────────────────────────────────────────
+// Character Sheet — styles matching the current
+// characterSheetTMP.hbs template classes
+// ──────────────────────────────────────────────
+
+// Base form
+form {
+  font-family: 'Times New Roman', serif;
+  font-size: 13px;
+  color: #212121;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 20px;
 }
 
 .character-sheet {
-  font-family: @font-family-body;
-  font-size: @font-size-base;
-  color: @color-ink;
-  .paper-card();
-  padding: @spacing-xl;
-  min-width: @sheet-width;
-  min-height: @sheet-height;
-  border: 1px solid @color-border;
-  box-shadow: @shadow-card;
+  max-width: 950px;
+  margin: auto;
 }
 
-.character-sheet__body {
-  display: grid;
-  grid-template-columns: 1.35fr 1fr 1fr;
-  gap: @spacing-lg;
-}
-
-.character-sheet__header {
+// Header
+.sheet-header {
   text-align: center;
-  margin-bottom: @spacing-md;
+  margin-bottom: 20px;
   position: relative;
+
+  h1 {
+    font-family: 'Times New Roman', serif;
+    font-weight: normal;
+    font-size: 3em;
+    letter-spacing: 0.2em;
+    margin: 0;
+  }
+
+  .flashbacks-title {
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 1.4em;
+    letter-spacing: 0.2em;
+    position: absolute;
+    top: 5px;
+    right: 0;
+  }
 }
 
-.character-sheet__header h1 {
-  .heading-serif(2.75rem);
-  margin: 0;
+// Layout
+.main-content {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1.2fr;
+  gap: 30px;
 }
 
-.character-sheet__flashbacks-title {
-  position: absolute;
-  right: 0;
-  bottom: -@spacing-sm;
-  font-family: @font-family-sans;
-  letter-spacing: 0.25em;
+// Section titles
+.section-title {
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 0.7em;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #000000;
+  margin-top: 0;
+  margin-bottom: 10px;
 }
 
-.character-sheet__section-title {
-  font-family: @font-family-sans;
-  font-size: @font-size-sm;
-  letter-spacing: 0.18em;
-  border-bottom: 1px solid @color-border;
-  margin-bottom: @spacing-xs;
-}
-
-.character-sheet__section-title--center {
+.section-title-centered {
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 0.7em;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  padding-bottom: 2px;
+  margin-top: 0;
   text-align: center;
   border-bottom: none;
+  margin-bottom: 10px;
 }
 
-.character-sheet__field {
+section {
+  margin-bottom: 20px;
+}
+
+// Fields
+.field {
   display: flex;
-  gap: @spacing-xs;
-  align-items: center;
-  margin-bottom: @spacing-xs;
+  align-items: baseline;
+  margin-bottom: 8px;
+
+  label {
+    margin-right: 5px;
+    white-space: nowrap;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    background: transparent;
+    border: none;
+    border-bottom: 1.5px solid #888888;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+      border-bottom-color: #000000;
+    }
+  }
+
+  li {
+    display: grid;
+    grid-template-columns: auto 36px max-content;
+    padding-left: 10px;
+    padding-top: 2px;
+    height: 30px;
+  }
 }
 
-.character-sheet__field label {
-  font-family: @font-family-sans;
-  font-size: @font-size-sm;
-  text-transform: uppercase;
-}
-
-.character-sheet__field input[type="text"],
-.character-sheet__field input[type="number"] {
-  .input-line-style();
-}
-
-.character-sheet__health-statuses {
-  display: flex;
-  gap: @spacing-sm;
-  font-size: @font-size-sm;
-}
-
-// Custom checkbox styling
+// Checkboxes
 input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
@@ -101,7 +127,7 @@ input[type="checkbox"] {
   margin-right: 6px;
   cursor: pointer;
 
-  // Default checked state (generic checkmark)
+  // Default checked indicator
   &:checked::before {
     content: '✔';
     position: absolute;
@@ -132,75 +158,182 @@ input[type="checkbox"] {
   }
 }
 
-.character-sheet__once-per-planet {
-  border: 1px dashed @color-border;
-  padding: @spacing-sm;
-}
-
-.character-sheet__once-per-planet h4 {
-  text-align: center;
-  font-family: @font-family-sans;
-  letter-spacing: 0.2em;
-}
-
-.character-sheet__once-per-planet-items {
+// Health
+.health-statuses {
   display: flex;
-  gap: @spacing-sm;
+  justify-content: space-between;
+  padding-right: 20px;
 }
 
-.character-sheet__weapons .weapon {
-  border-bottom: 1px solid @color-border;
-  padding: @spacing-xxs 0;
-  display: grid;
-  grid-template-columns: 1fr repeat(3, 60px);
-  gap: @spacing-xs;
-  font-size: @font-size-sm;
+.skull {
+  font-size: 1.4em;
+  vertical-align: middle;
 }
 
-.character-sheet__column--center {
+// Once per planet
+.once-per-planet {
+  h4 {
+    text-align: center;
+    font-weight: normal;
+    text-decoration: underline;
+    margin-bottom: 10px;
+  }
+
+  .items {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .item label {
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 0.7em;
+    font-weight: bold;
+  }
+
+  .item .item-box {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #000000;
+    margin: 5px auto;
+    display: block;
+
+    &:checked::before {
+      content: '✖';
+      font-size: 24px;
+      top: 2px;
+      left: 4px;
+    }
+  }
+
+  .item span {
+    font-size: 0.6em;
+    letter-spacing: 0.1em;
+  }
+}
+
+// Weapons
+.weapons {
+  .weapon-fields {
+    display: flex;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .field-group {
+    flex: 1;
+
+    input {
+      background: transparent;
+      border: none;
+      border-bottom: 1.5px solid #888888;
+      width: 100%;
+
+      &:focus {
+        outline: none;
+        border-bottom-color: #000000;
+      }
+    }
+  }
+}
+
+// Melee
+.melee .field {
+  position: relative;
+
+  input {
+    width: 50%;
+  }
+
+  span {
+    font-size: 0.9em;
+    position: absolute;
+    left: 55%;
+    bottom: 2px;
+  }
+}
+
+// Center column
+.center-column {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: @spacing-lg;
+  justify-content: space-between;
 }
 
-.character-sheet__stat-box {
+.stat-box {
   text-align: center;
+  margin-bottom: 15px;
+
+  .stat-label {
+    margin-bottom: 5px;
+  }
+
+  .stat-abbr {
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 2em;
+    margin-right: 8px;
+  }
+
+  .stat-desc {
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 0.6em;
+    font-weight: bold;
+  }
+
+  .stat-square {
+    width: 80px;
+    height: 80px;
+    border: 4px solid #000000;
+  }
 }
 
-.character-sheet__stat-label {
-  font-family: @font-family-sans;
-  letter-spacing: 0.15em;
-}
-
-.character-sheet__stat-abbr {
-  display: block;
-  font-size: 2.25rem;
-}
-
-.character-sheet__availability {
+.availability {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: @spacing-xs;
+
+  .check-field.reverse {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 140px;
+    margin: 5px 0 5px auto;
+  }
 }
 
-.character-sheet__column--right {
-  display: flex;
-  flex-direction: column;
-  gap: @spacing-md;
+// Right column
+.right-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+
+  li {
+    margin-bottom: 8px;
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+  }
+
+  input[type="text"] {
+    background: transparent;
+    border: none;
+    border-bottom: 1.5px solid #888888;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+      border-bottom-color: #000000;
+    }
+  }
 }
 
-.character-sheet__flashback-list {
-  display: flex;
-  flex-direction: column;
-  gap: @spacing-xs;
-}
-
-.character-sheet__notes textarea {
-  width: 100%;
-  min-height: 120px;
-  border: 1px solid @color-border;
-  background: transparent;
-  padding: @spacing-xs;
+.hate-home {
+  border-top: 1.5px dotted #888888;
+  border-bottom: 1.5px dotted #888888;
+  padding: 5px 0;
+  margin-bottom: 20px;
+  margin-left: -5px;
 }
