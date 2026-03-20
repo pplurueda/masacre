@@ -4,7 +4,6 @@ import {CharacterDataModel} from './modules/documents/dataModels/CharacterDataMo
 import {AlienDataModel} from './modules/documents/dataModels/AlienDataModel.mjs';
 import {RankDataModel} from './modules/documents/dataModels/RankDataModel.mjs';
 import {WeaponDataModel} from './modules/documents/dataModels/WeaponDataModel.mjs';
-import {FlashbackDataModel} from './modules/documents/dataModels/FlashbackDataModel.mjs';
 
 import {MasacreActor} from './modules/objects/MasacreActor.mjs';
 import {MasacreItem} from './modules/objects/MasacreItem.mjs';
@@ -14,7 +13,6 @@ import {AlienSheet} from './modules/sheets/AlienSheet.mjs';
 
 import {WeaponSheet} from './modules/sheets/WeaponSheet.mjs';
 import {RankSheet} from './modules/sheets/RankSheet.mjs';
-import {FlashbackSheet} from './modules/sheets/FlashbackSheet.mjs';
 
 async function preloadHandlebarsTemplates() {
     const paths = [
@@ -41,8 +39,7 @@ Hooks.once("init", function(){
     CONFIG.Item.documentClass = MasacreItem;
     CONFIG.Item.dataModels = {
         rank: RankDataModel,
-        weapon: WeaponDataModel,
-        flashback: FlashbackDataModel
+        weapon: WeaponDataModel
     };
 
     Actors.unregisterSheet("core", ActorSheet);
@@ -52,7 +49,6 @@ Hooks.once("init", function(){
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("masacre", RankSheet, {types: ["rank"]});
     Items.registerSheet("masacre", WeaponSheet, {types: ["weapon"]});
-    Items.registerSheet("masacre", FlashbackSheet, {types: ["flashback"]});
 
     preloadHandlebarsTemplates();
 
@@ -71,8 +67,18 @@ Hooks.once("init", function(){
     });
 
     Handlebars.registerHelper('concat', function(...args) {
-        // Remove last argument (Handlebars options object)
+
         args.pop();
         return args.join('');
       });
+
+    Handlebars.registerHelper('toLowerCase', function (str) {
+
+        return str.toLowerCase();
+    });
+
+    Handlebars.registerHelper('toUpperCase', function (str) {
+        
+        return str.toUpperCase();
+    });
 });

@@ -1,6 +1,270 @@
-.masacre.sheet.characterSheet .sheet {
-  width: 500px;
-  height: 500px;
+form {
+  font-family: 'Times New Roman', serif;
+  font-size: 13px;
+  color: #212121;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 20px;
+}
+.character-sheet {
+  max-width: 950px;
+  margin: auto;
+}
+.sheet-header {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+.sheet-header h1 {
+  font-family: 'Times New Roman', serif;
+  font-weight: normal;
+  font-size: 3em;
+  letter-spacing: 0.2em;
+  margin: 0;
+}
+.sheet-header .flashbacks-title {
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.4em;
+  letter-spacing: 0.2em;
+  position: absolute;
+  top: 5px;
+  right: 0;
+}
+.main-content {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1.2fr;
+  gap: 30px;
+}
+.section-title {
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 0.7em;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #000000;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.section-title-centered {
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 0.7em;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #000000;
+  margin-top: 0;
+  text-align: center;
+  border-bottom: none;
+  margin-bottom: 10px;
+}
+section {
+  margin-bottom: 20px;
+}
+.field {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+.field label {
+  margin-right: 5px;
+  white-space: nowrap;
+}
+.field input[type="text"] {
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid #888888;
+  width: 100%;
+}
+.field input[type="text"]:focus {
+  outline: none;
+  border-bottom-color: #000000;
+}
+.field input[type="number"] {
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid #888888;
+  width: 100%;
+}
+.field input[type="number"]:focus {
+  outline: none;
+  border-bottom-color: #000000;
+}
+.field li {
+  display: grid;
+  grid-template-columns: auto 36px max-content;
+  padding-left: 10px;
+  padding-top: 2px;
+  height: 30px;
+}
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid #000000;
+  position: relative;
+  top: 2px;
+  margin-right: 6px;
+  cursor: pointer;
+}
+input[type="checkbox"]:checked.checked-tick::before {
+  content: '✔';
+  position: absolute;
+  font-size: 14px;
+  top: -4px;
+  left: 0px;
+}
+input[type="checkbox"]:checked.checked-cross::before {
+  content: '✖';
+  position: absolute;
+  font-size: 14px;
+  top: -4px;
+  left: 0px;
+}
+input[type="checkbox"]:checked.checked-slash::before {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 1.5px;
+  background: black;
+  top: 5px;
+  left: -2px;
+  transform: rotate(45deg);
+}
+.health-statuses {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 20px;
+}
+.skull {
+  font-size: 1.4em;
+  vertical-align: middle;
+}
+.once-per-planet h4 {
+  text-align: center;
+  font-weight: normal;
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+.once-per-planet .items {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  gap: 15px;
+}
+.once-per-planet .item label {
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 0.7em;
+  font-weight: bold;
+}
+.once-per-planet .item .item-box {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #000000;
+  margin: 5px auto;
+}
+.once-per-planet .item span {
+  font-size: 0.6em;
+  letter-spacing: 0.1em;
+}
+.weapons .weapon-fields {
+  display: flex;
+  gap: 15px;
+  text-align: center;
+}
+.weapons .field-group {
+  flex: 1;
+}
+.weapons .field-group input {
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid #888888;
+  width: 100%;
+}
+.weapons .field-group input:focus {
+  outline: none;
+  border-bottom-color: #000000;
+}
+.melee .field {
+  position: relative;
+}
+.melee .field input {
+  width: 50%;
+}
+.melee .field span {
+  font-size: 0.9em;
+  position: absolute;
+  left: 55%;
+  bottom: 2px;
+}
+.center-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.stat-box {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.stat-box .stat-label {
+  margin-bottom: 5px;
+}
+.stat-box .stat-abbr {
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 2em;
+  margin-right: 8px;
+}
+.stat-box .stat-desc {
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 0.6em;
+  font-weight: bold;
+}
+.stat-box .stat-square {
+  width: 80px;
+  height: 80px;
+  border: 4px solid #000000;
+}
+.availability {
+  width: 100%;
+}
+.availability .check-field.reverse {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 140px;
+  margin: 5px 0 5px auto;
+}
+.right-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+.right-column ul li {
+  margin-bottom: 8px;
+}
+.right-column ul label {
+  display: flex;
+  align-items: center;
+}
+.right-column ul input[type="text"] {
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid #888888;
+  width: 100%;
+}
+.right-column ul input[type="text"]:focus {
+  outline: none;
+  border-bottom-color: #000000;
+}
+.hate-home {
+  border-top: 1.5px dotted #888888;
+  border-bottom: 1.5px dotted #888888;
+  padding: 5px 0;
+  margin-bottom: 20px;
+  margin-left: -5px;
 }
 .masacre.sheet.alienSheet .sheet {
   width: 500px;
@@ -10,7 +274,21 @@
   width: 500px;
   height: 500px;
 }
-.masacre.sheet.weaponSheet .sheet {
-  width: 500px;
-  height: 500px;
+.masacre.sheet.weaponSheet .content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.masacre.sheet.weaponSheet .content .datosBasicos {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 2px;
+  font-size: 15px;
+  padding: 5px;
+}
+.masacre.sheet.weaponSheet .content .tituloGrupo {
+  align-items: flex-start;
+}
+.masacre.sheet.general .portrait {
+  height: 150px;
 }

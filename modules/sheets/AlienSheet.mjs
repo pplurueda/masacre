@@ -25,7 +25,7 @@ export class AlienSheet extends ActorSheet {
 
         //html.find('.rollable').click(this._onRoll.bind(this));
         
-        html.find('.itemControl').click(this._onItemControl.bind(this));º
+        html.find('.itemControl').click(this._onItemControl.bind(this));
 
         //html.find('.condicionAplicada').click(this._condicionAplicada.bind(this));
 

@@ -1,6 +1,7 @@
 {
     "masacre":{
         "general": {
+            "threeSixteen": "Tres Dieciséis",
             "name": "Nombre",
             "edit": "Editar",
             "delete": "Eliminar"
@@ -32,7 +33,15 @@
             "flashbackTypeWeakness": "Defecto",
             "flashbackHateHome": "Odio al hogar",
             "weapons": "Armas",
-            "brawl": "Pelea"
+            "brawl": "Pelea",
+            "equipment": "Equipo",
+            "qualities": "Cualidades",
+            "flaws": "Defectos",
+            "gearNotes": "Equipo, Medallas y Notas",
+            "total": "Total",
+            "currentMission": "Esta misión",
+            "fight": "Pelea",
+            "meleeOnly": "Solo cuerpo a cuerpo"
         },
 
         "alien": {

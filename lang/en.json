@@ -1,6 +1,7 @@
 {
     "masacre":{
         "general": {
+            "threeSixteen": "Three Sixteen",
             "name": "Name",
             "edit": "Edit",
             "delete": "Delete"
@@ -34,7 +35,15 @@
             "flashbackTypeWeakness": "Weakness",
             "flashbackHateHome": "Hate Home",
             "weapons": "Weapons",
-            "brawl": "Brawl"
+            "brawl": "Brawl",
+            "equipment": "Equipment",
+            "qualities": "Qualities",
+            "flaws": "Flaws",
+            "gearNotes": "Gear, Medals & Notes",
+            "total": "Total",
+            "currentMission": "This mission",
+            "fight": "Fight",
+            "meleeOnly": "Melee only"
         },
 
         "rank": {

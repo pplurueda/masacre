@@ -1,0 +1,163 @@
+//main: ./masacre.less
+@import './abstracts/variables.less';
+@import './mixins.less';
+
+.input-line-style() {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid @color-border;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  &:focus {
+    outline: none;
+    border-bottom-color: @color-ink;
+  }
+}
+
+.character-sheet {
+  font-family: @font-family-body;
+  font-size: @font-size-base;
+  color: @color-ink;
+  .paper-card();
+  padding: @spacing-xl;
+  min-width: @sheet-width;
+  min-height: @sheet-height;
+  border: 1px solid @color-border;
+  box-shadow: @shadow-card;
+}
+
+.character-sheet__body {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1fr;
+  gap: @spacing-lg;
+}
+
+.character-sheet__header {
+  text-align: center;
+  margin-bottom: @spacing-md;
+  position: relative;
+}
+
+.character-sheet__header h1 {
+  .heading-serif(2.75rem);
+  margin: 0;
+}
+
+.character-sheet__flashbacks-title {
+  position: absolute;
+  right: 0;
+  bottom: -@spacing-sm;
+  font-family: @font-family-sans;
+  letter-spacing: 0.25em;
+}
+
+.character-sheet__section-title {
+  font-family: @font-family-sans;
+  font-size: @font-size-sm;
+  letter-spacing: 0.18em;
+  border-bottom: 1px solid @color-border;
+  margin-bottom: @spacing-xs;
+}
+
+.character-sheet__section-title--center {
+  text-align: center;
+  border-bottom: none;
+}
+
+.character-sheet__field {
+  display: flex;
+  gap: @spacing-xs;
+  align-items: center;
+  margin-bottom: @spacing-xs;
+}
+
+.character-sheet__field label {
+  font-family: @font-family-sans;
+  font-size: @font-size-sm;
+  text-transform: uppercase;
+}
+
+.character-sheet__field input[type="text"],
+.character-sheet__field input[type="number"] {
+  .input-line-style();
+}
+
+.character-sheet__health-statuses {
+  display: flex;
+  gap: @spacing-sm;
+  font-size: @font-size-sm;
+}
+
+.character-sheet__once-per-planet {
+  border: 1px dashed @color-border;
+  padding: @spacing-sm;
+}
+
+.character-sheet__once-per-planet h4 {
+  text-align: center;
+  font-family: @font-family-sans;
+  letter-spacing: 0.2em;
+}
+
+.character-sheet__once-per-planet-items {
+  display: flex;
+  gap: @spacing-sm;
+}
+
+.character-sheet__weapons .weapon {
+  border-bottom: 1px solid @color-border;
+  padding: @spacing-xxs 0;
+  display: grid;
+  grid-template-columns: 1fr repeat(3, 60px);
+  gap: @spacing-xs;
+  font-size: @font-size-sm;
+}
+
+.character-sheet__column--center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: @spacing-lg;
+}
+
+.character-sheet__stat-box {
+  text-align: center;
+}
+
+.character-sheet__stat-label {
+  font-family: @font-family-sans;
+  letter-spacing: 0.15em;
+}
+
+.character-sheet__stat-abbr {
+  display: block;
+  font-size: 2.25rem;
+}
+
+.character-sheet__availability {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: @spacing-xs;
+}
+
+.character-sheet__column--right {
+  display: flex;
+  flex-direction: column;
+  gap: @spacing-md;
+}
+
+.character-sheet__flashback-list {
+  display: flex;
+  flex-direction: column;
+  gap: @spacing-xs;
+}
+
+.character-sheet__notes textarea {
+  width: 100%;
+  min-height: 120px;
+  border: 1px solid @color-border;
+  background: transparent;
+  padding: @spacing-xs;
+}

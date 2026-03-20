@@ -1,0 +1,177 @@
+{{!-- <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Personaje - Tres Dieciséis</title>
+    <link rel="stylesheet" href="style.less">
+</head>
+<body> --}}
+
+<form class="{{cssClass}}">
+    <header class="sheet-header">
+        <h1>{{toUpperCase (localize "masacre.general.threeSixteen")}}</h1>
+        <h2 class="flashbacks-title">{{toUpperCase (localize "masacre.character.flashback")}}</h2>
+    </header>
+
+    <main class="main-content">
+        <!-- Columna Izquierda -->
+        <div class="column left-column">
+            <section class="character-info">
+                <div class="field">
+                    <label for="nombre">{{localize "masacre.general.name"}}</label>
+                    <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'masacre.name'}}"/>
+                </div>
+                <div class="field">
+                    <label for="reputacion">{{localize "masacre.character.reputation"}}</label>
+                    <input name="system.reputation" type="text" value="{{actor.system.reputation}}" placeholder="{{localize 'masacre.character.reputation'}}"/>
+                </div>
+                <div class="field">
+                    <label for="rango">{{localize "masacre.character.rank"}}</label>
+                    <li data-item-id="{{actor.system.rank.id}}">
+                        <div>{{concat actor.system.rank.name "[" actor.system.rank.system.value "]"}}</div>
+                        <div class="itemControls">
+                            <a class="itemControl" data-action="edit" title="{{'masacre.edit'}}">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a class="itemControl" data-action="delete" title="{{'masacre.delete'}}">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </div>
+                    </li>
+                </div>
+            </section>
+
+            <section class="creatures-killed">
+                <h3 class="section-title">{{toUpperCase (localize "masacre.character.deathAliens")}}</h3>
+                <div class="field">
+                    <label for="total">{{localize "masacre.character.deathAliensTotal"}}</label>
+                    <input name="system.deathAliens.total" type="number" value="{{actor.system.deathAliens.total}}"/>
+                </div>
+                <div class="field">
+                    <label for="mision">{{localize "masacre.character.deathAliensCurrent"}}</label>
+                    <input name="system.deathAliens.current" type="number" value="{{actor.system.deathAliens.current}}"/>
+                </div>
+            </section>
+
+            <section class="health">
+                <h3 class="section-title">{{toUpperCase (localize "masacre.character.wounds")}}</h3>
+                <div class="health-statuses">
+                    <div class="check-field"><label><input name="system.wounds.madeMess" type="checkbox" {{#if actor.system.wounds.madeMess}}checked{{/if}}/>{{localize "masacre.character.woundsMadeMess"}}</label></div>
+                    <div class="check-field"><label><input name="system.wounds.crippled" type="checkbox" {{#if actor.system.wounds.crippled}}checked{{/if}}/>{{localize "masacre.character.woundsCrippled"}}</label></div>
+                    <div class="check-field"><label><input name="system.wounds.death" type="checkbox" {{#if actor.system.wounds.death}}checked{{/if}}/>{{localize "masacre.character.woundsDeath"}}</label></div>
+                </div>
+            </section>
+            
+            <section class="once-per-planet">
+                <h4>Una vez por planeta</h4>
+                <div class="items">
+                    <div class="item">
+                        <label>ARMADURA MANDELBRITE</label>
+                        <div class="item-box"></div>
+                        <span>TACHAR TRAS USAR</span>
+                    </div>
+                    <div class="item">
+                        <label>DROGAS DE COMBATE</label>
+                        <div class="item-box"></div>
+                        <span>TACHAR TRAS USAR</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="weapons">
+                <h3 class="section-title">ARMAS</h3>
+                <div class="weapon-fields">
+                    <div class="field-group">
+                        <label>c/c</label>
+                        <input type="text">
+                    </div>
+                    <div class="field-group">
+                        <label>CD</label>
+                        <input type="text">
+                    </div>
+                    <div class="field-group">
+                        <label>LD</label>
+                        <input type="text">
+                    </div>
+                </div>
+            </section>
+
+            <section class="melee">
+                <h3 class="section-title">PELEA</h3>
+                <div class="field">
+                    <input type="text">
+                    <span>SOLO CUERPO A CUERPO</span>
+                </div>
+            </section>
+        </div>
+
+        <!-- Columna Central -->
+        <div class="column center-column">
+            <div class="stat-box">
+                <div class="stat-label">
+                    <span class="stat-abbr">HC</span>
+                    <span class="stat-desc">HABILIDAD DE COMBATE</span>
+                </div>
+                <div class="stat-square"></div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">
+                    <span class="stat-abbr">HFC</span>
+                    <span class="stat-desc">HABILIDAD FUERA DE COMBATE</span>
+                </div>
+                <div class="stat-square"></div>
+            </div>
+
+            <div class="availability">
+                <div class="check-field reverse">
+                    <label for="not-available">Aún no disponible</label>
+                    <input type="checkbox" id="not-available">
+                </div>
+                <div class="check-field reverse">
+                    <label for="available">Disponible</label>
+                    <input type="checkbox" id="available" class="checked-tick" checked>
+                </div>
+                <div class="check-field reverse">
+                    <label for="used">Usado</label>
+                    <input type="checkbox" id="used" class="checked-cross" checked>
+                </div>
+            </div>
+        </div>
+
+        <!-- Columna Derecha -->
+        <div class="column right-column">
+            <section class="qualities">
+                <h3 class="section-title-centered">CUALIDADES</h3>
+                <ul>
+                    <li><label><input type="checkbox" class="checked-slash" checked> <input type="text"></label></li>
+                    <li><label><input type="checkbox"> <input type="text"></label></li>
+                    <li><label><input type="checkbox"> <input type="text"></label></li>
+                    <li><label><input type="checkbox"> <input type="text"></label></li>
+                    <li><label><input type="checkbox"> <input type="text"></label></li>
+                </ul>
+            </section>
+
+            <section class="flaws">
+                <h3 class="section-title-centered">DEFECTOS</h3>
+                <ul>
+                    <li><label><input type="checkbox" class="checked-slash" checked> <input type="text"></label></li>
+                    <li><label><input type="checkbox"> <input type="text"></label></li>
+                    <li><label><input type="checkbox"> <input type="text"></label></li>
+                    <li><label><input type="checkbox"> <input type="text"></label></li>
+                </ul>
+            </section>
+
+            <div class="check-field hate-home">
+                <label><input type="checkbox"> Odio al hogar</label>
+            </div>
+
+            <section class="notes">
+                <h3 class="section-title">EQUIPO, MEDALLAS Y NOTAS</h3>
+            </section>
+        </div>
+    </main>
+</form>
+
+{{!-- </body>
+</html> --}}

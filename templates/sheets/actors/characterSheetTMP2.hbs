@@ -1,0 +1,226 @@
+<form class="{{cssClass}} character-sheet" autocomplete="off">
+  <header class="character-sheet__header">
+    <h1>{{toUpperCase (localize "masacre.general.threeSixteen")}}</h1>
+    <div class="character-sheet__flashbacks-title">{{toUpperCase (localize "masacre.character.flashback")}}</div>
+  </header>
+
+  <main class="character-sheet__body">
+    <section class="character-sheet__column character-sheet__column--left">
+      <section class="sheet-panel">
+        <div class="sheet-field">
+          <label class="sheet-label">{{localize "masacre.general.name"}}</label>
+          <input name="name" type="text" value="{{actor.name}}" />
+        </div>
+        <div class="sheet-field">
+          <label class="sheet-label">{{localize "masacre.character.reputation"}}</label>
+          <input name="system.reputation" type="text" value="{{actor.system.reputation}}" />
+        </div>
+        <div class="sheet-field sheet-field--rank">
+          <label class="sheet-label">{{localize "masacre.character.rank"}}</label>
+          {{#if actor.system.rank}}
+          <div class="sheet-rank item" data-item-id="{{actor.system.rank.id}}">
+            <div>
+              <span class="sheet-rank__name">{{actor.system.rank.name}}</span>
+              {{#if actor.system.rank.system.value}}
+              <span class="sheet-rank__value">({{actor.system.rank.system.value}})</span>
+              {{/if}}
+            </div>
+            <div class="itemControls">
+              <a class="itemControl" data-action="edit" title="{{localize 'masacre.general.edit'}}">
+                <i class="fas fa-edit"></i>
+              </a>
+              <a class="itemControl" data-action="delete" title="{{localize 'masacre.general.delete'}}">
+                <i class="fas fa-trash"></i>
+              </a>
+            </div>
+          </div>
+          {{/if}}
+        </div>
+      </section>
+
+      <section class="sheet-panel">
+        <h3 class="sheet-panel__title">{{localize "masacre.character.deathAliens"}}</h3>
+        <div class="sheet-field">
+          <label class="sheet-label">{{localize "masacre.character.total"}}</label>
+          <input type="number" name="system.deathAliens.total" value="{{actor.system.deathAliens.total}}" />
+        </div>
+        <div class="sheet-field">
+          <label class="sheet-label">{{localize "masacre.character.currentMission"}}</label>
+          <input type="number" name="system.deathAliens.current" value="{{actor.system.deathAliens.current}}" />
+        </div>
+      </section>
+
+      <section class="sheet-panel">
+        <h3 class="sheet-panel__title">{{localize "masacre.character.wounds"}}</h3>
+        <div class="sheet-checkbox-list">
+          <label class="sheet-checkbox">
+            <input type="checkbox" name="system.wounds.madeMess" {{#if actor.system.wounds.madeMess}}checked{{/if}} />
+            <span>{{localize "masacre.character.woundsMadeMess"}}</span>
+          </label>
+          <label class="sheet-checkbox">
+            <input type="checkbox" name="system.wounds.crippled" {{#if actor.system.wounds.crippled}}checked{{/if}} />
+            <span>{{localize "masacre.character.woundsCrippled"}}</span>
+          </label>
+          <label class="sheet-checkbox">
+            <input type="checkbox" name="system.wounds.death" {{#if actor.system.wounds.death}}checked{{/if}} />
+            <span>{{localize "masacre.character.woundsDeath"}}</span>
+          </label>
+        </div>
+      </section>
+
+      <section class="sheet-panel sheet-panel--single-use">
+        <h3 class="sheet-panel__title">{{localize "masacre.character.oncePerPlanet"}}</h3>
+        <div class="sheet-single-use">
+          <label class="sheet-single-use__item">
+            <span>{{localize "masacre.character.mandelBriteArmor"}}</span>
+            <input type="checkbox" name="system.mandelBriteArmorUsed" {{#if actor.system.mandelBriteArmorUsed}}checked{{/if}} />
+            <small>{{localize "masacre.character.flashbackUsed"}}</small>
+          </label>
+          <label class="sheet-single-use__item">
+            <span>{{localize "masacre.character.combatDrugs"}}</span>
+            <input type="checkbox" name="system.combatDrugUsed" {{#if actor.system.combatDrugUsed}}checked{{/if}} />
+            <small>{{localize "masacre.character.flashbackUsed"}}</small>
+          </label>
+        </div>
+      </section>
+
+      <section class="sheet-panel sheet-panel--weapons">
+        <h3 class="sheet-panel__title">{{localize "masacre.character.weapons"}}</h3>
+        <div class="sheet-table">
+          <div class="sheet-table__row sheet-table__row--head">
+            <span>{{localize "masacre.general.name"}}</span>
+            <span>{{localize "masacre.weapon.cc"}}</span>
+            <span>{{localize "masacre.weapon.cd"}}</span>
+            <span>{{localize "masacre.weapon.ld"}}</span>
+          </div>
+          {{#each actor.system.weapons as |weapon|}}
+          <div class="sheet-table__row item" data-item-id="{{weapon._id}}">
+            <span class="sheet-table__weapon-name">{{weapon.name}}</span>
+            <span>{{weapon.system.cc}}</span>
+            <span>{{weapon.system.cd}}</span>
+            <span>{{weapon.system.ld}}</span>
+            <div class="itemControls">
+              <a class="itemControl" data-action="edit" title="{{localize 'masacre.general.edit'}}">
+                <i class="fas fa-edit"></i>
+              </a>
+              <a class="itemControl" data-action="delete" title="{{localize 'masacre.general.delete'}}">
+                <i class="fas fa-trash"></i>
+              </a>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </section>
+
+      <section class="sheet-panel">
+        <h3 class="sheet-panel__title">{{localize "masacre.character.fight"}}</h3>
+        <div class="sheet-field">
+          <label class="sheet-label">{{localize "masacre.character.brawl"}}</label>
+          <input type="text" value="{{localize 'masacre.character.meleeOnly'}}" disabled />
+        </div>
+      </section>
+    </section>
+
+    <section class="character-sheet__column character-sheet__column--center">
+      <section class="sheet-stat">
+        <div class="sheet-stat__label">
+          <span class="sheet-stat__abbr">{{localize "masacre.character.combatSkillAcronym"}}</span>
+          <span class="sheet-stat__caption">{{localize "masacre.character.combatSkill"}}</span>
+        </div>
+        <div class="sheet-stat__value">
+          <input type="number" name="system.combatSkill" value="{{actor.system.combatSkill}}" />
+        </div>
+      </section>
+
+      <section class="sheet-stat">
+        <div class="sheet-stat__label">
+          <span class="sheet-stat__abbr">{{localize "masacre.character.nonCombatSkillAcronym"}}</span>
+          <span class="sheet-stat__caption">{{localize "masacre.character.nonCombatSkill"}}</span>
+        </div>
+        <div class="sheet-stat__value">
+          <input type="number" name="system.nonCombatSkill" value="{{actor.system.nonCombatSkill}}" />
+        </div>
+      </section>
+
+      <section class="sheet-panel sheet-panel--legend">
+        <h3 class="sheet-panel__title">{{localize "masacre.character.flashback"}}</h3>
+        <div class="sheet-legend">
+          <label class="sheet-checkbox">
+            <input type="checkbox" disabled />
+            <span>{{localize "masacre.character.flashbackDisabled"}}</span>
+          </label>
+          <label class="sheet-checkbox">
+            <input type="checkbox" disabled checked />
+            <span>{{localize "masacre.character.flashbackEnabled"}}</span>
+          </label>
+          <label class="sheet-checkbox">
+            <input type="checkbox" disabled />
+            <span>{{localize "masacre.character.flashbackUsed"}}</span>
+          </label>
+        </div>
+      </section>
+    </section>
+
+    <section class="character-sheet__column character-sheet__column--right">
+      {{#with actor.system.flashbacks as |flashbacks|}}
+      <section class="sheet-panel">
+        <h3 class="sheet-panel__title sheet-panel__title--center">{{localize "masacre.character.qualities"}}</h3>
+        <div class="sheet-flashback-list">
+          <div class="sheet-flashback-row">
+            <span class="sheet-flashback-row__state">{{flashbacks.strength1.state}}</span>
+            <input type="text" name="system.flashbacks.strength1.description" value="{{flashbacks.strength1.description}}" />
+          </div>
+          <div class="sheet-flashback-row">
+            <span class="sheet-flashback-row__state">{{flashbacks.strength2.state}}</span>
+            <input type="text" name="system.flashbacks.strength2.description" value="{{flashbacks.strength2.description}}" />
+          </div>
+          <div class="sheet-flashback-row">
+            <span class="sheet-flashback-row__state">{{flashbacks.strength3.state}}</span>
+            <input type="text" name="system.flashbacks.strength3.description" value="{{flashbacks.strength3.description}}" />
+          </div>
+          <div class="sheet-flashback-row">
+            <span class="sheet-flashback-row__state">{{flashbacks.strength4.state}}</span>
+            <input type="text" name="system.flashbacks.strength4.description" value="{{flashbacks.strength4.description}}" />
+          </div>
+          <div class="sheet-flashback-row">
+            <span class="sheet-flashback-row__state">{{flashbacks.strength5.state}}</span>
+            <input type="text" name="system.flashbacks.strength5.description" value="{{flashbacks.strength5.description}}" />
+          </div>
+        </div>
+      </section>
+
+      <section class="sheet-panel">
+        <h3 class="sheet-panel__title sheet-panel__title--center">{{localize "masacre.character.flaws"}}</h3>
+        <div class="sheet-flashback-list">
+          <div class="sheet-flashback-row">
+            <span class="sheet-flashback-row__state">{{flashbacks.weakness1.state}}</span>
+            <input type="text" name="system.flashbacks.weakness1.description" value="{{flashbacks.weakness1.description}}" />
+          </div>
+          <div class="sheet-flashback-row">
+            <span class="sheet-flashback-row__state">{{flashbacks.weakness2.state}}</span>
+            <input type="text" name="system.flashbacks.weakness2.description" value="{{flashbacks.weakness2.description}}" />
+          </div>
+          <div class="sheet-flashback-row">
+            <span class="sheet-flashback-row__state">{{flashbacks.weakness3.state}}</span>
+            <input type="text" name="system.flashbacks.weakness3.description" value="{{flashbacks.weakness3.description}}" />
+          </div>
+          <div class="sheet-flashback-row">
+            <span class="sheet-flashback-row__state">{{flashbacks.weakness4.state}}</span>
+            <input type="text" name="system.flashbacks.weakness4.description" value="{{flashbacks.weakness4.description}}" />
+          </div>
+          <div class="sheet-flashback-row sheet-flashback-row--hate-home">
+            <span class="sheet-flashback-row__state">{{flashbacks.weakness5.state}}</span>
+            <input type="text" name="system.flashbacks.weakness5.description" value="{{flashbacks.weakness5.description}}" disabled />
+            <span class="sheet-flashback-row__note">{{localize "masacre.character.flashbackHateHome"}}</span>
+          </div>
+        </div>
+      </section>
+      {{/with}}
+
+      <section class="sheet-panel sheet-panel--notes">
+        <h3 class="sheet-panel__title">{{localize "masacre.character.gearNotes"}}</h3>
+        <textarea name="system.equipment">{{actor.system.equipment}}</textarea>
+      </section>
+    </section>
+  </main>
+</form>

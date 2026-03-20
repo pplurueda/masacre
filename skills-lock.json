@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "less-best-practices": {
+      "source": "mindrally/skills",
+      "sourceType": "github",
+      "computedHash": "6505b2938e5081fe34403931387ec71ba6063e2a8bf5756927ab7a9ffa5320b7"
+    }
+  }
+}

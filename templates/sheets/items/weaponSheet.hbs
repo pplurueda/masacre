@@ -1,27 +1,25 @@
-<form class="{{cssClass}}" autocomplete="off">
+<form class="masacre sheet weaponSheet" autocomplete="off">
     <header>
-        <div class="characterHeader">
-            <!-- Character Portrait -->
-            <div class="characterPortrait">
-                <img src="{{item.img}}" data-edit="img" title={{item.name}} height="100px"/>
-            </div>
-            
-            <div>{{localize "masacre.general.name"}}</div>
-            <div class="fieldName">
-                <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'masacre.general.name'}}"/></h1>
-            </div>
+        <div class="sheet-header">
+            <img src="{{item.img}}" data-edit="img" title={{item.name}} height="100px"/>
+            <h1><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'masacre.general.name'}}"/></h1>
         </div>
     </header>
 
-    <div>{{localize "masacre.weapon.description"}}</div>
-    <input name="system.description" type="text" value="{{item.system.description}}"/>
+    <div class="content">
+        <div class="datosBasicos">
+            <div>{{localize "masacre.weapon.cc"}}</div>
+            <div>{{localize "masacre.weapon.cd"}}</div>
+            <div>{{localize "masacre.weapon.ld"}}</div>
 
-    <div>{{localize "masacre.weapon.cc"}}</div>
-    <input name="system.cc" type="text" value="{{item.system.cc}}"/>
+            <input name="system.cc" type="text" value="{{item.system.cc}}"/>
+            <input name="system.cd" type="text" value="{{item.system.cd}}"/>
+            <input name="system.ld" type="text" value="{{item.system.ld}}"/>
+        </div>
 
-    <div>{{localize "masacre.weapon.cd"}}</div>
-    <input name="system.cd" type="text" value="{{item.system.cd}}"/>
-
-    <div>{{localize "masacre.weapon.ld"}}</div>
-    <input name="system.ld" type="text" value="{{item.system.ld}}"/>
+        <div class="editorTexto">
+            <label class="titulo">{{localize "masacre.weapon.description"}}</label>
+            {{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
+        </div>
+    </div>
 </form>
