@@ -11,12 +11,13 @@ export class CharacterSheet extends ActorSheet {
 
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["masacre", "sheet", "characterSheet"]
+            classes: ["masacre", "sheet", "characterSheet"],
+            submitOnChange: true
         });
     }
 
     get template() {
-        return `systems/masacre/templates/sheets/actors/characterSheetTMP2.hbs`;
+        return `systems/masacre/templates/sheets/actors/characterSheetTMP.hbs`;
     } 
 
     activateListeners(html) {

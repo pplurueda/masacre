@@ -108,23 +108,21 @@ input[type="checkbox"] {
   margin-right: 6px;
   cursor: pointer;
 }
-input[type="checkbox"]:checked.checked-tick::before {
+input[type="checkbox"]:checked::before {
   content: '✔';
   position: absolute;
   font-size: 14px;
   top: -4px;
   left: 0px;
 }
+input[type="checkbox"]:checked.checked-tick::before {
+  content: '✔';
+}
 input[type="checkbox"]:checked.checked-cross::before {
   content: '✖';
-  position: absolute;
-  font-size: 14px;
-  top: -4px;
-  left: 0px;
 }
 input[type="checkbox"]:checked.checked-slash::before {
   content: '';
-  position: absolute;
   width: 15px;
   height: 1.5px;
   background: black;

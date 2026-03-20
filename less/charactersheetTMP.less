@@ -89,6 +89,49 @@
   font-size: @font-size-sm;
 }
 
+// Custom checkbox styling
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid #000000;
+  position: relative;
+  top: 2px;
+  margin-right: 6px;
+  cursor: pointer;
+
+  // Default checked state (generic checkmark)
+  &:checked::before {
+    content: '✔';
+    position: absolute;
+    font-size: 14px;
+    top: -4px;
+    left: 0px;
+  }
+
+  // Variant: tick mark
+  &:checked.checked-tick::before {
+    content: '✔';
+  }
+
+  // Variant: cross mark
+  &:checked.checked-cross::before {
+    content: '✖';
+  }
+
+  // Variant: slash mark
+  &:checked.checked-slash::before {
+    content: '';
+    width: 15px;
+    height: 1.5px;
+    background: black;
+    top: 5px;
+    left: -2px;
+    transform: rotate(45deg);
+  }
+}
+
 .character-sheet__once-per-planet {
   border: 1px dashed @color-border;
   padding: @spacing-sm;
