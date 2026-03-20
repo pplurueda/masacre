@@ -215,24 +215,62 @@ input[type="checkbox"] {
 
 // Weapons
 .weapons {
-  .weapon-fields {
+  .weapon-list {
     display: flex;
-    gap: 15px;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .weapon-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 4px;
+    margin-bottom: 2px;
+  }
+
+  .weapon-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    padding: 2px 0;
+    border-bottom: 1px solid #cccccc;
+    font-size: 0.85em;
+  }
+
+  .weapon-col {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .weapon-col-desc {
+    flex: 3;
+  }
+
+  .weapon-col-stat {
+    flex: 1;
     text-align: center;
   }
 
-  .field-group {
-    flex: 1;
+  .weapon-col-controls {
+    flex: 0 0 40px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 4px;
 
-    input {
-      background: transparent;
-      border: none;
-      border-bottom: 1.5px solid #888888;
-      width: 100%;
+    a {
+      cursor: pointer;
+      opacity: 0.6;
 
-      &:focus {
-        outline: none;
-        border-bottom-color: #000000;
+      &:hover {
+        opacity: 1;
       }
     }
   }
@@ -259,7 +297,15 @@ input[type="checkbox"] {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+}
+
+.center-column .stat-box:first-child {
+  margin-top: 0;
+}
+
+.center-column .stat-box + .stat-box {
+  margin-top: 10px;
 }
 
 .stat-box {
@@ -315,7 +361,7 @@ input[type="checkbox"] {
 
   .check-field.reverse {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     width: 140px;
     margin: 5px 0 5px auto;

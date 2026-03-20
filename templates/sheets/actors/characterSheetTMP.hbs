@@ -80,28 +80,31 @@
             </section>
 
             <section class="weapons">
-                <h3 class="section-title">ARMAS</h3>
-                <div class="weapon-fields">
-                    <div class="field-group">
-                        <label>c/c</label>
-                        <input type="text">
+                <h3 class="section-title">{{toUpperCase (localize "masacre.character.weapons")}}</h3>
+                <div class="weapon-list">
+                    <div class="weapon-header">
+                        <span class="weapon-col weapon-col-desc">{{localize "masacre.weapon.description"}}</span>
+                        <span class="weapon-col weapon-col-stat">{{localize "masacre.weapon.cc"}}</span>
+                        <span class="weapon-col weapon-col-stat">{{localize "masacre.weapon.cd"}}</span>
+                        <span class="weapon-col weapon-col-stat">{{localize "masacre.weapon.ld"}}</span>
+                        <span class="weapon-col weapon-col-controls"></span>
                     </div>
-                    <div class="field-group">
-                        <label>CD</label>
-                        <input type="text">
-                    </div>
-                    <div class="field-group">
-                        <label>LD</label>
-                        <input type="text">
-                    </div>
-                </div>
-            </section>
-
-            <section class="melee">
-                <h3 class="section-title">PELEA</h3>
-                <div class="field">
-                    <input type="text">
-                    <span>SOLO CUERPO A CUERPO</span>
+                    {{#each weapons as |weapon|}}
+                    <li class="weapon-row" data-item-id="{{weapon._id}}">
+                        <span class="weapon-col weapon-col-desc">{{weapon.name}}</span>
+                        <span class="weapon-col weapon-col-stat">{{weapon.system.cc}}</span>
+                        <span class="weapon-col weapon-col-stat">{{weapon.system.cd}}</span>
+                        <span class="weapon-col weapon-col-stat">{{weapon.system.ld}}</span>
+                        <span class="weapon-col weapon-col-controls">
+                            <a class="itemControl" data-action="edit" title="{{localize 'masacre.general.edit'}}">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a class="itemControl" data-action="delete" title="{{localize 'masacre.general.delete'}}">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </span>
+                    </li>
+                    {{/each}}
                 </div>
             </section>
         </div>
@@ -124,21 +127,6 @@
                 </div>
                 <div class="stat-square">
                     <input name="system.nonCombatSkill" type="number" value="{{actor.system.nonCombatSkill}}" min="0"/>
-                </div>
-            </div>
-
-            <div class="availability">
-                <div class="check-field reverse">
-                    <label for="not-available">Aún no disponible</label>
-                    <input type="checkbox" id="not-available">
-                </div>
-                <div class="check-field reverse">
-                    <label for="available">Disponible</label>
-                    <input type="checkbox" id="available" class="checked-tick" checked>
-                </div>
-                <div class="check-field reverse">
-                    <label for="used">Usado</label>
-                    <input type="checkbox" id="used" class="checked-cross" checked>
                 </div>
             </div>
         </div>

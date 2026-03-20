@@ -42,7 +42,9 @@ export class CharacterSheet extends ActorSheet {
         const actor = data.actor;
 
         await this._createBrawlWeapon(actor);
-        
+
+        data.weapons = actor.items.filter(i => i.type === "weapon");
+
         return data;
     }
 
