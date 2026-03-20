@@ -1,0 +1,51 @@
+// ==========================================================================
+// Mixins
+// ==========================================================================
+@import './variables.less';
+
+// Paper card background
+.paper-card() {
+  background: radial-gradient(circle at top, #fffbf3 0%, #f6f0e6 38%, #eae1d3 100%);
+  border-radius: @radius-base;
+  box-shadow: @shadow-card;
+}
+
+// Serif heading style
+.heading-serif(@size) {
+  font-family: @font-family-heading;
+  font-size: @size;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+// Inline field layout
+.inline-field() {
+  display: flex;
+  align-items: center;
+  gap: @spacing-xs;
+}
+
+// Flexbox utilities
+.flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-column() {
+  display: flex;
+  flex-direction: column;
+}
+
+// Text truncation
+.truncate() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

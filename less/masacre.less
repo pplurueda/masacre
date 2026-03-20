@@ -1,20 +1,36 @@
 //relativeUrls: true, out: ../masacre.css
+// ==========================================================================
+// Masacre - Main Stylesheet
+// ==========================================================================
+
+// Abstracts (variables, mixins - no output)
 @import "./abstracts/variables.less";
-@import "./mixins.less";
-@import "./charactersheetTMP.less";
-@import "./alienSheet.less";
-@import "./rankSheet.less";
-@import "./weaponSheet.less";
+@import "./abstracts/mixins.less";
 
+// Base styles
+@import "./base/forms.less";
+@import "./base/typography.less";
+
+// Components
+@import "./components/checkboxes.less";
+@import "./components/fields.less";
+@import "./components/stat-box.less";
+@import "./components/weapons.less";
+
+// Sheets
+@import "./sheets/character.less";
+@import "./sheets/character-old.less";
+@import "./sheets/alien.less";
+@import "./sheets/rank.less";
+@import "./sheets/weapon.less";
+
+// General sheet styles
 .masacre.sheet.general {
+  .portrait {
+    height: 150px;
+  }
 
-    .portrait {
-        
-        height: 150px
-    }
-
-    .name {
-
-
-    }
+  .name {
+    // Name field styles
+  }
 }

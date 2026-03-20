@@ -1,0 +1,45 @@
+// ==========================================================================
+// Field Components
+// ==========================================================================
+
+// Inline field layout (label + input)
+.field {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 8px;
+
+  label {
+    margin-right: 5px;
+    white-space: nowrap;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+  }
+
+  li {
+    display: grid;
+    grid-template-columns: auto 36px max-content;
+    padding-left: 10px;
+    padding-top: 2px;
+    height: 30px;
+  }
+}
+
+// Check field (checkbox + label)
+.check-field {
+  display: flex;
+  align-items: center;
+
+  label {
+    display: flex;
+    align-items: center;
+  }
+
+  &.reverse {
+    justify-content: flex-start;
+    width: 140px;
+    margin: 5px 0 5px auto;
+  }
+}

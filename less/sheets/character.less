@@ -1,0 +1,152 @@
+//main: ../masacre.less
+// ==========================================================================
+// Character Sheet Styles
+// ==========================================================================
+
+.character-sheet {
+  max-width: 950px;
+  margin: auto;
+}
+
+// Header
+.sheet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  h1 {
+    font-family: 'Times New Roman', serif;
+    font-weight: normal;
+    font-size: 3em;
+    letter-spacing: 0.2em;
+    margin: 0;
+    text-align: left;
+  }
+
+  .flashbacks-title {
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 1.4em;
+    letter-spacing: 0.2em;
+    text-align: right;
+    margin: 0;
+  }
+}
+
+// Main layout
+.main-content {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1.2fr;
+  gap: 30px;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+// Health statuses
+.health-statuses {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 20px;
+}
+
+.skull {
+  font-size: 1.4em;
+  vertical-align: middle;
+}
+
+// Once per planet section
+.once-per-planet {
+  h4 {
+    text-align: center;
+    font-weight: normal;
+    text-decoration: underline;
+    margin-bottom: 10px;
+  }
+
+  .items {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .item label {
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 0.7em;
+    font-weight: bold;
+  }
+
+  .item span {
+    font-size: 0.6em;
+    letter-spacing: 0.1em;
+  }
+}
+
+// Melee section
+.melee .field {
+  position: relative;
+
+  input {
+    width: 50%;
+  }
+
+  span {
+    font-size: 0.9em;
+    position: absolute;
+    left: 55%;
+    bottom: 2px;
+  }
+}
+
+// Center column layout
+.center-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  .stat-box:first-child {
+    margin-top: 0;
+  }
+
+  .stat-box + .stat-box {
+    margin-top: 10px;
+  }
+}
+
+// Availability section
+.availability {
+  width: 100%;
+}
+
+// Right column
+.right-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+
+  li {
+    margin-bottom: 8px;
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+  }
+
+  input[type="text"] {
+    width: 100%;
+  }
+}
+
+// Hate home section
+.hate-home {
+  border-top: 1.5px dotted #888888;
+  border-bottom: 1.5px dotted #888888;
+  padding: 5px 0;
+  margin-bottom: 20px;
+  margin-left: -5px;
+}

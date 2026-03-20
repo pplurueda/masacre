@@ -1,0 +1,65 @@
+// ==========================================================================
+// Weapons Component
+// ==========================================================================
+
+.weapons {
+  .weapon-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .weapon-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 4px;
+    margin-bottom: 2px;
+  }
+
+  .weapon-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    padding: 2px 0;
+    border-bottom: 1px solid #cccccc;
+    font-size: 0.85em;
+  }
+
+  .weapon-col {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .weapon-col-desc {
+    flex: 3;
+  }
+
+  .weapon-col-stat {
+    flex: 1;
+    text-align: center;
+  }
+
+  .weapon-col-controls {
+    flex: 0 0 40px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 4px;
+
+    a {
+      cursor: pointer;
+      opacity: 0.6;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
