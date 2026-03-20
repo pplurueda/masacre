@@ -1,27 +1,65 @@
 // ==========================================================================
 // Typography Base Styles
 // ==========================================================================
+// All typography styles are scoped to .masacre to avoid interfering with
+// Foundry VTT's global styles.
 
-// Section titles
-.section-title {
-  font-family: 'Helvetica', Arial, sans-serif;
-  font-size: 0.7em;
-  font-weight: bold;
-  letter-spacing: 0.1em;
-  padding-bottom: 2px;
-  border-bottom: 1px solid #000000;
-  margin-top: 0;
-  margin-bottom: 10px;
-}
+.masacre {
+  // Heading styles with Chalk Board font
+  h1 {
+    font-family: @font-family-chalk;
+    font-weight: normal;
+    font-size: 3em;
+    letter-spacing: 0.1em;
+    color: @color-heading;
+    margin: 0;
+  }
 
-.section-title-centered {
-  font-family: 'Helvetica', Arial, sans-serif;
-  font-size: 0.7em;
-  font-weight: bold;
-  letter-spacing: 0.1em;
-  padding-bottom: 2px;
-  margin-top: 0;
-  text-align: center;
-  border-bottom: none;
-  margin-bottom: 10px;
+  h2 {
+    font-family: @font-family-chalk;
+    font-size: 1.8em;
+    font-weight: normal;
+    letter-spacing: 0.05em;
+    margin: 0 0 10px 0;
+  }
+
+  h3 {
+    font-family: @font-family-chalk;
+    font-size: 1.4em;
+    font-weight: normal;
+    letter-spacing: 0.05em;
+    margin: 0 0 8px 0;
+  }
+
+  h4 {
+    font-family: @font-family-chalk;
+    font-size: 1.2em;
+    font-weight: normal;
+    letter-spacing: 0.05em;
+    margin: 0 0 6px 0;
+  }
+
+  // Section titles (smaller, Helvetica-based)
+  .section-title {
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 0.7em;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #000000;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  .section-title-centered {
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 0.7em;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    padding-bottom: 2px;
+    margin-top: 0;
+    text-align: center;
+    border-bottom: none;
+    margin-bottom: 10px;
+  }
 }
