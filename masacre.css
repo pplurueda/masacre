@@ -1,7 +1,14 @@
 @font-face {
-  font-family: 'Chalk Board';
-  src: url('assets/fonts/Chalk%20Board.ttf') format('truetype');
+  font-family: 'Caslon Antique';
+  src: url('assets/fonts/CaslonAntique.ttf') format('truetype');
   font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Caslon Antique';
+  src: url('assets/fonts/CaslonAntique-Bold.ttf') format('truetype');
+  font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
@@ -25,49 +32,49 @@ input[type="number"]:focus {
   border-bottom-color: #000000;
 }
 .masacre h1 {
-  font-family: 'Chalk Board', 'Comic Sans MS', cursive;
+  font-family: 'Caslon Antique', 'Times New Roman', serif;
   font-weight: normal;
-  font-size: 3em;
+  font-size: 6em;
   letter-spacing: 0.1em;
   color: #3a3a3a;
   margin: 0;
 }
 .masacre h2 {
-  font-family: 'Chalk Board', 'Comic Sans MS', cursive;
+  font-family: 'Caslon Antique', 'Times New Roman', serif;
   font-size: 1.8em;
   font-weight: normal;
   letter-spacing: 0.05em;
   margin: 0 0 10px 0;
 }
 .masacre h3 {
-  font-family: 'Chalk Board', 'Comic Sans MS', cursive;
+  font-family: 'Caslon Antique', 'Times New Roman', serif;
   font-size: 1.4em;
   font-weight: normal;
   letter-spacing: 0.05em;
   margin: 0 0 8px 0;
 }
 .masacre h4 {
-  font-family: 'Chalk Board', 'Comic Sans MS', cursive;
+  font-family: 'Caslon Antique', 'Times New Roman', serif;
   font-size: 1.2em;
   font-weight: normal;
   letter-spacing: 0.05em;
   margin: 0 0 6px 0;
 }
 .masacre .section-title {
-  font-family: 'Helvetica', Arial, sans-serif;
-  font-size: 0.7em;
-  font-weight: bold;
-  letter-spacing: 0.1em;
+  font-family: 'Caslon Antique', 'Times New Roman', serif;
+  font-size: 2em;
+  font-weight: normal;
+  letter-spacing: 0.05em;
   padding-bottom: 2px;
   border-bottom: 1px solid #000000;
   margin-top: 0;
   margin-bottom: 10px;
 }
 .masacre .section-title-centered {
-  font-family: 'Helvetica', Arial, sans-serif;
-  font-size: 0.7em;
-  font-weight: bold;
-  letter-spacing: 0.1em;
+  font-family: 'Caslon Antique', 'Times New Roman', serif;
+  font-size: 2em;
+  font-weight: normal;
+  letter-spacing: 0.05em;
   padding-bottom: 2px;
   margin-top: 0;
   text-align: center;
@@ -263,9 +270,9 @@ input[type="checkbox"]:checked.checked-slash::before {
   text-align: left;
 }
 .sheet-header .flashbacks-title {
-  font-family: 'Chalk Board', 'Comic Sans MS', cursive;
+  font-family: 'Caslon Antique', 'Times New Roman', serif;
   font-weight: normal;
-  font-size: 1.8em;
+  font-size: 3em;
   letter-spacing: 0.1em;
   text-align: right;
   margin: 0;
