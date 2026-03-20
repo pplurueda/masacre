@@ -223,6 +223,24 @@ input[type="checkbox"]:checked.checked-slash::before {
   height: 80px;
   border: 4px solid #000000;
 }
+.stat-box .stat-square input[type="number"] {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: bold;
+  font-family: 'Helvetica', Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  -moz-appearance: textfield;
+}
+.stat-box .stat-square input[type="number"]::-webkit-inner-spin-button,
+.stat-box .stat-square input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 .availability {
   width: 100%;
 }

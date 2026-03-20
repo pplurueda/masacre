@@ -113,14 +113,18 @@
                     <span class="stat-abbr">HC</span>
                     <span class="stat-desc">HABILIDAD DE COMBATE</span>
                 </div>
-                <div class="stat-square"></div>
+                <div class="stat-square">
+                    <input name="system.combatSkill" type="number" value="{{actor.system.combatSkill}}" min="0"/>
+                </div>
             </div>
             <div class="stat-box">
                 <div class="stat-label">
                     <span class="stat-abbr">HFC</span>
                     <span class="stat-desc">HABILIDAD FUERA DE COMBATE</span>
                 </div>
-                <div class="stat-square"></div>
+                <div class="stat-square">
+                    <input name="system.nonCombatSkill" type="number" value="{{actor.system.nonCombatSkill}}" min="0"/>
+                </div>
             </div>
 
             <div class="availability">
