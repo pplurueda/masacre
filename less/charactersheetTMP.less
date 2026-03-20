@@ -296,7 +296,7 @@ input[type="checkbox"] {
 .center-column {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
 }
 
@@ -309,10 +309,15 @@ input[type="checkbox"] {
 }
 
 .stat-box {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
   margin-bottom: 15px;
 
   .stat-label {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 5px;
   }
 
@@ -320,7 +325,6 @@ input[type="checkbox"] {
     font-family: 'Helvetica', Arial, sans-serif;
     font-weight: bold;
     font-size: 2em;
-    margin-right: 8px;
   }
 
   .stat-desc {

@@ -230,7 +230,7 @@ input[type="checkbox"]:checked.checked-slash::before {
 .center-column {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
 }
 .center-column .stat-box:first-child {
@@ -240,17 +240,21 @@ input[type="checkbox"]:checked.checked-slash::before {
   margin-top: 10px;
 }
 .stat-box {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
   margin-bottom: 15px;
 }
 .stat-box .stat-label {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 5px;
 }
 .stat-box .stat-abbr {
   font-family: 'Helvetica', Arial, sans-serif;
   font-weight: bold;
   font-size: 2em;
-  margin-right: 8px;
 }
 .stat-box .stat-desc {
   font-family: 'Helvetica', Arial, sans-serif;
