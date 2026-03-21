@@ -21,11 +21,5 @@ export class MasacreActor extends Actor {
       } else {
         this.system.equipment = [];
       }
-
-      console.log("Derived data for character prepared:", {
-        rank: this.system.rank,
-        weapons: this.system.weapons,
-        equipment: this.system.equipment
-      });
     }
   }

@@ -103,6 +103,9 @@ export class CharacterSheet extends ActorSheet {
             
             await actor.deleteEmbeddedDocuments("Item", [rank._id]);
         });
+
+        // Update actor image using the proper Foundry update method
+        await actor.update({ img: rankCreated.img });
     }
 
     async _onTriStateToggle(event) {
