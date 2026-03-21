@@ -57,24 +57,31 @@
             <section class="health">
                 <h3 class="section-title">{{toUpperCase (localize "masacre.character.wounds")}}</h3>
                 <div class="health-statuses">
-                    <div class="check-field"><label><input name="system.wounds.madeMess" type="checkbox" {{#if actor.system.wounds.madeMess}}checked{{/if}}/>{{localize "masacre.character.woundsMadeMess"}}</label></div>
-                    <div class="check-field"><label><input name="system.wounds.crippled" type="checkbox" {{#if actor.system.wounds.crippled}}checked{{/if}}/>{{localize "masacre.character.woundsCrippled"}}</label></div>
-                    <div class="check-field"><label><input name="system.wounds.death" type="checkbox" {{#if actor.system.wounds.death}}checked{{/if}}/>{{localize "masacre.character.woundsDeath"}}</label></div>
+                    <div class="health-item">
+                        <label>{{localize "masacre.character.woundsMadeMess"}}</label>
+                        <input name="system.wounds.madeMess" type="checkbox" {{#if actor.system.wounds.madeMess}}checked{{/if}}/>
+                    </div>
+                    <div class="health-item">
+                        <label>{{localize "masacre.character.woundsCrippled"}}</label>
+                        <input name="system.wounds.crippled" type="checkbox" {{#if actor.system.wounds.crippled}}checked{{/if}}/>
+                    </div>
+                    <div class="health-item">
+                        <label>{{localize "masacre.character.woundsDeath"}}</label>
+                        <input name="system.wounds.death" type="checkbox" {{#if actor.system.wounds.death}}checked{{/if}}/>
+                    </div>
                 </div>
             </section>
             
             <section class="once-per-planet">
-                <h4>Una vez por planeta</h4>
+                <h3 class="section-title">{{toUpperCase (localize "masacre.character.oncePerPlanet")}}</h3>
                 <div class="items">
                     <div class="item">
-                        <label>ARMADURA MANDELBRITE</label>
+                        <label>{{toUpperCase (localize "masacre.character.mandelBriteArmor")}}</label>
                         <input name="system.mandelBriteArmorUsed" type="checkbox" class="item-box" {{#if actor.system.mandelBriteArmorUsed}}checked{{/if}}/>
-                        <span>TACHAR TRAS USAR</span>
                     </div>
                     <div class="item">
-                        <label>DROGAS DE COMBATE</label>
+                        <label>{{toUpperCase (localize "masacre.character.combatDrugs")}}</label>
                         <input name="system.combatDrugUsed" type="checkbox" class="item-box" {{#if actor.system.combatDrugUsed}}checked{{/if}}/>
-                        <span>TACHAR TRAS USAR</span>
                     </div>
                 </div>
             </section>
@@ -113,8 +120,8 @@
         <div class="column center-column">
             <div class="stat-box">
                 <div class="stat-label">
-                    <span class="stat-abbr">HC</span>
-                    <span class="stat-desc">HABILIDAD DE COMBATE</span>
+                    <span class="stat-abbr">{{localize "masacre.character.combatSkillAcronym"}}</span>
+                    <span class="stat-desc">{{toUpperCase (localize "masacre.character.combatSkill")}}</span>
                 </div>
                 <div class="stat-square">
                     <input name="system.combatSkill" type="number" value="{{actor.system.combatSkill}}" min="0"/>
@@ -122,8 +129,8 @@
             </div>
             <div class="stat-box">
                 <div class="stat-label">
-                    <span class="stat-abbr">HFC</span>
-                    <span class="stat-desc">HABILIDAD FUERA DE COMBATE</span>
+                    <span class="stat-abbr">{{localize "masacre.character.nonCombatSkillAcronym"}}</span>
+                    <span class="stat-desc">{{toUpperCase (localize "masacre.character.nonCombatSkill")}}
                 </div>
                 <div class="stat-square">
                     <input name="system.nonCombatSkill" type="number" value="{{actor.system.nonCombatSkill}}" min="0"/>
@@ -131,35 +138,32 @@
             </div>
         </div>
 
-        <!-- Columna Derecha -->
+        {{!-- Columna Derecha --}}
         <div class="column right-column">
             <section class="qualities">
-                <h3 class="section-title-centered">CUALIDADES</h3>
+                <h3 class="section-title-right">{{toUpperCase (localize "masacre.character.qualities")}}</h3>
                 <ul>
                     <li><label><input type="checkbox" class="checked-slash" checked> <input type="text"></label></li>
-                    <li><label><input type="checkbox" class="checked-slash" unchecked> <input type="text"></label></li>
-                    <li><label><input type="checkbox" class="checked-slash" unchecked> <input type="text"></label></li>
-                    <li><label><input type="checkbox" class="checked-slash" unchecked> <input type="text"></label></li>
-                    <li><label><input type="checkbox" class="checked-slash" unchecked> <input type="text"></label></li>
+                    <li><label><input type="checkbox" class="checked-slash"> <input type="text"></label></li>
+                    <li><label><input type="checkbox" class="checked-slash"> <input type="text"></label></li>
+                    <li><label><input type="checkbox" class="checked-slash"> <input type="text"></label></li>
+                    <li><label><input type="checkbox" class="checked-slash"> <input type="text"></label></li>
                 </ul>
             </section>
 
             <section class="flaws">
-                <h3 class="section-title-centered">DEFECTOS</h3>
+                <h3 class="section-title-right">{{toUpperCase (localize "masacre.character.flaws")}}</h3>
                 <ul>
                     <li><label><input type="checkbox" class="checked-slash" checked> <input type="text"></label></li>
-                    <li><label><input type="checkbox" class="checked-slash" unchecked>> <input type="text"></label></li>
-                    <li><label><input type="checkbox" class="checked-slash" unchecked>> <input type="text"></label></li>
-                    <li><label><input type="checkbox" class="checked-slash" unchecked>> <input type="text"></label></li>
+                    <li><label><input type="checkbox" class="checked-slash"> <input type="text"></label></li>
+                    <li><label><input type="checkbox" class="checked-slash"> <input type="text"></label></li>
+                    <li><label><input type="checkbox" class="checked-slash"> <input type="text"></label></li>
+                    <li><label><input type="checkbox" class="checked-slash">{{localize "masacre.character.flashbackHateHome"}}</label></li>
                 </ul>
             </section>
 
-            <div class="check-field hate-home">
-                <label><input type="checkbox"> Odio al hogar</label>
-            </div>
-
             <section class="notes">
-                <h3 class="section-title">EQUIPO, MEDALLAS Y NOTAS</h3>
+                <h3 class="section-title-right">{{toUpperCase (localize "masacre.character.gearNotes")}}</h3>
             </section>
         </div>
     </main>

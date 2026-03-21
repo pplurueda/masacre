@@ -81,6 +81,17 @@ input[type="number"]:focus {
   border-bottom: none;
   margin-bottom: 10px;
 }
+.masacre .section-title-right {
+  font-family: 'Caslon Antique', 'Times New Roman', serif;
+  font-size: 2em;
+  font-weight: normal;
+  letter-spacing: 0.05em;
+  padding-bottom: 2px;
+  margin-top: 0;
+  text-align: right;
+  border-bottom: none;
+  margin-bottom: 10px;
+}
 input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
@@ -287,18 +298,30 @@ section {
 }
 .health-statuses {
   display: flex;
-  justify-content: space-between;
-  padding-right: 20px;
+  justify-content: space-around;
+  text-align: center;
+  gap: 16px;
+}
+.health-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.health-item label {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 0.7em;
+  font-weight: bold;
+}
+.health-item input[type="checkbox"] {
+  margin: 0;
 }
 .skull {
   font-size: 1.4em;
   vertical-align: middle;
 }
-.once-per-planet h4 {
-  text-align: center;
-  font-weight: normal;
-  text-decoration: underline;
-  margin-bottom: 10px;
+.once-per-planet .section-title {
+  text-align: left;
 }
 .once-per-planet .items {
   display: flex;
@@ -306,14 +329,19 @@ section {
   text-align: center;
   gap: 15px;
 }
+.once-per-planet .item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
 .once-per-planet .item label {
-  font-family: 'Helvetica', Arial, sans-serif;
+  font-family: 'Montserrat', Arial, sans-serif;
   font-size: 0.7em;
   font-weight: bold;
 }
-.once-per-planet .item span {
-  font-size: 0.6em;
-  letter-spacing: 0.1em;
+.once-per-planet .item input[type="checkbox"] {
+  margin: 0;
 }
 .melee .field {
   position: relative;

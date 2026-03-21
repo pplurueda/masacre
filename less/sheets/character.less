@@ -43,8 +43,26 @@ section {
 // Health statuses
 .health-statuses {
   display: flex;
-  justify-content: space-between;
-  padding-right: 20px;
+  justify-content: space-around;
+  text-align: center;
+  gap: @spacing-md;
+}
+
+.health-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: @spacing-xs;
+
+  label {
+    font-family: @font-family-sans;
+    font-size: 0.7em;
+    font-weight: bold;
+  }
+
+  input[type="checkbox"] {
+    margin: 0;
+  }
 }
 
 .skull {
@@ -54,11 +72,8 @@ section {
 
 // Once per planet section
 .once-per-planet {
-  h4 {
-    text-align: center;
-    font-weight: normal;
-    text-decoration: underline;
-    margin-bottom: 10px;
+  .section-title {
+    text-align: left;
   }
 
   .items {
@@ -68,15 +83,21 @@ section {
     gap: 15px;
   }
 
-  .item label {
-    font-family: 'Helvetica', Arial, sans-serif;
-    font-size: 0.7em;
-    font-weight: bold;
-  }
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: @spacing-xs;
 
-  .item span {
-    font-size: 0.6em;
-    letter-spacing: 0.1em;
+    label {
+      font-family: @font-family-sans;
+      font-size: 0.7em;
+      font-weight: bold;
+    }
+
+    input[type="checkbox"] {
+      margin: 0;
+    }
   }
 }
 
