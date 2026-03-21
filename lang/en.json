@@ -46,18 +46,37 @@
             "meleeOnly": "Melee only"
         },
 
-        "rank": {
-            "value": "Value",
+        "alien": {
+            "title": "Alien",
+            "alienSkillAcronym": "AS",
+            "alienSkill": "Alien Skill",
             "description": "Description",
+            "abilities": "Special Abilities"
+        },
+
+        "rank": {
+            "title": "Rank",
+            "value": "Rank Value",
+            "valueAbbr": "RV",
+            "details": "Details",
+            "description": "Description",
+            "descriptionPlaceholder": "Rank description...",
             "quote": "Quote",
-            "equipment": "Equipment"
+            "quotePlaceholder": "Memorable quote...",
+            "equipment": "Equipment",
+            "equipmentPlaceholder": "Equipment associated with this rank..."
         },
 
         "weapon": {
+            "title": "Weapon",
+            "stats": "Stats",
             "description": "Description",
             "cc": "CC",
-            "cd": "CD",
-            "ld": "LD"
+            "ccFull": "Close Combat",
+            "cd": "NR",
+            "cdFull": "Near Range",
+            "ld": "FR",
+            "ldFull": "Far Range"
         }
     }
 }

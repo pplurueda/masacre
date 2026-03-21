@@ -1,25 +1,54 @@
-<form class="masacre sheet weaponSheet" autocomplete="off">
-    <header>
-        <div class="sheet-header">
-            <img src="{{item.img}}" data-edit="img" title={{item.name}} height="100px"/>
-            <h1><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'masacre.general.name'}}"/></h1>
-        </div>
+<form class="{{cssClass}}">
+    <header class="sheet-header">
+        <h1>{{toUpperCase (localize "masacre.weapon.title")}}</h1>
     </header>
 
-    <div class="content">
-        <div class="datosBasicos">
-            <div>{{localize "masacre.weapon.cc"}}</div>
-            <div>{{localize "masacre.weapon.cd"}}</div>
-            <div>{{localize "masacre.weapon.ld"}}</div>
+    <main class="weapon-content">
+        <section class="weapon-info">
+            <div class="field">
+                <label>{{localize "masacre.general.name"}}</label>
+                <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'masacre.general.name'}}"/>
+            </div>
+        </section>
 
-            <input name="system.cc" type="text" value="{{item.system.cc}}"/>
-            <input name="system.cd" type="text" value="{{item.system.cd}}"/>
-            <input name="system.ld" type="text" value="{{item.system.ld}}"/>
-        </div>
+        <section class="weapon-stats">
+            <h3 class="section-title">{{toUpperCase (localize "masacre.weapon.stats")}}</h3>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-label">
+                        <span class="stat-abbr">{{localize "masacre.weapon.cc"}}</span>
+                        <span class="stat-desc">{{localize "masacre.weapon.ccFull"}}</span>
+                    </div>
+                    <div class="stat-square">
+                        <input name="system.cc" type="text" value="{{item.system.cc}}"/>
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">
+                        <span class="stat-abbr">{{localize "masacre.weapon.cd"}}</span>
+                        <span class="stat-desc">{{localize "masacre.weapon.cdFull"}}</span>
+                    </div>
+                    <div class="stat-square">
+                        <input name="system.cd" type="text" value="{{item.system.cd}}"/>
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">
+                        <span class="stat-abbr">{{localize "masacre.weapon.ld"}}</span>
+                        <span class="stat-desc">{{localize "masacre.weapon.ldFull"}}</span>
+                    </div>
+                    <div class="stat-square">
+                        <input name="system.ld" type="text" value="{{item.system.ld}}"/>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="editorTexto">
-            <label class="titulo">{{localize "masacre.weapon.description"}}</label>
-            {{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
-        </div>
-    </div>
+        <section class="weapon-description">
+            <h3 class="section-title">{{toUpperCase (localize "masacre.weapon.description")}}</h3>
+            <div class="editor-container">
+                {{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
+            </div>
+        </section>
+    </main>
 </form>

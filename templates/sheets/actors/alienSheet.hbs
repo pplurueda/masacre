@@ -1,19 +1,43 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <header>
-        <div class="characterHeader">
-            <!-- Character Portrait -->
-            <div class="characterPortrait">
-                <img src="{{actor.img}}" data-edit="img" title={{actor.name}} height="100px"/>
+    <header class="sheet-header">
+        <div class="header-content">
+            <div class="portrait">
+                <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
             </div>
-            
-            <div>{{localize "masacre.general.name"}}</div>
-            <div class="fieldName">
-                <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'masacre.name'}}"/></h1>
+            <div class="header-info">
+                <h1>{{toUpperCase (localize "masacre.alien.title")}}</h1>
+                <div class="field name-field">
+                    <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'masacre.general.name'}}"/>
+                </div>
             </div>
         </div>
     </header>
 
-    <h1>{{localize "masacre.alien.alienSkillAcronym"}}</h1>
-    <div>{{localize "masacre.alien.alienSkill"}}</div>
-    <input name="system.alienSkill" type="number" value="{{actor.system.alienSkill}}"/>
+    <main class="main-content">
+        <section class="stats-section">
+            <div class="stat-box">
+                <div class="stat-label">
+                    <span class="stat-abbr">{{localize "masacre.alien.alienSkillAcronym"}}</span>
+                    <span class="stat-desc">{{toUpperCase (localize "masacre.alien.alienSkill")}}</span>
+                </div>
+                <div class="stat-square">
+                    <input name="system.alienSkill" type="number" value="{{actor.system.alienSkill}}" min="0"/>
+                </div>
+            </div>
+        </section>
+
+        <section class="description-section">
+            <h3 class="section-title">{{toUpperCase (localize "masacre.alien.description")}}</h3>
+            <div class="editor-container">
+                {{editor system.description target="system.description" button=true editable=true}}
+            </div>
+        </section>
+
+        <section class="abilities-section">
+            <h3 class="section-title">{{toUpperCase (localize "masacre.alien.abilities")}}</h3>
+            <div class="editor-container">
+                {{editor system.abilities target="system.abilities" button=true editable=true}}
+            </div>
+        </section>
+    </main>
 </form>

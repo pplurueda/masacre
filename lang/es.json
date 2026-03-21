@@ -45,22 +45,36 @@
         },
 
         "alien": {
+            "title": "Alienígena",
             "alienSkillAcronym": "HA",
-            "alienSkill": "Habilidad Alienígena"
+            "alienSkill": "Habilidad Alienígena",
+            "description": "Descripción",
+            "abilities": "Habilidades Especiales"
         },
 
         "rank": {
-            "value": "Valor",
+            "title": "Rango",
+            "value": "Valor del Rango",
+            "valueAbbr": "VR",
+            "details": "Detalles",
             "description": "Descripción",
+            "descriptionPlaceholder": "Descripción del rango...",
             "quote": "Cita",
-            "equipment": "Equipo"
+            "quotePlaceholder": "Cita memorable...",
+            "equipment": "Equipo",
+            "equipmentPlaceholder": "Equipo asociado al rango..."
         },
 
         "weapon": {
+            "title": "Arma",
+            "stats": "Estadísticas",
             "description": "Descripción",
             "cc": "C/C",
+            "ccFull": "Cuerpo a Cuerpo",
             "cd": "CD",
-            "ld": "LD"
+            "cdFull": "Corta Distancia",
+            "ld": "LD",
+            "ldFull": "Larga Distancia"
         }
     }
 }

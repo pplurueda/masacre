@@ -1,27 +1,45 @@
-<form class="{{cssClass}}" autocomplete="off">
-    <header>
-        <div class="characterHeader">
-            <!-- Character Portrait -->
-            <div class="characterPortrait">
-                <img src="{{item.img}}" data-edit="img" title={{item.name}} height="100px"/>
-            </div>
-            
-            <div>{{localize "masacre.general.name"}}</div>
-            <div class="fieldName">
-                <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'masacre.general.name'}}"/></h1>
-            </div>
-        </div>
+<form class="{{cssClass}}">
+    <header class="sheet-header">
+        <h1>{{toUpperCase (localize "masacre.rank.title")}}</h1>
     </header>
 
-    <div>{{localize "masacre.rank.value"}}</div>
-    <input name="system.value" type="number" value="{{item.system.value}}"/>
+    <main class="rank-content">
+        <section class="rank-info">
+            <div class="field">
+                <label>{{localize "masacre.general.name"}}</label>
+                <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'masacre.general.name'}}"/>
+            </div>
+        </section>
 
-    <div>{{localize "masacre.rank.description"}}</div>
-    <input name="system.description" type="text" value="{{item.system.description}}"/>
+        <section class="rank-value">
+            <div class="stat-box">
+                <div class="stat-label">
+                    <span class="stat-abbr">{{localize "masacre.rank.valueAbbr"}}</span>
+                    <span class="stat-desc">{{localize "masacre.rank.value"}}</span>
+                </div>
+                <div class="stat-square">
+                    <input name="system.value" type="number" value="{{item.system.value}}" min="1"/>
+                </div>
+            </div>
+        </section>
 
-    <div>{{localize "masacre.rank.quote"}}</div>
-    <input name="system.quote" type="text" value="{{item.system.quote}}"/>
+        <section class="rank-details">
+            <h3 class="section-title">{{toUpperCase (localize "masacre.rank.details")}}</h3>
+            
+            <div class="field">
+                <label>{{localize "masacre.rank.description"}}</label>
+                <input name="system.description" type="text" value="{{item.system.description}}" placeholder="{{localize 'masacre.rank.descriptionPlaceholder'}}"/>
+            </div>
 
-    <div>{{localize "masacre.rank.equipment"}}</div>
-    <input name="system.equipment" type="text" value="{{item.system.equipment}}"/>
+            <div class="field">
+                <label>{{localize "masacre.rank.quote"}}</label>
+                <input name="system.quote" type="text" value="{{item.system.quote}}" placeholder="{{localize 'masacre.rank.quotePlaceholder'}}"/>
+            </div>
+
+            <div class="field">
+                <label>{{localize "masacre.rank.equipment"}}</label>
+                <input name="system.equipment" type="text" value="{{item.system.equipment}}" placeholder="{{localize 'masacre.rank.equipmentPlaceholder'}}"/>
+            </div>
+        </section>
+    </main>
 </form>
