@@ -12,7 +12,7 @@
   font-style: normal;
   font-display: swap;
 }
-form {
+.masacre.sheet form {
   font-family: 'Times New Roman', serif;
   font-size: 13px;
   color: #212121;
@@ -20,14 +20,14 @@ form {
   margin: 0;
   padding: 20px;
 }
-input[type="text"],
-input[type="number"] {
+.masacre input[type="text"],
+.masacre input[type="number"] {
   background: transparent;
   border: none;
   border-bottom: 1.5px solid #888888;
 }
-input[type="text"]:focus,
-input[type="number"]:focus {
+.masacre input[type="text"]:focus,
+.masacre input[type="number"]:focus {
   outline: none;
   border-bottom-color: #000000;
 }
@@ -92,7 +92,7 @@ input[type="number"]:focus {
   border-bottom: none;
   margin-bottom: 10px;
 }
-input[type="checkbox"] {
+.masacre input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
   width: 12px;
@@ -103,20 +103,20 @@ input[type="checkbox"] {
   margin-right: 6px;
   cursor: pointer;
 }
-input[type="checkbox"]:checked::before {
+.masacre input[type="checkbox"]:checked::before {
   content: '\2714';
   position: absolute;
   font-size: 14px;
   top: -4px;
   left: 0px;
 }
-input[type="checkbox"]:checked.checked-tick::before {
+.masacre input[type="checkbox"]:checked.checked-tick::before {
   content: '\2714';
 }
-input[type="checkbox"]:checked.checked-cross::before {
+.masacre input[type="checkbox"]:checked.checked-cross::before {
   content: '\2716';
 }
-input[type="checkbox"]:checked.checked-slash::before {
+.masacre input[type="checkbox"]:checked.checked-slash::before {
   content: '';
   width: 15px;
   height: 1.5px;
@@ -125,80 +125,153 @@ input[type="checkbox"]:checked.checked-slash::before {
   left: -2px;
   transform: rotate(45deg);
 }
-.item-box {
+.masacre .item-box {
   width: 30px;
   height: 30px;
   border: 2px solid #000000;
   margin: 5px auto;
   display: block;
 }
-.item-box:checked::before {
+.masacre .item-box:checked::before {
   content: '\2716';
   font-size: 24px;
   top: 2px;
   left: 4px;
 }
-.field {
+.masacre .tri-state-toggle {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid #000000;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.masacre .tri-state-toggle[data-state="0"]::before,
+.masacre .tri-state-toggle[data-state="0"]::after {
+  content: none;
+}
+.masacre .tri-state-toggle[data-state="1"]::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 1.5px;
+  background: #000000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.masacre .tri-state-toggle[data-state="2"]::before,
+.masacre .tri-state-toggle[data-state="2"]::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 1.5px;
+  background: #000000;
+  top: 50%;
+  left: 50%;
+}
+.masacre .tri-state-toggle[data-state="2"]::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.masacre .tri-state-toggle[data-state="2"]::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.masacre .tri-state-toggle:hover {
+  border-color: #666666;
+}
+.masacre .flashback-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.masacre .flashback-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.masacre .flashback-item input[type="text"] {
+  flex: 1;
+  border: none;
+  border-bottom: 1px solid #000000;
+  background: transparent;
+  padding: 2px 4px;
+  font-size: inherit;
+}
+.masacre .flashback-item input[type="text"]:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+.masacre .flashback-fixed-text {
+  flex: 1;
+  padding: 2px 4px;
+  font-size: 1.5em;
+}
+.masacre .field {
   display: flex;
   align-items: baseline;
   margin-bottom: 8px;
 }
-.field label {
+.masacre .field label {
   margin-right: 5px;
   white-space: nowrap;
+  font-size: 1.5em;
 }
-.field input[type="text"],
-.field input[type="number"] {
+.masacre .field input[type="text"],
+.masacre .field input[type="number"] {
   width: 100%;
+  font-size: 1.5em;
 }
-.field li {
+.masacre .field li {
   display: grid;
   grid-template-columns: auto 36px max-content;
   padding-left: 10px;
   padding-top: 2px;
   height: 30px;
 }
-.check-field {
+.masacre .check-field {
   display: flex;
   align-items: center;
 }
-.check-field label {
+.masacre .check-field label {
   display: flex;
   align-items: center;
 }
-.check-field.reverse {
+.masacre .check-field.reverse {
   justify-content: flex-start;
   width: 140px;
   margin: 5px 0 5px auto;
 }
-.stat-box {
+.masacre .stat-box {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
   margin-bottom: 15px;
 }
-.stat-box .stat-label {
+.masacre .stat-box .stat-label {
   display: flex;
   flex-direction: column;
   margin-bottom: 5px;
 }
-.stat-box .stat-abbr {
+.masacre .stat-box .stat-abbr {
   font-family: 'Helvetica', Arial, sans-serif;
   font-weight: bold;
   font-size: 2em;
 }
-.stat-box .stat-desc {
+.masacre .stat-box .stat-desc {
   font-family: 'Helvetica', Arial, sans-serif;
   font-size: 0.6em;
   font-weight: bold;
 }
-.stat-box .stat-square {
+.masacre .stat-box .stat-square {
   width: 80px;
   height: 80px;
   border: 4px solid #000000;
 }
-.stat-box .stat-square input[type="number"] {
+.masacre .stat-box .stat-square input[type="number"] {
   width: 100%;
   height: 100%;
   border: none;
@@ -211,17 +284,20 @@ input[type="checkbox"]:checked.checked-slash::before {
   margin: 0;
   -moz-appearance: textfield;
 }
-.stat-box .stat-square input[type="number"]::-webkit-inner-spin-button,
-.stat-box .stat-square input[type="number"]::-webkit-outer-spin-button {
+.masacre .stat-box .stat-square input[type="number"]::-webkit-inner-spin-button,
+.masacre .stat-box .stat-square input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.weapons .weapon-list {
+.masacre .weapons {
+  font-size: 1.5em;
+}
+.masacre .weapons .weapon-list {
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
-.weapons .weapon-header {
+.masacre .weapons .weapon-header {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -233,7 +309,7 @@ input[type="checkbox"]:checked.checked-slash::before {
   padding-bottom: 4px;
   margin-bottom: 2px;
 }
-.weapons .weapon-row {
+.masacre .weapons .weapon-row {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -242,45 +318,45 @@ input[type="checkbox"]:checked.checked-slash::before {
   border-bottom: 1px solid #cccccc;
   font-size: 0.85em;
 }
-.weapons .weapon-col {
+.masacre .weapons .weapon-col {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.weapons .weapon-col-desc {
+.masacre .weapons .weapon-col-desc {
   flex: 3;
 }
-.weapons .weapon-col-stat {
+.masacre .weapons .weapon-col-stat {
   flex: 1;
   text-align: center;
 }
-.weapons .weapon-col-controls {
+.masacre .weapons .weapon-col-controls {
   flex: 0 0 40px;
   display: flex;
   justify-content: flex-end;
   gap: 4px;
 }
-.weapons .weapon-col-controls a {
+.masacre .weapons .weapon-col-controls a {
   cursor: pointer;
   opacity: 0.6;
 }
-.weapons .weapon-col-controls a:hover {
+.masacre .weapons .weapon-col-controls a:hover {
   opacity: 1;
 }
-.character-sheet {
+.masacre.character-sheet {
   max-width: 950px;
   margin: auto;
 }
-.sheet-header {
+.masacre .sheet-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
-.sheet-header h1 {
+.masacre .sheet-header h1 {
   text-align: left;
 }
-.sheet-header .flashbacks-title {
+.masacre .sheet-header .flashbacks-title {
   font-family: 'Caslon Antique', 'Times New Roman', serif;
   font-weight: normal;
   font-size: 3em;
@@ -288,109 +364,127 @@ input[type="checkbox"]:checked.checked-slash::before {
   text-align: right;
   margin: 0;
 }
-.main-content {
+.masacre .main-content {
   display: grid;
   grid-template-columns: 1.3fr 1fr 1.2fr;
+  grid-template-rows: auto auto;
   gap: 30px;
 }
-section {
+.masacre .weapons {
+  grid-column: 1 / 3;
+  grid-row: 2;
+}
+.masacre section {
   margin-bottom: 20px;
 }
-.health-statuses {
+.masacre .health-statuses {
   display: flex;
   justify-content: space-around;
   text-align: center;
   gap: 16px;
 }
-.health-item {
+.masacre .health-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
 }
-.health-item label {
+.masacre .health-item label {
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 0.7em;
+  font-size: 1em;
   font-weight: bold;
 }
-.health-item input[type="checkbox"] {
+.masacre .health-item input[type="checkbox"] {
   margin: 0;
 }
-.skull {
+.masacre .skull {
   font-size: 1.4em;
   vertical-align: middle;
 }
-.once-per-planet .section-title {
+.masacre .once-per-planet .section-title {
   text-align: left;
 }
-.once-per-planet .items {
+.masacre .once-per-planet .items {
   display: flex;
   justify-content: space-around;
   text-align: center;
   gap: 15px;
 }
-.once-per-planet .item {
+.masacre .once-per-planet .item {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
 }
-.once-per-planet .item label {
+.masacre .once-per-planet .item label {
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 0.7em;
+  font-size: 1em;
   font-weight: bold;
 }
-.once-per-planet .item input[type="checkbox"] {
+.masacre .once-per-planet .item input[type="checkbox"] {
   margin: 0;
 }
-.melee .field {
+.masacre .melee .field {
   position: relative;
 }
-.melee .field input {
+.masacre .melee .field input {
   width: 50%;
 }
-.melee .field span {
+.masacre .melee .field span {
   font-size: 0.9em;
   position: absolute;
   left: 55%;
   bottom: 2px;
 }
-.center-column {
+.masacre .center-column {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 }
-.center-column .stat-box:first-child {
+.masacre .center-column .stat-box:first-child {
   margin-top: 0;
 }
-.center-column .stat-box + .stat-box {
+.masacre .center-column .stat-box + .stat-box {
   margin-top: 10px;
 }
-.availability {
+.masacre .availability {
   width: 100%;
 }
-.right-column ul {
+.masacre .right-column ul {
   list-style: none;
   padding: 0;
   margin: 0 0 15px 0;
 }
-.right-column ul li {
+.masacre .right-column ul li {
   margin-bottom: 8px;
 }
-.right-column ul label {
+.masacre .right-column ul label {
   display: flex;
   align-items: center;
 }
-.right-column ul input[type="text"] {
+.masacre .right-column ul input[type="text"] {
   width: 100%;
+  font-size: 1.5em;
 }
-.hate-home {
+.masacre .hate-home {
   border-top: 1.5px dotted #888888;
   border-bottom: 1.5px dotted #888888;
   padding: 5px 0;
   margin-bottom: 20px;
   margin-left: -5px;
+}
+.masacre .rank-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.masacre .rank-description {
+  font-size: 1.5em;
+  flex: 1;
 }
 .masacre.sheet.characterSheet .sheet {
   width: 500px;

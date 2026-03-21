@@ -1,54 +1,58 @@
 // ==========================================================================
 // Stat Box Component
 // ==========================================================================
+// All stat-box styles are scoped to .masacre to avoid interfering with
+// Foundry VTT's global styles.
 
-.stat-box {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  margin-bottom: 15px;
-
-  .stat-label {
+.masacre {
+  .stat-box {
     display: flex;
     flex-direction: column;
-    margin-bottom: 5px;
-  }
+    align-items: flex-start;
+    text-align: left;
+    margin-bottom: 15px;
 
-  .stat-abbr {
-    font-family: 'Helvetica', Arial, sans-serif;
-    font-weight: bold;
-    font-size: 2em;
-  }
+    .stat-label {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 5px;
+    }
 
-  .stat-desc {
-    font-family: 'Helvetica', Arial, sans-serif;
-    font-size: 0.6em;
-    font-weight: bold;
-  }
-
-  .stat-square {
-    width: 80px;
-    height: 80px;
-    border: 4px solid #000000;
-
-    input[type="number"] {
-      width: 100%;
-      height: 100%;
-      border: none;
-      background: transparent;
-      text-align: center;
-      font-size: 2.5em;
-      font-weight: bold;
+    .stat-abbr {
       font-family: 'Helvetica', Arial, sans-serif;
-      padding: 0;
-      margin: 0;
-      -moz-appearance: textfield;
+      font-weight: bold;
+      font-size: 2em;
+    }
 
-      &::-webkit-inner-spin-button,
-      &::-webkit-outer-spin-button {
-        -webkit-appearance: none;
+    .stat-desc {
+      font-family: 'Helvetica', Arial, sans-serif;
+      font-size: 0.6em;
+      font-weight: bold;
+    }
+
+    .stat-square {
+      width: 80px;
+      height: 80px;
+      border: 4px solid #000000;
+
+      input[type="number"] {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background: transparent;
+        text-align: center;
+        font-size: 2.5em;
+        font-weight: bold;
+        font-family: 'Helvetica', Arial, sans-serif;
+        padding: 0;
         margin: 0;
+        -moz-appearance: textfield;
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
       }
     }
   }

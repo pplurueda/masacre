@@ -1,61 +1,161 @@
 // ==========================================================================
 // Checkbox Components
 // ==========================================================================
+// All checkbox styles are scoped to .masacre to avoid interfering with
+// Foundry VTT's global styles.
 
-input[type="checkbox"] {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 12px;
-  height: 12px;
-  border: 1.5px solid #000000;
-  position: relative;
-  top: 2px;
-  margin-right: 6px;
-  cursor: pointer;
-
-  // Default checked indicator
-  &:checked::before {
-    content: '\2714'; // checkmark
-    position: absolute;
-    font-size: 14px;
-    top: -4px;
-    left: 0px;
-  }
-
-  // Variant: tick mark
-  &:checked.checked-tick::before {
-    content: '\2714'; // checkmark
-  }
-
-  // Variant: cross mark
-  &:checked.checked-cross::before {
-    content: '\2716'; // heavy multiplication x
-  }
-
-  // Variant: slash mark
-  &:checked.checked-slash::before {
-    content: '';
-    width: 15px;
-    height: 1.5px;
-    background: black;
-    top: 5px;
-    left: -2px;
-    transform: rotate(45deg);
-  }
-}
-
-// Large checkbox variant (for once-per-planet items)
-.item-box {
-  width: 30px;
-  height: 30px;
-  border: 2px solid #000000;
-  margin: 5px auto;
-  display: block;
-
-  &:checked::before {
-    content: '\2716'; // heavy multiplication x
-    font-size: 24px;
+.masacre {
+  input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    border: 1.5px solid #000000;
+    position: relative;
     top: 2px;
-    left: 4px;
+    margin-right: 6px;
+    cursor: pointer;
+
+    // Default checked indicator
+    &:checked::before {
+      content: '\2714'; // checkmark
+      position: absolute;
+      font-size: 14px;
+      top: -4px;
+      left: 0px;
+    }
+
+    // Variant: tick mark
+    &:checked.checked-tick::before {
+      content: '\2714'; // checkmark
+    }
+
+    // Variant: cross mark
+    &:checked.checked-cross::before {
+      content: '\2716'; // heavy multiplication x
+    }
+
+    // Variant: slash mark
+    &:checked.checked-slash::before {
+      content: '';
+      width: 15px;
+      height: 1.5px;
+      background: black;
+      top: 5px;
+      left: -2px;
+      transform: rotate(45deg);
+    }
+  }
+
+  // Large checkbox variant (for once-per-planet items)
+  .item-box {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #000000;
+    margin: 5px auto;
+    display: block;
+
+    &:checked::before {
+      content: '\2716'; // heavy multiplication x
+      font-size: 24px;
+      top: 2px;
+      left: 4px;
+    }
+  }
+
+  // ==========================================================================
+  // Tri-State Toggle Component
+  // ==========================================================================
+  // States: 0 = empty, 1 = diagonal slash, 2 = cross (X)
+
+  .tri-state-toggle {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid #000000;
+    position: relative;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-right: 6px;
+    vertical-align: middle;
+
+    // State 0: empty (no content)
+    &[data-state="0"]::before,
+    &[data-state="0"]::after {
+      content: none;
+    }
+
+    // State 1: diagonal slash (\)
+    &[data-state="1"]::before {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 1.5px;
+      background: #000000;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    // State 2: cross (X)
+    &[data-state="2"]::before,
+    &[data-state="2"]::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 1.5px;
+      background: #000000;
+      top: 50%;
+      left: 50%;
+    }
+
+    &[data-state="2"]::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &[data-state="2"]::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    // Hover effect
+    &:hover {
+      border-color: #666666;
+    }
+  }
+
+  // ==========================================================================
+  // Flashback List & Items
+  // ==========================================================================
+
+  .flashback-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .flashback-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+
+    input[type="text"] {
+      flex: 1;
+      border: none;
+      border-bottom: 1px solid #000000;
+      background: transparent;
+      padding: 2px 4px;
+      font-size: inherit;
+
+      &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .flashback-fixed-text {
+    flex: 1;
+    padding: 2px 4px;
+    font-size: 1.5em;
   }
 }

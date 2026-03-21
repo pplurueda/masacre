@@ -20,7 +20,7 @@
             <section class="character-info">
                 <div class="field">
                     <label for="nombre">{{localize "masacre.general.name"}}</label>
-                    <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'masacre.name'}}"/>
+                    <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'masacre.general.name'}}"/>
                 </div>
                 <div class="field">
                     <label for="reputacion">{{localize "masacre.character.reputation"}}</label>
@@ -28,8 +28,8 @@
                 </div>
                 <div class="field">
                     <label for="rango">{{localize "masacre.character.rank"}}</label>
-                    <li data-item-id="{{actor.system.rank.id}}">
-                        <div>{{concat actor.system.rank.name "[" actor.system.rank.system.value "]"}}</div>
+                    <li class="rank-item" data-item-id="{{actor.system.rank.id}}">
+                        <div class="rank-description">{{concat actor.system.rank.name "[" actor.system.rank.system.value "]"}}</div>
                         <div class="itemControls">
                             <a class="itemControl" data-action="edit" title="{{'masacre.edit'}}">
                                 <i class="fas fa-edit"></i>
@@ -58,15 +58,15 @@
                 <h3 class="section-title">{{toUpperCase (localize "masacre.character.wounds")}}</h3>
                 <div class="health-statuses">
                     <div class="health-item">
-                        <label>{{localize "masacre.character.woundsMadeMess"}}</label>
+                        <label>{{toUpperCase (localize "masacre.character.woundsMadeMess")}}</label>
                         <input name="system.wounds.madeMess" type="checkbox" {{#if actor.system.wounds.madeMess}}checked{{/if}}/>
                     </div>
                     <div class="health-item">
-                        <label>{{localize "masacre.character.woundsCrippled"}}</label>
+                        <label>{{toUpperCase (localize "masacre.character.woundsCrippled")}}</label>
                         <input name="system.wounds.crippled" type="checkbox" {{#if actor.system.wounds.crippled}}checked{{/if}}/>
                     </div>
                     <div class="health-item">
-                        <label>{{localize "masacre.character.woundsDeath"}}</label>
+                        <label>{{toUpperCase (localize "masacre.character.woundsDeath")}}</label>
                         <input name="system.wounds.death" type="checkbox" {{#if actor.system.wounds.death}}checked{{/if}}/>
                     </div>
                 </div>
@@ -83,35 +83,6 @@
                         <label>{{toUpperCase (localize "masacre.character.combatDrugs")}}</label>
                         <input name="system.combatDrugUsed" type="checkbox" class="item-box" {{#if actor.system.combatDrugUsed}}checked{{/if}}/>
                     </div>
-                </div>
-            </section>
-
-            <section class="weapons">
-                <h3 class="section-title">{{toUpperCase (localize "masacre.character.weapons")}}</h3>
-                <div class="weapon-list">
-                    <div class="weapon-header">
-                        <span class="weapon-col weapon-col-desc">{{localize "masacre.weapon.description"}}</span>
-                        <span class="weapon-col weapon-col-stat">{{localize "masacre.weapon.cc"}}</span>
-                        <span class="weapon-col weapon-col-stat">{{localize "masacre.weapon.cd"}}</span>
-                        <span class="weapon-col weapon-col-stat">{{localize "masacre.weapon.ld"}}</span>
-                        <span class="weapon-col weapon-col-controls"></span>
-                    </div>
-                    {{#each weapons as |weapon|}}
-                    <li class="weapon-row" data-item-id="{{weapon._id}}">
-                        <span class="weapon-col weapon-col-desc">{{weapon.name}}</span>
-                        <span class="weapon-col weapon-col-stat">{{weapon.system.cc}}</span>
-                        <span class="weapon-col weapon-col-stat">{{weapon.system.cd}}</span>
-                        <span class="weapon-col weapon-col-stat">{{weapon.system.ld}}</span>
-                        <span class="weapon-col weapon-col-controls">
-                            <a class="itemControl" data-action="edit" title="{{localize 'masacre.general.edit'}}">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <a class="itemControl" data-action="delete" title="{{localize 'masacre.general.delete'}}">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                        </span>
-                    </li>
-                    {{/each}}
                 </div>
             </section>
         </div>
@@ -138,27 +109,107 @@
             </div>
         </div>
 
+        {{!-- Sección de Armas (spans left and center columns) --}}
+        <section class="weapons">
+            <h3 class="section-title">{{toUpperCase (localize "masacre.character.weapons")}}</h3>
+            <div class="weapon-list">
+                <div class="weapon-header">
+                    <span class="weapon-col weapon-col-desc">{{localize "masacre.weapon.description"}}</span>
+                    <span class="weapon-col weapon-col-stat">{{localize "masacre.weapon.cc"}}</span>
+                    <span class="weapon-col weapon-col-stat">{{localize "masacre.weapon.cd"}}</span>
+                    <span class="weapon-col weapon-col-stat">{{localize "masacre.weapon.ld"}}</span>
+                    <span class="weapon-col weapon-col-controls"></span>
+                </div>
+                {{#each weapons as |weapon|}}
+                <li class="weapon-row" data-item-id="{{weapon._id}}">
+                    <span class="weapon-col weapon-col-desc">{{weapon.name}}</span>
+                    <span class="weapon-col weapon-col-stat">{{weapon.system.cc}}</span>
+                    <span class="weapon-col weapon-col-stat">{{weapon.system.cd}}</span>
+                    <span class="weapon-col weapon-col-stat">{{weapon.system.ld}}</span>
+                    <span class="weapon-col weapon-col-controls">
+                        <a class="itemControl" data-action="edit" title="{{localize 'masacre.general.edit'}}">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a class="itemControl" data-action="delete" title="{{localize 'masacre.general.delete'}}">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </span>
+                </li>
+                {{/each}}
+            </div>
+        </section>
+
         {{!-- Columna Derecha --}}
         <div class="column right-column">
             <section class="qualities">
                 <h3 class="section-title-right">{{toUpperCase (localize "masacre.character.qualities")}}</h3>
-                <ul>
-                    <li><label><input type="checkbox" class="checked-slash" checked> <input type="text"></label></li>
-                    <li><label><input type="checkbox" class="checked-slash"> <input type="text"></label></li>
-                    <li><label><input type="checkbox" class="checked-slash"> <input type="text"></label></li>
-                    <li><label><input type="checkbox" class="checked-slash"> <input type="text"></label></li>
-                    <li><label><input type="checkbox" class="checked-slash"> <input type="text"></label></li>
+                <ul class="flashback-list">
+                    <li class="flashback-item">
+                        <span class="tri-state-toggle" 
+                              data-field="system.flashbacks.strength1.state" 
+                              data-state="{{actor.system.flashbacks.strength1.state}}"></span>
+                        <input type="text" name="system.flashbacks.strength1.description" value="{{actor.system.flashbacks.strength1.description}}" {{#if (eq actor.system.flashbacks.strength1.state 1)}}{{else}}disabled{{/if}}/>
+                    </li>
+                    <li class="flashback-item">
+                        <span class="tri-state-toggle" 
+                              data-field="system.flashbacks.strength2.state" 
+                              data-state="{{actor.system.flashbacks.strength2.state}}"></span>
+                        <input type="text" name="system.flashbacks.strength2.description" value="{{actor.system.flashbacks.strength2.description}}" {{#if (eq actor.system.flashbacks.strength2.state 1)}}{{else}}disabled{{/if}}/>
+                    </li>
+                    <li class="flashback-item">
+                        <span class="tri-state-toggle" 
+                              data-field="system.flashbacks.strength3.state" 
+                              data-state="{{actor.system.flashbacks.strength3.state}}"></span>
+                        <input type="text" name="system.flashbacks.strength3.description" value="{{actor.system.flashbacks.strength3.description}}" {{#if (eq actor.system.flashbacks.strength3.state 1)}}{{else}}disabled{{/if}}/>
+                    </li>
+                    <li class="flashback-item">
+                        <span class="tri-state-toggle" 
+                              data-field="system.flashbacks.strength4.state" 
+                              data-state="{{actor.system.flashbacks.strength4.state}}"></span>
+                        <input type="text" name="system.flashbacks.strength4.description" value="{{actor.system.flashbacks.strength4.description}}" {{#if (eq actor.system.flashbacks.strength4.state 1)}}{{else}}disabled{{/if}}/>
+                    </li>
+                    <li class="flashback-item">
+                        <span class="tri-state-toggle" 
+                              data-field="system.flashbacks.strength5.state" 
+                              data-state="{{actor.system.flashbacks.strength5.state}}"></span>
+                        <input type="text" name="system.flashbacks.strength5.description" value="{{actor.system.flashbacks.strength5.description}}" {{#if (eq actor.system.flashbacks.strength5.state 1)}}{{else}}disabled{{/if}}/>
+                    </li>
                 </ul>
             </section>
 
             <section class="flaws">
                 <h3 class="section-title-right">{{toUpperCase (localize "masacre.character.flaws")}}</h3>
-                <ul>
-                    <li><label><input type="checkbox" class="checked-slash" checked> <input type="text"></label></li>
-                    <li><label><input type="checkbox" class="checked-slash"> <input type="text"></label></li>
-                    <li><label><input type="checkbox" class="checked-slash"> <input type="text"></label></li>
-                    <li><label><input type="checkbox" class="checked-slash"> <input type="text"></label></li>
-                    <li><label><input type="checkbox" class="checked-slash">{{localize "masacre.character.flashbackHateHome"}}</label></li>
+                <ul class="flashback-list">
+                    <li class="flashback-item">
+                        <span class="tri-state-toggle" 
+                              data-field="system.flashbacks.weakness1.state" 
+                              data-state="{{actor.system.flashbacks.weakness1.state}}"></span>
+                        <input type="text" name="system.flashbacks.weakness1.description" value="{{actor.system.flashbacks.weakness1.description}}" {{#if (eq actor.system.flashbacks.weakness1.state 1)}}{{else}}disabled{{/if}}/>
+                    </li>
+                    <li class="flashback-item">
+                        <span class="tri-state-toggle" 
+                              data-field="system.flashbacks.weakness2.state" 
+                              data-state="{{actor.system.flashbacks.weakness2.state}}"></span>
+                        <input type="text" name="system.flashbacks.weakness2.description" value="{{actor.system.flashbacks.weakness2.description}}" {{#if (eq actor.system.flashbacks.weakness2.state 1)}}{{else}}disabled{{/if}}/>
+                    </li>
+                    <li class="flashback-item">
+                        <span class="tri-state-toggle" 
+                              data-field="system.flashbacks.weakness3.state" 
+                              data-state="{{actor.system.flashbacks.weakness3.state}}"></span>
+                        <input type="text" name="system.flashbacks.weakness3.description" value="{{actor.system.flashbacks.weakness3.description}}" {{#if (eq actor.system.flashbacks.weakness3.state 1)}}{{else}}disabled{{/if}}/>
+                    </li>
+                    <li class="flashback-item">
+                        <span class="tri-state-toggle" 
+                              data-field="system.flashbacks.weakness4.state" 
+                              data-state="{{actor.system.flashbacks.weakness4.state}}"></span>
+                        <input type="text" name="system.flashbacks.weakness4.description" value="{{actor.system.flashbacks.weakness4.description}}" {{#if (eq actor.system.flashbacks.weakness4.state 1)}}{{else}}disabled{{/if}}/>
+                    </li>
+                    <li class="flashback-item">
+                        <span class="tri-state-toggle" 
+                              data-field="system.flashbacks.weakness5.state" 
+                              data-state="{{actor.system.flashbacks.weakness5.state}}"></span>
+                        <span class="flashback-fixed-text">{{localize "masacre.character.flashbackHateHome"}}</span>
+                    </li>
                 </ul>
             </section>
 

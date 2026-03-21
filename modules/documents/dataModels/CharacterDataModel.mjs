@@ -23,53 +23,43 @@ export class CharacterDataModel extends ActorDataModel {
           flashbacks: new SchemaField({
             strength1: new SchemaField({
               description: new StringField({ required: true, blank: true }),
-              editable: new BooleanField({ required: true, initial: true }),
-              state: new StringField({ required: true, blank: true, initial: game.i18n.format("masacre.character.flashbackEnabled")})
+              state: new NumberField({ required: true, integer: true, min: 0, max: 2, initial: 1 })
             }),
             strength2: new SchemaField({
               description: new StringField({ required: true, blank: true }),
-              editable: new BooleanField({ required: true, initial: true }),
-              state: new StringField({ required: true, blank: true, initial: game.i18n.format("masacre.character.flashbackDisabled")})
+              state: new NumberField({ required: true, integer: true, min: 0, max: 2, initial: 0 })
             }),
             strength3: new SchemaField({
               description: new StringField({ required: true, blank: true }),
-              editable: new BooleanField({ required: true, initial: true }),
-              state: new StringField({ required: true, blank: true, initial: game.i18n.format("masacre.character.flashbackDisabled")})
+              state: new NumberField({ required: true, integer: true, min: 0, max: 2, initial: 0 })
             }),
             strength4: new SchemaField({
               description: new StringField({ required: true, blank: true }),
-              editable: new BooleanField({ required: true, initial: true }),
-              state: new StringField({ required: true, blank: true, initial: game.i18n.format("masacre.character.flashbackDisabled")})
+              state: new NumberField({ required: true, integer: true, min: 0, max: 2, initial: 0 })
             }),
             strength5: new SchemaField({
               description: new StringField({ required: true, blank: true }),
-              editable: new BooleanField({ required: true, initial: true }),
-              state: new StringField({ required: true, blank: true, initial: game.i18n.format("masacre.character.flashbackDisabled")})
+              state: new NumberField({ required: true, integer: true, min: 0, max: 2, initial: 0 })
             }),
             weakness1: new SchemaField({
               description: new StringField({ required: true, blank: true }),
-              editable: new BooleanField({ required: true, initial: true }),
-              state: new StringField({ required: true, blank: true, initial: game.i18n.format("masacre.character.flashbackEnabled")})
+              state: new NumberField({ required: true, integer: true, min: 0, max: 2, initial: 1 })
             }),
             weakness2: new SchemaField({
               description: new StringField({ required: true, blank: true }),
-              editable: new BooleanField({ required: true, initial: true }),
-              state: new StringField({ required: true, blank: true, initial: game.i18n.format("masacre.character.flashbackDisabled")})
+              state: new NumberField({ required: true, integer: true, min: 0, max: 2, initial: 0 })
             }),
             weakness3: new SchemaField({
               description: new StringField({ required: true, blank: true }),
-              editable: new BooleanField({ required: true, initial: true }),
-              state:new StringField({ required: true, blank: true, initial: game.i18n.format("masacre.character.flashbackDisabled")})
+              state: new NumberField({ required: true, integer: true, min: 0, max: 2, initial: 0 })
             }),
             weakness4: new SchemaField({
               description: new StringField({ required: true, blank: true }),
-              editable: new BooleanField({ required: true, initial: true }),
-              state:new StringField({ required: true, blank: true, initial: game.i18n.format("masacre.character.flashbackDisabled")})
+              state: new NumberField({ required: true, integer: true, min: 0, max: 2, initial: 0 })
             }),
             weakness5: new SchemaField({
-              description: new StringField({ required: true, blank: true, initial: game.i18n.format("masacre.character.flashbackHateHome")}),
-              editable: new BooleanField({ required: true, initial: false}),
-              state:new StringField({ required: true, blank: true, initial: game.i18n.format("masacre.character.flashbackDisabled")})
+              description: new StringField({ required: true, blank: true, initial: "" }),
+              state: new NumberField({ required: true, integer: true, min: 0, max: 2, initial: 0 })
             })
           })
         }

@@ -28,6 +28,8 @@ export class CharacterSheet extends ActorSheet {
         
         html.find('.itemControl').click(this._onItemControl.bind(this));
 
+        html.find('.tri-state-toggle').click(this._onTriStateToggle.bind(this));
+
         //html.find('.condicionAplicada').click(this._condicionAplicada.bind(this));
 
         //html.find('.condicionEnergeticaAplicada').click(this._condicionEnergeticaAplicada.bind(this));
@@ -101,5 +103,16 @@ export class CharacterSheet extends ActorSheet {
             
             await actor.deleteEmbeddedDocuments("Item", [rank._id]);
         });
+    }
+
+    async _onTriStateToggle(event) {
+        event.preventDefault();
+
+        const element = event.currentTarget;
+        const field = element.dataset.field;
+        const currentState = parseInt(element.dataset.state) || 0;
+        const newState = (currentState + 1) % 3;
+
+        await this.actor.update({ [field]: newState });
     }
 }

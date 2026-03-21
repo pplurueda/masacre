@@ -81,4 +81,9 @@ Hooks.once("init", function(){
         
         return str.toUpperCase();
     });
+
+    Handlebars.registerHelper('eq', function (a, b) {
+        
+        return a === b;
+    });
 });
