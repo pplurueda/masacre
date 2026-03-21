@@ -5,9 +5,23 @@
 .masacre.sheet.weaponSheet {
   padding: @spacing-md;
 
-  // Header with title
+  // Header with image and title
   .sheet-header {
     .sheet-header-base();
+    .flex-between();
+
+    .item-portrait {
+      width: @stat-box-size-md;
+      height: @stat-box-size-md;
+      border: @border-width-xl solid @color-black;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    h1 {
+      flex: 1;
+      text-align: center;
+    }
   }
 
   // Main content area

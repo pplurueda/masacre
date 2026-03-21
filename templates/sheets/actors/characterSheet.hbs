@@ -10,6 +10,7 @@
 
 <form class="{{cssClass}}">
     <header class="sheet-header">
+        <img class="actor-portrait" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
         <h1>{{toUpperCase (localize "masacre.general.threeSixteen")}}</h1>
         <h2 class="flashbacks-title">{{toUpperCase (localize "masacre.character.flashback")}}</h2>
     </header>
@@ -85,6 +86,36 @@
                     </div>
                 </div>
             </section>
+
+            {{!-- Sección de Armas (dentro de left-column, debajo de once-per-planet) --}}
+            <section class="weapons">
+                <h3 class="section-title">{{toUpperCase (localize "masacre.character.weapons")}}</h3>
+                <div class="weapon-list">
+                    <div class="weapon-header">
+                        <span class="weapon-col weapon-col-desc">{{localize "masacre.weapon.description"}}</span>
+                        <span class="weapon-col weapon-col-stat">{{localize "masacre.weapon.cc"}}</span>
+                        <span class="weapon-col weapon-col-stat">{{localize "masacre.weapon.cd"}}</span>
+                        <span class="weapon-col weapon-col-stat">{{localize "masacre.weapon.ld"}}</span>
+                        <span class="weapon-col weapon-col-controls"></span>
+                    </div>
+                    {{#each weapons as |weapon|}}
+                    <li class="weapon-row" data-item-id="{{weapon._id}}">
+                        <span class="weapon-col weapon-col-desc">{{weapon.name}}</span>
+                        <span class="weapon-col weapon-col-stat">{{weapon.system.cc}}</span>
+                        <span class="weapon-col weapon-col-stat">{{weapon.system.cd}}</span>
+                        <span class="weapon-col weapon-col-stat">{{weapon.system.ld}}</span>
+                        <span class="weapon-col weapon-col-controls">
+                            <a class="itemControl" data-action="edit" title="{{localize 'masacre.general.edit'}}">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a class="itemControl" data-action="delete" title="{{localize 'masacre.general.delete'}}">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </span>
+                    </li>
+                    {{/each}}
+                </div>
+            </section>
         </div>
 
         <!-- Columna Central -->
@@ -108,36 +139,6 @@
                 </div>
             </div>
         </div>
-
-        {{!-- Sección de Armas (spans left and center columns) --}}
-        <section class="weapons">
-            <h3 class="section-title">{{toUpperCase (localize "masacre.character.weapons")}}</h3>
-            <div class="weapon-list">
-                <div class="weapon-header">
-                    <span class="weapon-col weapon-col-desc">{{localize "masacre.weapon.description"}}</span>
-                    <span class="weapon-col weapon-col-stat">{{localize "masacre.weapon.cc"}}</span>
-                    <span class="weapon-col weapon-col-stat">{{localize "masacre.weapon.cd"}}</span>
-                    <span class="weapon-col weapon-col-stat">{{localize "masacre.weapon.ld"}}</span>
-                    <span class="weapon-col weapon-col-controls"></span>
-                </div>
-                {{#each weapons as |weapon|}}
-                <li class="weapon-row" data-item-id="{{weapon._id}}">
-                    <span class="weapon-col weapon-col-desc">{{weapon.name}}</span>
-                    <span class="weapon-col weapon-col-stat">{{weapon.system.cc}}</span>
-                    <span class="weapon-col weapon-col-stat">{{weapon.system.cd}}</span>
-                    <span class="weapon-col weapon-col-stat">{{weapon.system.ld}}</span>
-                    <span class="weapon-col weapon-col-controls">
-                        <a class="itemControl" data-action="edit" title="{{localize 'masacre.general.edit'}}">
-                            <i class="fas fa-edit"></i>
-                        </a>
-                        <a class="itemControl" data-action="delete" title="{{localize 'masacre.general.delete'}}">
-                            <i class="fas fa-trash"></i>
-                        </a>
-                    </span>
-                </li>
-                {{/each}}
-            </div>
-        </section>
 
         {{!-- Columna Derecha --}}
         <div class="column right-column">
@@ -213,8 +214,27 @@
                 </ul>
             </section>
 
+            <section class="rank-details">
+                <h3 class="section-title-right">{{toUpperCase (localize "masacre.character.rank")}}</h3>
+                <div class="rank-details__content">
+                    <p class="rank-details__name"><strong>{{actor.system.rank.name}}</strong></p>
+                    <p class="rank-details__description">{{actor.system.rank.system.description}}</p>
+                    <p class="rank-details__quote"><em>{{actor.system.rank.system.quote}}</em></p>
+                    <div class="rank-details__responsibility">{{{actor.system.rank.system.responsibility}}}</div>
+                    <ul class="rank-details__equipment">
+                        {{#each actor.system.equipment as |item|}}
+                        <li class="rank-details__equipment-item">{{item}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </section>
+
+            <section class="medals">
+                <h3 class="section-title-right">{{toUpperCase (localize "masacre.character.medals")}}</h3>
+            </section>
+
             <section class="notes">
-                <h3 class="section-title-right">{{toUpperCase (localize "masacre.character.gearNotes")}}</h3>
+                <h3 class="section-title-right">{{toUpperCase (localize "masacre.character.notes")}}</h3>
             </section>
         </div>
     </main>

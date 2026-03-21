@@ -37,6 +37,9 @@
             "equipment": "Equipment",
             "qualities": "Strengths",
             "flaws": "Weaknesses",
+            "gear": "Gear",
+            "medals": "Medals",
+            "notes": "Notes",
             "gearNotes": "Gear, Medals & Notes",
             "total": "Total",
             "currentMission": "This mission",
@@ -62,7 +65,9 @@
             "quote": "Quote",
             "quotePlaceholder": "Memorable quote...",
             "equipment": "Equipment",
-            "equipmentPlaceholder": "Equipment associated with this rank..."
+            "equipmentPlaceholder": "Equipment associated with this rank...",
+            "responsibility": "Responsibility",
+            "responsibilityPlaceholder": "Rank responsibility..."
         },
 
         "weapon": {

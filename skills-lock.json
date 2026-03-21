@@ -6,6 +6,11 @@
       "sourceType": "github",
       "computedHash": "516bd2154eb843a8240e43d5b285229129853114ad7075a5e141e1c08e408c84"
     },
+    "javascript-sdk": {
+      "source": "inferen-sh/skills",
+      "sourceType": "github",
+      "computedHash": "7ae0b0fcbc128747f4a1c9e28c6f9ea04c0ade53688b9daad0ebd147a8322bd8"
+    },
     "less-best-practices": {
       "source": "mindrally/skills",
       "sourceType": "github",

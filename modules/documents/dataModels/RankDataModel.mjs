@@ -6,6 +6,7 @@ export class RankDataModel extends foundry.abstract.TypeDataModel {
           value: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
           description: new StringField({ required: true, blank: true }),
           quote: new StringField({ required: true, blank: true }),
+          responsibility: new StringField({ required: true, blank: true }),
           equipment: new StringField({ required: true, blank: true })
         }
       };
@@ -16,4 +17,4 @@ export class RankDataModel extends foundry.abstract.TypeDataModel {
       // Determine the hero's current level.
       //this.level = Math.floor(this.progress / 5);
     }
-}
+  }

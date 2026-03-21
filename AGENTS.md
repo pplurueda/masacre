@@ -11,6 +11,9 @@ for UI and LESS for styling. There is no build step, bundler, or transpiler.
 - **Foundry compatibility:** v13 only
 - **Languages:** Spanish (primary) and English
 
+## Foundry VTT API documentation URL
+/https://foundryvtt.com/api/
+
 ## Build / Compile / Test Commands
 
 There is **no build pipeline, test framework, or linter** configured in this project.
