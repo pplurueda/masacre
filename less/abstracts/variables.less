@@ -1,34 +1,139 @@
-// Colors
-@color-paper: #f8f4ed;
-@color-ink: #1f1b16;
-@color-muted: #7a6f62;
-@color-border: #c7b9a3;
-@color-accent: #3a4a5a;
-@color-heading: #3a3a3a;
+// ==========================================================================
+// Variables
+// ==========================================================================
+// Centralized design tokens for the Masacre system
 
+// -----------------------------------------------------------------------------
+// Colors - Semantic naming
+// -----------------------------------------------------------------------------
+
+// Base colors
+@color-white: #ffffff;
+@color-black: #000000;
+
+// Paper theme
+@color-paper: #f8f4ed;
+@color-paper-dark: #e2e2e2;
+@color-ink: #1f1b16;
+@color-ink-light: #212121;
+
+// UI colors
+@color-border: #c7b9a3;
+@color-border-light: #cccccc;
+@color-border-dark: #888888;
+@color-muted: #7a6f62;
+@color-heading: #3a3a3a;
+@color-accent: #3a4a5a;
+
+// Alien theme colors
+@color-alien-bg-start: #1a1a2e;
+@color-alien-bg-end: #16213e;
+@color-alien-border: #0f3460;
+@color-alien-accent: #e94560;
+
+// -----------------------------------------------------------------------------
 // Typography
+// -----------------------------------------------------------------------------
+
+// Font families
+@font-family-serif: 'Times New Roman', serif;
+@font-family-sans: 'Montserrat', Arial, sans-serif;
 @font-family-heading: 'Cinzel', 'Times New Roman', serif;
 @font-family-body: 'Cormorant Garamond', 'Times New Roman', serif;
-@font-family-sans: 'Montserrat', Arial, sans-serif;
-@font-family-chalk: 'Chalk Board', 'Comic Sans MS', cursive;
-@font-size-xs: 0.75rem;
-@font-size-sm: 0.875rem;
-@font-size-base: 1rem;
-@font-size-lg: 1.25rem;
-@font-size-xl: 1.5rem;
+@font-family-chalk: 'Caslon Antique', 'Times New Roman', serif;
+@font-family-mono: 'Helvetica', Arial, sans-serif;
 
-// Spacing
-@spacing-xxs: 4px;
-@spacing-xs: 8px;
-@spacing-sm: 12px;
-@spacing-md: 16px;
-@spacing-lg: 24px;
-@spacing-xl: 32px;
+// Font sizes
+@font-size-xs: 0.75rem;    // 12px
+@font-size-sm: 0.875rem;   // 14px
+@font-size-base: 1rem;     // 16px
+@font-size-lg: 1.25rem;    // 20px
+@font-size-xl: 1.5rem;     // 24px
+@font-size-2xl: 2rem;      // 32px
+@font-size-3xl: 3rem;      // 48px
+@font-size-6xl: 6rem;      // 96px
 
-// Shadow & Radius
+// Font weights
+@font-weight-normal: 400;
+@font-weight-medium: 500;
+@font-weight-bold: 700;
+
+// Line heights
+@line-height-tight: 1.2;
+@line-height-base: 1.5;
+
+// Letter spacing
+@letter-spacing-tight: 0.05em;
+@letter-spacing-base: 0.1em;
+@letter-spacing-wide: 0.2em;
+
+// -----------------------------------------------------------------------------
+// Spacing Scale
+// -----------------------------------------------------------------------------
+
+@spacing-unit: 4px;
+@spacing-xxs: @spacing-unit;           // 4px
+@spacing-xs: (@spacing-unit * 2);      // 8px
+@spacing-sm: (@spacing-unit * 3);      // 12px
+@spacing-md: (@spacing-unit * 4);      // 16px
+@spacing-lg: (@spacing-unit * 6);      // 24px
+@spacing-xl: (@spacing-unit * 8);      // 32px
+@spacing-2xl: (@spacing-unit * 12);    // 48px
+
+// -----------------------------------------------------------------------------
+// Borders
+// -----------------------------------------------------------------------------
+
+@border-width-sm: 1px;
+@border-width-base: 1.5px;
+@border-width-md: 2px;
+@border-width-lg: 3px;
+@border-width-xl: 4px;
+
+@border-radius-sm: 2px;
+@border-radius-base: 4px;
+@border-radius-md: 6px;
+@border-radius-lg: 8px;
+
+// -----------------------------------------------------------------------------
+// Shadows
+// -----------------------------------------------------------------------------
+
 @shadow-card: 0 8px 18px rgba(31, 27, 22, 0.15);
-@radius-base: 6px;
+@shadow-text: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
+// -----------------------------------------------------------------------------
 // Layout
-@sheet-width: 900px;
-@sheet-height: 640px;
+// -----------------------------------------------------------------------------
+
+@sheet-width-sm: 400px;
+@sheet-width-md: 500px;
+@sheet-width-lg: 900px;
+@sheet-width-xl: 950px;
+
+@sheet-height-sm: 500px;
+@sheet-height-md: 640px;
+
+// Stat box sizes
+@stat-box-size-sm: 60px;
+@stat-box-size-md: 80px;
+
+// Checkbox sizes
+@checkbox-size-sm: 12px;
+@checkbox-size-md: 14px;
+@checkbox-size-lg: 30px;
+
+// -----------------------------------------------------------------------------
+// Transitions
+// -----------------------------------------------------------------------------
+
+@transition-fast: 0.15s ease;
+@transition-base: 0.3s ease;
+
+// -----------------------------------------------------------------------------
+// Z-index Scale
+// -----------------------------------------------------------------------------
+
+@z-index-base: 1;
+@z-index-dropdown: 100;
+@z-index-modal: 1000;

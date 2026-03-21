@@ -5,42 +5,31 @@
 // Foundry VTT's global styles.
 
 .masacre {
+  // Base checkbox
   input[type="checkbox"] {
-    appearance: none;
-    -webkit-appearance: none;
-    width: 12px;
-    height: 12px;
-    border: 1.5px solid #000000;
-    position: relative;
+    .checkbox-base(@checkbox-size-sm);
     top: 2px;
     margin-right: 6px;
-    cursor: pointer;
 
-    // Default checked indicator
-    &:checked::before {
-      content: '\2714'; // checkmark
-      position: absolute;
-      font-size: 14px;
-      top: -4px;
-      left: 0px;
-    }
+    // Default checked indicator (checkmark)
+    .checkbox-indicator('\2714', 14px, -4px, 0);
 
-    // Variant: tick mark
+    // Modifier: tick mark
     &:checked.checked-tick::before {
-      content: '\2714'; // checkmark
+      content: '\2714';
     }
 
-    // Variant: cross mark
+    // Modifier: cross mark
     &:checked.checked-cross::before {
-      content: '\2716'; // heavy multiplication x
+      content: '\2716';
     }
 
-    // Variant: slash mark
+    // Modifier: slash mark
     &:checked.checked-slash::before {
       content: '';
       width: 15px;
-      height: 1.5px;
-      background: black;
+      height: @border-width-base;
+      background: @color-black;
       top: 5px;
       left: -2px;
       transform: rotate(45deg);
@@ -49,30 +38,30 @@
 
   // Large checkbox variant (for once-per-planet items)
   .item-box {
-    width: 30px;
-    height: 30px;
-    border: 2px solid #000000;
+    .checkbox-base(@checkbox-size-lg);
+    border-width: @border-width-md;
     margin: 5px auto;
     display: block;
 
     &:checked::before {
-      content: '\2716'; // heavy multiplication x
+      content: '\2716';
+      position: absolute;
       font-size: 24px;
       top: 2px;
       left: 4px;
     }
   }
 
-  // ==========================================================================
+  // ========================================================================
   // Tri-State Toggle Component
-  // ==========================================================================
+  // ========================================================================
   // States: 0 = empty, 1 = diagonal slash, 2 = cross (X)
 
   .tri-state-toggle {
     display: inline-block;
-    width: 14px;
-    height: 14px;
-    border: 1.5px solid #000000;
+    width: @checkbox-size-md;
+    height: @checkbox-size-md;
+    border: @border-width-base solid @color-black;
     position: relative;
     cursor: pointer;
     flex-shrink: 0;
@@ -90,8 +79,8 @@
       content: '';
       position: absolute;
       width: 16px;
-      height: 1.5px;
-      background: #000000;
+      height: @border-width-base;
+      background: @color-black;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) rotate(45deg);
@@ -103,8 +92,8 @@
       content: '';
       position: absolute;
       width: 16px;
-      height: 1.5px;
-      background: #000000;
+      height: @border-width-base;
+      background: @color-black;
       top: 50%;
       left: 50%;
     }
@@ -119,13 +108,13 @@
 
     // Hover effect
     &:hover {
-      border-color: #666666;
+      border-color: @color-muted;
     }
   }
 
-  // ==========================================================================
+  // ========================================================================
   // Flashback List & Items
-  // ==========================================================================
+  // ========================================================================
 
   .flashback-list {
     list-style: none;
@@ -136,26 +125,25 @@
   .flashback-item {
     display: flex;
     align-items: center;
-    margin-bottom: 4px;
+    margin-bottom: @spacing-xxs;
 
     input[type="text"] {
       flex: 1;
       border: none;
-      border-bottom: 1px solid #000000;
+      border-bottom: @border-width-sm solid @color-black;
       background: transparent;
-      padding: 2px 4px;
+      padding: 2px @spacing-xxs;
       font-size: inherit;
 
       &:disabled {
-        opacity: 0.7;
-        cursor: not-allowed;
+        .input-disabled();
       }
     }
   }
 
   .flashback-fixed-text {
     flex: 1;
-    padding: 2px 4px;
-    font-size: 1.5em;
+    padding: 2px @spacing-xxs;
+    font-size: @font-size-xl;
   }
 }

@@ -9,18 +9,18 @@
   .field {
     display: flex;
     align-items: baseline;
-    margin-bottom: 8px;
+    margin-bottom: @spacing-xs;
 
     label {
       margin-right: 5px;
       white-space: nowrap;
-      font-size: 1.5em;
+      font-size: @font-size-xl;
     }
 
     input[type="text"],
     input[type="number"] {
       width: 100%;
-      font-size: 1.5em;
+      font-size: @font-size-xl;
     }
 
     li {
@@ -42,6 +42,7 @@
       align-items: center;
     }
 
+    // Modifier: reversed layout
     &.reverse {
       justify-content: flex-start;
       width: 140px;

@@ -1,16 +1,15 @@
-//main: ../masacre.less
 // ==========================================================================
 // Alien Sheet Styles
 // ==========================================================================
 
 .masacre.sheet.alienSheet {
-  min-width: 400px;
-  min-height: 500px;
+  min-width: @sheet-width-sm;
+  min-height: @sheet-height-sm;
 
   .sheet-header {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    background: linear-gradient(135deg, @color-alien-bg-start 0%, @color-alien-bg-end 100%);
     padding: 15px;
-    border-bottom: 3px solid #0f3460;
+    border-bottom: @border-width-lg solid @color-alien-border;
     margin-bottom: 15px;
 
     .header-content {
@@ -26,8 +25,8 @@
         width: 80px;
         height: 80px;
         object-fit: cover;
-        border: 3px solid #e94560;
-        border-radius: 4px;
+        border: @border-width-lg solid @color-alien-accent;
+        border-radius: @border-radius-base;
       }
     }
 
@@ -35,23 +34,23 @@
       flex: 1;
 
       h1 {
-        color: #e94560;
+        color: @color-alien-accent;
         margin: 0 0 10px 0;
-        font-size: 2em;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        font-size: @font-size-2xl;
+        text-shadow: @shadow-text;
       }
 
       .name-field input {
         width: 100%;
         font-size: 1.4em;
-        font-weight: bold;
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid #0f3460;
-        color: #fff;
+        font-weight: @font-weight-bold;
+        background: fade(@color-white, 10%);
+        border: @border-width-sm solid @color-alien-border;
+        color: @color-white;
         padding: 5px 10px;
 
         &::placeholder {
-          color: rgba(255, 255, 255, 0.5);
+          color: fade(@color-white, 50%);
         }
       }
     }
@@ -62,29 +61,27 @@
   }
 
   .stats-section {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+    .flex-center();
+    margin-bottom: @spacing-lg + @spacing-xxs;
 
     .stat-box {
       align-items: center;
 
       .stat-abbr {
-        color: #e94560;
+        color: @color-alien-accent;
       }
 
       .stat-square {
-        border-color: #e94560;
-        background: rgba(233, 69, 96, 0.1);
+        border-color: @color-alien-accent;
+        background: fade(@color-alien-accent, 10%);
       }
     }
   }
 
   .section-title {
-    font-family: @font-family-chalk;
-    font-size: 1.4em;
+    .heading-chalk(1.4em);
     color: @color-heading;
-    border-bottom: 2px solid #0f3460;
+    border-bottom: @border-width-md solid @color-alien-border;
     padding-bottom: 5px;
     margin: 15px 0 10px;
   }
@@ -94,14 +91,7 @@
     margin-bottom: 15px;
 
     .editor-container {
-      min-height: 100px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background: #fff;
-
-      .editor {
-        min-height: 100px;
-      }
+      .editor-container();
     }
   }
 }

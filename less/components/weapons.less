@@ -6,41 +6,38 @@
 
 .masacre {
   .weapons {
-    font-size: 1.5em;
+    font-size: @font-size-xl;
 
     .weapon-list {
-      display: flex;
-      flex-direction: column;
+      .flex-column();
       gap: 2px;
     }
 
     .weapon-header {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-weight: bold;
+      gap: @spacing-xs;
+      font-weight: @font-weight-bold;
       font-size: 0.75em;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      border-bottom: 2px solid #000000;
-      padding-bottom: 4px;
+      letter-spacing: @letter-spacing-tight;
+      border-bottom: @border-width-md solid @color-black;
+      padding-bottom: @spacing-xxs;
       margin-bottom: 2px;
     }
 
     .weapon-row {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: @spacing-xs;
       list-style: none;
       padding: 2px 0;
-      border-bottom: 1px solid #cccccc;
+      border-bottom: @border-width-sm solid @color-border-light;
       font-size: 0.85em;
     }
 
     .weapon-col {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      .truncate();
     }
 
     .weapon-col-desc {
@@ -54,18 +51,7 @@
 
     .weapon-col-controls {
       flex: 0 0 40px;
-      display: flex;
-      justify-content: flex-end;
-      gap: 4px;
-
-      a {
-        cursor: pointer;
-        opacity: 0.6;
-
-        &:hover {
-          opacity: 1;
-        }
-      }
+      .item-controls();
     }
   }
 }

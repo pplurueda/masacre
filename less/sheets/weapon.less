@@ -1,4 +1,3 @@
-//main: ../masacre.less
 // ==========================================================================
 // Weapon Sheet Styles
 // ==========================================================================
@@ -8,47 +7,31 @@
 
   // Header with title
   .sheet-header {
-    margin-bottom: @spacing-lg;
-    border-bottom: 2px solid @color-border;
-    padding-bottom: @spacing-sm;
-
-    h1 {
-      text-align: center;
-    }
+    .sheet-header-base();
   }
 
   // Main content area
   .weapon-content {
-    display: flex;
-    flex-direction: column;
+    .flex-column();
     gap: @spacing-lg;
   }
 
   // Weapon info section
   .weapon-info {
     .field {
-      display: flex;
-      flex-direction: column;
+      .flex-column();
       gap: @spacing-xs;
 
       label {
-        font-weight: bold;
+        font-weight: @font-weight-bold;
         font-size: @font-size-sm;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
+        letter-spacing: @letter-spacing-tight;
       }
 
       input[type="text"] {
+        .input-bordered();
         font-size: @font-size-lg;
-        padding: @spacing-sm;
-        border: 1px solid @color-border;
-        border-radius: 0;
-        background: transparent;
-
-        &:focus {
-          border-color: @color-ink;
-          outline: none;
-        }
       }
     }
   }
@@ -63,51 +46,24 @@
     }
 
     .stat-box {
-      display: flex;
-      flex-direction: column;
+      .stat-box-base(@stat-box-size-sm, @border-width-md);
       align-items: center;
       text-align: center;
 
-      .stat-label {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: @spacing-xs;
-
-        .stat-abbr {
-          font-family: @font-family-chalk;
-          font-size: 1.5em;
-          font-weight: bold;
-        }
-
-        .stat-desc {
-          font-size: 0.65em;
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
-          color: @color-muted;
-        }
+      .stat-abbr {
+        font-family: @font-family-chalk;
+        font-size: @font-size-xl;
       }
 
-      .stat-square {
-        width: 60px;
-        height: 60px;
-        border: 2px solid @color-ink;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      .stat-desc {
+        font-size: 0.65em;
+        text-transform: uppercase;
+        letter-spacing: @letter-spacing-tight;
+        color: @color-muted;
+      }
 
-        input {
-          width: 100%;
-          height: 100%;
-          border: none;
-          background: transparent;
-          text-align: center;
-          font-size: 1.5em;
-          font-weight: bold;
-
-          &:focus {
-            outline: none;
-          }
-        }
+      .stat-square input {
+        font-size: @font-size-xl;
       }
     }
   }
@@ -118,7 +74,7 @@
 
     .editor-container {
       min-height: 100px;
-      border: 1px solid @color-border;
+      border: @border-width-sm solid @color-border;
       padding: @spacing-sm;
     }
   }

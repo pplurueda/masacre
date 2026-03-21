@@ -1,4 +1,3 @@
-//main: ../masacre.less
 // ==========================================================================
 // Character Sheet Styles
 // ==========================================================================
@@ -7,32 +6,27 @@
 
 .masacre {
   &.character-sheet {
-    max-width: 950px;
+    max-width: @sheet-width-xl;
     margin: auto;
   }
 
   // Header
   .sheet-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+    .flex-between();
+    margin-bottom: @spacing-lg + @spacing-xxs; // 20px
 
     h1 {
       text-align: left;
     }
 
     .flashbacks-title {
-      font-family: @font-family-chalk;
-      font-weight: normal;
-      font-size: 3em;
-      letter-spacing: 0.1em;
+      .heading-chalk(@font-size-3xl);
+      letter-spacing: @letter-spacing-base;
       text-align: right;
-      margin: 0;
     }
   }
 
-  // Main layout
+  // Main layout - 3 column grid
   .main-content {
     display: grid;
     grid-template-columns: 1.3fr 1fr 1.2fr;
@@ -47,7 +41,7 @@
   }
 
   section {
-    margin-bottom: 20px;
+    margin-bottom: @spacing-lg + @spacing-xxs; // 20px
   }
 
   // Health statuses
@@ -59,15 +53,13 @@
   }
 
   .health-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    .flex-column-center();
     gap: @spacing-xs;
 
     label {
       font-family: @font-family-sans;
-      font-size: 1em;
-      font-weight: bold;
+      font-size: @font-size-base;
+      font-weight: @font-weight-bold;
     }
 
     input[type="checkbox"] {
@@ -94,15 +86,13 @@
     }
 
     .item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      .flex-column-center();
       gap: @spacing-xs;
 
       label {
         font-family: @font-family-sans;
-        font-size: 1em;
-        font-weight: bold;
+        font-size: @font-size-base;
+        font-weight: @font-weight-bold;
       }
 
       input[type="checkbox"] {
@@ -129,8 +119,7 @@
 
   // Center column layout
   .center-column {
-    display: flex;
-    flex-direction: column;
+    .flex-column();
     align-items: flex-start;
     justify-content: flex-start;
 
@@ -155,7 +144,7 @@
     margin: 0 0 15px 0;
 
     li {
-      margin-bottom: 8px;
+      margin-bottom: @spacing-xs;
     }
 
     label {
@@ -165,31 +154,29 @@
 
     input[type="text"] {
       width: 100%;
-      font-size: 1.5em;
+      font-size: @font-size-xl;
     }
   }
 
   // Hate home section
   .hate-home {
-    border-top: 1.5px dotted #888888;
-    border-bottom: 1.5px dotted #888888;
+    border-top: @border-width-base dotted @color-border-dark;
+    border-bottom: @border-width-base dotted @color-border-dark;
     padding: 5px 0;
-    margin-bottom: 20px;
+    margin-bottom: @spacing-lg + @spacing-xxs;
     margin-left: -5px;
   }
 
   // Rank display
   .rank-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    .flex-between();
     list-style: none;
     padding: 0;
     margin: 0;
   }
 
   .rank-description {
-    font-size: 1.5em;
+    font-size: @font-size-xl;
     flex: 1;
   }
 }

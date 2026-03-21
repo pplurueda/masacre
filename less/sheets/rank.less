@@ -1,4 +1,3 @@
-//main: ../masacre.less
 // ==========================================================================
 // Rank Sheet Styles
 // ==========================================================================
@@ -8,141 +7,55 @@
 
   // Header with title
   .sheet-header {
-    margin-bottom: @spacing-lg;
-    border-bottom: 2px solid @color-border;
-    padding-bottom: @spacing-sm;
-
-    h1 {
-      text-align: center;
-    }
+    .sheet-header-base();
   }
 
   // Main content area
   .rank-content {
-    display: flex;
-    flex-direction: column;
+    .flex-column();
     gap: @spacing-lg;
   }
 
   // Rank info section
   .rank-info {
     .field {
-      display: flex;
-      flex-direction: column;
-      gap: @spacing-xs;
-
-      label {
-        font-family: @font-family-chalk;
-        font-size: 2em;
-        font-weight: normal;
-        letter-spacing: 0.05em;
-        padding-bottom: 2px;
-        border-bottom: 1px solid #000000;
-        margin-bottom: @spacing-xs;
-      }
-
-      input[type="text"] {
-        font-size: @font-size-lg;
-        padding: @spacing-sm;
-        border: 1px solid @color-border;
-        border-radius: 0;
-        background: transparent;
-
-        &:focus {
-          border-color: @color-ink;
-          outline: none;
-        }
-      }
+      .field-vertical();
     }
   }
 
   // Rank value section
   .rank-value {
-    display: flex;
-    justify-content: center;
+    .flex-center();
 
     .stat-box {
-      display: flex;
-      flex-direction: column;
+      .stat-box-base(@stat-box-size-md, @border-width-md);
       align-items: center;
       text-align: center;
 
-      .stat-label {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: @spacing-xs;
-
-        .stat-abbr {
-          font-family: @font-family-chalk;
-          font-size: 2em;
-          font-weight: bold;
-        }
-
-        .stat-desc {
-          font-size: 0.7em;
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
-          color: @color-muted;
-        }
+      .stat-abbr {
+        font-family: @font-family-chalk;
       }
 
-      .stat-square {
-        width: 80px;
-        height: 80px;
-        border: 2px solid @color-ink;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      .stat-desc {
+        font-size: 0.7em;
+        text-transform: uppercase;
+        letter-spacing: @letter-spacing-tight;
+        color: @color-muted;
+      }
 
-        input {
-          width: 100%;
-          height: 100%;
-          border: none;
-          background: transparent;
-          text-align: center;
-          font-size: 2em;
-          font-weight: bold;
-
-          &:focus {
-            outline: none;
-          }
-        }
+      .stat-square input {
+        font-size: @font-size-2xl;
       }
     }
   }
 
   // Rank details section
   .rank-details {
-    display: flex;
-    flex-direction: column;
+    .flex-column();
     gap: @spacing-md;
 
     .field {
-      display: flex;
-      flex-direction: column;
-      gap: @spacing-xs;
-
-      label {
-        font-family: @font-family-chalk;
-        font-size: 2em;
-        font-weight: normal;
-        letter-spacing: 0.05em;
-        padding-bottom: 2px;
-        border-bottom: 1px solid #000000;
-        margin-bottom: @spacing-xs;
-      }
-
-      input[type="text"] {
-        padding: @spacing-sm;
-        border: 1px solid @color-border;
-        border-radius: 0;
-        background: transparent;
-
-        &:focus {
-          border-color: @color-ink;
-          outline: none;
-        }
-      }
+      .field-vertical();
     }
   }
 }

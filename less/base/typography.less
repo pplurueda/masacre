@@ -5,73 +5,38 @@
 // Foundry VTT's global styles.
 
 .masacre {
-  // Heading styles with Chalk Board font
+  // Headings with chalk font
   h1 {
-    font-family: @font-family-chalk;
-    font-weight: normal;
-    font-size: 6em;
-    letter-spacing: 0.1em;
+    .heading-chalk(@font-size-6xl);
+    letter-spacing: @letter-spacing-base;
     color: @color-heading;
-    margin: 0;
   }
 
   h2 {
-    font-family: @font-family-chalk;
-    font-size: 1.8em;
-    font-weight: normal;
-    letter-spacing: 0.05em;
-    margin: 0 0 10px 0;
+    .heading-chalk(1.8em);
+    margin-bottom: 10px;
   }
 
   h3 {
-    font-family: @font-family-chalk;
-    font-size: 1.4em;
-    font-weight: normal;
-    letter-spacing: 0.05em;
-    margin: 0 0 8px 0;
+    .heading-chalk(1.4em);
+    margin-bottom: 8px;
   }
 
   h4 {
-    font-family: @font-family-chalk;
-    font-size: 1.2em;
-    font-weight: normal;
-    letter-spacing: 0.05em;
-    margin: 0 0 6px 0;
+    .heading-chalk(1.2em);
+    margin-bottom: 6px;
   }
 
-  // Section titles with Chalk Board font
+  // Section title variants
   .section-title {
-    font-family: @font-family-chalk;
-    font-size: 2em;
-    font-weight: normal;
-    letter-spacing: 0.05em;
-    padding-bottom: 2px;
-    border-bottom: 1px solid #000000;
-    margin-top: 0;
-    margin-bottom: 10px;
+    .section-title-bordered();
   }
 
   .section-title-centered {
-    font-family: @font-family-chalk;
-    font-size: 2em;
-    font-weight: normal;
-    letter-spacing: 0.05em;
-    padding-bottom: 2px;
-    margin-top: 0;
-    text-align: center;
-    border-bottom: none;
-    margin-bottom: 10px;
+    .section-title-plain(center);
   }
 
   .section-title-right {
-    font-family: @font-family-chalk;
-    font-size: 2em;
-    font-weight: normal;
-    letter-spacing: 0.05em;
-    padding-bottom: 2px;
-    margin-top: 0;
-    text-align: right;
-    border-bottom: none;
-    margin-bottom: 10px;
+    .section-title-plain(right);
   }
 }

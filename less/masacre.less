@@ -2,36 +2,53 @@
 // ==========================================================================
 // Masacre - Main Stylesheet
 // ==========================================================================
+// Foundry VTT v13 game system: "3:16 Masacre en la Galaxia"
+//
+// File Organization:
+// 1. Abstracts - Variables and mixins (no CSS output)
+// 2. Base - Font faces, typography, form resets
+// 3. Components - Reusable UI components
+// 4. Sheets - Actor and item sheet styles
 
-// Abstracts (variables, mixins - no output)
+// -----------------------------------------------------------------------------
+// Abstracts (no CSS output)
+// -----------------------------------------------------------------------------
 @import "./abstracts/variables.less";
 @import "./abstracts/mixins.less";
 
-// Base styles
+// -----------------------------------------------------------------------------
+// Base Styles
+// -----------------------------------------------------------------------------
 @import "./base/fonts.less";
 @import "./base/forms.less";
 @import "./base/typography.less";
 
+// -----------------------------------------------------------------------------
 // Components
+// -----------------------------------------------------------------------------
 @import "./components/checkboxes.less";
 @import "./components/fields.less";
 @import "./components/stat-box.less";
 @import "./components/weapons.less";
 
-// Sheets
+// -----------------------------------------------------------------------------
+// Sheets - Actor Sheets
+// -----------------------------------------------------------------------------
 @import "./sheets/character.less";
 @import "./sheets/character-old.less";
 @import "./sheets/alien.less";
+
+// -----------------------------------------------------------------------------
+// Sheets - Item Sheets
+// -----------------------------------------------------------------------------
 @import "./sheets/rank.less";
 @import "./sheets/weapon.less";
 
-// General sheet styles
+// -----------------------------------------------------------------------------
+// General Sheet Styles
+// -----------------------------------------------------------------------------
 .masacre.sheet.general {
   .portrait {
     height: 150px;
-  }
-
-  .name {
-    // Name field styles
   }
 }
