@@ -481,6 +481,93 @@
 .masacre.roll-casualties-result .roll-result .add-casualties-btn:active {
   transform: scale(0.95);
 }
+.masacre.roll-hability-result {
+  font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+  background: #f8f4ed;
+  border: 2px solid #888888;
+  border-radius: 4px;
+  padding: 12px;
+  margin: 8px 0;
+}
+.masacre.roll-hability-result .roll-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 12px;
+}
+.masacre.roll-hability-result .roll-header .actor-portrait {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border: 1px solid #888888;
+  border-radius: 4px;
+}
+.masacre.roll-hability-result .roll-header .roll-title {
+  text-align: center;
+  font-family: 'Cinzel', 'Times New Roman', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0;
+  color: #3a3a3a;
+}
+.masacre.roll-hability-result .roll-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.masacre.roll-hability-result .roll-details .roll-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 8px;
+  background: #e2e2e2;
+  border-radius: 2px;
+}
+.masacre.roll-hability-result .roll-details .roll-detail-row .detail-label {
+  font-weight: 700;
+  color: #7a6f62;
+  font-size: 0.875rem;
+}
+.masacre.roll-hability-result .roll-details .roll-detail-row .detail-value {
+  font-weight: 400;
+  color: #1f1b16;
+  font-size: 0.875rem;
+}
+.masacre.roll-hability-result .roll-result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 4px;
+  border: 2px solid #888888;
+}
+.masacre.roll-hability-result .roll-result .result-label {
+  font-family: 'Cinzel', 'Times New Roman', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+}
+.masacre.roll-hability-result .roll-result .result-value {
+  font-family: 'Cinzel', 'Times New Roman', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+.masacre.roll-hability-result .roll-result-success {
+  background: #28a745;
+}
+.masacre.roll-hability-result .roll-result-failure {
+  background: #dc3545;
+}
 .masacre.character-sheet {
   max-width: 950px;
   margin: auto;

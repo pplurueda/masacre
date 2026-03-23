@@ -127,9 +127,7 @@ export class CharacterSheet extends ActorSheet {
         event.stopPropagation();
 
         const element = event.currentTarget;
-        const dataset = element.dataset;
-
-        
+        const dataset = element.dataset;       
     }
 
     async _onUpgradeWeaponStat(event) {

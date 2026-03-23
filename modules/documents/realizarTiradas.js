@@ -18,6 +18,8 @@ realizarTiradas.actor = {
         const miDataset = {
             actorId: actor.id,
             actorImagen: actor.img,
+            actorName: actor.name,
+            actorRankName: actor.system.rank.name,
             stat: dataset.stat,
             description: dataset.description,
             value: dataset.value,
@@ -26,47 +28,21 @@ realizarTiradas.actor = {
         };
 
         console.log(miDataset);
+
+        const plantillaChat = await renderTemplate("systems/masacre/templates/messages/rollHabilityResult.hbs", miDataset);
+
+        ChatMessage.create(
+            {
+                type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+                speaker: 
+                {
+                    token: actor.token,
+                    actor: actor.id
+                },
+                content: plantillaChat,
+                roll: roll
+            });
     }
-
-    //     if (dataset.tipo != "habilidadCombateDefensa")  return;
-            
-    //     let tirada = new Roll("1d100");
-    //     await tirada.evaluate();
-
-    //     let tiradaResultado = tirada.total;
-
-    //     let habilidadesTipo = _obtenerHabilidadesTipo(dataset.tipohabilidad, actor);
-
-    //     let habilidadLanzada = habilidadesTipo.find(h => h.clave === dataset.clave);
-
-    //     let exito = (tiradaResultado <= habilidadLanzada.habilidad.totalParada);
-
-    //     let critico = (tiradaResultado <= (habilidadLanzada.habilidad.totalParada / 10.0));
-
-    //     let pifia = (habilidadLanzada.habilidad.totalParada < 50) ? (tiradaResultado >= 99) : (tiradaResultado == 100);
-
-    //     const miDataset = {
-    //         imagen: actor.img,
-    //         critico: critico,
-    //         pifia: pifia,
-    //         exito: exito,
-    //         resultadoTirada: tiradaResultado,
-    //         habilidadNombre: dataset.nombre,
-    //         habilidadTotal: habilidadLanzada.habilidad.totalParada
-    //     };
-
-    //     const plantillaChat = await renderTemplate("systems/stormbringer/templates/messages/rollHabilityResult.hbs", miDataset);
-
-    //     ChatMessage.create({
-    //         type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-    //         speaker: 
-    //         {
-    //             token: actor.token,
-    //             actor: actor.id
-    //         },
-    //         content: plantillaChat,
-    //         roll: tirada
-    //     });
 }
 
 realizarTiradas.item = {

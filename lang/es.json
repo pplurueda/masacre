@@ -89,6 +89,9 @@
 
         "roll": {
             "casualties": "Tirada de Bajas",
+            "hability": "Tirada de",
+            "habilityName": "Habilidad",
+            "value": "Valor",
             "weapon": "Arma",
             "range": "Rango",
             "formula": "Tirada",

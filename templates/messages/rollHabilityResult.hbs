@@ -1,0 +1,23 @@
+<div class="masacre roll-hability-result">
+    <div class="roll-header">
+        <img class="actor-portrait" src="{{actorImagen}}" alt="Actor"/>
+        <h2 class="roll-title">{{actorRankName}} {{actorName}}</h2>
+    </div>
+    
+    <div class="roll-details">       
+        <div class="roll-detail-row">
+            <span class="detail-label">{{localize "masacre.roll.habilityName"}}:</span>
+            <span class="detail-value">{{description}}</span>
+        </div>
+
+        <div class="roll-detail-row">
+            <span class="detail-label">{{localize "masacre.roll.value"}}:</span>
+            <span class="detail-value">{{value}}</span>
+        </div>
+    </div>
+    
+    <div class="roll-result {{#if success}}roll-result-success{{else}}roll-result-failure{{/if}}">
+        <span class="result-label">{{localize "masacre.roll.result"}}:</span>
+        <span class="result-value">{{result}}</span>
+    </div>
+</div>
