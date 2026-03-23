@@ -85,5 +85,26 @@
   // Description section
   .weapon-description {
     flex: 1;
+
+    .editor-container {
+      .editor-container();
+      width: 100%;
+      padding: @spacing-sm;
+
+      // Foundry v13 editor structure
+      .editor {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      // Ensure prosemirror content area occupies full width
+      .editor-content,
+      .ProseMirror {
+        min-height: 60px;
+        width: 100%;
+        flex: 1;
+      }
+    }
   }
 }

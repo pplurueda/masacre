@@ -43,27 +43,9 @@ export class CharacterSheet extends ActorSheet {
 
         const actor = data.actor;
 
-        await this._createBrawlWeapon(actor);
-
         data.weapons = actor.items.filter(i => i.type === "weapon");
 
         return data;
-    }
-
-    async _createBrawlWeapon(actor) {
-     
-        if(actor.items.some(i => i.type == "weapon" && i.name == game.i18n.format("masacre.character.brawl"))) return;
-
-        const brawlWeapon = {
-            name: game.i18n.format("masacre.character.brawl"), 
-            type: "weapon",
-            system: {
-                cc: "1",
-                cd: "0",
-                ld: "0"          
-            }
-        };
-        await actor.createEmbeddedDocuments("Item", [brawlWeapon]);
     }
 
     async _onItemControl(event) {
