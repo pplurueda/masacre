@@ -94,7 +94,7 @@ realizarTiradas.item = {
         console.log(dataset);
 
         if(dataset.type != "bajas") return;
-        if(dataset.value === "" || dataset.value === undefined || dataset.value === "-")  return;
+        if(dataset.value === "0" || dataset.value === undefined)  return;
 
         let roll = new Roll(dataset.value);
         await roll.evaluate();

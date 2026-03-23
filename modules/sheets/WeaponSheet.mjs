@@ -1,4 +1,5 @@
 import {masacre} from "../config.js"
+import {WEAPON_STAT_VALUES} from "../documents/dataModels/WeaponDataModel.mjs"
 
 export class WeaponSheet extends ItemSheet {
 
@@ -21,6 +22,12 @@ export class WeaponSheet extends ItemSheet {
         return `systems/masacre/templates/sheets/items/weaponSheet.hbs`;
     } 
 
+    activateListeners(html) {
+        super.activateListeners(html);
+
+        html.find('[data-action="cycle-stat"]').click(this._onCycleStat.bind(this));
+    }
+
     getData() {
         const data = super.getData();        
 
@@ -29,5 +36,32 @@ export class WeaponSheet extends ItemSheet {
         console.log(data.config);
         
         return data;
+    }
+
+    async _onCycleStat(event) {
+        event.preventDefault();
+
+        const element = event.currentTarget;
+        const stat = element.dataset.stat;
+        const direction = element.dataset.direction;
+
+        const currentValue = this.item.system[stat] || "0";
+        
+        let currentIndex = WEAPON_STAT_VALUES.indexOf(currentValue);
+        
+        if (currentIndex === -1) {
+            currentIndex = 0;
+        }
+
+        let newIndex;
+        if (direction === "up") {
+            newIndex = (currentIndex + 1) % WEAPON_STAT_VALUES.length;
+        } else {
+            newIndex = (currentIndex - 1 + WEAPON_STAT_VALUES.length) % WEAPON_STAT_VALUES.length;
+        }
+
+        const newValue = WEAPON_STAT_VALUES[newIndex];
+
+        await this.item.update({ [`system.${stat}`]: newValue });
     }
 }
