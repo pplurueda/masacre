@@ -1,26 +1,29 @@
-<img style="border:0px; width:30%; height:30%; object-fit:contain" src="{{actorImagen}}"></img>
-<img style="border:0px; width:30%; height:30%; object-fit:contain" src="{{weaponImage}}"></img>
-
-{{!-- {{#if critico}}
-    <p class="tiradaCritica" style="color:royalblue; font-weight: bold;">¡CRÍTICO!</p>
-{{else if pifia}}
-    <p class="tiradaPifia" style="color:crimson; font-weight: bold;">¡PIFIA!</p>
-{{else if exito}}
-    <p class="tiradaExito" style="font-weight: bold;">ÉXITO</p>
-{{else}}
-    <p class="tiradaFallo" style="font-weight: bold;">FALLO</p>
-{{/if}} --}}
+<div class="masacre roll-casualties-result">
+    <div class="roll-header">
+        <img class="actor-portrait" src="{{actorImagen}}" alt="Actor"/>
+        <h2 class="roll-title">{{localize "masacre.roll.casualties"}}</h2>
+        <img class="weapon-icon" src="{{weaponImage}}" alt="Weapon"/>
+    </div>
     
-<h1>Datos</h1>
-
-<h2>Arma</h2>
-<p>{{weapon}}</p>
-
-<h2>Rango</h2>
-<p>{{stat}}</p>
-
-<h2>Tirada</h2>
-<p>{{value}}</p>
-
-<h2>Resultado</h2>
-<p>{{result}}</p>
+    <div class="roll-details">
+        <div class="roll-detail-row">
+            <span class="detail-label">{{localize "masacre.roll.weapon"}}:</span>
+            <span class="detail-value">{{weapon}}</span>
+        </div>
+        
+        <div class="roll-detail-row">
+            <span class="detail-label">{{localize "masacre.roll.range"}}:</span>
+            <span class="detail-value">{{stat}}</span>
+        </div>
+        
+        <div class="roll-detail-row">
+            <span class="detail-label">{{localize "masacre.roll.formula"}}:</span>
+            <span class="detail-value">{{value}}</span>
+        </div>
+    </div>
+    
+    <div class="roll-result">
+        <span class="result-label">{{localize "masacre.roll.result"}}:</span>
+        <span class="result-value">{{result}}</span>
+    </div>
+</div>

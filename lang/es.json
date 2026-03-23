@@ -82,6 +82,14 @@
             "cdFull": "Corta Distancia",
             "ld": "LD",
             "ldFull": "Larga Distancia"
+        },
+
+        "roll": {
+            "casualties": "Tirada de Bajas",
+            "weapon": "Arma",
+            "range": "Rango",
+            "formula": "Fórmula",
+            "result": "Resultado"
         }
     }
 }

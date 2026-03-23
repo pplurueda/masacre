@@ -1,0 +1,99 @@
+// ==========================================================================
+// Chat Messages Component
+// ==========================================================================
+// Styles for chat message templates
+
+.masacre.roll-casualties-result {
+  font-family: @font-family-body;
+  background: @color-paper;
+  border: @border-width-md solid @color-border-dark;
+  border-radius: 4px;
+  padding: @spacing-sm;
+  margin: @spacing-xs 0;
+
+  .roll-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: @spacing-sm;
+    padding-bottom: @spacing-sm;
+    border-bottom: @border-width-sm solid @color-border-light;
+    margin-bottom: @spacing-sm;
+
+    .actor-portrait,
+    .weapon-icon {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      border: @border-width-sm solid @color-border-dark;
+      border-radius: 4px;
+    }
+
+    .roll-title {
+      flex: 1;
+      text-align: center;
+      font-family: @font-family-heading;
+      font-size: @font-size-lg;
+      font-weight: @font-weight-bold;
+      text-transform: uppercase;
+      letter-spacing: @letter-spacing-base;
+      margin: 0;
+      color: @color-heading;
+    }
+  }
+
+  .roll-details {
+    display: flex;
+    flex-direction: column;
+    gap: @spacing-xs;
+    margin-bottom: @spacing-sm;
+
+    .roll-detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: @spacing-xxs @spacing-xs;
+      background: @color-paper-dark;
+      border-radius: 2px;
+
+      .detail-label {
+        font-weight: @font-weight-bold;
+        color: @color-muted;
+        font-size: @font-size-sm;
+      }
+
+      .detail-value {
+        font-weight: @font-weight-normal;
+        color: @color-ink;
+        font-size: @font-size-sm;
+      }
+    }
+  }
+
+  .roll-result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: @spacing-sm;
+    padding: @spacing-sm;
+    background: @color-accent;
+    border-radius: 4px;
+    border: @border-width-md solid @color-border-dark;
+
+    .result-label {
+      font-family: @font-family-heading;
+      font-size: @font-size-lg;
+      font-weight: @font-weight-bold;
+      text-transform: uppercase;
+      letter-spacing: @letter-spacing-base;
+      color: @color-white;
+    }
+
+    .result-value {
+      font-family: @font-family-heading;
+      font-size: @font-size-2xl;
+      font-weight: @font-weight-bold;
+      color: @color-white;
+    }
+  }
+}

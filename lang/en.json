@@ -82,6 +82,14 @@
             "cdFull": "Near Range",
             "ld": "FR",
             "ldFull": "Far Range"
+        },
+
+        "roll": {
+            "casualties": "Casualties Roll",
+            "weapon": "Weapon",
+            "range": "Range",
+            "formula": "Formula",
+            "result": "Result"
         }
     }
 }
