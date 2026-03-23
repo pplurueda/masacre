@@ -39,11 +39,10 @@ export class CharacterSheet extends ActorSheet {
 
     async getData() {
         const data = super.getData();        
+        
         data.config = CONFIG.Masacre;
 
         const actor = data.actor;
-
-        data.weapons = actor.items.filter(i => i.type === "weapon");
 
         return data;
     }

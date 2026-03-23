@@ -98,7 +98,7 @@
                         <span class="weapon-col weapon-col-stat">{{localize "masacre.weapon.ld"}}</span>
                         <span class="weapon-col weapon-col-controls"></span>
                     </div>
-                    {{#each weapons as |weapon|}}
+                    {{#each actor.system.weapons as |weapon|}}
                     <li class="weapon-row" data-item-id="{{weapon._id}}">
                         <span class="weapon-col weapon-col-desc">{{weapon.name}}</span>
                         <span class="weapon-col weapon-col-stat">{{weapon.system.cc}}</span>
