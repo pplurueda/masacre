@@ -70,7 +70,21 @@ export class CharacterSheet extends ActorSheet {
     
         if(item.actor === undefined) return;
 
+        await item.actor.sheet._addWeapon(item);
         await item.actor.sheet._applyRank(item);
+    }
+
+    async _addWeapon(weaponCreated) {
+
+        if(weaponCreated.type != "weapon") return;
+
+        const actor = weaponCreated.actor;
+
+        weaponCreated.update({
+            "system.cccurrent": weaponCreated.system.cc,
+            "system.cdcurrent": weaponCreated.system.cd,
+            "system.ldcurrent": weaponCreated.system.ld
+        });
     }
 
     async _applyRank(rankCreated) {
