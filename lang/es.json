@@ -92,7 +92,8 @@
             "weapon": "Arma",
             "range": "Rango",
             "formula": "Fórmula",
-            "result": "Resultado"
+            "result": "Resultado",
+            "addCasualties": "Añadir bajas al contador"
         }
     }
 }

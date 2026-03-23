@@ -464,6 +464,23 @@
   font-weight: 700;
   color: #ffffff;
 }
+.masacre.roll-casualties-result .roll-result .add-casualties-btn {
+  height: 32px;
+  width: auto;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  padding: 2px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.masacre.roll-casualties-result .roll-result .add-casualties-btn:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+.masacre.roll-casualties-result .roll-result .add-casualties-btn:active {
+  transform: scale(0.95);
+}
 .masacre.character-sheet {
   max-width: 950px;
   margin: auto;

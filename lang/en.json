@@ -92,7 +92,8 @@
             "weapon": "Weapon",
             "range": "Range",
             "formula": "Formula",
-            "result": "Result"
+            "result": "Result",
+            "addCasualties": "Add casualties to counter"
         }
     }
 }

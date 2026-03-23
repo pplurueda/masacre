@@ -95,3 +95,26 @@ Hooks.once("init", function(){
         return a === b;
     });
 });
+
+Hooks.on("renderChatMessage", (message, html, data) => {
+    html.find('.add-casualties-btn').click(async (event) => {
+        event.preventDefault();
+        
+        const button = event.currentTarget;
+        const actorId = button.dataset.actorId;
+        const casualties = parseInt(button.dataset.casualties) || 0;
+        
+        const actor = game.actors.get(actorId);
+        if (!actor) {
+            ui.notifications.error("Actor not found");
+            return;
+        }
+        
+        const currentCasualties = actor.system.deathAliens.current || 0;
+        const newCasualties = currentCasualties + casualties;
+        
+        await actor.update({ "system.deathAliens.current": newCasualties });
+        
+        ui.notifications.info(`${casualties} bajas añadidas. Total: ${newCasualties}`);
+    });
+});

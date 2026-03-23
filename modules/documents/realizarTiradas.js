@@ -102,6 +102,7 @@ realizarTiradas.item = {
         let rollResult = roll.total;
 
         const miDataset = {
+            actorId: actor.id,
             actorImagen: actor.img,
             weaponImage: dataset.image,
             stat: dataset.stat,
