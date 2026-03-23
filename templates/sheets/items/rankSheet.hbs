@@ -29,12 +29,16 @@
             
             <div class="field">
                 <label>{{localize "masacre.rank.description"}}</label>
-                <input name="system.description" type="text" value="{{item.system.description}}" placeholder="{{localize 'masacre.rank.descriptionPlaceholder'}}"/>
+                <div class="editor-container">
+                    {{editor system.description target="system.description" button=true owner=owner editable=editable}}
+                </div>
             </div>
 
             <div class="field">
                 <label>{{localize "masacre.rank.quote"}}</label>
-                <input name="system.quote" type="text" value="{{item.system.quote}}" placeholder="{{localize 'masacre.rank.quotePlaceholder'}}"/>
+                <div class="editor-container">
+                    {{editor system.quote target="system.quote" button=true owner=owner editable=editable}}
+                </div>
             </div>
 
             <div class="field">
@@ -42,19 +46,19 @@
                 <div class="editor-container">
                     {{editor system.equipment target="system.equipment" button=true owner=owner editable=editable}}
                 </div>
+            </div>            
+
+            <div class="field">
+                <label>{{localize "masacre.rank.responsibility"}}</label>
+                <div class="editor-container">
+                    {{editor system.responsibility target="system.responsibility" button=true owner=owner editable=editable}}
+                </div>
             </div>
 
             <div class="field">
                 <label>{{localize "masacre.rank.resources"}}</label>
                 <div class="editor-container">
                     {{editor system.resources target="system.resources" button=true owner=owner editable=editable}}
-                </div>
-            </div>
-
-            <div class="field">
-                <label>{{localize "masacre.rank.responsibility"}}</label>
-                <div class="editor-container">
-                    {{editor system.responsibility target="system.responsibility" button=true owner=owner editable=editable}}
                 </div>
             </div>
         </section>

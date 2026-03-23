@@ -14,12 +14,5 @@ export class MasacreActor extends Actor {
 
       this.system.rank = rank;
       this.system.weapons = this.items.filter(item => item.type === "weapon");
-
-      // Parse equipment from rank (split by #)
-      if (rank?.system?.equipment) {
-        this.system.equipment = rank.system.equipment.split('#').map(s => s.trim()).filter(Boolean);
-      } else {
-        this.system.equipment = [];
-      }
     }
   }

@@ -518,6 +518,19 @@
 .masacre .rank-details__content {
   padding: 8px 0;
 }
+.masacre .rank-details__label {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #7a6f62;
+  margin: 12px 0 4px 0;
+}
+.masacre .rank-details__label:first-of-type {
+  margin-top: 0;
+}
 .masacre .rank-details__name {
   font-size: 1.2em;
   font-weight: 700;
@@ -525,7 +538,8 @@
 }
 .masacre .rank-details__description,
 .masacre .rank-details__responsibility,
-.masacre .rank-details__equipment-item {
+.masacre .rank-details__resources,
+.masacre .rank-details__equipment {
   font-size: 1em;
   margin: 0 0 8px 0;
 }
@@ -533,11 +547,6 @@
   font-size: 1em;
   font-style: italic;
   margin: 0 0 8px 0;
-}
-.masacre .rank-details__equipment {
-  list-style: none;
-  padding: 0;
-  margin: 12px 0 0 0;
 }
 .masacre.sheet.characterSheet .sheet {
   width: 500px;
@@ -776,6 +785,46 @@
 .masacre.sheet.rankSheet .rank-details .field input[type="text"]:focus {
   border-color: #1f1b16;
   outline: none;
+}
+.masacre.sheet.rankSheet .rank-details .editor-container {
+  position: relative;
+  min-height: 100px;
+  border: 1px solid #c7b9a3;
+  border-radius: 4px;
+  background: #ffffff;
+  width: 100%;
+  padding: 12px;
+}
+.masacre.sheet.rankSheet .rank-details .editor-container .editor {
+  min-height: 100px;
+  height: 100%;
+  position: relative;
+}
+.masacre.sheet.rankSheet .rank-details .editor-container .editor-edit {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.masacre.sheet.rankSheet .rank-details .editor-container:hover .editor-edit {
+  opacity: 1;
+}
+.masacre.sheet.rankSheet .rank-details .editor-container .editor-content {
+  min-height: 80px;
+  cursor: text;
+}
+.masacre.sheet.rankSheet .rank-details .editor-container .editor {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.masacre.sheet.rankSheet .rank-details .editor-container .editor-content,
+.masacre.sheet.rankSheet .rank-details .editor-container .ProseMirror {
+  min-height: 60px;
+  width: 100%;
+  flex: 1;
 }
 .masacre.sheet.weaponSheet {
   padding: 16px;
