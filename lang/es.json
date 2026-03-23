@@ -91,7 +91,7 @@
             "casualties": "Tirada de Bajas",
             "weapon": "Arma",
             "range": "Rango",
-            "formula": "Fórmula",
+            "formula": "Tirada",
             "result": "Resultado",
             "addCasualties": "Añadir bajas al contador"
         }

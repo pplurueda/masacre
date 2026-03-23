@@ -91,7 +91,7 @@
             "casualties": "Casualties Roll",
             "weapon": "Weapon",
             "range": "Range",
-            "formula": "Formula",
+            "formula": "Roll",
             "result": "Result",
             "addCasualties": "Add casualties to counter"
         }

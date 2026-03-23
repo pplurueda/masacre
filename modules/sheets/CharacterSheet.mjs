@@ -122,6 +122,16 @@ export class CharacterSheet extends ActorSheet {
         await realizarTiradas.general.nuevaTirada(this.actor, dataset);
     }
 
+    async _onRollHability(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const element = event.currentTarget;
+        const dataset = element.dataset;
+
+        
+    }
+
     async _onUpgradeWeaponStat(event) {
         event.preventDefault();
         event.stopPropagation();

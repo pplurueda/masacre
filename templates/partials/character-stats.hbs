@@ -1,6 +1,6 @@
 <div class="stat-box">
     <div class="stat-label">
-        <span class="stat-abbr">{{localize "masacre.character.combatSkillAcronym"}}</span>
+        <span class="stat-abbr rollable"  data-type="hability" data-stat="combatSkill" data-description={{localize "masacre.character.combatSkillAcronym"}} data-value="{{actor.system.combatSkill}}">{{localize "masacre.character.combatSkillAcronym"}}</span>
         <span class="stat-desc">{{toUpperCase (localize "masacre.character.combatSkill")}}</span>
     </div>
     <div class="stat-square">
@@ -9,7 +9,7 @@
 </div>
 <div class="stat-box">
     <div class="stat-label">
-        <span class="stat-abbr">{{localize "masacre.character.nonCombatSkillAcronym"}}</span>
+        <span class="stat-abbr rollable" data-type="hability" data-stat="nonCombatSkill" data-description={{localize "masacre.character.nonCombatSkillAcronym"}} data-value="{{actor.system.nonCombatSkill}}">{{localize "masacre.character.nonCombatSkillAcronym"}}</span>
         <span class="stat-desc">{{toUpperCase (localize "masacre.character.nonCombatSkill")}}
     </div>
     <div class="stat-square">

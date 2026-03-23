@@ -2,49 +2,31 @@ export const realizarTiradas = {};
 
 realizarTiradas.actor = {
 
-    // async habilidad(actor, dataset) {
+    async hability(actor, dataset) {
 
-    //     if (dataset.tipo != "habilidad")  return;
-                
-    //     let tirada = new Roll("1d100");
-    //     await tirada.evaluate();
+        if(dataset.type != "hability") return;
 
-    //     let tiradaResultado = tirada.total;
+        console.log(dataset);
 
-    //     let habilidadesTipo = _obtenerHabilidadesTipo(dataset.tipohabilidad, actor);
+        let roll = new Roll("1d10");
+        await roll.evaluate();
 
-    //     let habilidadLanzada = habilidadesTipo.find(h => h.clave === dataset.clave);
+        let rollResult = roll.total;
 
-    //     let exito = (tiradaResultado <= habilidadLanzada.habilidad.total);
+        const success = dataset.value >= rollResult;
 
-    //     let critico = (tiradaResultado <= (habilidadLanzada.habilidad.total / 10.0));
+        const miDataset = {
+            actorId: actor.id,
+            actorImagen: actor.img,
+            stat: dataset.stat,
+            description: dataset.description,
+            value: dataset.value,
+            result: rollResult,
+            success: success
+        };
 
-    //     let pifia = (habilidadLanzada.habilidad.total < 50) ? (tiradaResultado >= 99) : (tiradaResultado == 100);
-
-    //     const miDataset = {
-    //         imagen: actor.img,
-    //         critico: critico,
-    //         pifia: pifia,
-    //         exito: exito,
-    //         resultadoTirada: tiradaResultado,
-    //         habilidadNombre: dataset.nombre,
-    //         habilidadTotal: habilidadLanzada.habilidad.total
-    //     };
-
-    //     const plantillaChat = await renderTemplate("systems/stormbringer/templates/messages/rollHabilityResult.hbs", miDataset);
-
-    //     ChatMessage.create(
-    //         {
-    //             type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-    //             speaker: 
-    //             {
-    //                 token: actor.token,
-    //                 actor: actor.id
-    //             },
-    //             content: plantillaChat,
-    //             roll: tirada
-    //         });
-    // },
+        console.log(miDataset);
+    }
 
     //     if (dataset.tipo != "habilidadCombateDefensa")  return;
             
@@ -91,8 +73,6 @@ realizarTiradas.item = {
 
     async bajas(actor, dataset) {
 
-        console.log(dataset);
-
         if(dataset.type != "bajas") return;
         if(dataset.value === "0" || dataset.value === undefined)  return;
 
@@ -110,8 +90,6 @@ realizarTiradas.item = {
             value: dataset.value,
             result: rollResult
         };
-
-        console.log(miDataset);
 
         const plantillaChat = await renderTemplate("systems/masacre/templates/messages/rollCasualtiesResult.hbs", miDataset);
 
@@ -136,6 +114,9 @@ realizarTiradas.general = {
         switch(dataset.type) {
             case "bajas":
                 realizarTiradas.item.bajas(actor, dataset);
+                break;
+            case "hability":
+                realizarTiradas.actor.hability(actor, dataset);
                 break;
             default:
                 console.error("Tipo de tirada no reconocido");
