@@ -1,4 +1,5 @@
 import {masacre} from "../config.js"
+import {realizarTiradas} from "../documents/realizarTiradas.js"
 
 export class CharacterSheet extends ActorSheet {
 
@@ -24,7 +25,7 @@ export class CharacterSheet extends ActorSheet {
      
         super.activateListeners(html);
 
-        //html.find('.rollable').click(this._onRoll.bind(this));
+        html.find('.rollable').click(this._onRoll.bind(this));
         
         html.find('.itemControl').click(this._onItemControl.bind(this));
 
@@ -98,5 +99,15 @@ export class CharacterSheet extends ActorSheet {
         const newState = (currentState + 1) % 3;
 
         await this.actor.update({ [field]: newState });
+    }
+
+    async _onRoll(event) {
+
+        event.preventDefault();
+
+        const element = event.currentTarget;
+        const dataset = element.dataset;   
+
+        await realizarTiradas.general.nuevaTirada(this.actor, dataset);
     }
 }

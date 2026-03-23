@@ -350,6 +350,9 @@
   flex: 1;
   text-align: center;
 }
+.masacre .weapons .weapon-col-stat.rollable {
+  cursor: pointer;
+}
 .masacre .weapons .weapon-col-controls {
   flex: 0 0 40px;
   display: flex;

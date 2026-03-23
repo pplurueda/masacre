@@ -11,9 +11,9 @@
         {{#each actor.system.weapons as |weapon|}}
         <li class="weapon-row" data-item-id="{{weapon._id}}">
             <span class="weapon-col weapon-col-desc">{{weapon.name}}</span>
-            <span class="weapon-col weapon-col-stat">{{weapon.system.cc}}</span>
-            <span class="weapon-col weapon-col-stat">{{weapon.system.cd}}</span>
-            <span class="weapon-col weapon-col-stat">{{weapon.system.ld}}</span>
+            <span class="weapon-col weapon-col-stat rollable" data-type="bajas" data-image="{{weapon.img}}" data-stat={{localize "masacre.weapon.cc"}} data-weapon="{{weapon.name}}" data-value="{{weapon.system.cc}}">{{weapon.system.cc}}</span>
+            <span class="weapon-col weapon-col-stat rollable" data-type="bajas" data-image="{{weapon.img}}" data-stat={{localize "masacre.weapon.cd"}} data-weapon="{{weapon.name}}" data-value="{{weapon.system.cd}}">{{weapon.system.cd}}</span>
+            <span class="weapon-col weapon-col-stat rollable" data-type="bajas" data-image="{{weapon.img}}" data-stat={{localize "masacre.weapon.ld"}} data-weapon="{{weapon.name}}" data-value="{{weapon.system.ld}}">{{weapon.system.ld}}</span>
             <span class="weapon-col weapon-col-controls">
                 <a class="itemControl" data-action="edit" title="{{localize 'masacre.general.edit'}}">
                     <i class="fas fa-edit"></i>
