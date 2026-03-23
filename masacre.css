@@ -98,7 +98,7 @@
   margin-top: 0;
   margin-bottom: 10px;
   text-align: right;
-  border-bottom: none;
+  border-bottom: 1px solid #000000;
 }
 .masacre input[type="checkbox"] {
   appearance: none;
@@ -623,17 +623,6 @@
 .masacre.sheet.alienSheet .abilities-section {
   margin-bottom: 15px;
 }
-.masacre.sheet.alienSheet .description-section .editor-container,
-.masacre.sheet.alienSheet .abilities-section .editor-container {
-  min-height: 100px;
-  border: 1px solid #c7b9a3;
-  border-radius: 4px;
-  background: #ffffff;
-}
-.masacre.sheet.alienSheet .description-section .editor-container .editor,
-.masacre.sheet.alienSheet .abilities-section .editor-container .editor {
-  min-height: 100px;
-}
 .masacre.sheet.rankSheet {
   padding: 16px;
 }
@@ -911,11 +900,6 @@
 }
 .masacre.sheet.weaponSheet .weapon-description {
   flex: 1;
-}
-.masacre.sheet.weaponSheet .weapon-description .editor-container {
-  min-height: 100px;
-  border: 1px solid #c7b9a3;
-  padding: 12px;
 }
 .masacre.sheet.general .portrait {
   height: 150px;

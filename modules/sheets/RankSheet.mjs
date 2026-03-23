@@ -11,7 +11,9 @@ export class RankSheet extends ItemSheet {
 
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["masacre", "sheet", "rankSheet"]
+            classes: ["masacre", "sheet", "rankSheet"],
+            width: 500,
+            height: 600
         });
     }
 
@@ -20,12 +22,14 @@ export class RankSheet extends ItemSheet {
     } 
 
     getData() {
-        const data = super.getData();        
+        const context = super.getData();        
 
-        data.config = CONFIG.Masacre;
-
-        console.log(data.config);
+        context.config = CONFIG.Masacre;
+        context.item = this.item;
+        context.system = this.item.system;
+        context.owner = this.item.isOwner;
+        context.editable = this.isEditable;
         
-        return data;
+        return context;
     }
 }

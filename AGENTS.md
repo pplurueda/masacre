@@ -14,6 +14,12 @@ for UI and LESS for styling. There is no build step, bundler, or transpiler.
 ## Foundry VTT API documentation URL
 /https://foundryvtt.com/api/
 
+## Handlebars API documentation URL
+https://handlebarsjs.com/
+
+## Less API documentation URL
+https://lesscss.org/
+
 ## Build / Compile / Test Commands
 
 There is **no build pipeline, test framework, or linter** configured in this project.

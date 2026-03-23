@@ -67,7 +67,9 @@
             "equipment": "Equipment",
             "equipmentPlaceholder": "Equipment associated with this rank...",
             "responsibility": "Responsibility",
-            "responsibilityPlaceholder": "Rank responsibility..."
+            "responsibilityPlaceholder": "Rank responsibility...",
+            "resources": "Resources",
+            "resourcesPlaceholder": "Resources associated with this rank..."
         },
 
         "weapon": {

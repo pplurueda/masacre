@@ -67,7 +67,9 @@
             "equipment": "Equipo",
             "equipmentPlaceholder": "Equipo asociado al rango...",
             "responsibility": "Responsabilidad",
-            "responsibilityPlaceholder": "Responsabilidad del rango..."
+            "responsibilityPlaceholder": "Responsabilidad del rango...",
+            "resources": "Recursos",
+            "resourcesPlaceholder": "Recursos asociados al rango..."
         },
 
         "weapon": {

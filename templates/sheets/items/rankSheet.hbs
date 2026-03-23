@@ -39,13 +39,23 @@
 
             <div class="field">
                 <label>{{localize "masacre.rank.equipment"}}</label>
-                <input name="system.equipment" type="text" value="{{item.system.equipment}}" placeholder="{{localize 'masacre.rank.equipmentPlaceholder'}}"/>
+                <div class="editor-container">
+                    {{editor system.equipment target="system.equipment" button=true owner=owner editable=editable}}
+                </div>
+            </div>
+
+            <div class="field">
+                <label>{{localize "masacre.rank.resources"}}</label>
+                <div class="editor-container">
+                    {{editor system.resources target="system.resources" button=true owner=owner editable=editable}}
+                </div>
             </div>
 
             <div class="field">
                 <label>{{localize "masacre.rank.responsibility"}}</label>
-                {{editor item.system.responsibility target="system.responsibility" button=true owner=owner editable=editable}}
-                <!-- <input name="system.responsibility" type="text" value="{{item.system.responsibility}}" placeholder="{{localize 'masacre.rank.responsibilityPlaceholder'}}"/> -->
+                <div class="editor-container">
+                    {{editor system.responsibility target="system.responsibility" button=true owner=owner editable=editable}}
+                </div>
             </div>
         </section>
     </main>

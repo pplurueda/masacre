@@ -221,11 +221,7 @@
                     <p class="rank-details__description">{{actor.system.rank.system.description}}</p>
                     <p class="rank-details__quote"><em>{{actor.system.rank.system.quote}}</em></p>
                     <div class="rank-details__responsibility">{{{actor.system.rank.system.responsibility}}}</div>
-                    <ul class="rank-details__equipment">
-                        {{#each actor.system.equipment as |item|}}
-                        <li class="rank-details__equipment-item">{{item}}</li>
-                        {{/each}}
-                    </ul>
+                    <div class="rank-details__equipment">{{{actor.system.rank.system.equipment}}}</div>
                 </div>
             </section>
 
