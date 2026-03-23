@@ -1,0 +1,21 @@
+<section class="rank-details">
+    <h3 class="section-title-right">{{toUpperCase (localize "masacre.character.rank")}}</h3>
+    <div class="rank-details__content">
+        <p class="rank-details__name"><strong>{{actor.system.rank.name}}</strong></p>
+        
+        <h4 class="rank-details__label">{{localize "masacre.rank.description"}}</h4>
+        <p class="rank-details__description">{{{actor.system.rank.system.description}}}</p>
+        
+        <h4 class="rank-details__label">{{localize "masacre.rank.quote"}}</h4>
+        <p class="rank-details__quote"><em>{{{actor.system.rank.system.quote}}}</em></p>
+        
+        <h4 class="rank-details__label">{{localize "masacre.rank.responsibility"}}</h4>
+        <div class="rank-details__responsibility">{{{actor.system.rank.system.responsibility}}}</div>
+        
+        <h4 class="rank-details__label">{{localize "masacre.rank.resources"}}</h4>
+        <div class="rank-details__resources">{{{actor.system.rank.system.resources}}}</div>
+        
+        <h4 class="rank-details__label">{{localize "masacre.rank.equipment"}}</h4>
+        <div class="rank-details__equipment">{{{actor.system.rank.system.equipment}}}</div>
+    </div>
+</section>

@@ -19,7 +19,15 @@ async function preloadHandlebarsTemplates() {
         "systems/masacre/templates/partials/weaponItemPartial.hbs",
         "systems/masacre/templates/partials/weaponListPartial.hbs",
         "systems/masacre/templates/partials/flashbacksPartial.hbs",
-        "systems/masacre/templates/partials/flashbackItemPartial.hbs"
+        "systems/masacre/templates/partials/flashbackItemPartial.hbs",
+        "systems/masacre/templates/partials/character-creatures-killed.hbs",
+        "systems/masacre/templates/partials/character-health.hbs",
+        "systems/masacre/templates/partials/character-once-per-planet.hbs",
+        "systems/masacre/templates/partials/character-weapons.hbs",
+        "systems/masacre/templates/partials/character-stats.hbs",
+        "systems/masacre/templates/partials/character-qualities.hbs",
+        "systems/masacre/templates/partials/character-flaws.hbs",
+        "systems/masacre/templates/partials/character-rank-details.hbs"
     ];
 
     return(loadTemplates(paths))

@@ -1,0 +1,17 @@
+<section class="health">
+    <h3 class="section-title">{{toUpperCase (localize "masacre.character.wounds")}}</h3>
+    <div class="health-statuses">
+        <div class="health-item">
+            <label>{{toUpperCase (localize "masacre.character.woundsMadeMess")}}</label>
+            <input name="system.wounds.madeMess" type="checkbox" {{#if actor.system.wounds.madeMess}}checked{{/if}}/>
+        </div>
+        <div class="health-item">
+            <label>{{toUpperCase (localize "masacre.character.woundsCrippled")}}</label>
+            <input name="system.wounds.crippled" type="checkbox" {{#if actor.system.wounds.crippled}}checked{{/if}}/>
+        </div>
+        <div class="health-item">
+            <label>{{toUpperCase (localize "masacre.character.woundsDeath")}}</label>
+            <input name="system.wounds.death" type="checkbox" {{#if actor.system.wounds.death}}checked{{/if}}/>
+        </div>
+    </div>
+</section>

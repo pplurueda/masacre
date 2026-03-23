@@ -1,0 +1,35 @@
+<section class="qualities">
+    <h3 class="section-title-right">{{toUpperCase (localize "masacre.character.qualities")}}</h3>
+    <ul class="flashback-list">
+        <li class="flashback-item">
+            <span class="tri-state-toggle" 
+                  data-field="system.flashbacks.strength1.state" 
+                  data-state="{{actor.system.flashbacks.strength1.state}}"></span>
+            <input type="text" name="system.flashbacks.strength1.description" value="{{actor.system.flashbacks.strength1.description}}" {{#if (eq actor.system.flashbacks.strength1.state 1)}}{{else}}disabled{{/if}}/>
+        </li>
+        <li class="flashback-item">
+            <span class="tri-state-toggle" 
+                  data-field="system.flashbacks.strength2.state" 
+                  data-state="{{actor.system.flashbacks.strength2.state}}"></span>
+            <input type="text" name="system.flashbacks.strength2.description" value="{{actor.system.flashbacks.strength2.description}}" {{#if (eq actor.system.flashbacks.strength2.state 1)}}{{else}}disabled{{/if}}/>
+        </li>
+        <li class="flashback-item">
+            <span class="tri-state-toggle" 
+                  data-field="system.flashbacks.strength3.state" 
+                  data-state="{{actor.system.flashbacks.strength3.state}}"></span>
+            <input type="text" name="system.flashbacks.strength3.description" value="{{actor.system.flashbacks.strength3.description}}" {{#if (eq actor.system.flashbacks.strength3.state 1)}}{{else}}disabled{{/if}}/>
+        </li>
+        <li class="flashback-item">
+            <span class="tri-state-toggle" 
+                  data-field="system.flashbacks.strength4.state" 
+                  data-state="{{actor.system.flashbacks.strength4.state}}"></span>
+            <input type="text" name="system.flashbacks.strength4.description" value="{{actor.system.flashbacks.strength4.description}}" {{#if (eq actor.system.flashbacks.strength4.state 1)}}{{else}}disabled{{/if}}/>
+        </li>
+        <li class="flashback-item">
+            <span class="tri-state-toggle" 
+                  data-field="system.flashbacks.strength5.state" 
+                  data-state="{{actor.system.flashbacks.strength5.state}}"></span>
+            <input type="text" name="system.flashbacks.strength5.description" value="{{actor.system.flashbacks.strength5.description}}" {{#if (eq actor.system.flashbacks.strength5.state 1)}}{{else}}disabled{{/if}}/>
+        </li>
+    </ul>
+</section>

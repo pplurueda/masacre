@@ -1,0 +1,13 @@
+<section class="once-per-planet">
+    <h3 class="section-title">{{toUpperCase (localize "masacre.character.oncePerPlanet")}}</h3>
+    <div class="items">
+        <div class="item">
+            <label>{{toUpperCase (localize "masacre.character.mandelBriteArmor")}}</label>
+            <input name="system.mandelBriteArmorUsed" type="checkbox" class="item-box" {{#if actor.system.mandelBriteArmorUsed}}checked{{/if}}/>
+        </div>
+        <div class="item">
+            <label>{{toUpperCase (localize "masacre.character.combatDrugs")}}</label>
+            <input name="system.combatDrugUsed" type="checkbox" class="item-box" {{#if actor.system.combatDrugUsed}}checked{{/if}}/>
+        </div>
+    </div>
+</section>

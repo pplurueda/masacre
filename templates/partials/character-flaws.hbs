@@ -1,0 +1,35 @@
+<section class="flaws">
+    <h3 class="section-title-right">{{toUpperCase (localize "masacre.character.flaws")}}</h3>
+    <ul class="flashback-list">
+        <li class="flashback-item">
+            <span class="tri-state-toggle" 
+                  data-field="system.flashbacks.weakness1.state" 
+                  data-state="{{actor.system.flashbacks.weakness1.state}}"></span>
+            <input type="text" name="system.flashbacks.weakness1.description" value="{{actor.system.flashbacks.weakness1.description}}" {{#if (eq actor.system.flashbacks.weakness1.state 1)}}{{else}}disabled{{/if}}/>
+        </li>
+        <li class="flashback-item">
+            <span class="tri-state-toggle" 
+                  data-field="system.flashbacks.weakness2.state" 
+                  data-state="{{actor.system.flashbacks.weakness2.state}}"></span>
+            <input type="text" name="system.flashbacks.weakness2.description" value="{{actor.system.flashbacks.weakness2.description}}" {{#if (eq actor.system.flashbacks.weakness2.state 1)}}{{else}}disabled{{/if}}/>
+        </li>
+        <li class="flashback-item">
+            <span class="tri-state-toggle" 
+                  data-field="system.flashbacks.weakness3.state" 
+                  data-state="{{actor.system.flashbacks.weakness3.state}}"></span>
+            <input type="text" name="system.flashbacks.weakness3.description" value="{{actor.system.flashbacks.weakness3.description}}" {{#if (eq actor.system.flashbacks.weakness3.state 1)}}{{else}}disabled{{/if}}/>
+        </li>
+        <li class="flashback-item">
+            <span class="tri-state-toggle" 
+                  data-field="system.flashbacks.weakness4.state" 
+                  data-state="{{actor.system.flashbacks.weakness4.state}}"></span>
+            <input type="text" name="system.flashbacks.weakness4.description" value="{{actor.system.flashbacks.weakness4.description}}" {{#if (eq actor.system.flashbacks.weakness4.state 1)}}{{else}}disabled{{/if}}/>
+        </li>
+        <li class="flashback-item">
+            <span class="tri-state-toggle" 
+                  data-field="system.flashbacks.weakness5.state" 
+                  data-state="{{actor.system.flashbacks.weakness5.state}}"></span>
+            <span class="flashback-fixed-text">{{localize "masacre.character.flashbackHateHome"}}</span>
+        </li>
+    </ul>
+</section>

@@ -1,0 +1,18 @@
+<div class="stat-box">
+    <div class="stat-label">
+        <span class="stat-abbr">{{localize "masacre.character.combatSkillAcronym"}}</span>
+        <span class="stat-desc">{{toUpperCase (localize "masacre.character.combatSkill")}}</span>
+    </div>
+    <div class="stat-square">
+        <input name="system.combatSkill" type="number" value="{{actor.system.combatSkill}}" min="0"/>
+    </div>
+</div>
+<div class="stat-box">
+    <div class="stat-label">
+        <span class="stat-abbr">{{localize "masacre.character.nonCombatSkillAcronym"}}</span>
+        <span class="stat-desc">{{toUpperCase (localize "masacre.character.nonCombatSkill")}}
+    </div>
+    <div class="stat-square">
+        <input name="system.nonCombatSkill" type="number" value="{{actor.system.nonCombatSkill}}" min="0"/>
+    </div>
+</div>
