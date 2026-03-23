@@ -143,6 +143,9 @@ export class CharacterSheet extends ActorSheet {
         const maxField = `${stat}max`;
         
         const currentValue = item.system[currentField] || "-";
+
+        if (currentValue == "-") return;
+
         const maxValue = item.system[maxField] || "-";
         
         let currentIndex = WEAPON_STAT_VALUES.indexOf(currentValue);
@@ -155,7 +158,19 @@ export class CharacterSheet extends ActorSheet {
         const newIndex = currentIndex + 1;
         const newValue = WEAPON_STAT_VALUES[newIndex];
 
-        await item.update({ [currentField]: newValue });
+        console.log({
+            item,
+            currentField,
+            maxField,
+            currentValue,
+            maxValue,
+            currentIndex,
+            maxIndex,
+            newIndex,
+            newValue
+        });
+
+        await item.update({ [`system.${currentField}`]: newValue });
     }
 
     async _onUpgradeStat(event) {
