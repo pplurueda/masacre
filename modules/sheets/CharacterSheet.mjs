@@ -33,20 +33,14 @@ export class CharacterSheet extends ActorSheet {
         html.find('.itemControl').click(this._onItemControl.bind(this));
 
         html.find('.tri-state-toggle').click(this._onTriStateToggle.bind(this));
-
-        //html.find('.condicionAplicada').click(this._condicionAplicada.bind(this));
-
-        //html.find('.condicionEnergeticaAplicada').click(this._condicionEnergeticaAplicada.bind(this));
-
-        //html.find('.equipoEquipado').click(this._itemEquipado.bind(this));
     }
 
     async getData() {
+        
         const data = super.getData();        
         
         data.config = CONFIG.Masacre;
-
-        const actor = data.actor;
+        data.isGM = game.user.isGM;
 
         return data;
     }
