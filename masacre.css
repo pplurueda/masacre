@@ -33,7 +33,7 @@
 }
 .masacre h1 {
   font-family: 'Caslon Antique', 'Times New Roman', serif;
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 400;
   letter-spacing: 0.05em;
   margin: 0;
@@ -66,7 +66,7 @@
 }
 .masacre .section-title {
   font-family: 'Caslon Antique', 'Times New Roman', serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 400;
   letter-spacing: 0.05em;
   margin: 0;
@@ -78,7 +78,7 @@
 }
 .masacre .section-title-centered {
   font-family: 'Caslon Antique', 'Times New Roman', serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 400;
   letter-spacing: 0.05em;
   margin: 0;
@@ -90,7 +90,7 @@
 }
 .masacre .section-title-right {
   font-family: 'Caslon Antique', 'Times New Roman', serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 400;
   letter-spacing: 0.05em;
   margin: 0;
@@ -221,7 +221,7 @@
 .masacre .flashback-fixed-text {
   flex: 1;
   padding: 2px 4px;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 .masacre .field {
   display: flex;
@@ -231,12 +231,12 @@
 .masacre .field label {
   margin-right: 5px;
   white-space: nowrap;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 .masacre .field input[type="text"],
 .masacre .field input[type="number"] {
   width: 100%;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 .masacre .field li {
   display: grid;
@@ -273,7 +273,7 @@
 .masacre .stat-box .stat-abbr {
   font-family: 'Helvetica', Arial, sans-serif;
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .masacre .stat-box .stat-desc {
   font-family: 'Helvetica', Arial, sans-serif;
@@ -310,7 +310,7 @@
   outline: none;
 }
 .masacre .weapons {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 .masacre .weapons .weapon-list {
   display: flex;
@@ -379,7 +379,7 @@
 }
 .masacre .sheet-header .flashbacks-title {
   font-family: 'Caslon Antique', 'Times New Roman', serif;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 400;
   letter-spacing: 0.05em;
   margin: 0;
@@ -490,7 +490,7 @@
 }
 .masacre .right-column ul input[type="text"] {
   width: 100%;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 .masacre .right-column ul.rank-details__equipment li {
   font-size: 1em;
@@ -512,7 +512,7 @@
   margin: 0;
 }
 .masacre .rank-description {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   flex: 1;
 }
 .masacre .rank-details__content {
@@ -583,7 +583,7 @@
 .masacre.sheet.alienSheet .sheet-header .header-info h1 {
   color: #e94560;
   margin: 0 0 10px 0;
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 .masacre.sheet.alienSheet .sheet-header .header-info .name-field input {
@@ -669,7 +669,7 @@
 }
 .masacre.sheet.rankSheet .rank-info .field label {
   font-family: 'Caslon Antique', 'Times New Roman', serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 400;
   letter-spacing: 0.05em;
   margin: 0;
@@ -682,7 +682,7 @@
   border: 1px solid #c7b9a3;
   border-radius: 0;
   background: transparent;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
 }
 .masacre.sheet.rankSheet .rank-info .field input[type="text"]:focus {
   border-color: #1f1b16;
@@ -707,7 +707,7 @@
 .masacre.sheet.rankSheet .rank-value .stat-box .stat-abbr {
   font-family: 'Helvetica', Arial, sans-serif;
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .masacre.sheet.rankSheet .rank-value .stat-box .stat-desc {
   font-family: 'Helvetica', Arial, sans-serif;
@@ -753,7 +753,7 @@
   color: #7a6f62;
 }
 .masacre.sheet.rankSheet .rank-value .stat-box .stat-square input {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .masacre.sheet.rankSheet .rank-details {
   display: flex;
@@ -767,7 +767,7 @@
 }
 .masacre.sheet.rankSheet .rank-details .field label {
   font-family: 'Caslon Antique', 'Times New Roman', serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 400;
   letter-spacing: 0.05em;
   margin: 0;
@@ -780,7 +780,7 @@
   border: 1px solid #c7b9a3;
   border-radius: 0;
   background: transparent;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
 }
 .masacre.sheet.rankSheet .rank-details .field input[type="text"]:focus {
   border-color: #1f1b16;
@@ -872,7 +872,7 @@
   border: 1px solid #c7b9a3;
   border-radius: 0;
   background: transparent;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
 }
 .masacre.sheet.weaponSheet .weapon-info .field input[type="text"]:focus {
   border-color: #1f1b16;
@@ -898,7 +898,7 @@
 .masacre.sheet.weaponSheet .weapon-stats .stat-box .stat-abbr {
   font-family: 'Helvetica', Arial, sans-serif;
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .masacre.sheet.weaponSheet .weapon-stats .stat-box .stat-desc {
   font-family: 'Helvetica', Arial, sans-serif;
@@ -936,7 +936,7 @@
 }
 .masacre.sheet.weaponSheet .weapon-stats .stat-box .stat-abbr {
   font-family: 'Caslon Antique', 'Times New Roman', serif;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 .masacre.sheet.weaponSheet .weapon-stats .stat-box .stat-desc {
   font-size: 0.65em;
@@ -945,7 +945,7 @@
   color: #7a6f62;
 }
 .masacre.sheet.weaponSheet .weapon-stats .stat-box .stat-square input {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 .masacre.sheet.weaponSheet .weapon-description {
   flex: 1;
