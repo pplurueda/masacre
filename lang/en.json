@@ -81,7 +81,9 @@
             "cd": "NR",
             "cdFull": "Near Range",
             "ld": "FR",
-            "ldFull": "Far Range"
+            "ldFull": "Far Range",
+            "initial": "Initial",
+            "maximum": "Maximum"
         },
 
         "roll": {

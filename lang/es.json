@@ -81,7 +81,9 @@
             "cd": "CD",
             "cdFull": "Corta Distancia",
             "ld": "LD",
-            "ldFull": "Larga Distancia"
+            "ldFull": "Larga Distancia",
+            "initial": "Inicial",
+            "maximum": "Máximo"
         },
 
         "roll": {

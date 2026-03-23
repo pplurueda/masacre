@@ -33,9 +33,30 @@ export class WeaponSheet extends ItemSheet {
 
         data.config = CONFIG.Masacre;
 
-        console.log(data.config);
+        data.ccMaxValue = this._getMaxStatValue('cc');
+        data.cdMaxValue = this._getMaxStatValue('cd');
+        data.ldMaxValue = this._getMaxStatValue('ld');
         
         return data;
+    }
+
+    _getMaxStatValue(stat) {
+        
+        const currentValue = this.item.system[stat] || "-";
+        
+        let currentIndex = WEAPON_STAT_VALUES.indexOf(currentValue);
+        
+        if (currentIndex === -1) {
+            currentIndex = 0;
+        }
+
+        let maxIndex = currentIndex;
+        
+        if (maxIndex > 0 ) {
+            maxIndex = Math.min(currentIndex + 2, WEAPON_STAT_VALUES.length - 1);
+        }
+
+        return WEAPON_STAT_VALUES[maxIndex];
     }
 
     async _onCycleStat(event) {
@@ -45,7 +66,7 @@ export class WeaponSheet extends ItemSheet {
         const stat = element.dataset.stat;
         const direction = element.dataset.direction;
 
-        const currentValue = this.item.system[stat] || "0";
+        const currentValue = this.item.system[stat] || "-";
         
         let currentIndex = WEAPON_STAT_VALUES.indexOf(currentValue);
         
