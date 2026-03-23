@@ -1,5 +1,6 @@
 import {masacre} from "../config.js"
 import {realizarTiradas} from "../documents/realizarTiradas.js"
+import {WEAPON_STAT_VALUES} from "../documents/dataModels/WeaponDataModel.mjs"
 
 export class CharacterSheet extends ActorSheet {
 
@@ -26,6 +27,8 @@ export class CharacterSheet extends ActorSheet {
         super.activateListeners(html);
 
         html.find('.rollable').click(this._onRoll.bind(this));
+
+        html.find('.upgrade-icon').click(this._onUpgradeWeaponStat.bind(this));
         
         html.find('.itemControl').click(this._onItemControl.bind(this));
 
@@ -123,5 +126,70 @@ export class CharacterSheet extends ActorSheet {
         const dataset = element.dataset;   
 
         await realizarTiradas.general.nuevaTirada(this.actor, dataset);
+    }
+
+    async _onUpgradeWeaponStat(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const element = event.currentTarget;
+        const itemId = element.dataset.id;
+        const stat = element.dataset.stat;
+
+        const item = this.actor.items.find(i => i._id === itemId);
+        if (!item) return;
+
+        const currentField = `${stat}current`;
+        const maxField = `${stat}max`;
+        
+        const currentValue = item.system[currentField] || "-";
+        const maxValue = item.system[maxField] || "-";
+        
+        let currentIndex = WEAPON_STAT_VALUES.indexOf(currentValue);
+        const maxIndex = WEAPON_STAT_VALUES.indexOf(maxValue);
+
+        if (currentIndex === -1) currentIndex = 0;
+
+        if (currentIndex === maxIndex) return;
+
+        const newIndex = currentIndex + 1;
+        const newValue = WEAPON_STAT_VALUES[newIndex];
+
+        await item.update({ [currentField]: newValue });
+    }
+
+    async _onUpgradeStat(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const element = event.currentTarget;
+        const itemId = element.dataset.itemId;
+        const stat = element.dataset.stat;
+
+        const item = this.actor.items.get(itemId);
+        if (!item) return;
+
+        const currentField = `${stat}current`;
+        const maxField = `${stat}max`;
+        
+        const currentValue = item.system[currentField] || "-";
+        const maxValue = item.system[stat] || "-";
+        
+        let currentIndex = WEAPON_STAT_VALUES.indexOf(currentValue);
+        const maxIndex = WEAPON_STAT_VALUES.indexOf(maxValue);
+        
+        if (currentIndex === -1) {
+            currentIndex = 0;
+        }
+
+        let newIndex = currentIndex + 1;
+        
+        if (newIndex > maxIndex) {
+            newIndex = maxIndex;
+        }
+
+        const newValue = WEAPON_STAT_VALUES[newIndex];
+
+        await item.update({ [`system.${currentField}`]: newValue });
     }
 }

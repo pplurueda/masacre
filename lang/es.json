@@ -83,7 +83,8 @@
             "ld": "LD",
             "ldFull": "Larga Distancia",
             "initial": "Inicial",
-            "maximum": "Máximo"
+            "maximum": "Máximo",
+            "upgrade": "Mejorar"
         },
 
         "roll": {

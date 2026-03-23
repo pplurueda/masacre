@@ -83,7 +83,8 @@
             "ld": "FR",
             "ldFull": "Far Range",
             "initial": "Initial",
-            "maximum": "Maximum"
+            "maximum": "Maximum",
+            "upgrade": "Upgrade"
         },
 
         "roll": {

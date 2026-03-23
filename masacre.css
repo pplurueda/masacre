@@ -349,8 +349,21 @@
 .masacre .weapons .weapon-col-stat {
   flex: 1;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
 }
-.masacre .weapons .weapon-col-stat.rollable {
+.masacre .weapons .weapon-col-stat .upgrade-icon {
+  height: 16px;
+  width: auto;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.masacre .weapons .weapon-col-stat .upgrade-icon:hover {
+  opacity: 0.7;
+}
+.masacre .weapons .weapon-col-stat .rollable {
   cursor: pointer;
 }
 .masacre .weapons .weapon-col-controls {

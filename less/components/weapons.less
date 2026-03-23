@@ -47,8 +47,23 @@
     .weapon-col-stat {
       flex: 1;
       text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: @spacing-xxs;
 
-      &.rollable {
+      .upgrade-icon {
+        height: 16px;
+        width: auto;
+        cursor: pointer;
+        transition: opacity 0.2s;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+
+      .rollable {
         cursor: pointer;
       }
     }
