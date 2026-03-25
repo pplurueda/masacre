@@ -8,25 +8,29 @@ export class MasacreActorSheet extends ActorSheet {
         super(actor, options);
     }
 
-    async setInitiative(statValue) {
+    activateListeners(html) {
+     
+        super.activateListeners(html);
+
+        html.find('.rollable').click(this._onRoll.bind(this));
+    }
+
+    async setInitiative(initiativeValue) {
         if (game.combat) {
             
             const combatant = this.token?.combatant ?? game.combat.combatants.find(c => c.actor.id === this.actor.id);
 
-            console.log(combatant);
-
-            const dataset = {
-                type: "initiative",
-                value: statValue
-            };
-
-            console.log(dataset);
-
-            const initiativeValue = await realizarTiradas.general.nuevaTirada(this, dataset);
-
-            console.log(initiativeValue);
-
             if (combatant) await game.combat.setInitiative(combatant.id, initiativeValue);
         }
+    }
+
+    async _onRoll(event) {
+
+        event.preventDefault();
+
+        const element = event.currentTarget;
+        const dataset = element.dataset;   
+
+        await realizarTiradas.general.nuevaTirada(this.actor, dataset);        
     }
 }

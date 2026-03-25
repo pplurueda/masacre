@@ -10,5 +10,34 @@
     align-items: flex-start;
     text-align: left;
     margin-bottom: 15px;
+
+    .stat-main-row {
+      display: flex;
+      align-items: stretch;
+      gap: 6px;
+    }
+    
+    .stat-actions {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      
+      .stat-action-icon {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+        opacity: 0.8;
+        
+        &:hover {
+          transform: scale(1.1);
+          opacity: 1;
+        }
+        
+        &:active {
+          transform: scale(0.95);
+        }
+      }
+    }
   }
 }

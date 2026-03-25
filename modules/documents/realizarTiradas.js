@@ -4,10 +4,10 @@ realizarTiradas.actor = {
 
     async initiative(actor, dataset) {
 
-        let roll = new Roll("1d10");
-        await roll.evaluate();
-
-        let rollResult = roll.total;
+        const rollResult = await this.hability(actor, {
+            ...dataset,
+            type: "hability"
+        });
 
         console.log(rollResult);
 
@@ -20,7 +20,15 @@ realizarTiradas.actor = {
             value = rollResult - 10;
         }
 
-        return value;
+        if (actor?.sheet?.setInitiative) {
+            await actor.sheet.setInitiative(value);
+            return;
+        }
+
+        if (!game.combat) return;
+
+        const combatant = game.combat.combatants.find(c => c.actor?.id === actor.id);
+        if (combatant) await game.combat.setInitiative(combatant.id, value);
     },
 
     async hability(actor, dataset) {
@@ -61,6 +69,8 @@ realizarTiradas.actor = {
                 content: plantillaChat,
                 roll: roll
             });
+
+        return rollResult;
     }
 }
 
@@ -108,13 +118,14 @@ realizarTiradas.general = {
 
         switch(dataset.type) {
             case "bajas":
-                realizarTiradas.item.bajas(actor, dataset);
+                await realizarTiradas.item.bajas(actor, dataset);
                 break;
             case "hability":
-                realizarTiradas.actor.hability(actor, dataset);
+                await realizarTiradas.actor.hability(actor, dataset);
                 break;
             case "initiative":
-                return await realizarTiradas.actor.initiative(actor, dataset);
+                await realizarTiradas.actor.initiative(actor, dataset);
+                break;
             default:
                 console.error("Tipo de tirada no reconocido");
                 throw new Error("Tipo de tirada no reconocido");

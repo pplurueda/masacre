@@ -22,6 +22,7 @@
             "nonCombatSkillAcronym": "NCS",
             "combatSkill": "Combat Skill",
             "nonCombatSkill": "Non-Combat Skill",
+            "initiative": "Initiative",
             "mandelBriteArmor": "MandelBrite Armor",
             "combatDrugs": "Combat Drugs",
             "oncePerPlanet": "Once per planet",

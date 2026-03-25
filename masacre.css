@@ -309,6 +309,30 @@
 .masacre .stat-box .stat-square input[type="number"]:focus {
   outline: none;
 }
+.masacre .stat-box .stat-main-row {
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+}
+.masacre .stat-box .stat-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.masacre .stat-box .stat-actions .stat-action-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  opacity: 0.8;
+}
+.masacre .stat-box .stat-actions .stat-action-icon:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+.masacre .stat-box .stat-actions .stat-action-icon:active {
+  transform: scale(0.95);
+}
 .masacre .weapons {
   font-size: 1.25rem;
 }

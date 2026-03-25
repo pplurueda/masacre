@@ -29,8 +29,6 @@ export class CharacterSheet extends MasacreActorSheet {
      
         super.activateListeners(html);
 
-        html.find('.rollable').click(this._onRoll.bind(this));
-
         html.find('.upgrade-icon').click(this._onUpgradeWeaponStat.bind(this));
         
         html.find('.itemControl').click(this._onItemControl.bind(this));
@@ -113,16 +111,6 @@ export class CharacterSheet extends MasacreActorSheet {
         const newState = (currentState + 1) % 3;
 
         await this.actor.update({ [field]: newState });
-    }
-
-    async _onRoll(event) {
-
-        event.preventDefault();
-
-        const element = event.currentTarget;
-        const dataset = element.dataset;   
-
-        await realizarTiradas.general.nuevaTirada(this.actor, dataset);        
     }
 
     async _onRollHability(event) {
