@@ -3,9 +3,43 @@
 // ==========================================================================
 
 .masacre.sheet.equipmentSheet {
+  padding: @spacing-md;
+
+  .sheet-header {
+    .sheet-header-base();
+    .flex-between();
+
+    .item-portrait {
+      width: @stat-box-size-md;
+      height: @stat-box-size-md;
+      border: @border-width-xl solid @color-black;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .header-name {
+      flex: 1;
+      height: @stat-box-size-md;
+      text-align: left;
+      .heading-chalk(@font-size-6xl);
+      font-variant: small-caps;
+      letter-spacing: @letter-spacing-base;
+      color: @color-heading;
+      border: none;
+      background: transparent;
+      padding: 0;
+      margin: 0;
+      outline: none;
+
+      &:focus {
+        border-bottom: @border-width-sm solid @color-border;
+      }
+    }
+  }
 
   .equipment-content {
-    padding: @spacing-md;
+    .flex-column();
+    gap: @spacing-lg;
   }
 
   .equipment-description {

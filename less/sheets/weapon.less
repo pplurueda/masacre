@@ -18,9 +18,23 @@
       cursor: pointer;
     }
 
-    h1 {
+    .header-name {
       flex: 1;
-      text-align: center;
+      height: @stat-box-size-md;
+      text-align: left;
+      .heading-chalk(@font-size-6xl);
+      font-variant: small-caps;
+      letter-spacing: @letter-spacing-base;
+      color: @color-heading;
+      border: none;
+      background: transparent;
+      padding: 0;
+      margin: 0;
+      outline: none;
+
+      &:focus {
+        border-bottom: @border-width-sm solid @color-border;
+      }
     }
   }
 
@@ -28,26 +42,6 @@
   .weapon-content {
     .flex-column();
     gap: @spacing-lg;
-  }
-
-  // Weapon info section
-  .weapon-info {
-    .field {
-      .flex-column();
-      gap: @spacing-xs;
-
-      label {
-        font-weight: @font-weight-bold;
-        font-size: @font-size-sm;
-        text-transform: uppercase;
-        letter-spacing: @letter-spacing-tight;
-      }
-
-      input[type="text"] {
-        .input-bordered();
-        font-size: @font-size-lg;
-      }
-    }
   }
 
   // Stats section

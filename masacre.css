@@ -942,40 +942,30 @@
   object-fit: cover;
   cursor: pointer;
 }
-.masacre.sheet.rankSheet .sheet-header h1 {
+.masacre.sheet.rankSheet .sheet-header .header-name {
   flex: 1;
-  text-align: center;
+  height: 80px;
+  text-align: left;
+  font-family: 'Caslon Antique', 'Times New Roman', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  color: #3a3a3a;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+.masacre.sheet.rankSheet .sheet-header .header-name:focus {
+  border-bottom: 1px solid #c7b9a3;
 }
 .masacre.sheet.rankSheet .rank-content {
   display: flex;
   flex-direction: column;
   gap: 24px;
-}
-.masacre.sheet.rankSheet .rank-info .field {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.masacre.sheet.rankSheet .rank-info .field label {
-  font-family: 'Caslon Antique', 'Times New Roman', serif;
-  font-size: 1.5rem;
-  font-weight: 400;
-  letter-spacing: 0.05em;
-  margin: 0;
-  padding-bottom: 2px;
-  border-bottom: 1px solid #000000;
-  margin-bottom: 8px;
-}
-.masacre.sheet.rankSheet .rank-info .field input[type="text"] {
-  padding: 12px;
-  border: 1px solid #c7b9a3;
-  border-radius: 0;
-  background: transparent;
-  font-size: 1.15rem;
-}
-.masacre.sheet.rankSheet .rank-info .field input[type="text"]:focus {
-  border-color: #1f1b16;
-  outline: none;
 }
 .masacre.sheet.rankSheet .rank-value {
   display: flex;
@@ -1136,36 +1126,30 @@
   object-fit: cover;
   cursor: pointer;
 }
-.masacre.sheet.weaponSheet .sheet-header h1 {
+.masacre.sheet.weaponSheet .sheet-header .header-name {
   flex: 1;
-  text-align: center;
+  height: 80px;
+  text-align: left;
+  font-family: 'Caslon Antique', 'Times New Roman', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  color: #3a3a3a;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+.masacre.sheet.weaponSheet .sheet-header .header-name:focus {
+  border-bottom: 1px solid #c7b9a3;
 }
 .masacre.sheet.weaponSheet .weapon-content {
   display: flex;
   flex-direction: column;
   gap: 24px;
-}
-.masacre.sheet.weaponSheet .weapon-info .field {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.masacre.sheet.weaponSheet .weapon-info .field label {
-  font-weight: 700;
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-.masacre.sheet.weaponSheet .weapon-info .field input[type="text"] {
-  padding: 12px;
-  border: 1px solid #c7b9a3;
-  border-radius: 0;
-  background: transparent;
-  font-size: 1.15rem;
-}
-.masacre.sheet.weaponSheet .weapon-info .field input[type="text"]:focus {
-  border-color: #1f1b16;
-  outline: none;
 }
 .masacre.sheet.weaponSheet .weapon-stats .stats-table {
   width: 100%;
@@ -1306,8 +1290,51 @@
   width: 100%;
   flex: 1;
 }
-.masacre.sheet.alienHabilitySheet .alien-hability-content {
+.masacre.sheet.alienHabilitySheet {
   padding: 16px;
+}
+.masacre.sheet.alienHabilitySheet .sheet-header {
+  margin-bottom: 24px;
+  border-bottom: 2px solid #c7b9a3;
+  padding-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.masacre.sheet.alienHabilitySheet .sheet-header h1 {
+  text-align: center;
+}
+.masacre.sheet.alienHabilitySheet .sheet-header .item-portrait {
+  width: 80px;
+  height: 80px;
+  border: 4px solid #000000;
+  object-fit: cover;
+  cursor: pointer;
+}
+.masacre.sheet.alienHabilitySheet .sheet-header .header-name {
+  flex: 1;
+  height: 80px;
+  text-align: left;
+  font-family: 'Caslon Antique', 'Times New Roman', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  color: #3a3a3a;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+.masacre.sheet.alienHabilitySheet .sheet-header .header-name:focus {
+  border-bottom: 1px solid #c7b9a3;
+}
+.masacre.sheet.alienHabilitySheet .alien-hability-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 .masacre.sheet.alienHabilitySheet .alien-hability-description {
   flex: 1;
@@ -1352,8 +1379,51 @@
   width: 100%;
   flex: 1;
 }
-.masacre.sheet.equipmentSheet .equipment-content {
+.masacre.sheet.equipmentSheet {
   padding: 16px;
+}
+.masacre.sheet.equipmentSheet .sheet-header {
+  margin-bottom: 24px;
+  border-bottom: 2px solid #c7b9a3;
+  padding-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.masacre.sheet.equipmentSheet .sheet-header h1 {
+  text-align: center;
+}
+.masacre.sheet.equipmentSheet .sheet-header .item-portrait {
+  width: 80px;
+  height: 80px;
+  border: 4px solid #000000;
+  object-fit: cover;
+  cursor: pointer;
+}
+.masacre.sheet.equipmentSheet .sheet-header .header-name {
+  flex: 1;
+  height: 80px;
+  text-align: left;
+  font-family: 'Caslon Antique', 'Times New Roman', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  color: #3a3a3a;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+.masacre.sheet.equipmentSheet .sheet-header .header-name:focus {
+  border-bottom: 1px solid #c7b9a3;
+}
+.masacre.sheet.equipmentSheet .equipment-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 .masacre.sheet.equipmentSheet .equipment-description {
   flex: 1;

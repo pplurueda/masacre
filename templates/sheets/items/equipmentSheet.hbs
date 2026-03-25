@@ -1,16 +1,10 @@
 <form class="{{cssClass}}">
     <header class="sheet-header">
         <img class="item-portrait" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
-        <h1>{{toUpperCase (localize "masacre.character.equipment")}}</h1>
+        <input class="header-name" name="name" type="text" value="{{item.name}}" placeholder="{{localize 'masacre.general.name'}}"/>
     </header>
 
     <main class="equipment-content">
-        <section class="equipment-info">
-            <div class="field">
-                <label>{{localize "masacre.general.name"}}</label>
-                <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'masacre.general.name'}}"/>
-            </div>
-        </section>
 
         <section class="equipment-description">
             <h3 class="section-title">{{toUpperCase (localize "masacre.weapon.description")}}</h3>

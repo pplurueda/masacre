@@ -1,17 +1,10 @@
 <form class="{{cssClass}}">
     <header class="sheet-header">
         <img class="item-portrait" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
-        <h1>{{toUpperCase (localize "masacre.rank.title")}}</h1>
+        <input class="header-name" name="name" type="text" value="{{item.name}}" placeholder="{{localize 'masacre.general.name'}}"/>
     </header>
 
     <main class="rank-content">
-        <section class="rank-info">
-            <div class="field">
-                <label>{{localize "masacre.general.name"}}</label>
-                <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'masacre.general.name'}}"/>
-            </div>
-        </section>
-
         <section class="rank-value">
             <div class="stat-box">
                 <div class="stat-label">
