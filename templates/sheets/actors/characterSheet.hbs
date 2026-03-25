@@ -11,7 +11,7 @@
 <form class="{{cssClass}}">
     <header class="sheet-header">
         <img class="actor-portrait" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
-        <h1>{{toUpperCase (localize "masacre.general.threeSixteen")}}</h1>
+        <input class="header-name" name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'masacre.general.name'}}"/>
         <h2 class="flashbacks-title">{{toUpperCase (localize "masacre.character.flashback")}}</h2>
     </header>
 

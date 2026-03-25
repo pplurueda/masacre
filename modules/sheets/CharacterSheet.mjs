@@ -16,8 +16,8 @@ export class CharacterSheet extends MasacreActorSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["masacre", "sheet", "characterSheet"],
             submitOnChange: true,
-            width: 800,
-            height: 600
+            width: 1200,
+            height: 650
         });
     }
 

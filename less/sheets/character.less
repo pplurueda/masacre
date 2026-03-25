@@ -15,8 +15,23 @@
     .flex-between();
     margin-bottom: @spacing-lg + @spacing-xxs; // 20px
 
-    h1 {
+    .header-name {
+      flex: 1;
+      height: @stat-box-size-md;
       text-align: left;
+      .heading-chalk(@font-size-6xl);
+      font-variant: small-caps;
+      letter-spacing: @letter-spacing-base;
+      color: @color-heading;
+      border: none;
+      background: transparent;
+      padding: 0;
+      margin: 0;
+      outline: none;
+
+      &:focus {
+        border-bottom: @border-width-sm solid @color-border;
+      }
     }
 
     .flashbacks-title {

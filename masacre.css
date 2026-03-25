@@ -663,8 +663,25 @@
   justify-content: space-between;
   margin-bottom: 28px;
 }
-.masacre .sheet-header h1 {
+.masacre .sheet-header .header-name {
+  flex: 1;
+  height: 80px;
   text-align: left;
+  font-family: 'Caslon Antique', 'Times New Roman', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  color: #3a3a3a;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+.masacre .sheet-header .header-name:focus {
+  border-bottom: 1px solid #c7b9a3;
 }
 .masacre .sheet-header .flashbacks-title {
   font-family: 'Caslon Antique', 'Times New Roman', serif;

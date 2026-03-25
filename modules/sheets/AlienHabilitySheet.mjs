@@ -10,8 +10,8 @@ export class AlienHabilitySheet extends ItemSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             classes: ["masacre", "sheet", "alienHabilitySheet"],
-            width: 500,
-            height: 300
+            width: 850,
+            height: 500
         });
     }
 
