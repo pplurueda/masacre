@@ -9,34 +9,39 @@
             <span class="weapon-col weapon-col-controls"></span>
         </div>
         {{#each actor.system.weapons as |weapon|}}
-        <li class="weapon-row" data-item-id="{{weapon._id}}">
-            <span class="weapon-col weapon-col-desc">{{weapon.name}}</span>
-            <span class="weapon-col weapon-col-stat">
-                {{#if @root.isGM}}
-                <img  class="upgrade-icon" src="systems/masacre/assets/img/Mejorar.png" data-type="weapon-upgrade-stat" data-id="{{weapon._id}}" data-stat="cc" title="{{localize 'masacre.weapon.upgrade'}}" />
-                {{/if}}
-                <span class="rollable" data-type="bajas" data-image="{{weapon.img}}" data-stat={{localize "masacre.weapon.cc"}} data-weapon="{{weapon.name}}" data-value="{{weapon.system.cc}}">{{weapon.system.cccurrent}}</span>
-            </span>
-            <span class="weapon-col weapon-col-stat">
-                {{#if @root.isGM}}
-                <img class="upgrade-icon" src="systems/masacre/assets/img/Mejorar.png" data-type="weapon-upgrade-stat" data-id="{{weapon._id}}" data-stat="cd" title="{{localize 'masacre.weapon.upgrade'}}" />
-                {{/if}}
-                <span class="rollable" data-type="bajas" data-image="{{weapon.img}}" data-stat={{localize "masacre.weapon.cd"}} data-weapon="{{weapon.name}}" data-value="{{weapon.system.cd}}">{{weapon.system.cdcurrent}}</span>
-            </span>
-            <span class="weapon-col weapon-col-stat">
-                {{#if @root.isGM}}
-                <img class="upgrade-icon" src="systems/masacre/assets/img/Mejorar.png" data-type="weapon-upgrade-stat" data-id="{{weapon._id}}" data-stat="ld" title="{{localize 'masacre.weapon.upgrade'}}" />
-                {{/if}}
-                <span class="rollable" data-type="bajas" data-image="{{weapon.img}}" data-stat={{localize "masacre.weapon.ld"}} data-weapon="{{weapon.name}}" data-value="{{weapon.system.ld}}">{{weapon.system.ldcurrent}}</span>
-            </span>
-            <span class="weapon-col weapon-col-controls">
-                <a class="itemControl" data-action="edit" title="{{localize 'masacre.general.edit'}}">
-                    <i class="fas fa-edit"></i>
-                </a>
-                <a class="itemControl" data-action="delete" title="{{localize 'masacre.general.delete'}}">
-                    <i class="fas fa-trash"></i>
-                </a>
-            </span>
+        <li class="weapon-item" data-item-id="{{weapon._id}}">
+            <div class="weapon-row">
+                <span class="weapon-col weapon-col-desc weapon-name-toggle" data-item-id="{{weapon._id}}">{{weapon.name}}</span>
+                <span class="weapon-col weapon-col-stat">
+                    {{#if @root.isGM}}
+                    <img  class="upgrade-icon" src="systems/masacre/assets/img/Mejorar.png" data-type="weapon-upgrade-stat" data-id="{{weapon._id}}" data-stat="cc" title="{{localize 'masacre.weapon.upgrade'}}" />
+                    {{/if}}
+                    <span class="rollable" data-type="bajas" data-image="{{weapon.img}}" data-stat={{localize "masacre.weapon.cc"}} data-weapon="{{weapon.name}}" data-value="{{weapon.system.cc}}">{{weapon.system.cccurrent}}</span>
+                </span>
+                <span class="weapon-col weapon-col-stat">
+                    {{#if @root.isGM}}
+                    <img class="upgrade-icon" src="systems/masacre/assets/img/Mejorar.png" data-type="weapon-upgrade-stat" data-id="{{weapon._id}}" data-stat="cd" title="{{localize 'masacre.weapon.upgrade'}}" />
+                    {{/if}}
+                    <span class="rollable" data-type="bajas" data-image="{{weapon.img}}" data-stat={{localize "masacre.weapon.cd"}} data-weapon="{{weapon.name}}" data-value="{{weapon.system.cd}}">{{weapon.system.cdcurrent}}</span>
+                </span>
+                <span class="weapon-col weapon-col-stat">
+                    {{#if @root.isGM}}
+                    <img class="upgrade-icon" src="systems/masacre/assets/img/Mejorar.png" data-type="weapon-upgrade-stat" data-id="{{weapon._id}}" data-stat="ld" title="{{localize 'masacre.weapon.upgrade'}}" />
+                    {{/if}}
+                    <span class="rollable" data-type="bajas" data-image="{{weapon.img}}" data-stat={{localize "masacre.weapon.ld"}} data-weapon="{{weapon.name}}" data-value="{{weapon.system.ld}}">{{weapon.system.ldcurrent}}</span>
+                </span>
+                <span class="weapon-col weapon-col-controls">
+                    <a class="itemControl" data-action="edit" title="{{localize 'masacre.general.edit'}}">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a class="itemControl" data-action="delete" title="{{localize 'masacre.general.delete'}}">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </span>
+            </div>
+            <div class="weapon-description" data-item-id="{{weapon._id}}" style="display: none;">
+                <p>{{{weapon.system.description}}}</p>
+            </div>
         </li>
         {{/each}}
     </div>

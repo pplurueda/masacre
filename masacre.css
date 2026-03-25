@@ -353,11 +353,13 @@
   padding-bottom: 4px;
   margin-bottom: 2px;
 }
+.masacre .weapons .weapon-item {
+  list-style: none;
+}
 .masacre .weapons .weapon-row {
   display: flex;
   align-items: center;
   gap: 8px;
-  list-style: none;
   padding: 2px 0;
   border-bottom: 1px solid #cccccc;
   font-size: 0.85em;
@@ -369,6 +371,25 @@
 }
 .masacre .weapons .weapon-col-desc {
   flex: 2;
+}
+.masacre .weapons .weapon-name-toggle {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.masacre .weapons .weapon-name-toggle:hover {
+  color: #3a4a5a;
+}
+.masacre .weapons .weapon-description {
+  padding: 12px 16px;
+  background: #e2e2e2;
+  border-left: 3px solid #3a4a5a;
+  margin: 8px 0;
+  font-size: 0.5em;
+  line-height: 1.4;
+}
+.masacre .weapons .weapon-description p {
+  margin: 0;
+  color: #1f1b16;
 }
 .masacre .weapons .weapon-col-stat {
   flex: 1;

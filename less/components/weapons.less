@@ -26,11 +26,14 @@
       margin-bottom: 2px;
     }
 
+    .weapon-item {
+      list-style: none;
+    }
+
     .weapon-row {
       display: flex;
       align-items: center;
       gap: @spacing-xs;
-      list-style: none;
       padding: 2px 0;
       border-bottom: @border-width-sm solid @color-border-light;
       font-size: 0.85em;
@@ -42,6 +45,29 @@
 
     .weapon-col-desc {
       flex: 2;
+    }
+
+    .weapon-name-toggle {
+      cursor: pointer;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: @color-accent;
+      }
+    }
+
+    .weapon-description {
+      padding: @spacing-sm @spacing-md;
+      background: @color-paper-dark;
+      border-left: 3px solid @color-accent;
+      margin: @spacing-xs 0;
+      font-size: 0.5em;
+      line-height: 1.4;
+
+      p {
+        margin: 0;
+        color: @color-ink;
+      }
     }
 
     .weapon-col-stat {

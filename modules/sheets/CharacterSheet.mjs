@@ -34,6 +34,8 @@ export class CharacterSheet extends MasacreActorSheet {
         html.find('.itemControl').click(this._onItemControl.bind(this));
 
         html.find('.tri-state-toggle').click(this._onTriStateToggle.bind(this));
+
+        html.find('.weapon-name-toggle').click(this._onWeaponNameToggle.bind(this));
     }
 
     async getData() {
@@ -164,6 +166,21 @@ export class CharacterSheet extends MasacreActorSheet {
         });
 
         await item.update({ [`system.${currentField}`]: newValue });
+    }
+
+    _onWeaponNameToggle(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const element = event.currentTarget;
+        const itemId = element.dataset.itemId;
+        
+        const descriptionElement = this.element.find(`.weapon-description[data-item-id="${itemId}"]`);
+        
+        if (descriptionElement.length) {
+            const isVisible = descriptionElement.css('display') !== 'none';
+            descriptionElement.css('display', isVisible ? 'none' : 'block');
+        }
     }
 
     async _onUpgradeStat(event) {
