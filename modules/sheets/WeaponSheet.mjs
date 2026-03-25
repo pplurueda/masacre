@@ -13,8 +13,8 @@ export class WeaponSheet extends ItemSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             classes: ["masacre", "sheet", "weaponSheet"],
-            width: 500,
-            height: 300
+            width: 1000,
+            height: 1000
         });
     }
 

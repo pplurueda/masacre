@@ -46,7 +46,8 @@
         "Item": {
             "weapon": {},
             "rank": {},
-            "flashback": {}
+            "flashback": {},
+            "alienHability": {}
         }
     }
 }
