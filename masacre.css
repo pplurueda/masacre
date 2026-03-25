@@ -568,6 +568,46 @@
 .masacre.roll-hability-result .roll-result-failure {
   background: #dc3545;
 }
+.choose-stat-dialog {
+  padding: 16px;
+}
+.choose-stat-dialog h2 {
+  font-family: 'Cinzel', 'Times New Roman', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 16px 0;
+  color: #3a3a3a;
+}
+.choose-stat-dialog .stats-selection {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: stretch;
+}
+.choose-stat-dialog .stats-selection .stat-box {
+  flex: 1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid #888888;
+  border-radius: 4px;
+  padding: 12px;
+  background: #f8f4ed;
+}
+.choose-stat-dialog .stats-selection .stat-box:hover {
+  background: #e2e2e2;
+  border-color: #3a4a5a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.choose-stat-dialog .stats-selection .stat-box:active {
+  transform: translateY(0);
+}
+.choose-stat-dialog .stats-selection .stat-box .stat-square input {
+  pointer-events: none;
+  cursor: pointer;
+}
 .masacre.character-sheet {
   max-width: 950px;
   margin: auto;

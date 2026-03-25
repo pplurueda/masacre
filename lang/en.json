@@ -88,6 +88,10 @@
             "upgrade": "Upgrade"
         },
 
+        "dialog": {
+            "chooseStat": "Choose a skill"
+        },
+
         "roll": {
             "casualties": "Casualties Roll",
             "hability": "Roll of",

@@ -1,7 +1,5 @@
 import {masacre} from './modules/config.js';
 
-import {CombatInitiative} from './modules/combat/CombatInitiative.mjs';
-
 import {CharacterDataModel} from './modules/documents/dataModels/CharacterDataModel.mjs';
 import {AlienDataModel} from './modules/documents/dataModels/AlienDataModel.mjs';
 import {RankDataModel} from './modules/documents/dataModels/RankDataModel.mjs';
@@ -55,8 +53,6 @@ Hooks.once("init", function(){
         weapon: WeaponDataModel,
         alienHability: AlienHabilityDataModel
     };
-
-    CONFIG.Combat.documentClass = CombatInitiative;
 
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("masacre", CharacterSheet, {makeDefault: true, types: ["character"]});

@@ -1,0 +1,53 @@
+// ==========================================================================
+// Dialogs Component
+// ==========================================================================
+// Styles for dialog templates
+
+.choose-stat-dialog {
+  padding: @spacing-md;
+  
+  h2 {
+    font-family: @font-family-heading;
+    font-size: @font-size-xl;
+    font-weight: @font-weight-bold;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 0 @spacing-md 0;
+    color: @color-heading;
+  }
+  
+  .stats-selection {
+    display: flex;
+    gap: @spacing-md;
+    justify-content: center;
+    align-items: stretch;
+    
+    .stat-box {
+      flex: 1;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: @border-width-md solid @color-border-dark;
+      border-radius: 4px;
+      padding: @spacing-sm;
+      background: @color-paper;
+      
+      &:hover {
+        background: @color-paper-dark;
+        border-color: @color-accent;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      &:active {
+        transform: translateY(0);
+      }
+      
+      .stat-square {
+        input {
+          pointer-events: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

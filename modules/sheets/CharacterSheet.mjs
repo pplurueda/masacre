@@ -1,8 +1,9 @@
 import {masacre} from "../config.js"
 import {realizarTiradas} from "../documents/realizarTiradas.js"
 import {WEAPON_STAT_VALUES} from "../documents/dataModels/WeaponDataModel.mjs"
+import {MasacreActorSheet} from "./MasacreActorSheet.mjs";
 
-export class CharacterSheet extends ActorSheet {
+export class CharacterSheet extends MasacreActorSheet {
 
     constructor(actor, options) {
 
@@ -121,7 +122,7 @@ export class CharacterSheet extends ActorSheet {
         const element = event.currentTarget;
         const dataset = element.dataset;   
 
-        await realizarTiradas.general.nuevaTirada(this.actor, dataset);
+        await realizarTiradas.general.nuevaTirada(this.actor, dataset);        
     }
 
     async _onRollHability(event) {

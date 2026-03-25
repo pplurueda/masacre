@@ -2,11 +2,30 @@ export const realizarTiradas = {};
 
 realizarTiradas.actor = {
 
+    async initiative(actor, dataset) {
+
+        let roll = new Roll("1d10");
+        await roll.evaluate();
+
+        let rollResult = roll.total;
+
+        console.log(rollResult);
+
+        let value = 0;
+
+        if(rollResult <= dataset.value) {
+            value = rollResult;
+        } 
+        else {
+            value = rollResult - 10;
+        }
+
+        return value;
+    },
+
     async hability(actor, dataset) {
 
         if(dataset.type != "hability") return;
-
-        console.log(dataset);
 
         let roll = new Roll("1d10");
         await roll.evaluate();
@@ -94,6 +113,8 @@ realizarTiradas.general = {
             case "hability":
                 realizarTiradas.actor.hability(actor, dataset);
                 break;
+            case "initiative":
+                return await realizarTiradas.actor.initiative(actor, dataset);
             default:
                 console.error("Tipo de tirada no reconocido");
                 throw new Error("Tipo de tirada no reconocido");

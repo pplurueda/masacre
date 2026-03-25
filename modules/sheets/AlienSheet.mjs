@@ -1,6 +1,7 @@
 import {masacre} from "../config.js"
+import {MasacreActorSheet } from "./MasacreActorSheet.mjs";
 
-export class AlienSheet extends ActorSheet {
+export class AlienSheet extends MasacreActorSheet {
 
     constructor(actor, options) {
 

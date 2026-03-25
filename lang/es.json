@@ -88,6 +88,10 @@
             "upgrade": "Mejorar"
         },
 
+        "dialog": {
+            "chooseStat": "Selecciona una habilidad"
+        },
+
         "roll": {
             "casualties": "Tirada de Bajas",
             "hability": "Tirada de",
