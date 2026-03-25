@@ -1,0 +1,22 @@
+<form class="{{cssClass}}">
+    <header class="sheet-header">
+        <img class="item-portrait" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+        <h1>{{toUpperCase (localize "masacre.alien.title")}}</h1>
+    </header>
+
+    <main class="alien-hability-content">
+        <section class="alien-hability-info">
+            <div class="field">
+                <label>{{localize "masacre.general.name"}}</label>
+                <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'masacre.general.name'}}"/>
+            </div>
+        </section>
+
+        <section class="alien-hability-description">
+            <h3 class="section-title">{{toUpperCase (localize "masacre.alien.description")}}</h3>
+            <div class="editor-container">
+                {{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
+            </div>
+        </section>
+    </main>
+</form>

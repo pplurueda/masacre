@@ -1306,6 +1306,98 @@
   width: 100%;
   flex: 1;
 }
+.masacre.sheet.alienHabilitySheet .alien-hability-content {
+  padding: 16px;
+}
+.masacre.sheet.alienHabilitySheet .alien-hability-description {
+  flex: 1;
+}
+.masacre.sheet.alienHabilitySheet .alien-hability-description .editor-container {
+  position: relative;
+  min-height: 100px;
+  border: 1px solid #c7b9a3;
+  border-radius: 4px;
+  background: #ffffff;
+  width: 100%;
+  padding: 12px;
+}
+.masacre.sheet.alienHabilitySheet .alien-hability-description .editor-container .editor {
+  min-height: 100px;
+  height: 100%;
+  position: relative;
+}
+.masacre.sheet.alienHabilitySheet .alien-hability-description .editor-container .editor-edit {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.masacre.sheet.alienHabilitySheet .alien-hability-description .editor-container:hover .editor-edit {
+  opacity: 1;
+}
+.masacre.sheet.alienHabilitySheet .alien-hability-description .editor-container .editor-content {
+  min-height: 80px;
+  cursor: text;
+}
+.masacre.sheet.alienHabilitySheet .alien-hability-description .editor-container .editor {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.masacre.sheet.alienHabilitySheet .alien-hability-description .editor-container .editor-content,
+.masacre.sheet.alienHabilitySheet .alien-hability-description .editor-container .ProseMirror {
+  min-height: 60px;
+  width: 100%;
+  flex: 1;
+}
+.masacre.sheet.equipmentSheet .equipment-content {
+  padding: 16px;
+}
+.masacre.sheet.equipmentSheet .equipment-description {
+  flex: 1;
+}
+.masacre.sheet.equipmentSheet .equipment-description .editor-container {
+  position: relative;
+  min-height: 100px;
+  border: 1px solid #c7b9a3;
+  border-radius: 4px;
+  background: #ffffff;
+  width: 100%;
+  padding: 12px;
+}
+.masacre.sheet.equipmentSheet .equipment-description .editor-container .editor {
+  min-height: 100px;
+  height: 100%;
+  position: relative;
+}
+.masacre.sheet.equipmentSheet .equipment-description .editor-container .editor-edit {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.masacre.sheet.equipmentSheet .equipment-description .editor-container:hover .editor-edit {
+  opacity: 1;
+}
+.masacre.sheet.equipmentSheet .equipment-description .editor-container .editor-content {
+  min-height: 80px;
+  cursor: text;
+}
+.masacre.sheet.equipmentSheet .equipment-description .editor-container .editor {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.masacre.sheet.equipmentSheet .equipment-description .editor-container .editor-content,
+.masacre.sheet.equipmentSheet .equipment-description .editor-container .ProseMirror {
+  min-height: 60px;
+  width: 100%;
+  flex: 1;
+}
 .masacre.sheet.general .portrait {
   height: 150px;
 }

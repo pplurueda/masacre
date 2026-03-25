@@ -47,7 +47,8 @@
             "weapon": {},
             "rank": {},
             "flashback": {},
-            "alienHability": {}
+            "alienHability": {},
+            "equipment": {}
         }
     }
 }

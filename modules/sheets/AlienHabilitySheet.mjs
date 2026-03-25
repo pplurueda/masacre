@@ -9,21 +9,15 @@ export class AlienHabilitySheet extends ItemSheet {
 
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["masacre", "sheet", "alienHability"],
+            classes: ["masacre", "sheet", "alienHabilitySheet"],
             width: 500,
             height: 300
         });
     }
 
     get template() {
-        return `systems/masacre/templates/sheets/items/weaponSheet.hbs`;
+        return `systems/masacre/templates/sheets/items/alienHabilitySheet.hbs`;
     } 
-
-    activateListeners(html) {
-        super.activateListeners(html);
-
-        html.find('[data-action="cycle-stat"]').click(this._onCycleStat.bind(this));
-    }
 
     getData() {
         const data = super.getData();        
