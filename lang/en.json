@@ -10,6 +10,7 @@
         "character": {
             "rank": "Rank",
             "reputation": "Reputation",
+            "level": "Level",
             "deathAliens": "Aliens Killed",
             "deathAliensCurrent": "Current Mission",
             "deathAliensTotal": "Total",

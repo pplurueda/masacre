@@ -10,6 +10,7 @@
         "character": {
             "rank": "Rango",
             "reputation": "Reputación",
+            "level": "Nivel",
             "deathAliens": "Aliens Muertos",
             "deathAliensCurrent": "Misión Actual",
             "deathAliensTotal": "Total",

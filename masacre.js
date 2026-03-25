@@ -1,5 +1,7 @@
 import {masacre} from './modules/config.js';
 
+import {CombatInitiative} from './modules/combat/CombatInitiative.mjs';
+
 import {CharacterDataModel} from './modules/documents/dataModels/CharacterDataModel.mjs';
 import {AlienDataModel} from './modules/documents/dataModels/AlienDataModel.mjs';
 import {RankDataModel} from './modules/documents/dataModels/RankDataModel.mjs';
@@ -22,6 +24,7 @@ async function preloadHandlebarsTemplates() {
         "systems/masacre/templates/partials/weaponListPartial.hbs",
         "systems/masacre/templates/partials/flashbacksPartial.hbs",
         "systems/masacre/templates/partials/flashbackItemPartial.hbs",
+        "systems/masacre/templates/partials/character-info.hbs",
         "systems/masacre/templates/partials/character-creatures-killed.hbs",
         "systems/masacre/templates/partials/character-health.hbs",
         "systems/masacre/templates/partials/character-once-per-planet.hbs",
@@ -52,6 +55,8 @@ Hooks.once("init", function(){
         weapon: WeaponDataModel,
         alienHability: AlienHabilityDataModel
     };
+
+    CONFIG.Combat.documentClass = CombatInitiative;
 
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("masacre", CharacterSheet, {makeDefault: true, types: ["character"]});

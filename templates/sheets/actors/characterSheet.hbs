@@ -18,30 +18,7 @@
     <main class="main-content">
         <!-- Columna Izquierda -->
         <div class="column left-column">
-            <section class="character-info">
-                <div class="field">
-                    <label for="nombre">{{localize "masacre.general.name"}}</label>
-                    <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'masacre.general.name'}}"/>
-                </div>
-                <div class="field">
-                    <label for="reputacion">{{localize "masacre.character.reputation"}}</label>
-                    <input name="system.reputation" type="text" value="{{actor.system.reputation}}" placeholder="{{localize 'masacre.character.reputation'}}"/>
-                </div>
-                <div class="field">
-                    <label for="rango">{{localize "masacre.character.rank"}}</label>
-                    <li class="rank-item" data-item-id="{{actor.system.rank.id}}">
-                        <div class="rank-description">{{concat actor.system.rank.name "[" actor.system.rank.system.value "]"}}</div>
-                        <div class="itemControls">
-                            <a class="itemControl" data-action="edit" title="{{'masacre.edit'}}">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <a class="itemControl" data-action="delete" title="{{'masacre.delete'}}">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                        </div>
-                    </li>
-                </div>
-            </section>
+            {{> "systems/masacre/templates/partials/character-info.hbs"}}
 
             {{> "systems/masacre/templates/partials/character-creatures-killed.hbs"}}
 
