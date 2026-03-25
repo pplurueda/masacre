@@ -15,6 +15,18 @@
     .flex-between();
     margin-bottom: @spacing-lg + @spacing-xxs; // 20px
 
+    .header-rank {
+      flex: none;
+      height: @stat-box-size-md;
+      line-height: @stat-box-size-md;
+      text-align: left;
+      .heading-chalk(@font-size-6xl);
+      font-variant: small-caps;
+      letter-spacing: @letter-spacing-base;
+      color: @color-heading;
+      margin-right: @spacing-sm;
+    }
+
     .header-name {
       flex: 1;
       height: @stat-box-size-md;

@@ -663,6 +663,21 @@
   justify-content: space-between;
   margin-bottom: 28px;
 }
+.masacre .sheet-header .header-rank {
+  flex: none;
+  height: 80px;
+  line-height: 80px;
+  text-align: left;
+  font-family: 'Caslon Antique', 'Times New Roman', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  margin: 0;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  color: #3a3a3a;
+  margin-right: 12px;
+}
 .masacre .sheet-header .header-name {
   flex: 1;
   height: 80px;

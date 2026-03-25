@@ -7,18 +7,4 @@
         <label for="level">{{localize "masacre.character.level"}}</label>
         <input name="system.level" type="text" value="{{actor.system.level}}" placeholder="{{localize 'masacre.character.level'}}"/>
     </div>
-    <div class="field">
-        <label for="rango">{{localize "masacre.character.rank"}}</label>
-        <li class="rank-item" data-item-id="{{actor.system.rank.id}}">
-            <div class="rank-description">{{concat actor.system.rank.name "[" actor.system.rank.system.value "]"}}</div>
-            <div class="itemControls">
-                <a class="itemControl" data-action="edit" title="{{'masacre.edit'}}">
-                    <i class="fas fa-edit"></i>
-                </a>
-                <a class="itemControl" data-action="delete" title="{{'masacre.delete'}}">
-                    <i class="fas fa-trash"></i>
-                </a>
-            </div>
-        </li>
-    </div>
 </section>
