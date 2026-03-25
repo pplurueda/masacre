@@ -105,11 +105,14 @@ Hooks.once("init", function(){
     });
 });
 
-Hooks.on("renderChatMessage", (message, html, data) => {
-    html.find('.add-casualties-btn').click(async (event) => {
+Hooks.on("renderChatMessageHTML", (message, html, data) => {
+    
+    const button = html.querySelector('.add-casualties-btn');
+    if (!button) return;
+    
+    button.addEventListener('click', async (event) => {
         event.preventDefault();
         
-        const button = event.currentTarget;
         const actorId = button.dataset.actorId;
         const casualties = parseInt(button.dataset.casualties) || 0;
         
