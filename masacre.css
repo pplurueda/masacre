@@ -653,6 +653,66 @@
   pointer-events: none;
   cursor: pointer;
 }
+.masacre .equipment {
+  font-size: 1.25rem;
+}
+.masacre .equipment .equipment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.masacre .equipment .equipment-item {
+  list-style: none;
+}
+.masacre .equipment .equipment-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 0;
+  border-bottom: 1px solid #cccccc;
+  font-size: 0.85em;
+}
+.masacre .equipment .equipment-col {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.masacre .equipment .equipment-col-name {
+  flex: 2;
+}
+.masacre .equipment .equipment-name-toggle {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.masacre .equipment .equipment-name-toggle:hover {
+  color: #3a4a5a;
+}
+.masacre .equipment .equipment-description {
+  padding: 12px 16px;
+  background: #e2e2e2;
+  border-left: 3px solid #3a4a5a;
+  margin: 8px 0;
+  font-size: 0.5em;
+  line-height: 1.4;
+}
+.masacre .equipment .equipment-description p {
+  margin: 0;
+  color: #1f1b16;
+}
+.masacre .equipment .equipment-col-controls {
+  flex: 0 0 40px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+}
+.masacre .equipment .equipment-col-controls a {
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.15s ease;
+}
+.masacre .equipment .equipment-col-controls a:hover {
+  opacity: 1;
+}
 .masacre.character-sheet {
   max-width: 950px;
   margin: auto;

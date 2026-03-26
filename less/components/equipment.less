@@ -1,0 +1,64 @@
+// ==========================================================================
+// Equipment Component
+// ==========================================================================
+// Equipment list styles scoped to .masacre
+
+.masacre {
+  .equipment {
+    font-size: @font-size-xl;
+
+    .equipment-list {
+      .flex-column();
+      gap: 2px;
+    }
+
+    .equipment-item {
+      list-style: none;
+    }
+
+    .equipment-row {
+      display: flex;
+      align-items: center;
+      gap: @spacing-xs;
+      padding: 2px 0;
+      border-bottom: @border-width-sm solid @color-border-light;
+      font-size: 0.85em;
+    }
+
+    .equipment-col {
+      .truncate();
+    }
+
+    .equipment-col-name {
+      flex: 2;
+    }
+
+    .equipment-name-toggle {
+      cursor: pointer;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: @color-accent;
+      }
+    }
+
+    .equipment-description {
+      padding: @spacing-sm @spacing-md;
+      background: @color-paper-dark;
+      border-left: 3px solid @color-accent;
+      margin: @spacing-xs 0;
+      font-size: 0.5em;
+      line-height: 1.4;
+
+      p {
+        margin: 0;
+        color: @color-ink;
+      }
+    }
+
+    .equipment-col-controls {
+      flex: 0 0 40px;
+      .item-controls();
+    }
+  }
+}

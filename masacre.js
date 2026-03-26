@@ -32,7 +32,8 @@ async function preloadHandlebarsTemplates() {
         "systems/masacre/templates/partials/character-stats.hbs",
         "systems/masacre/templates/partials/character-qualities.hbs",
         "systems/masacre/templates/partials/character-flaws.hbs",
-        "systems/masacre/templates/partials/character-rank-details.hbs"
+        "systems/masacre/templates/partials/character-rank-details.hbs",
+        "systems/masacre/templates/partials/character-equipment.hbs"
     ];
 
     return(loadTemplates(paths))

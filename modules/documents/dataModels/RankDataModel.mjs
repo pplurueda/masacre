@@ -7,7 +7,7 @@ export class RankDataModel extends foundry.abstract.TypeDataModel {
           description: new HTMLField({ required: true, blank: true }),
           quote: new HTMLField({ required: true, blank: true }),
           responsibility: new HTMLField({ required: false, blank: true }),
-          equipment: new HTMLField({ required: false, blank: true }),
+          equipment: new StringField({ required: false, blank: true }),
           resources: new HTMLField({ required: false, blank: true }),
         }
       };

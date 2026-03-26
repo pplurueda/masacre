@@ -1,0 +1,23 @@
+<section class="equipment">
+    <h3 class="section-title">{{toUpperCase (localize "masacre.character.equipment")}}</h3>
+    <div class="equipment-list">
+        {{#each actor.system.equipment as |equip|}}
+        <li class="equipment-item" data-item-id="{{equip._id}}">
+            <div class="equipment-row">
+                <span class="equipment-col equipment-col-name equipment-name-toggle" data-item-id="{{equip._id}}">{{equip.name}}</span>
+                <span class="equipment-col equipment-col-controls">
+                    <a class="itemControl" data-action="edit" title="{{localize 'masacre.general.edit'}}">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a class="itemControl" data-action="delete" title="{{localize 'masacre.general.delete'}}">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </span>
+            </div>
+            <div class="equipment-description" data-item-id="{{equip._id}}" style="display: none;">
+                <p>{{{equip.system.description}}}</p>
+            </div>
+        </li>
+        {{/each}}
+    </div>
+</section>

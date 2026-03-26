@@ -13,5 +13,6 @@ export class MasacreActor extends Actor {
 
       this.system.rank = this.items.find(i => i.type === "rank");
       this.system.weapons = this.items.filter(item => item.type === "weapon");
+      this.system.equipment = this.items.filter(item => item.type === "equipment");
     }
   }

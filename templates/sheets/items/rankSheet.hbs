@@ -36,9 +36,7 @@
 
             <div class="field">
                 <label>{{localize "masacre.rank.equipment"}}</label>
-                <div class="editor-container">
-                    {{editor system.equipment target="system.equipment" button=true owner=owner editable=editable}}
-                </div>
+                <input name="system.equipment" type="text" value="{{item.system.equipment}}" placeholder="{{localize 'masacre.rank.equipment'}}"/>
             </div>            
 
             <div class="field">

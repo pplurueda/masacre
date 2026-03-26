@@ -36,6 +36,8 @@ export class CharacterSheet extends MasacreActorSheet {
         html.find('.tri-state-toggle').click(this._onTriStateToggle.bind(this));
 
         html.find('.weapon-name-toggle').click(this._onWeaponNameToggle.bind(this));
+
+        html.find('.equipment-name-toggle').click(this._onEquipmentNameToggle.bind(this));
     }
 
     async getData() {
@@ -100,8 +102,40 @@ export class CharacterSheet extends MasacreActorSheet {
             await actor.deleteEmbeddedDocuments("Item", [rank._id]);
         });
 
-        // Update actor image using the proper Foundry update method
         await actor.update({ img: rankCreated.img });
+
+        await this._syncRankEquipment();
+    }
+
+    async _syncRankEquipment() {
+
+        if (!this.actor.system.rank?.system?.equipment) return;
+
+        const raw = this.actor.system.rank.system.equipment;
+     
+        const names = raw.split("#").map(n => n.trim().toUpperCase()).filter(n => n.length > 0);
+
+        const existingNames = this.actor.items
+            .filter(i => i.type === "equipment")
+            .map(i => i.name.toUpperCase());
+
+        const itemsToCreate = [];
+
+        for (const name of names) {
+          
+          if (existingNames.includes(name)) continue;
+
+          const worldItem = game.items.find(i => i.type === "equipment" && i.name.toUpperCase() === name);          
+
+          if (worldItem) {
+            itemsToCreate.push(worldItem.toObject());
+          }
+        }
+
+        if (itemsToCreate.length > 0) {
+          await this.actor.createEmbeddedDocuments("Item", itemsToCreate);
+        
+        }
     }
 
     async _onTriStateToggle(event) {
@@ -176,6 +210,21 @@ export class CharacterSheet extends MasacreActorSheet {
         const itemId = element.dataset.itemId;
         
         const descriptionElement = this.element.find(`.weapon-description[data-item-id="${itemId}"]`);
+        
+        if (descriptionElement.length) {
+            const isVisible = descriptionElement.css('display') !== 'none';
+            descriptionElement.css('display', isVisible ? 'none' : 'block');
+        }
+    }
+
+    _onEquipmentNameToggle(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const element = event.currentTarget;
+        const itemId = element.dataset.itemId;
+        
+        const descriptionElement = this.element.find(`.equipment-description[data-item-id="${itemId}"]`);
         
         if (descriptionElement.length) {
             const isVisible = descriptionElement.css('display') !== 'none';
