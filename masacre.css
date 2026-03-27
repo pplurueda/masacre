@@ -610,8 +610,74 @@
 .masacre.roll-hability-result .roll-result-success {
   background: #28a745;
 }
-.masacre.roll-hability-result .roll-result-failure {
+.masacre.roll-hability-result .masacre.roll-result-failure {
   background: #dc3545;
+}
+.masacre.item-info {
+  font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+  background: #f8f4ed;
+  border: 2px solid #888888;
+  border-radius: 4px;
+  padding: 12px;
+  margin: 8px 0;
+}
+.masacre.item-info .item-info-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 12px;
+}
+.masacre.item-info .item-info-header .item-portrait {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border: 1px solid #888888;
+  border-radius: 4px;
+}
+.masacre.item-info .item-info-header .item-title {
+  font-family: 'Cinzel', 'Times New Roman', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0;
+  color: #3a3a3a;
+}
+.masacre.item-info .item-info-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.masacre.item-info .item-info-details .item-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 8px;
+  background: #e2e2e2;
+  border-radius: 2px;
+}
+.masacre.item-info .item-info-details .item-info-row .detail-label {
+  font-weight: 700;
+  color: #7a6f62;
+  font-size: 0.875rem;
+}
+.masacre.item-info .item-info-details .item-info-row .detail-value {
+  font-weight: 400;
+  color: #1f1b16;
+  font-size: 0.875rem;
+}
+.masacre.item-info .item-info-details .item-info-description .detail-label {
+  display: block;
+  font-weight: 700;
+  color: #7a6f62;
+  font-size: 0.875rem;
+  margin-bottom: 4px;
+}
+.masacre.item-info .item-info-details .item-info-description .description-content {
+  font-size: 0.875rem;
+  color: #1f1b16;
 }
 .choose-stat-dialog {
   padding: 16px;

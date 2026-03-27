@@ -213,7 +213,89 @@
     background: #28a745;
   }
 
-  .roll-result-failure {
+  .masacre.roll-result-failure {
     background: #dc3545;
+  }
+}
+
+// ==========================================================================
+// Item Info Messages (weapon, equipment, resource, alienHability)
+// ==========================================================================
+
+.masacre.item-info {
+  font-family: @font-family-body;
+  background: @color-paper;
+  border: @border-width-md solid @color-border-dark;
+  border-radius: 4px;
+  padding: @spacing-sm;
+  margin: @spacing-xs 0;
+
+  .item-info-header {
+    display: flex;
+    align-items: center;
+    gap: @spacing-sm;
+    padding-bottom: @spacing-sm;
+    border-bottom: @border-width-sm solid @color-border-light;
+    margin-bottom: @spacing-sm;
+
+    .item-portrait {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      border: @border-width-sm solid @color-border-dark;
+      border-radius: 4px;
+    }
+
+    .item-title {
+      font-family: @font-family-heading;
+      font-size: @font-size-lg;
+      font-weight: @font-weight-bold;
+      text-transform: uppercase;
+      letter-spacing: @letter-spacing-base;
+      margin: 0;
+      color: @color-heading;
+    }
+  }
+
+  .item-info-details {
+    display: flex;
+    flex-direction: column;
+    gap: @spacing-xs;
+
+    .item-info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: @spacing-xxs @spacing-xs;
+      background: @color-paper-dark;
+      border-radius: 2px;
+
+      .detail-label {
+        font-weight: @font-weight-bold;
+        color: @color-muted;
+        font-size: @font-size-sm;
+      }
+
+      .detail-value {
+        font-weight: @font-weight-normal;
+        color: @color-ink;
+        font-size: @font-size-sm;
+      }
+    }
+
+    .item-info-description {
+      .detail-label {
+        display: block;
+        font-weight: @font-weight-bold;
+        color: @color-muted;
+        font-size: @font-size-sm;
+        margin-bottom: @spacing-xxs;
+      }
+
+      .description-content {
+        font-size: @font-size-sm;
+        color: @color-ink;
+      }
+    }
   }
 }
