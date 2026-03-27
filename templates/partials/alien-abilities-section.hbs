@@ -1,0 +1,8 @@
+<section class="abilities-section">
+    <h3 class="section-title">{{toUpperCase (localize "masacre.alien.abilities")}}</h3>
+    <div class="alien-habilities-list">
+        {{#each actor.system.alienHabilities as |hability|}}
+        {{> "systems/masacre/templates/partials/alien-hability-item.hbs" hability=hability}}
+        {{/each}}
+    </div>
+</section>

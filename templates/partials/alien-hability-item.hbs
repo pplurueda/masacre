@@ -1,0 +1,21 @@
+<li class="alien-hability-item" data-item-id="{{hability._id}}">
+    <div class="alien-hability-row">
+        <span class="alien-hability-name alien-hability-name-toggle" data-item-id="{{hability._id}}">{{hability.name}}</span>
+        <span class="alien-hability-controls">
+            <a class="itemControl" data-action="info" title="{{localize 'masacre.general.info'}}">
+                <i class="fas fa-info-circle"></i>
+            </a>
+            {{#if @root.isGM}}
+            <a class="itemControl" data-action="edit" title="{{localize 'masacre.general.edit'}}">
+                <i class="fas fa-edit"></i>
+            </a>
+            <a class="itemControl" data-action="delete" title="{{localize 'masacre.general.delete'}}">
+                <i class="fas fa-trash"></i>
+            </a>
+            {{/if}}
+        </span>
+    </div>
+    <div class="alien-hability-description" data-item-id="{{hability._id}}" style="display: none;">
+        <p>{{{hability.system.description}}}</p>
+    </div>
+</li>

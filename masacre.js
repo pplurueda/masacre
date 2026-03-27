@@ -22,10 +22,6 @@ import {ResourceSheet} from './modules/sheets/ResourceSheet.mjs';
 
 async function preloadHandlebarsTemplates() {
     const paths = [
-        "systems/masacre/templates/partials/weaponItemPartial.hbs",
-        "systems/masacre/templates/partials/weaponListPartial.hbs",
-        "systems/masacre/templates/partials/flashbacksPartial.hbs",
-        "systems/masacre/templates/partials/flashbackItemPartial.hbs",
         "systems/masacre/templates/partials/character-info.hbs",
         "systems/masacre/templates/partials/character-creatures-killed.hbs",
         "systems/masacre/templates/partials/character-health.hbs",
@@ -36,7 +32,12 @@ async function preloadHandlebarsTemplates() {
         "systems/masacre/templates/partials/character-flaws.hbs",
         "systems/masacre/templates/partials/character-rank-details.hbs",
         "systems/masacre/templates/partials/character-equipment.hbs",
-        "systems/masacre/templates/partials/character-resources.hbs"
+        "systems/masacre/templates/partials/character-resources.hbs",
+        "systems/masacre/templates/partials/alien-stats-section.hbs",
+        "systems/masacre/templates/partials/alien-hazard-sheets-section.hbs",
+        "systems/masacre/templates/partials/alien-description-section.hbs",
+        "systems/masacre/templates/partials/alien-abilities-section.hbs",
+        "systems/masacre/templates/partials/alien-hability-item.hbs"
     ];
 
     return(loadTemplates(paths))

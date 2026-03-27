@@ -1,0 +1,26 @@
+<section class="hazard-sheets-section">
+    <div class="stat-box">
+        <div class="stat-label">
+            <span class="stat-abbr">{{localize "masacre.alien.hazardSheetsAbbr"}}</span>
+            <span class="stat-desc">{{toUpperCase (localize "masacre.alien.hazardSheets")}}</span>
+        </div>
+        <div class="stat-main-row">
+            <div class="stat-square">
+                <input name="system.hazardSheets.total" type="number" value="{{actor.system.hazardSheets.total}}" min="0"/>
+            </div>
+        </div>
+    </div>
+    <div class="hazard-battle">
+        <h4 class="subsection-title">{{toUpperCase (localize "masacre.alien.battle")}}</h4>
+        <div class="hazard-battle-fields">
+            <div class="battle-field">
+                <label>{{localize "masacre.general.current"}}</label>
+                <input name="system.hazardSheets.battle.value" type="number" value="{{actor.system.hazardSheets.battle.value}}" min="0"/>
+            </div>
+            <div class="battle-field">
+                <label>{{localize "masacre.general.total"}}</label>
+                <input name="system.hazardSheets.battle.max" type="number" value="{{actor.system.hazardSheets.battle.max}}" min="0"/>
+            </div>
+        </div>
+    </div>
+</section>

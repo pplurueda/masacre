@@ -7,89 +7,14 @@
     <main class="main-content">
         <!-- Columna Izquierda -->
         <div class="column left-column">
-            <section class="stats-section">
-                <div class="stat-box">
-                    <div class="stat-label">
-                        <span class="stat-abbr rollable" data-type="hability" data-stat="alienSkill" data-description={{localize "masacre.alien.alienSkillAcronym"}} data-value="{{actor.system.alienSkill}}">{{localize "masacre.alien.alienSkillAcronym"}}</span>
-                        <span class="stat-desc">{{toUpperCase (localize "masacre.alien.alienSkill")}}</span>
-                    </div>
-                    <div class="stat-main-row">
-                        <div class="stat-square">
-                            <input name="system.alienSkill" type="number" value="{{actor.system.alienSkill}}" min="0"/>
-                        </div>
-                        <div class="stat-actions">
-                            <img class="stat-action-icon rollable" data-type="hability" data-stat="alienSkill" data-description={{localize "masacre.alien.alienSkillAcronym"}} data-value="{{actor.system.alienSkill}}" src="systems/masacre/assets/img/Dice.png" alt="Roll" title="{{localize 'masacre.roll.hability'}}" />
-                            <img class="stat-action-icon rollable" data-type="initiative" data-stat="alienSkill" data-description={{localize "masacre.alien.alienSkillAcronym"}} data-value="{{actor.system.alienSkill}}" src="systems/masacre/assets/img/Initiative.png" alt="Initiative" title="{{localize 'masacre.character.initiative'}}" />
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="hazard-sheets-section">
-                <div class="stat-box">
-                    <div class="stat-label">
-                        <span class="stat-abbr">{{localize "masacre.alien.hazardSheetsAbbr"}}</span>
-                        <span class="stat-desc">{{toUpperCase (localize "masacre.alien.hazardSheets")}}</span>
-                    </div>
-                    <div class="stat-main-row">
-                        <div class="stat-square">
-                            <input name="system.hazardSheets.total" type="number" value="{{actor.system.hazardSheets.total}}" min="0"/>
-                        </div>
-                    </div>
-                </div>
-                <div class="hazard-battle">
-                    <h4 class="subsection-title">{{toUpperCase (localize "masacre.alien.battle")}}</h4>
-                    <div class="hazard-battle-fields">
-                        <div class="battle-field">
-                            <label>{{localize "masacre.general.current"}}</label>
-                            <input name="system.hazardSheets.battle.value" type="number" value="{{actor.system.hazardSheets.battle.value}}" min="0"/>
-                        </div>
-                        <div class="battle-field">
-                            <label>{{localize "masacre.general.total"}}</label>
-                            <input name="system.hazardSheets.battle.max" type="number" value="{{actor.system.hazardSheets.battle.max}}" min="0"/>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {{> "systems/masacre/templates/partials/alien-stats-section.hbs"}}
+            {{> "systems/masacre/templates/partials/alien-hazard-sheets-section.hbs"}}
         </div>
 
         <!-- Columna Derecha -->
         <div class="column right-column">
-            <section class="description-section">
-                <h3 class="section-title">{{toUpperCase (localize "masacre.alien.description")}}</h3>
-                <div class="editor-container">
-                    {{editor actor.system.description target="system.description" button=true owner=owner editable=editable}}
-                </div>
-            </section>
-
-            <section class="abilities-section">
-                <h3 class="section-title">{{toUpperCase (localize "masacre.alien.abilities")}}</h3>
-                <div class="alien-habilities-list">
-                    {{#each actor.system.alienHabilities as |hability|}}
-                    <li class="alien-hability-item" data-item-id="{{hability._id}}">
-                        <div class="alien-hability-row">
-                            <span class="alien-hability-name alien-hability-name-toggle" data-item-id="{{hability._id}}">{{hability.name}}</span>
-                            <span class="alien-hability-controls">
-                                <a class="itemControl" data-action="info" title="{{localize 'masacre.general.info'}}">
-                                    <i class="fas fa-info-circle"></i>
-                                </a>
-                                {{#if @root.isGM}}
-                                <a class="itemControl" data-action="edit" title="{{localize 'masacre.general.edit'}}">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                <a class="itemControl" data-action="delete" title="{{localize 'masacre.general.delete'}}">
-                                    <i class="fas fa-trash"></i>
-                                </a>
-                                {{/if}}
-                            </span>
-                        </div>
-                        <div class="alien-hability-description" data-item-id="{{hability._id}}" style="display: none;">
-                            <p>{{{hability.system.description}}}</p>
-                        </div>
-                    </li>
-                    {{/each}}
-                </div>
-            </section>
+            {{> "systems/masacre/templates/partials/alien-description-section.hbs"}}
+            {{> "systems/masacre/templates/partials/alien-abilities-section.hbs"}}
         </div>
     </main>
 </form>
