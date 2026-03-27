@@ -384,7 +384,7 @@
   background: #e2e2e2;
   border-left: 3px solid #3a4a5a;
   margin: 8px 0;
-  font-size: 0.5em;
+  font-size: 0.75em;
   line-height: 1.4;
 }
 .masacre .weapons .weapon-description p {
@@ -692,7 +692,7 @@
   background: #e2e2e2;
   border-left: 3px solid #3a4a5a;
   margin: 8px 0;
-  font-size: 0.5em;
+  font-size: 0.75em;
   line-height: 1.4;
 }
 .masacre .equipment .equipment-description p {
@@ -711,6 +711,84 @@
   transition: opacity 0.15s ease;
 }
 .masacre .equipment .equipment-col-controls a:hover {
+  opacity: 1;
+}
+.masacre .resources {
+  font-size: 1.25rem;
+}
+.masacre .resources .resource-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.masacre .resources .resource-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid #000000;
+  padding-bottom: 4px;
+  margin-bottom: 2px;
+}
+.masacre .resources .resource-item {
+  list-style: none;
+}
+.masacre .resources .resource-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 0;
+  border-bottom: 1px solid #cccccc;
+  font-size: 0.85em;
+}
+.masacre .resources .resource-col {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.masacre .resources .resource-col-uses {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.masacre .resources .resource-col-name {
+  flex: 2;
+}
+.masacre .resources .resource-name-toggle {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.masacre .resources .resource-name-toggle:hover {
+  color: #3a4a5a;
+}
+.masacre .resources .resource-description {
+  padding: 12px 16px;
+  background: #e2e2e2;
+  border-left: 3px solid #3a4a5a;
+  margin: 8px 0;
+  font-size: 0.75em;
+  line-height: 1.4;
+}
+.masacre .resources .resource-description p {
+  margin: 0;
+  color: #1f1b16;
+}
+.masacre .resources .resource-col-controls {
+  flex: 0 0 40px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+}
+.masacre .resources .resource-col-controls a {
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.15s ease;
+}
+.masacre .resources .resource-col-controls a:hover {
   opacity: 1;
 }
 .masacre.character-sheet {
@@ -1556,6 +1634,162 @@
 }
 .masacre.sheet.equipmentSheet .equipment-description .editor-container .editor-content,
 .masacre.sheet.equipmentSheet .equipment-description .editor-container .ProseMirror {
+  min-height: 60px;
+  width: 100%;
+  flex: 1;
+}
+.masacre.sheet.resourceSheet {
+  padding: 16px;
+}
+.masacre.sheet.resourceSheet .sheet-header {
+  margin-bottom: 24px;
+  border-bottom: 2px solid #c7b9a3;
+  padding-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.masacre.sheet.resourceSheet .sheet-header h1 {
+  text-align: center;
+}
+.masacre.sheet.resourceSheet .sheet-header .item-portrait {
+  width: 80px;
+  height: 80px;
+  border: 4px solid #000000;
+  object-fit: cover;
+  cursor: pointer;
+}
+.masacre.sheet.resourceSheet .sheet-header .header-name {
+  flex: 1;
+  height: 80px;
+  text-align: left;
+  font-family: 'Caslon Antique', 'Times New Roman', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  color: #3a3a3a;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+.masacre.sheet.resourceSheet .sheet-header .header-name:focus {
+  border-bottom: 1px solid #c7b9a3;
+}
+.masacre.sheet.resourceSheet .resource-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.masacre.sheet.resourceSheet .resource-uses {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.masacre.sheet.resourceSheet .resource-uses .stat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.masacre.sheet.resourceSheet .resource-uses .stat-box .stat-label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+.masacre.sheet.resourceSheet .resource-uses .stat-box .stat-abbr {
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.masacre.sheet.resourceSheet .resource-uses .stat-box .stat-desc {
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 0.6em;
+  font-weight: 700;
+}
+.masacre.sheet.resourceSheet .resource-uses .stat-box .stat-square {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.masacre.sheet.resourceSheet .resource-uses .stat-box .stat-square input[type="number"] {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: 700;
+  font-family: 'Helvetica', Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  -moz-appearance: textfield;
+}
+.masacre.sheet.resourceSheet .resource-uses .stat-box .stat-square input[type="number"]::-webkit-inner-spin-button,
+.masacre.sheet.resourceSheet .resource-uses .stat-box .stat-square input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.masacre.sheet.resourceSheet .resource-uses .stat-box .stat-square input[type="number"]:focus {
+  outline: none;
+}
+.masacre.sheet.resourceSheet .resource-uses .stat-box .stat-abbr {
+  font-family: 'Caslon Antique', 'Times New Roman', serif;
+}
+.masacre.sheet.resourceSheet .resource-uses .stat-box .stat-desc {
+  font-size: 0.7em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #7a6f62;
+}
+.masacre.sheet.resourceSheet .resource-uses .stat-box .stat-square input {
+  font-size: 1.5rem;
+}
+.masacre.sheet.resourceSheet .resource-description {
+  flex: 1;
+}
+.masacre.sheet.resourceSheet .resource-description .editor-container {
+  position: relative;
+  min-height: 100px;
+  border: 1px solid #c7b9a3;
+  border-radius: 4px;
+  background: #ffffff;
+  width: 100%;
+  padding: 12px;
+}
+.masacre.sheet.resourceSheet .resource-description .editor-container .editor {
+  min-height: 100px;
+  height: 100%;
+  position: relative;
+}
+.masacre.sheet.resourceSheet .resource-description .editor-container .editor-edit {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.masacre.sheet.resourceSheet .resource-description .editor-container:hover .editor-edit {
+  opacity: 1;
+}
+.masacre.sheet.resourceSheet .resource-description .editor-container .editor-content {
+  min-height: 80px;
+  cursor: text;
+}
+.masacre.sheet.resourceSheet .resource-description .editor-container .editor {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.masacre.sheet.resourceSheet .resource-description .editor-container .editor-content,
+.masacre.sheet.resourceSheet .resource-description .editor-container .ProseMirror {
   min-height: 60px;
   width: 100%;
   flex: 1;

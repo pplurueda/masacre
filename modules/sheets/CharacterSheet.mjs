@@ -38,6 +38,10 @@ export class CharacterSheet extends MasacreActorSheet {
         html.find('.weapon-name-toggle').click(this._onWeaponNameToggle.bind(this));
 
         html.find('.equipment-name-toggle').click(this._onEquipmentNameToggle.bind(this));
+
+        html.find('.resource-name-toggle').click(this._onResourceNameToggle.bind(this));
+
+        html.find('.resource-used-toggle').change(this._onResourceUsedToggle.bind(this));
     }
 
     async getData() {
@@ -103,8 +107,11 @@ export class CharacterSheet extends MasacreActorSheet {
         });
 
         await actor.update({ img: rankCreated.img });
+        await actor.update({  prototypeToken.texture.src: rankCreated.img });
 
         await this._syncRankEquipment();
+
+        await this._syncRankResources();
     }
 
     async _syncRankEquipment() {
@@ -126,6 +133,37 @@ export class CharacterSheet extends MasacreActorSheet {
           if (existingNames.includes(name)) continue;
 
           const worldItem = game.items.find(i => i.type === "equipment" && i.name.toUpperCase() === name);          
+
+          if (worldItem) {
+            itemsToCreate.push(worldItem.toObject());
+          }
+        }
+
+        if (itemsToCreate.length > 0) {
+          await this.actor.createEmbeddedDocuments("Item", itemsToCreate);
+        
+        }
+    }
+
+    async _syncRankResources() {
+
+        if (!this.actor.system.rank?.system?.resources) return;
+
+        const raw = this.actor.system.rank.system.resources;
+     
+        const names = raw.split("#").map(n => n.trim().toUpperCase()).filter(n => n.length > 0);
+
+        const existingNames = this.actor.items
+            .filter(i => i.type === "resource")
+            .map(i => i.name.toUpperCase());
+
+        const itemsToCreate = [];
+
+        for (const name of names) {
+          
+          if (existingNames.includes(name)) continue;
+
+          const worldItem = game.items.find(i => i.type === "resource" && i.name.toUpperCase() === name);          
 
           if (worldItem) {
             itemsToCreate.push(worldItem.toObject());
@@ -230,6 +268,30 @@ export class CharacterSheet extends MasacreActorSheet {
             const isVisible = descriptionElement.css('display') !== 'none';
             descriptionElement.css('display', isVisible ? 'none' : 'block');
         }
+    }
+
+    _onResourceNameToggle(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const element = event.currentTarget;
+        const itemId = element.dataset.itemId;
+        
+        const descriptionElement = this.element.find(`.resource-description[data-item-id="${itemId}"]`);
+        
+        if (descriptionElement.length) {
+            const isVisible = descriptionElement.css('display') !== 'none';
+            descriptionElement.css('display', isVisible ? 'none' : 'block');
+        }
+    }
+
+    async _onResourceUsedToggle(event) {
+        const element = event.currentTarget;
+        const itemId = element.dataset.itemId;
+        const item = this.actor.items.get(itemId);
+        if (!item) return;
+
+        await item.update({ "system.used": element.checked });
     }
 
     async _onUpgradeStat(event) {

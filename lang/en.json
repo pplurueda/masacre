@@ -37,6 +37,7 @@
             "weapons": "Weapons",
             "brawl": "Brawl",
             "equipment": "Equipment",
+            "resources": "Resources",
             "qualities": "Strengths",
             "flaws": "Weaknesses",
             "gear": "Gear",
@@ -87,6 +88,14 @@
             "initial": "Initial",
             "maximum": "Maximum",
             "upgrade": "Upgrade"
+        },
+
+        "resource": {
+            "title": "Resource",
+            "description": "Description",
+            "used": "Used",
+            "uses": "Uses",
+            "usesAbbr": "U"
         },
 
         "dialog": {

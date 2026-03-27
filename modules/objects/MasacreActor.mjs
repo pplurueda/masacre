@@ -11,8 +11,10 @@ export class MasacreActor extends Actor {
 
       if (this.type !== "character") return;
 
+      this.system.level = (this.system.combatSkill + this.system.nonCombatSkill) - 9;
       this.system.rank = this.items.find(i => i.type === "rank");
       this.system.weapons = this.items.filter(item => item.type === "weapon");
       this.system.equipment = this.items.filter(item => item.type === "equipment");
+      this.system.resources = this.items.filter(item => item.type === "resource");
     }
   }

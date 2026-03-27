@@ -37,6 +37,7 @@
             "weapons": "Armas",
             "brawl": "Pelea",
             "equipment": "Equipo",
+            "resources": "Recursos",
             "qualities": "Cualidades",
             "flaws": "Defectos",
             "gear": "Equipo",
@@ -87,6 +88,14 @@
             "initial": "Inicial",
             "maximum": "Máximo",
             "upgrade": "Mejorar"
+        },
+
+        "resource": {
+            "title": "Recurso",
+            "description": "Descripción",
+            "used": "Usado",
+            "uses": "Usos",
+            "usesAbbr": "U"
         },
 
         "dialog": {

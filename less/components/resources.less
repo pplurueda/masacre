@@ -1,0 +1,84 @@
+// ==========================================================================
+// Resources Component
+// ==========================================================================
+// Resource list styles scoped to .masacre
+
+.masacre {
+  .resources {
+    font-size: @font-size-xl;
+
+    .resource-list {
+      .flex-column();
+      gap: 2px;
+    }
+
+    .resource-header {
+      display: flex;
+      align-items: center;
+      gap: @spacing-xs;
+      font-weight: @font-weight-bold;
+      font-size: 0.75em;
+      text-transform: uppercase;
+      letter-spacing: @letter-spacing-tight;
+      border-bottom: @border-width-md solid @color-black;
+      padding-bottom: @spacing-xxs;
+      margin-bottom: 2px;
+    }
+
+    .resource-item {
+      list-style: none;
+    }
+
+    .resource-row {
+      display: flex;
+      align-items: center;
+      gap: @spacing-xs;
+      padding: 2px 0;
+      border-bottom: @border-width-sm solid @color-border-light;
+      font-size: 0.85em;
+    }
+
+    .resource-col {
+      .truncate();
+    }
+
+    .resource-col-uses {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .resource-col-name {
+      flex: 2;
+    }
+
+    .resource-name-toggle {
+      cursor: pointer;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: @color-accent;
+      }
+    }
+
+    .resource-description {
+      padding: @spacing-sm @spacing-md;
+      background: @color-paper-dark;
+      border-left: 3px solid @color-accent;
+      margin: @spacing-xs 0;
+      font-size: 0.75em;
+      line-height: 1.4;
+
+      p {
+        margin: 0;
+        color: @color-ink;
+      }
+    }
+
+    .resource-col-controls {
+      flex: 0 0 40px;
+      .item-controls();
+    }
+  }
+}

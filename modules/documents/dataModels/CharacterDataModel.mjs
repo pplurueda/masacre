@@ -61,8 +61,7 @@ export class CharacterDataModel extends ActorDataModel {
               description: new StringField({ required: true, blank: true, initial: "" }),
               state: new NumberField({ required: true, integer: true, min: 0, max: 2, initial: 0 })
             })
-          }),
-          level: new NumberField({ required: true, integer: true, min: 1, initial: 1 })
+          })
         }
       };
 

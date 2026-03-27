@@ -48,7 +48,8 @@
             "rank": {},
             "flashback": {},
             "alienHability": {},
-            "equipment": {}
+            "equipment": {},
+            "resource": {}
         }
     }
 }

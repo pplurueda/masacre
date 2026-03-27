@@ -1,0 +1,28 @@
+<section class="resources">
+    <h3 class="section-title">{{toUpperCase (localize "masacre.character.resources")}}</h3>
+    <div class="resource-list">
+        {{#each actor.system.resources as |res|}}
+        <li class="resource-item" data-item-id="{{res._id}}">
+            <div class="resource-row">
+                <span class="resource-col resource-col-name resource-name-toggle" data-item-id="{{res._id}}">{{res.name}}</span>
+                <span class="resource-col resource-col-uses">
+                    {{#times res.system.uses}}
+                    <input type="checkbox" class="resource-use-checkbox" data-item-id="{{../res._id}}" data-index="{{index}}"/>
+                    {{/times}}
+                </span>
+                <span class="resource-col resource-col-controls">
+                    <a class="itemControl" data-action="edit" title="{{localize 'masacre.general.edit'}}">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a class="itemControl" data-action="delete" title="{{localize 'masacre.general.delete'}}">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </span>
+            </div>
+            <div class="resource-description" data-item-id="{{res._id}}" style="display: none;">
+                <p>{{{res.system.description}}}</p>
+            </div>
+        </li>
+        {{/each}}
+    </div>
+</section>

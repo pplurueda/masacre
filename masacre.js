@@ -6,6 +6,7 @@ import {RankDataModel} from './modules/documents/dataModels/RankDataModel.mjs';
 import {WeaponDataModel} from './modules/documents/dataModels/WeaponDataModel.mjs';
 import {AlienHabilityDataModel} from './modules/documents/dataModels/AlienHabilityDataModel.mjs';
 import {EquipmentDataModel} from './modules/documents/dataModels/EquipmentDataModel.mjs';
+import {ResourceDataModel} from './modules/documents/dataModels/ResourceDataModel.mjs';
 
 import {MasacreActor} from './modules/objects/MasacreActor.mjs';
 import {MasacreItem} from './modules/objects/MasacreItem.mjs';
@@ -17,6 +18,7 @@ import {WeaponSheet} from './modules/sheets/WeaponSheet.mjs';
 import {RankSheet} from './modules/sheets/RankSheet.mjs';
 import {AlienHabilitySheet} from './modules/sheets/AlienHabilitySheet.mjs';
 import {EquipmentSheet} from './modules/sheets/EquipmentSheet.mjs';
+import {ResourceSheet} from './modules/sheets/ResourceSheet.mjs';
 
 async function preloadHandlebarsTemplates() {
     const paths = [
@@ -33,7 +35,8 @@ async function preloadHandlebarsTemplates() {
         "systems/masacre/templates/partials/character-qualities.hbs",
         "systems/masacre/templates/partials/character-flaws.hbs",
         "systems/masacre/templates/partials/character-rank-details.hbs",
-        "systems/masacre/templates/partials/character-equipment.hbs"
+        "systems/masacre/templates/partials/character-equipment.hbs",
+        "systems/masacre/templates/partials/character-resources.hbs"
     ];
 
     return(loadTemplates(paths))
@@ -55,7 +58,8 @@ Hooks.once("init", function(){
         rank: RankDataModel,
         weapon: WeaponDataModel,
         alienHability: AlienHabilityDataModel,
-        equipment: EquipmentDataModel
+        equipment: EquipmentDataModel,
+        resource: ResourceDataModel
     };
 
     Actors.unregisterSheet("core", ActorSheet);
@@ -67,6 +71,7 @@ Hooks.once("init", function(){
     Items.registerSheet("masacre", WeaponSheet, {types: ["weapon"]});
     Items.registerSheet("masacre", AlienHabilitySheet, {types: ["alienHability"]});
     Items.registerSheet("masacre", EquipmentSheet, {types: ["equipment"]});
+    Items.registerSheet("masacre", ResourceSheet, {types: ["resource"]});
 
     preloadHandlebarsTemplates();
 
@@ -103,6 +108,14 @@ Hooks.once("init", function(){
     Handlebars.registerHelper('eq', function (a, b) {
         
         return a === b;
+    });
+
+    Handlebars.registerHelper('times', function(n, options) {
+        let result = '';
+        for (let i = 0; i < n; i++) {
+            result += options.fn({ index: i });
+        }
+        return result;
     });
 });
 

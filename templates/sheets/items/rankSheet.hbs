@@ -48,9 +48,7 @@
 
             <div class="field">
                 <label>{{localize "masacre.rank.resources"}}</label>
-                <div class="editor-container">
-                    {{editor system.resources target="system.resources" button=true owner=owner editable=editable}}
-                </div>
+                <input name="system.resources" type="text" value="{{item.system.resources}}" placeholder="{{localize 'masacre.rank.resources'}}"/>
             </div>
         </section>
     </main>
