@@ -29,7 +29,5 @@ export class MasacreActor extends Actor {
         this.system.hp.value = this.system.hazardSheets.battle.value;
         this.system.hp.max = this.system.hazardSheets.battle.max;
       }
-
-      console.log(this.system.hp);
     }
   }

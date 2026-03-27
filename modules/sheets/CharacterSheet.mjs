@@ -156,10 +156,38 @@ export class CharacterSheet extends MasacreActorSheet {
           
           if (existingNames.includes(name)) continue;
 
-          const worldItem = game.items.find(i => i.type === "equipment" && i.name.toUpperCase() === name);          
+          // Buscar primero en los items del mundo
+          let foundItem = game.items.find(i => i.type === "equipment" && i.name.toUpperCase() === name);
 
-          if (worldItem) {
-            itemsToCreate.push(worldItem.toObject());
+          console.log("Found world item:", name, foundItem);
+          
+          // Si no se encuentra, buscar en los packs de tipo Item
+          if (!foundItem) {
+            const itemPacks = game.packs.filter(p => p.metadata.type === "Item");
+
+            console.log("Searching in packs:", itemPacks.length);
+
+            for (const pack of itemPacks) {
+
+              console.log("Searching in pack:", pack.metadata.name);
+
+              const index = await pack.getIndex();
+
+              console.log("Pack index:", index);
+
+              const packItem = index.find(i => i.type === "equipment" && i.name.toUpperCase() === name);
+              
+              console.log("Found pack item:", packItem);
+              
+              if (packItem) {
+                foundItem = await pack.getDocument(packItem._id);
+                break;
+              }
+            }
+          }
+
+          if (foundItem) {
+            itemsToCreate.push(foundItem.toObject());
           }
         }
 
@@ -187,10 +215,25 @@ export class CharacterSheet extends MasacreActorSheet {
           
           if (existingNames.includes(name)) continue;
 
-          const worldItem = game.items.find(i => i.type === "resource" && i.name.toUpperCase() === name);          
+          // Buscar primero en los items del mundo
+          let foundItem = game.items.find(i => i.type === "resource" && i.name.toUpperCase() === name);
 
-          if (worldItem) {
-            itemsToCreate.push(worldItem.toObject());
+          // Si no se encuentra, buscar en los packs de tipo Item
+          if (!foundItem) {
+            const itemPacks = game.packs.filter(p => p.metadata.type === "Item");
+            for (const pack of itemPacks) {
+              const index = await pack.getIndex();
+              const packItem = index.find(i => i.type === "resource" && i.name.toUpperCase() === name);
+              
+              if (packItem) {
+                foundItem = await pack.getDocument(packItem._id);
+                break;
+              }
+            }
+          }
+
+          if (foundItem) {
+            itemsToCreate.push(foundItem.toObject());
           }
         }
 
