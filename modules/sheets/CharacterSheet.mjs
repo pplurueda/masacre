@@ -107,7 +107,7 @@ export class CharacterSheet extends MasacreActorSheet {
         });
 
         await actor.update({ img: rankCreated.img });
-        await actor.update({  prototypeToken.texture.src: rankCreated.img });
+        await actor.update({ "prototypeToken.texture.src": rankCreated.img });
 
         await this._syncRankEquipment();
 

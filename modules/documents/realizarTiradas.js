@@ -46,7 +46,7 @@ realizarTiradas.actor = {
             actorId: actor.id,
             actorImagen: actor.img,
             actorName: actor.name,
-            actorRankName: actor.system.rank.name,
+            actorRankName: actor.system.rank?.name || "",
             stat: dataset.stat,
             description: dataset.description,
             value: dataset.value,

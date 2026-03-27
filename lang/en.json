@@ -4,7 +4,9 @@
             "threeSixteen": "Three Sixteen",
             "name": "Name",
             "edit": "Edit",
-            "delete": "Delete"
+            "delete": "Delete",
+            "current": "Current",
+            "total": "Total"
         },
 
         "character": {
@@ -54,6 +56,9 @@
             "title": "Alien",
             "alienSkillAcronym": "AS",
             "alienSkill": "Alien Skill",
+            "hazardSheets": "Hazard Sheets",
+            "hazardSheetsAbbr": "HS",
+            "battle": "Battle",
             "description": "Description",
             "abilities": "Special Abilities"
         },

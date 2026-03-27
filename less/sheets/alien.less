@@ -7,88 +7,203 @@
   min-height: @sheet-height-sm;
 
   .sheet-header {
-    background: linear-gradient(135deg, @color-alien-bg-start 0%, @color-alien-bg-end 100%);
-    padding: 15px;
-    border-bottom: @border-width-lg solid @color-alien-border;
-    margin-bottom: 15px;
+    .flex-between();
+    margin-bottom: @spacing-lg + @spacing-xxs;
+  }
 
-    .header-content {
-      display: flex;
-      gap: 15px;
-      align-items: center;
-    }
+  .actor-portrait {
+    width: @stat-box-size-md;
+    height: @stat-box-size-md;
+    border: @border-width-xl solid @color-black;
+    object-fit: cover;
+    cursor: pointer;
+  }
 
-    .portrait {
-      flex: 0 0 80px;
+  .header-type {
+    flex: none;
+    height: @stat-box-size-md;
+    line-height: @stat-box-size-md;
+    text-align: left;
+    .heading-chalk(@font-size-6xl);
+    font-variant: small-caps;
+    letter-spacing: @letter-spacing-base;
+    color: @color-heading;
+    margin-right: @spacing-sm;
+  }
 
-      img {
-        width: 80px;
-        height: 80px;
-        object-fit: cover;
-        border: @border-width-lg solid @color-alien-accent;
-        border-radius: @border-radius-base;
-      }
-    }
+  .header-name {
+    flex: 1;
+    height: @stat-box-size-md;
+    text-align: left;
+    .heading-chalk(@font-size-6xl);
+    font-variant: small-caps;
+    letter-spacing: @letter-spacing-base;
+    color: @color-heading;
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    outline: none;
 
-    .header-info {
-      flex: 1;
-
-      h1 {
-        color: @color-alien-accent;
-        margin: 0 0 10px 0;
-        font-size: @font-size-2xl;
-        text-shadow: @shadow-text;
-      }
-
-      .name-field input {
-        width: 100%;
-        font-size: 1.4em;
-        font-weight: @font-weight-bold;
-        background: fade(@color-white, 10%);
-        border: @border-width-sm solid @color-alien-border;
-        color: @color-white;
-        padding: 5px 10px;
-
-        &::placeholder {
-          color: fade(@color-white, 50%);
-        }
-      }
+    &:focus {
+      border-bottom: @border-width-sm solid @color-border;
     }
   }
 
   .main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
     padding: 0 15px 15px;
   }
 
+  .left-column,
+  .right-column {
+    .flex-column();
+  }
+
   .stats-section {
-    .flex-center();
+    display: flex;
+    justify-content: flex-start;
     margin-bottom: @spacing-lg + @spacing-xxs;
 
     .stat-box {
       align-items: center;
 
       .stat-abbr {
-        color: @color-alien-accent;
+        color: @color-black;
       }
 
       .stat-square {
-        border-color: @color-alien-accent;
-        background: fade(@color-alien-accent, 10%);
+        border-color: @color-black;
+        background: transparent;
+      }
+    }
+  }
+
+  .hazard-sheets-section {
+    margin-bottom: @spacing-lg + @spacing-xxs;
+
+    .hazard-battle {
+      margin-top: @spacing-md;
+      padding: @spacing-sm;
+      background: @color-paper-dark;
+      border-left: 3px solid @color-black;
+
+      .subsection-title {
+        .heading-chalk(1.2em);
+        color: @color-heading;
+        margin: 0 0 @spacing-sm 0;
+      }
+
+      .hazard-battle-fields {
+        display: flex;
+        gap: @spacing-md;
+
+        .battle-field {
+          flex: 1;
+
+          label {
+            display: block;
+            font-family: @font-family-sans;
+            font-size: @font-size-sm;
+            font-weight: @font-weight-bold;
+            text-transform: uppercase;
+            color: @color-muted;
+            margin-bottom: @spacing-xs;
+          }
+
+          input {
+            width: 100%;
+            font-size: @font-size-xl;
+            text-align: center;
+            border: @border-width-sm solid @color-border;
+            background: @color-white;
+            padding: @spacing-xs;
+          }
+        }
       }
     }
   }
 
   .section-title {
-    .heading-chalk(1.4em);
-    color: @color-heading;
-    border-bottom: @border-width-md solid @color-alien-border;
-    padding-bottom: 5px;
-    margin: 15px 0 10px;
+    .section-title-bordered();
   }
 
   .description-section,
   .abilities-section {
     margin-bottom: 15px;
+    font-size: @font-size-xl;
 
+    .alien-habilities-list {
+      .flex-column();
+      gap: 2px;
+    }
+
+    .alien-hability-item {
+      list-style: none;
+    }
+
+    .alien-hability-row {
+      display: flex;
+      align-items: center;
+      gap: @spacing-xs;
+      padding: 2px 0;
+      border-bottom: @border-width-sm solid @color-border-light;
+      font-size: 0.85em;
+    }
+
+    .alien-hability-name {
+      flex: 2;
+      .truncate();
+    }
+
+    .alien-hability-name-toggle {
+      cursor: pointer;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: @color-accent;
+      }
+    }
+
+    .alien-hability-description {
+      padding: @spacing-sm @spacing-md;
+      background: @color-paper-dark;
+      border-left: 3px solid @color-accent;
+      margin: @spacing-xs 0;
+      font-size: 0.75em;
+      line-height: 1.4;
+
+      p {
+        margin: 0;
+        color: @color-ink;
+      }
+    }
+
+    .alien-hability-controls {
+      flex: 0 0 40px;
+      .item-controls();
+    }
+
+    .editor-container {
+      .editor-container();
+      width: 100%;
+      padding: @spacing-sm;
+
+      // Foundry v13 editor structure
+      .editor {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .editor-content,
+      .ProseMirror {
+        min-height: 60px;
+        width: 100%;
+        flex: 1;
+      }
+    }
   }
 }

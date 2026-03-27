@@ -4,7 +4,9 @@
             "threeSixteen": "Tres Dieciséis",
             "name": "Nombre",
             "edit": "Editar",
-            "delete": "Eliminar"
+            "delete": "Eliminar",
+            "current": "Actual",
+            "total": "Total"
         },
 
         "character": {
@@ -54,6 +56,9 @@
             "title": "Alienígena",
             "alienSkillAcronym": "HA",
             "alienSkill": "Habilidad Alienígena",
+            "hazardSheets": "Fichas de Peligro",
+            "hazardSheetsAbbr": "FP",
+            "battle": "Batalla",
             "description": "Descripción",
             "abilities": "Habilidades Especiales"
         },

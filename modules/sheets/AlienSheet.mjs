@@ -12,7 +12,9 @@ export class AlienSheet extends MasacreActorSheet {
 
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["masacre", "sheet", "alienSheet"]
+            classes: ["masacre", "sheet", "alienSheet"],
+            width: 950,
+            height: 650
         });
     }
 
@@ -24,15 +26,9 @@ export class AlienSheet extends MasacreActorSheet {
      
         super.activateListeners(html);
 
-        //html.find('.rollable').click(this._onRoll.bind(this));
-        
         html.find('.itemControl').click(this._onItemControl.bind(this));
 
-        //html.find('.condicionAplicada').click(this._condicionAplicada.bind(this));
-
-        //html.find('.condicionEnergeticaAplicada').click(this._condicionEnergeticaAplicada.bind(this));
-
-        //html.find('.equipoEquipado').click(this._itemEquipado.bind(this));
+        html.find('.alien-hability-name-toggle').click(this._onAlienHabilityNameToggle.bind(this));
     }
 
     getData() {
@@ -62,10 +58,23 @@ export class AlienSheet extends MasacreActorSheet {
         }
     }
 
+    _onAlienHabilityNameToggle(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const element = event.currentTarget;
+        const itemId = element.dataset.itemId;
+        
+        const descriptionElement = this.element.find(`.alien-hability-description[data-item-id="${itemId}"]`);
+        
+        if (descriptionElement.length) {
+            const isVisible = descriptionElement.css('display') !== 'none';
+            descriptionElement.css('display', isVisible ? 'none' : 'block');
+        }
+    }
+
     async _itemCreated(item, options, userId) {
     
         if(item.actor === undefined) return;
-
-        await item.actor.sheet._applyRank(item);
     }
 }
