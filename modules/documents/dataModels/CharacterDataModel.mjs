@@ -11,6 +11,10 @@ export class CharacterDataModel extends ActorDataModel {
             current: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
             total: new NumberField({ required: true, integer: true, min: 0, initial: 0 })
           }),
+          hp: new SchemaField({
+            value: new NumberField({ required: true, integer: true, min: 0, initial: 3 }),
+            max: new NumberField({ required: true, integer: true, min: 0, initial: 3 })
+          }),
           wounds: new SchemaField({
             madeMess: new BooleanField({ required: true, initial: false }),
             crippled: new BooleanField({ required: true, initial: false }),

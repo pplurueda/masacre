@@ -15,9 +15,21 @@ export class MasacreActor extends Actor {
         this.system.weapons = this.items.filter(item => item.type === "weapon");
         this.system.equipment = this.items.filter(item => item.type === "equipment");
         this.system.resources = this.items.filter(item => item.type === "resource");
+
+        let hp = 3;
+        if(this.system.wounds.madeMess) hp--;
+        if(this.system.wounds.crippled) hp--;
+        if(this.system.wounds.death) hp--;
+        
+        this.system.hp.value = hp;
       }
       else if (this.type == "alien") {
         this.system.alienHabilities = this.items.filter(item => item.type === "alienHability");
+
+        this.system.hp.value = this.system.hazardSheets.battle.value;
+        this.system.hp.max = this.system.hazardSheets.battle.max;
       }
+
+      console.log(this.system.hp);
     }
   }
