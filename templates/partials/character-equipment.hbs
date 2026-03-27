@@ -6,12 +6,17 @@
             <div class="equipment-row">
                 <span class="equipment-col equipment-col-name equipment-name-toggle" data-item-id="{{equip._id}}">{{equip.name}}</span>
                 <span class="equipment-col equipment-col-controls">
+                    <a class="itemControl" data-action="info" title="{{localize 'masacre.general.info'}}">
+                        <i class="fas fa-info-circle"></i>
+                    </a>
+                    {{#if @root.isGM}}
                     <a class="itemControl" data-action="edit" title="{{localize 'masacre.general.edit'}}">
                         <i class="fas fa-edit"></i>
                     </a>
                     <a class="itemControl" data-action="delete" title="{{localize 'masacre.general.delete'}}">
                         <i class="fas fa-trash"></i>
                     </a>
+                    {{/if}}
                 </span>
             </div>
             <div class="equipment-description" data-item-id="{{equip._id}}" style="display: none;">

@@ -5,6 +5,7 @@
             "name": "Nombre",
             "edit": "Editar",
             "delete": "Eliminar",
+            "info": "Información",
             "current": "Actual",
             "total": "Total"
         },
@@ -101,6 +102,16 @@
             "used": "Usado",
             "uses": "Usos",
             "usesAbbr": "U"
+        },
+
+        "equipment": {
+            "title": "Equipo",
+            "description": "Descripción"
+        },
+
+        "alienHability": {
+            "title": "Habilidad Especial",
+            "description": "Descripción"
         },
 
         "dialog": {

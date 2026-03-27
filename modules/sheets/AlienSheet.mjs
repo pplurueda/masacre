@@ -32,10 +32,8 @@ export class AlienSheet extends MasacreActorSheet {
     }
 
     getData() {
-        const data = super.getData();        
-
-        data.config = CONFIG.Masacre;
         
+        const data = super.getData();        
         
         return data;
     }
@@ -51,11 +49,31 @@ export class AlienSheet extends MasacreActorSheet {
         const item = li.dataset.itemId ? owner.items.get(li.dataset.itemId) : null;
 
         switch(a.dataset.action) {
+            case "info":
+                return this._showItemInfo(item);
             case "edit":
                 return item.sheet.render(true);
             case "delete":
                 return item.delete();
         }
+    }
+
+    async _showItemInfo(item) {
+        if (!item) return;
+        
+        const template = "systems/masacre/templates/messages/alienHabilityInfo.hbs";
+        
+        const templateData = { item: item.toObject() };
+        const content = await renderTemplate(template, templateData);
+        
+        await ChatMessage.create({
+            type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+            speaker: {
+                actor: this.actor.id,
+                alias: this.actor.name
+            },
+            content: content
+        });
     }
 
     _onAlienHabilityNameToggle(event) {

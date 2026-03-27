@@ -8,6 +8,16 @@ export class MasacreActorSheet extends ActorSheet {
         super(actor, options);
     }
 
+    async getData() {
+        
+        const data = super.getData();        
+        
+        data.config = CONFIG.Masacre;
+        data.isGM = game.user.isGM;
+
+        return data;
+    }
+
     activateListeners(html) {
      
         super.activateListeners(html);

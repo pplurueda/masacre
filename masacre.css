@@ -412,7 +412,7 @@
   cursor: pointer;
 }
 .masacre .weapons .weapon-col-controls {
-  flex: 0 0 40px;
+  flex: 0 0 60px;
   display: flex;
   justify-content: flex-end;
   gap: 4px;
@@ -700,7 +700,7 @@
   color: #1f1b16;
 }
 .masacre .equipment .equipment-col-controls {
-  flex: 0 0 40px;
+  flex: 0 0 60px;
   display: flex;
   justify-content: flex-end;
   gap: 4px;
@@ -778,7 +778,7 @@
   color: #1f1b16;
 }
 .masacre .resources .resource-col-controls {
-  flex: 0 0 40px;
+  flex: 0 0 60px;
   display: flex;
   justify-content: flex-end;
   gap: 4px;
@@ -1199,7 +1199,7 @@
 }
 .masacre.sheet.alienSheet .description-section .alien-hability-controls,
 .masacre.sheet.alienSheet .abilities-section .alien-hability-controls {
-  flex: 0 0 40px;
+  flex: 0 0 60px;
   display: flex;
   justify-content: flex-end;
   gap: 4px;

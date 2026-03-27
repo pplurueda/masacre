@@ -1,0 +1,27 @@
+<div class="masacre item-info weapon-info">
+    <div class="item-info-header">
+        <img class="item-portrait" src="{{item.img}}" alt="{{item.name}}"/>
+        <h2 class="item-title">{{item.name}}</h2>
+    </div>
+    
+    <div class="item-info-details">
+        <div class="item-info-row">
+            <span class="detail-label">{{localize "masacre.weapon.cc"}}:</span>
+            <span class="detail-value">{{item.system.cc}} ({{item.system.cccurrent}})</span>
+        </div>
+        <div class="item-info-row">
+            <span class="detail-label">{{localize "masacre.weapon.cd"}}:</span>
+            <span class="detail-value">{{item.system.cd}} ({{item.system.cdcurrent}})</span>
+        </div>
+        <div class="item-info-row">
+            <span class="detail-label">{{localize "masacre.weapon.ld"}}:</span>
+            <span class="detail-value">{{item.system.ld}} ({{item.system.ldcurrent}})</span>
+        </div>
+        {{#if item.system.description}}
+        <div class="item-info-description">
+            <span class="detail-label">{{localize "masacre.weapon.description"}}:</span>
+            <div class="description-content">{{{item.system.description}}}</div>
+        </div>
+        {{/if}}
+    </div>
+</div>

@@ -47,9 +47,6 @@ export class CharacterSheet extends MasacreActorSheet {
     async getData() {
         
         const data = super.getData();        
-        
-        data.config = CONFIG.Masacre;
-        data.isGM = game.user.isGM;
 
         return data;
     }
@@ -65,11 +62,38 @@ export class CharacterSheet extends MasacreActorSheet {
         const item = li.dataset.itemId ? owner.items.get(li.dataset.itemId) : null;
 
         switch(a.dataset.action) {
+            case "info":
+                return this._showItemInfo(item);
             case "edit":
                 return item.sheet.render(true);
             case "delete":
                 return item.delete();
         }
+    }
+
+    async _showItemInfo(item) {
+        if (!item) return;
+        
+        const templateMap = {
+            "weapon": "systems/masacre/templates/messages/weaponInfo.hbs",
+            "equipment": "systems/masacre/templates/messages/equipmentInfo.hbs",
+            "resource": "systems/masacre/templates/messages/resourceInfo.hbs"
+        };
+        
+        const template = templateMap[item.type];
+        if (!template) return;
+        
+        const templateData = { item: item.toObject() };
+        const content = await renderTemplate(template, templateData);
+        
+        await ChatMessage.create({
+            type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+            speaker: {
+                actor: this.actor.id,
+                alias: this.actor.name
+            },
+            content: content
+        });
     }
 
     async _itemCreated(item, options, userId) {
