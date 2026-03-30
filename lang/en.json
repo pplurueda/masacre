@@ -50,7 +50,10 @@
             "total": "Total",
             "currentMission": "This mission",
             "fight": "Fight",
-            "meleeOnly": "Melee only"
+            "meleeOnly": "Melee only",
+            "history": "History",
+            "historySurvivedMissions": "Survived Missions",
+            "historyInjuriesSuffered": "Injuries Suffered"
         },
 
         "alien": {

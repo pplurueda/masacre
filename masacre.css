@@ -1155,6 +1155,45 @@
   border-color: #000000;
   background: transparent;
 }
+.masacre.sheet.alienSheet .hp-section {
+  margin-bottom: 28px;
+}
+.masacre.sheet.alienSheet .hp-section .hp-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px;
+  background: #e2e2e2;
+  border: 1px solid #c7b9a3;
+  border-radius: 4px;
+}
+.masacre.sheet.alienSheet .hp-section .hp-display .hp-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.masacre.sheet.alienSheet .hp-section .hp-display .hp-field label {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #7a6f62;
+}
+.masacre.sheet.alienSheet .hp-section .hp-display .hp-field input {
+  width: 50px;
+  text-align: center;
+  font-size: 1.25rem;
+  border: 1px solid #c7b9a3;
+  background: #ffffff;
+  padding: 8px;
+}
+.masacre.sheet.alienSheet .hp-section .hp-display .hp-separator {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #7a6f62;
+}
 .masacre.sheet.alienSheet .hazard-sheets-section {
   margin-bottom: 28px;
 }

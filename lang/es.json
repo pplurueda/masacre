@@ -50,7 +50,10 @@
             "total": "Total",
             "currentMission": "Esta misión",
             "fight": "Pelea",
-            "meleeOnly": "Solo cuerpo a cuerpo"
+            "meleeOnly": "Solo cuerpo a cuerpo",
+            "history": "Historial",
+            "historySurvivedMissions": "Misiones Sobrevividas",
+            "historyInjuriesSuffered": "Heridas Sufridas"
         },
 
         "alien": {
