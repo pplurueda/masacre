@@ -9,6 +9,8 @@ export class CharacterSheet extends MasacreActorSheet {
 
         super(actor, options);
 
+        this._syncingEquipment = false;
+
         Hooks.on("createItem", this._itemCreated);
     }
 
@@ -140,60 +142,57 @@ export class CharacterSheet extends MasacreActorSheet {
 
     async _syncRankEquipment() {
 
-        if (!this.actor.system.rank?.system?.equipment) return;
+        if (this._syncingEquipment) return;
+        this._syncingEquipment = true;
 
-        const raw = this.actor.system.rank.system.equipment;
-     
-        const names = raw.split("#").map(n => n.trim().toUpperCase()).filter(n => n.length > 0);
+        try {
+            if (!this.actor.system.rank?.system?.equipment) return;
 
-        const existingNames = this.actor.items
-            .filter(i => i.type === "equipment")
-            .map(i => i.name.toUpperCase());
+            const raw = this.actor.system.rank.system.equipment;
+         
+            const names = raw.split("#").map(n => n.trim().toUpperCase()).filter(n => n.length > 0);
 
-        const itemsToCreate = [];
+            const existingNames = this.actor.items
+                .filter(i => i.type === "equipment")
+                .map(i => i.name.toUpperCase());
 
-        for (const name of names) {
-          
-          if (existingNames.includes(name)) continue;
+            const itemsToCreate = [];
 
-          // Buscar primero en los items del mundo
-          let foundItem = game.items.find(i => i.type === "equipment" && i.name.toUpperCase() === name);
+            for (const name of names) {
 
-          console.log("Found world item:", name, foundItem);
-          
-          // Si no se encuentra, buscar en los packs de tipo Item
-          if (!foundItem) {
-            const itemPacks = game.packs.filter(p => p.metadata.type === "Item");
+                if (existingNames.includes(name)) continue;
 
-            console.log("Searching in packs:", itemPacks.length);
+                // Buscar primero en los items del mundo
+                let foundItem = game.items.find(i => i.type === "equipment" && i.name.toUpperCase() === name);
+                
+                // Si no se encuentra, buscar en los packs de tipo Item
+                if (!foundItem) {
 
-            for (const pack of itemPacks) {
+                    const itemPacks = game.packs.filter(p => p.metadata.type === "Item");
+                    
+                    for (const pack of itemPacks) {
+                    
+                        const index = await pack.getIndex();
+                        const packItem = index.find(i => i.type === "equipment" && i.name.toUpperCase() === name);
+                    
+                        if (packItem) {
+                            foundItem = await pack.getDocument(packItem._id);
+                            break;
+                        }
+                    }
+                }
 
-              console.log("Searching in pack:", pack.metadata.name);
-
-              const index = await pack.getIndex();
-
-              console.log("Pack index:", index);
-
-              const packItem = index.find(i => i.type === "equipment" && i.name.toUpperCase() === name);
-              
-              console.log("Found pack item:", packItem);
-              
-              if (packItem) {
-                foundItem = await pack.getDocument(packItem._id);
-                break;
-              }
+                if (foundItem) {
+                    itemsToCreate.push(foundItem.toObject());
+                }
             }
-          }
 
-          if (foundItem) {
-            itemsToCreate.push(foundItem.toObject());
-          }
+            if (itemsToCreate.length > 0) {
+                await this.actor.createEmbeddedDocuments("Item", itemsToCreate);
+            }
         }
-
-        if (itemsToCreate.length > 0) {
-          await this.actor.createEmbeddedDocuments("Item", itemsToCreate);
-        
+         finally {
+            this._syncingEquipment = false;
         }
     }
 

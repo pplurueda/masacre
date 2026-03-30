@@ -40,7 +40,7 @@ realizarTiradas.actor = {
 
         let rollResult = roll.total;
 
-        const success = dataset.value >= rollResult;
+        const success = parseInt(dataset.value) >= rollResult;
 
         const miDataset = {
             actorId: actor.id,
@@ -49,12 +49,10 @@ realizarTiradas.actor = {
             actorRankName: actor.system.rank?.name || "",
             stat: dataset.stat,
             description: dataset.description,
-            value: dataset.value,
+            value: parseInt(dataset.value),
             result: rollResult,
             success: success
         };
-
-        console.log(miDataset);
 
         const plantillaChat = await renderTemplate("systems/masacre/templates/messages/rollHabilityResult.hbs", miDataset);
 
@@ -92,7 +90,7 @@ realizarTiradas.item = {
             weaponImage: dataset.image,
             stat: dataset.stat,
             weapon: dataset.weapon,
-            value: dataset.value,
+            value: parseInt(dataset.value),
             result: rollResult
         };
 

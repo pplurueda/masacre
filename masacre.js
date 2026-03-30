@@ -145,3 +145,18 @@ Hooks.on("renderChatMessageHTML", (message, html, data) => {
         ui.notifications.info(`${casualties} bajas añadidas. Total: ${newCasualties}`);
     });
 });
+
+Hooks.on("combatRound", (combat, updateData, updateOptions) => {
+
+    if(updateOptions.direction != 1) return;
+
+    console.log("NUEVO ROUND");
+    console.log("Combat", combat);
+    console.log("UpdateData", updateData);
+    console.log("UpdateOptions", updateOptions);
+
+    for(const combatant of combat.combatants) {
+        
+        combat.setInitiative(combatant.id, undefined);
+    }
+});

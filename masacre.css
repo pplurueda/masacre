@@ -607,10 +607,10 @@
   font-weight: 700;
   color: #ffffff;
 }
-.masacre.roll-hability-result .roll-result-success {
+.masacre.roll-hability-result .roll-result.roll-result-success {
   background: #28a745;
 }
-.masacre.roll-hability-result .masacre.roll-result-failure {
+.masacre.roll-hability-result .roll-result.roll-result-failure {
   background: #dc3545;
 }
 .masacre.item-info {
