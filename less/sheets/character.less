@@ -205,6 +205,21 @@
     margin-left: -5px;
   }
 
+  .creatures-killed,
+  .character-history {
+    .field {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: @spacing-xs;
+
+      input[type="number"] {
+        width: 60px;
+        text-align: right;
+      }
+    }
+  }
+
   // Rank display
   .rank-item {
     .flex-between();
