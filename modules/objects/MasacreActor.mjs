@@ -15,6 +15,7 @@ export class MasacreActor extends Actor {
         this.system.weapons = this.items.filter(item => item.type === "weapon");
         this.system.equipment = this.items.filter(item => item.type === "equipment");
         this.system.resources = this.items.filter(item => item.type === "resource");
+        this.system.medals = this.items.filter(item => item.type === "medal");
 
         let hp = 3;
         if(this.system.wounds.madeMess) hp--;
