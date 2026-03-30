@@ -1,5 +1,5 @@
 import {masacre} from "../config.js"
-import {realizarTiradas} from "../documents/realizarTiradas.js"
+import {realizarTiradas} from "../realizarTiradas.js"
 
 export class MasacreActorSheet extends ActorSheet {
 

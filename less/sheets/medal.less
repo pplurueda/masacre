@@ -1,0 +1,128 @@
+// ==========================================================================
+// Medal Item Sheet Styles
+// ==========================================================================
+
+.masacre.sheet.medalSheet {
+  padding: @spacing-md;
+
+  .sheet-header {
+    .sheet-header-base();
+    .flex-between();
+
+    .item-portrait {
+      width: @stat-box-size-md;
+      height: @stat-box-size-md;
+      border: @border-width-xl solid @color-black;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .header-name {
+      flex: 1;
+      height: @stat-box-size-md;
+      text-align: left;
+      .heading-chalk(@font-size-6xl);
+      font-variant: small-caps;
+      letter-spacing: @letter-spacing-base;
+      color: @color-heading;
+      border: none;
+      background: transparent;
+      padding: 0;
+      margin: 0;
+      outline: none;
+
+      &:focus {
+        border-bottom: @border-width-sm solid @color-border;
+      }
+    }
+  }
+
+  .medal-content {
+    .flex-column();
+    gap: @spacing-lg;
+  }
+
+  .medal-bars {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: @spacing-xs;
+
+    .stat-box {
+      .stat-box-base(@stat-box-size-md, @border-width-md);
+      width: @stat-box-size-md;
+      height: @stat-box-size-md;
+      aspect-ratio: 1 / 1;
+      align-items: center;
+      text-align: center;
+
+      .stat-square {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+
+        .stat-value-selector {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: @spacing-xxs;
+          width: 100%;
+          height: 100%;
+
+          .stat-arrow {
+            cursor: pointer;
+            color: @color-muted;
+            font-size: @font-size-sm;
+            transition: color 0.2s;
+            padding: @spacing-xxs;
+            line-height: 1;
+
+            &:hover {
+              color: @color-heading;
+            }
+
+            i {
+              display: block;
+            }
+          }
+
+          input {
+            font-size: @font-size-2xl;
+            text-align: center;
+            border: none;
+            background: transparent;
+            pointer-events: none;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .medal-description {
+    flex: 1;
+
+    .editor-container {
+      .editor-container();
+      width: 100%;
+      padding: @spacing-sm;
+
+      .editor {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .editor-content,
+      .ProseMirror {
+        min-height: 60px;
+        width: 100%;
+        flex: 1;
+      }
+    }
+  }
+}

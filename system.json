@@ -56,7 +56,8 @@
             "flashback": {},
             "alienHability": {},
             "equipment": {},
-            "resource": {}
+            "resource": {},
+            "medal": {}
         }
     }
 }

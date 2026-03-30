@@ -1,5 +1,5 @@
 import {masacre} from "../config.js"
-import {realizarTiradas} from "../documents/realizarTiradas.js"
+import {realizarTiradas} from "../realizarTiradas.js"
 import {WEAPON_STAT_VALUES} from "../documents/dataModels/WeaponDataModel.mjs"
 import {MasacreActorSheet} from "./MasacreActorSheet.mjs";
 

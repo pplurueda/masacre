@@ -1,0 +1,33 @@
+<form class="{{cssClass}}">
+    <header class="sheet-header">
+        <img class="item-portrait" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+        <input class="header-name" name="name" type="text" value="{{item.name}}" placeholder="{{localize 'masacre.general.name'}}"/>
+    </header>
+
+    <main class="medal-content">
+
+        <section class="medal-bars">
+            <h3 class="section-title">{{toUpperCase (localize "masacre.medal.bars")}}</h3>
+            <div class="stat-box">
+                <div class="stat-square">
+                    <div class="stat-value-selector">
+                        <a class="stat-arrow stat-arrow-up" data-action="cycle-bars" data-direction="up">
+                            <i class="fas fa-chevron-up"></i>
+                        </a>
+                        <input name="system.bars" type="number" value="{{item.system.bars}}" readonly/>
+                        <a class="stat-arrow stat-arrow-down" data-action="cycle-bars" data-direction="down">
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="medal-description">
+            <h3 class="section-title">{{toUpperCase (localize "masacre.medal.description")}}</h3>
+            <div class="editor-container">
+                {{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
+            </div>
+        </section>
+    </main>
+</form>

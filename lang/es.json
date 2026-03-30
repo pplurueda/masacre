@@ -112,6 +112,12 @@
             "description": "Descripción"
         },
 
+        "medal": {
+            "title": "Medalla",
+            "description": "Descripción",
+            "bars": "Barras"
+        },
+
         "alienHability": {
             "title": "Habilidad Especial",
             "description": "Descripción"

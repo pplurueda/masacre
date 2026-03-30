@@ -119,11 +119,14 @@ realizarTiradas.general = {
                 await realizarTiradas.item.bajas(actor, dataset);
                 break;
             case "hability":
-                await realizarTiradas.actor.hability(actor, dataset);
+                if (game.combat)
+                    await realizarTiradas.actor.initiative(actor, dataset);
+                else
+                    await realizarTiradas.actor.hability(actor, dataset);
                 break;
-            case "initiative":
-                await realizarTiradas.actor.initiative(actor, dataset);
-                break;
+            // case "initiative":
+            //     await realizarTiradas.actor.initiative(actor, dataset);
+            //     break;
             default:
                 console.error("Tipo de tirada no reconocido");
                 throw new Error("Tipo de tirada no reconocido");

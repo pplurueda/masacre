@@ -112,6 +112,12 @@
             "description": "Description"
         },
 
+        "medal": {
+            "title": "Medal",
+            "description": "Description",
+            "bars": "Bars"
+        },
+
         "alienHability": {
             "title": "Special Ability",
             "description": "Description"

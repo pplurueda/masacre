@@ -7,6 +7,7 @@ import {WeaponDataModel} from './modules/documents/dataModels/WeaponDataModel.mj
 import {AlienHabilityDataModel} from './modules/documents/dataModels/AlienHabilityDataModel.mjs';
 import {EquipmentDataModel} from './modules/documents/dataModels/EquipmentDataModel.mjs';
 import {ResourceDataModel} from './modules/documents/dataModels/ResourceDataModel.mjs';
+import {MedalDataModel} from './modules/documents/dataModels/MedalDataModel.mjs';
 
 import {MasacreActor} from './modules/objects/MasacreActor.mjs';
 import {MasacreItem} from './modules/objects/MasacreItem.mjs';
@@ -19,6 +20,7 @@ import {RankSheet} from './modules/sheets/RankSheet.mjs';
 import {AlienHabilitySheet} from './modules/sheets/AlienHabilitySheet.mjs';
 import {EquipmentSheet} from './modules/sheets/EquipmentSheet.mjs';
 import {ResourceSheet} from './modules/sheets/ResourceSheet.mjs';
+import {MedalSheet} from './modules/sheets/MedalSheet.mjs';
 
 async function preloadHandlebarsTemplates() {
     const paths = [
@@ -62,7 +64,8 @@ Hooks.once("init", function(){
         weapon: WeaponDataModel,
         alienHability: AlienHabilityDataModel,
         equipment: EquipmentDataModel,
-        resource: ResourceDataModel
+        resource: ResourceDataModel,
+        medal: MedalDataModel
     };
 
     Actors.unregisterSheet("core", ActorSheet);
@@ -75,6 +78,7 @@ Hooks.once("init", function(){
     Items.registerSheet("masacre", AlienHabilitySheet, {types: ["alienHability"]});
     Items.registerSheet("masacre", EquipmentSheet, {types: ["equipment"]});
     Items.registerSheet("masacre", ResourceSheet, {types: ["resource"]});
+    Items.registerSheet("masacre", MedalSheet, {types: ["medal"]});
 
     preloadHandlebarsTemplates();
 
