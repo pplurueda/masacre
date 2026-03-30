@@ -79,7 +79,8 @@ export class CharacterSheet extends MasacreActorSheet {
         const templateMap = {
             "weapon": "systems/masacre/templates/messages/weaponInfo.hbs",
             "equipment": "systems/masacre/templates/messages/equipmentInfo.hbs",
-            "resource": "systems/masacre/templates/messages/resourceInfo.hbs"
+            "resource": "systems/masacre/templates/messages/resourceInfo.hbs",
+            "medal": "systems/masacre/templates/messages/medalInfo.hbs"
         };
         
         const template = templateMap[item.type];

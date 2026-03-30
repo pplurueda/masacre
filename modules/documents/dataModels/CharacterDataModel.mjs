@@ -7,6 +7,7 @@ export class CharacterDataModel extends ActorDataModel {
         return {
           ... super.defineSchema(),
           reputation: new StringField({ required: true, blank: true }),
+          notes: new HTMLField({ required: false, initial: "" }),
           deathAliens: new SchemaField({
             current: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
             total: new NumberField({ required: true, integer: true, min: 0, initial: 0 })

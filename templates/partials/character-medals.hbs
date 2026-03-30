@@ -1,0 +1,33 @@
+<section class="equipment medals">
+    <h3 class="section-title-right">{{toUpperCase (localize "masacre.character.medals")}}</h3>
+    <div class="equipment-list">
+        {{#each actor.system.medals as |medal|}}
+        <li class="equipment-item" data-item-id="{{medal._id}}">
+            <div class="equipment-row">
+                <span class="equipment-col equipment-col-name equipment-name-toggle" data-item-id="{{medal._id}}">{{medal.name}}</span>
+                <span class="equipment-col equipment-col-bars" title="{{localize 'masacre.medal.bars'}}">
+                    {{#times medal.system.bars}}
+                    <i class="fas fa-shield"></i>
+                    {{/times}}
+                </span>
+                <span class="equipment-col equipment-col-controls">
+                    <a class="itemControl" data-action="info" title="{{localize 'masacre.general.info'}}">
+                        <i class="fas fa-info-circle"></i>
+                    </a>
+                    {{#if @root.isGM}}
+                    <a class="itemControl" data-action="edit" title="{{localize 'masacre.general.edit'}}">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a class="itemControl" data-action="delete" title="{{localize 'masacre.general.delete'}}">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                    {{/if}}
+                </span>
+            </div>
+            <div class="equipment-description" data-item-id="{{medal._id}}" style="display: none;">
+                <p>{{{medal.system.description}}}</p>
+            </div>
+        </li>
+        {{/each}}
+    </div>
+</section>

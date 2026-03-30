@@ -1085,6 +1085,46 @@
   font-style: italic;
   margin: 0 0 8px 0;
 }
+.masacre .notes .editor-container {
+  position: relative;
+  min-height: 100px;
+  border: 1px solid #c7b9a3;
+  border-radius: 4px;
+  background: #ffffff;
+  width: 100%;
+  padding: 12px;
+}
+.masacre .notes .editor-container .editor {
+  min-height: 100px;
+  height: 100%;
+  position: relative;
+}
+.masacre .notes .editor-container .editor-edit {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.masacre .notes .editor-container:hover .editor-edit {
+  opacity: 1;
+}
+.masacre .notes .editor-container .editor-content {
+  min-height: 80px;
+  cursor: text;
+}
+.masacre .notes .editor-container .editor {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.masacre .notes .editor-container .editor-content,
+.masacre .notes .editor-container .ProseMirror {
+  min-height: 60px;
+  width: 100%;
+  flex: 1;
+}
 .masacre.sheet.characterSheet .sheet {
   width: 500px;
   height: 500px;

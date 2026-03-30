@@ -19,15 +19,7 @@
     "styles":[
         "masacre.css"
     ],
-    "packs": [            
-        {
-            "name": "316-masacre-en-la-galaxia",
-            "label": "3:16 Masacre en la Galaxia",
-            "system": "masacre",
-            "type": "Item",
-            "path": "packs/316-masacre-en-la-galaxia"
-        }
-    ],
+    "packs": [],
     "languages": [
         {
             "lang": "es",

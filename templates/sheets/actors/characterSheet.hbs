@@ -49,12 +49,13 @@
 
             {{> "systems/masacre/templates/partials/character-rank-details.hbs"}}
 
-            <section class="medals">
-                <h3 class="section-title-right">{{toUpperCase (localize "masacre.character.medals")}}</h3>
-            </section>
+            {{> "systems/masacre/templates/partials/character-medals.hbs"}}
 
             <section class="notes">
                 <h3 class="section-title-right">{{toUpperCase (localize "masacre.character.notes")}}</h3>
+                <div class="editor-container">
+                    {{editor actor.system.notes target="system.notes" button=true owner=owner editable=editable}}
+                </div>
             </section>
         </div>
     </main>

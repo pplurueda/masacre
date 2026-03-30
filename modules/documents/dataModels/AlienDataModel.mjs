@@ -15,6 +15,7 @@ export class AlienDataModel extends ActorDataModel {
         })
       }),
       description: new HTMLField({ required: false, initial: "" }),
+      notes: new HTMLField({ required: false, initial: "" }),
       abilities: new HTMLField({ required: false, initial: "" }),
       hp: new SchemaField({
         value: new NumberField({ required: true, integer: true, min: 0, initial: 3 }),

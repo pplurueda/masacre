@@ -34,6 +34,7 @@ async function preloadHandlebarsTemplates() {
         "systems/masacre/templates/partials/character-flaws.hbs",
         "systems/masacre/templates/partials/character-rank-details.hbs",
         "systems/masacre/templates/partials/character-equipment.hbs",
+        "systems/masacre/templates/partials/character-medals.hbs",
         "systems/masacre/templates/partials/character-resources.hbs",
         "systems/masacre/templates/partials/character-history.hbs",
         "systems/masacre/templates/partials/alien-stats-section.hbs",

@@ -274,4 +274,25 @@
       margin: 0 0 @spacing-xs 0;
     }
   }
+
+  .notes {
+    .editor-container {
+      .editor-container();
+      width: 100%;
+      padding: @spacing-sm;
+
+      .editor {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .editor-content,
+      .ProseMirror {
+        min-height: 60px;
+        width: 100%;
+        flex: 1;
+      }
+    }
+  }
 }
