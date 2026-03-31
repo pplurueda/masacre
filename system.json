@@ -2,7 +2,7 @@
     "id": "masacre",
     "title": "3:16 Masacre en la Galaxia",
     "description": "Sistema para jugar a 3:16 Masacre en la Galaxia",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "compatibility": {
         "minimum": "13",
         "verified": "13",
@@ -19,7 +19,15 @@
     "styles":[
         "masacre.css"
     ],
-    "packs": [],
+    "packs": [
+        {
+            "id": "316-en-espanol",
+            "name": "316-en-espanol",
+            "label": "3:16 en Español",
+            "path": "packs/316-en-espanol",
+            "type": "Item"
+        }
+    ],
     "languages": [
         {
             "lang": "es",
