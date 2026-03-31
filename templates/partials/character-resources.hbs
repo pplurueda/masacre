@@ -7,7 +7,11 @@
                 <span class="resource-col resource-col-name resource-name-toggle" data-item-id="{{res._id}}">{{res.name}}</span>
                 <span class="resource-col resource-col-uses">
                     {{#times res.system.uses}}
-                    <input type="checkbox" class="resource-use-checkbox" data-item-id="{{../res._id}}" data-index="{{index}}"/>
+                    <label class="skull-toggle">
+                        <input type="checkbox" class="resource-use-checkbox" data-item-id="{{../res._id}}" data-index="{{index}}"/>
+                        <i class="fa-regular fa-skull skull-off"></i>
+                        <i class="fa-solid fa-skull skull-on"></i>
+                    </label>
                     {{/times}}
                 </span>
                 <span class="resource-col resource-col-controls">

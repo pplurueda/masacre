@@ -3,11 +3,19 @@
     <div class="items">
         <div class="item">
             <label>{{toUpperCase (localize "masacre.character.mandelBriteArmor")}}</label>
-            <input name="system.mandelBriteArmorUsed" type="checkbox" class="item-box" {{#if actor.system.mandelBriteArmorUsed}}checked{{/if}}/>
+            <label class="skull-toggle skull-toggle-lg">
+                <input name="system.mandelBriteArmorUsed" type="checkbox" {{#if actor.system.mandelBriteArmorUsed}}checked{{/if}}/>
+                <i class="fa-regular fa-skull skull-off"></i>
+                <i class="fa-solid fa-skull skull-on"></i>
+            </label>
         </div>
         <div class="item">
             <label>{{toUpperCase (localize "masacre.character.combatDrugs")}}</label>
-            <input name="system.combatDrugUsed" type="checkbox" class="item-box" {{#if actor.system.combatDrugUsed}}checked{{/if}}/>
+            <label class="skull-toggle skull-toggle-lg">
+                <input name="system.combatDrugUsed" type="checkbox" {{#if actor.system.combatDrugUsed}}checked{{/if}}/>
+                <i class="fa-regular fa-skull skull-off"></i>
+                <i class="fa-solid fa-skull skull-on"></i>
+            </label>
         </div>
     </div>
 </section>

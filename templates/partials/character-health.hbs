@@ -3,15 +3,27 @@
     <div class="health-statuses">
         <div class="health-item">
             <label>{{toUpperCase (localize "masacre.character.woundsMadeMess")}}</label>
-            <input name="system.wounds.madeMess" type="checkbox" {{#if actor.system.wounds.madeMess}}checked{{/if}}/>
+            <label class="skull-toggle">
+                <input name="system.wounds.madeMess" type="checkbox" {{#if actor.system.wounds.madeMess}}checked{{/if}}/>
+                <i class="fa-regular fa-skull skull-off"></i>
+                <i class="fa-solid fa-skull skull-on"></i>
+            </label>
         </div>
         <div class="health-item">
             <label>{{toUpperCase (localize "masacre.character.woundsCrippled")}}</label>
-            <input name="system.wounds.crippled" type="checkbox" {{#if actor.system.wounds.crippled}}checked{{/if}}/>
+            <label class="skull-toggle">
+                <input name="system.wounds.crippled" type="checkbox" {{#if actor.system.wounds.crippled}}checked{{/if}}/>
+                <i class="fa-regular fa-skull skull-off"></i>
+                <i class="fa-solid fa-skull skull-on"></i>
+            </label>
         </div>
         <div class="health-item">
             <label>{{toUpperCase (localize "masacre.character.woundsDeath")}}</label>
-            <input name="system.wounds.death" type="checkbox" {{#if actor.system.wounds.death}}checked{{/if}}/>
+            <label class="skull-toggle">
+                <input name="system.wounds.death" type="checkbox" {{#if actor.system.wounds.death}}checked{{/if}}/>
+                <i class="fa-regular fa-skull skull-off"></i>
+                <i class="fa-solid fa-skull skull-on"></i>
+            </label>
         </div>
     </div>
 </section>

@@ -124,14 +124,30 @@
 .masacre input[type="checkbox"]:checked.checked-cross::before {
   content: '\2716';
 }
-.masacre input[type="checkbox"]:checked.checked-slash::before {
-  content: '';
-  width: 15px;
-  height: 1.5px;
-  background: #000000;
-  top: 5px;
-  left: -2px;
-  transform: rotate(45deg);
+.masacre .skull-toggle {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+.masacre .skull-toggle input[type="checkbox"] {
+  display: none;
+}
+.masacre .skull-toggle .skull-off {
+  color: #7a6f62;
+}
+.masacre .skull-toggle .skull-on {
+  display: none;
+  color: #000000;
+}
+.masacre .skull-toggle input:checked ~ .skull-off {
+  display: none;
+}
+.masacre .skull-toggle input:checked ~ .skull-on {
+  display: inline;
+}
+.masacre .skull-toggle-lg .skull-off,
+.masacre .skull-toggle-lg .skull-on {
+  font-size: 20px;
 }
 .masacre .item-box {
   appearance: none;
