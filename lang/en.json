@@ -124,7 +124,9 @@
         },
 
         "dialog": {
-            "chooseStat": "Choose a skill"
+            "chooseStat": "Choose a skill",
+            "setModifier": "Roll Modifier",
+            "roll": "Roll"
         },
 
         "roll": {
@@ -135,6 +137,7 @@
             "weapon": "Weapon",
             "range": "Range",
             "formula": "Roll",
+            "modifier": "Modifier",
             "result": "Result",
             "addCasualties": "Add casualties to counter"
         }

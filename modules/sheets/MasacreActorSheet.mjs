@@ -43,6 +43,6 @@ export class MasacreActorSheet extends ActorSheet {
 
         console.log("Rollable clicked:", dataset);
 
-        await realizarTiradas.general.nuevaTirada(this.actor, dataset);        
+        await realizarTiradas.general.nuevaTirada(this.actor, dataset, event);        
     }
 }

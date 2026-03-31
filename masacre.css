@@ -735,6 +735,49 @@
   pointer-events: none;
   cursor: pointer;
 }
+.set-modifier-dialog .roll-hability-result {
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+.set-modifier-dialog .modifier-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 16px;
+}
+.set-modifier-dialog .modifier-buttons .modifier-btn {
+  flex: 1;
+  padding: 8px 12px;
+  font-family: 'Cinzel', 'Times New Roman', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 2px solid #888888;
+  border-radius: 4px;
+  background: #f8f4ed;
+  color: #1f1b16;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.set-modifier-dialog .modifier-buttons .modifier-btn:hover {
+  background: #e2e2e2;
+  border-color: #3a4a5a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.set-modifier-dialog .modifier-buttons .modifier-btn:active {
+  transform: translateY(0);
+}
+.set-modifier-dialog .modifier-buttons .modifier-btn.modifier-btn-roll {
+  background: #3a4a5a;
+  color: #ffffff;
+  border-color: #3a4a5a;
+}
+.set-modifier-dialog .modifier-buttons .modifier-btn.modifier-btn-roll:hover {
+  background: #26313b;
+}
 .masacre .equipment {
   font-size: 1.25rem;
 }

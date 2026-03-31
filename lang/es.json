@@ -124,7 +124,9 @@
         },
 
         "dialog": {
-            "chooseStat": "Selecciona una habilidad"
+            "chooseStat": "Selecciona una habilidad",
+            "setModifier": "Modificador de tirada",
+            "roll": "Tirar"
         },
 
         "roll": {
@@ -135,6 +137,7 @@
             "weapon": "Arma",
             "range": "Rango",
             "formula": "Tirada",
+            "modifier": "Modificador",
             "result": "Resultado",
             "addCasualties": "Añadir bajas al contador"
         }

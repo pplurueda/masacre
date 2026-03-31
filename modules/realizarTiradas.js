@@ -1,13 +1,15 @@
+import {SetModifierForm} from './dialogs/SetModifierForm.mjs';
+
 export const realizarTiradas = {};
 
 realizarTiradas.actor = {
 
-    async initiative(actor, dataset) {
+    async initiative(actor, dataset, event) {
 
         const rollResult = await this.hability(actor, {
             ...dataset,
             type: "hability"
-        });
+        }, event);
 
         console.log(rollResult);
 
@@ -31,16 +33,24 @@ realizarTiradas.actor = {
         if (combatant) await game.combat.setInitiative(combatant.id, value);
     },
 
-    async hability(actor, dataset) {
+    async hability(actor, dataset, event) {
 
         if(dataset.type != "hability") return;
+
+        let modifier = 0;
+        if (event?.altKey) {
+            modifier = await SetModifierForm.prompt({
+                description: dataset.description,
+                value: parseInt(dataset.value)
+            });
+        }
 
         let roll = new Roll("1d10");
         await roll.evaluate();
 
         let rollResult = roll.total;
 
-        const success = parseInt(dataset.value) >= rollResult;
+        const success = (parseInt(dataset.value) + modifier) >= rollResult;
 
         const miDataset = {
             actorId: actor.id,
@@ -51,6 +61,7 @@ realizarTiradas.actor = {
             description: dataset.description,
             value: parseInt(dataset.value),
             result: rollResult,
+            modifier: modifier,
             success: success
         };
 
@@ -112,7 +123,7 @@ realizarTiradas.item = {
 
 realizarTiradas.general = {
 
-    async nuevaTirada(actor, dataset) {
+    async nuevaTirada(actor, dataset, event) {
 
         switch(dataset.type) {
             case "bajas":
@@ -120,9 +131,9 @@ realizarTiradas.general = {
                 break;
             case "hability":
                 if (game.combat)
-                    await realizarTiradas.actor.initiative(actor, dataset);
+                    await realizarTiradas.actor.initiative(actor, dataset, event);
                 else
-                    await realizarTiradas.actor.hability(actor, dataset);
+                    await realizarTiradas.actor.hability(actor, dataset, event);
                 break;
             // case "initiative":
             //     await realizarTiradas.actor.initiative(actor, dataset);
