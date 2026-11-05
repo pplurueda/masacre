@@ -11,7 +11,7 @@ export class AlienSheet extends MasacreActorSheet {
     }
 
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             classes: ["masacre", "sheet", "alienSheet"],
             width: 950,
             height: 650
@@ -31,9 +31,9 @@ export class AlienSheet extends MasacreActorSheet {
         html.find('.alien-hability-name-toggle').click(this._onAlienHabilityNameToggle.bind(this));
     }
 
-    getData() {
+    async getData(options = {}) {
         
-        const data = super.getData();        
+        const data = await super.getData(options);
         
         return data;
     }
@@ -64,10 +64,10 @@ export class AlienSheet extends MasacreActorSheet {
         const template = "systems/masacre/templates/messages/alienHabilityInfo.hbs";
         
         const templateData = { item: item.toObject() };
-        const content = await renderTemplate(template, templateData);
+        const content = await foundry.applications.handlebars.renderTemplate(template, templateData);
         
-        await ChatMessage.create({
-            type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+        await foundry.documents.ChatMessage.create({
+            style: CONST.CHAT_MESSAGE_STYLES.OTHER,
             speaker: {
                 actor: this.actor.id,
                 alias: this.actor.name

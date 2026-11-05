@@ -1,14 +1,14 @@
-# AGENTS.md — masacre (Foundry VTT v13 Game System)
+# AGENTS.md — masacre (Foundry VTT v14 Game System)
 
 ## Project Overview
 
-This is a **Foundry VTT v13 game system** implementing the tabletop RPG
+This is a **Foundry VTT v14 game system** implementing the tabletop RPG
 **"3:16 Masacre en la Galaxia"** (3:16 Carnage Amongst the Stars).
 It is written in plain JavaScript (ES Modules), uses Handlebars templates
 for UI and LESS for styling. There is no build step, bundler, or transpiler.
 
 - **Entry point:** `masacre.js` (registered via `system.json` as an ES module)
-- **Foundry compatibility:** v13 only
+- **Foundry compatibility:** v14 only
 - **Languages:** Spanish (primary) and English
 
 ## Foundry VTT API documentation URL
@@ -22,7 +22,7 @@ https://lesscss.org/
 
 ## Build / Compile / Test Commands
 
-There is **no build pipeline, test framework, or linter** configured in this project.
+There is **no build pipeline, external test framework, or linter** configured in this project.
 
 ### CSS (LESS)
 
@@ -49,7 +49,14 @@ changing `.js`/`.mjs`/`.hbs` files; recompile LESS after changing `.less` files.
 
 ### Tests
 
-No test framework is configured. No test files exist.
+Run the API compatibility smoke tests with Node.js 22 or later:
+
+```bash
+node --test tests/foundry-v14.test.mjs
+```
+
+The tests use Node's built-in runner and Foundry API doubles, not a running world.
+See `docs/foundry-v14.md` for the manual integration checklist.
 
 ### Linting
 
@@ -134,8 +141,14 @@ static defineSchema() {
 **Document classes** (`MasacreActor`, `MasacreItem`) extend Foundry's `Actor`
 and `Item`. Override `prepareDerivedData()` for computed values.
 
-**Sheet classes** extend `ActorSheet` or `ItemSheet`. Use the static getter
+**Sheet classes** extend `foundry.appv1.sheets.ActorSheet` or
+`foundry.appv1.sheets.ItemSheet` (legacy sheets, still available in v14). Use the static getter
 `get defaultOptions()` with `foundry.utils.mergeObject(super.defaultOptions, {...})`.
+Await `super.getData(options)` before extending sheet context. Register sheets through
+`foundry.applications.apps.DocumentSheetConfig`. Use namespaced APIs for Handlebars
+(`foundry.applications.handlebars`) and chat messages (`foundry.documents.ChatMessage`).
+Chat rolls use `rolls: [roll]` and `style: CONST.CHAT_MESSAGE_STYLES.OTHER`, not legacy
+`roll` or `CONST.CHAT_MESSAGE_TYPES`.
 
 ### Handlebars Templates
 

@@ -35,7 +35,7 @@ realizarTiradas.actor = {
 
         if(dataset.type != "hability") return;
 
-        let roll = new Roll("1d10");
+        let roll = new foundry.dice.Roll("1d10");
         await roll.evaluate();
 
         let rollResult = roll.total;
@@ -54,18 +54,14 @@ realizarTiradas.actor = {
             success: success
         };
 
-        const plantillaChat = await renderTemplate("systems/masacre/templates/messages/rollHabilityResult.hbs", miDataset);
+        const plantillaChat = await foundry.applications.handlebars.renderTemplate("systems/masacre/templates/messages/rollHabilityResult.hbs", miDataset);
 
-        ChatMessage.create(
+        await foundry.documents.ChatMessage.create(
             {
-                type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-                speaker: 
-                {
-                    token: actor.token,
-                    actor: actor.id
-                },
+                style: CONST.CHAT_MESSAGE_STYLES.OTHER,
+                speaker: foundry.documents.ChatMessage.getSpeaker({ actor }),
                 content: plantillaChat,
-                roll: roll
+                rolls: [roll]
             });
 
         return rollResult;
@@ -79,7 +75,7 @@ realizarTiradas.item = {
         if(dataset.type != "bajas") return;
         if(dataset.value === "0" || dataset.value === undefined)  return;
 
-        let roll = new Roll(dataset.value);
+        let roll = new foundry.dice.Roll(dataset.value);
         await roll.evaluate();
 
         let rollResult = roll.total;
@@ -90,22 +86,18 @@ realizarTiradas.item = {
             weaponImage: dataset.image,
             stat: dataset.stat,
             weapon: dataset.weapon,
-            value: parseInt(dataset.value),
+            value: dataset.value,
             result: rollResult
         };
 
-        const plantillaChat = await renderTemplate("systems/masacre/templates/messages/rollCasualtiesResult.hbs", miDataset);
+        const plantillaChat = await foundry.applications.handlebars.renderTemplate("systems/masacre/templates/messages/rollCasualtiesResult.hbs", miDataset);
 
-        ChatMessage.create(
+        await foundry.documents.ChatMessage.create(
             {
-                type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-                speaker: 
-                {
-                    token: actor.token,
-                    actor: actor.id
-                },
+                style: CONST.CHAT_MESSAGE_STYLES.OTHER,
+                speaker: foundry.documents.ChatMessage.getSpeaker({ actor }),
                 content: plantillaChat,
-                roll: roll
+                rolls: [roll]
             });
     },
 }

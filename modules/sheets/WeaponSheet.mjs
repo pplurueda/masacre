@@ -1,7 +1,7 @@
 import {masacre} from "../config.js"
 import {WEAPON_STAT_VALUES} from "../documents/dataModels/WeaponDataModel.mjs"
 
-export class WeaponSheet extends ItemSheet {
+export class WeaponSheet extends foundry.appv1.sheets.ItemSheet {
 
     constructor(actor, options) {
 
@@ -11,7 +11,7 @@ export class WeaponSheet extends ItemSheet {
     }
 
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             classes: ["masacre", "sheet", "weaponSheet"],
             width: 750,
             height: 750
@@ -28,10 +28,10 @@ export class WeaponSheet extends ItemSheet {
         html.find('[data-action="cycle-stat"]').click(this._onCycleStat.bind(this));
     }
 
-    getData() {
-        const data = super.getData();        
+    async getData(options = {}) {
+        const data = await super.getData(options);
 
-        data.config = CONFIG.Masacre;
+        data.config = CONFIG.masacre;
         
         return data;
     }

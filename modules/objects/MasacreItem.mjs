@@ -1,6 +1,6 @@
 import {WEAPON_STAT_VALUES} from "../documents/dataModels/WeaponDataModel.mjs"
 
-export class MasacreItem extends Item {
+export class MasacreItem extends foundry.documents.Item {
     prepareData() {
 
         super.prepareData();
@@ -10,6 +10,7 @@ export class MasacreItem extends Item {
     }
 
     prepareDerivedData() {
+        super.prepareDerivedData();
 
         const itemData = this;
         const systemData = itemData.system;
@@ -17,13 +18,13 @@ export class MasacreItem extends Item {
         this._getWeaponMaxStats();
     }
 
-    async _getWeaponMaxStats() {
-        await this._getWeaponMaxStatValue("cc");
-        await this._getWeaponMaxStatValue("cd");
-        await this._getWeaponMaxStatValue("ld");
+    _getWeaponMaxStats() {
+        this._getWeaponMaxStatValue("cc");
+        this._getWeaponMaxStatValue("cd");
+        this._getWeaponMaxStatValue("ld");
     }
 
-    async _getWeaponMaxStatValue(stat) {
+    _getWeaponMaxStatValue(stat) {
         
         if(this.type !== "weapon") return;
 

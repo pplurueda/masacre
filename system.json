@@ -2,14 +2,14 @@
     "id": "masacre",
     "title": "3:16 Masacre en la Galaxia",
     "description": "Sistema para jugar a 3:16 Masacre en la Galaxia",
-    "version": "1.0.1",
+    "version": "2.0.0",
     "url": "https://github.com/pplurueda/masacre",
     "manifest": "https://github.com/pplurueda/masacre/blob/main/system.json",
     "download": "https://github.com/pplurueda/masacre/releases/download/v1.0.1/masacre.zip",
     "compatibility": {
-        "minimum": "13",
-        "verified": "13",
-        "maximum": "13"
+        "minimum": "14",
+        "verified": "14",
+        "maximum": "14"
       },
     "authors": [
         {

@@ -5,6 +5,15 @@
         <li class="equipment-item" data-item-id="{{equip._id}}">
             <div class="equipment-row">
                 <span class="equipment-col equipment-col-name equipment-name-toggle" data-item-id="{{equip._id}}">{{equip.name}}</span>
+                <span class="equipment-col equipment-col-uses">
+                    {{#times equip.system.uses}}
+                    <label class="skull-toggle">
+                        <input type="checkbox" class="equipment-use-checkbox" data-item-id="{{../equip._id}}" data-index="{{index}}"/>
+                        <i class="fa-regular fa-skull skull-off"></i>
+                        <i class="fa-solid fa-skull skull-on"></i>
+                    </label>
+                    {{/times}}
+                </span>
                 <span class="equipment-col equipment-col-controls">
                     <a class="itemControl" data-action="info" title="{{localize 'masacre.general.info'}}">
                         <i class="fas fa-info-circle"></i>

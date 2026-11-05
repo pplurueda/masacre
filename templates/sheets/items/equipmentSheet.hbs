@@ -6,6 +6,17 @@
 
     <main class="equipment-content">
 
+        <section class="equipment-uses">
+            <div class="stat-box">
+                <div class="stat-label">
+                    <span class="stat-abbr">{{toUpperCase (localize "masacre.resource.uses")}}</span>
+                </div>
+                <div class="stat-square">
+                    <input name="system.uses" type="number" value="{{item.system.uses}}" min="0"/>
+                </div>
+            </div>
+        </section>
+
         <section class="equipment-description">
             <h3 class="section-title">{{toUpperCase (localize "masacre.weapon.description")}}</h3>
             <div class="editor-container">

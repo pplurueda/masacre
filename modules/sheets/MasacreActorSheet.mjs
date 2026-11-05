@@ -1,18 +1,18 @@
 import {masacre} from "../config.js"
 import {realizarTiradas} from "../realizarTiradas.js"
 
-export class MasacreActorSheet extends ActorSheet {
+export class MasacreActorSheet extends foundry.appv1.sheets.ActorSheet {
 
     constructor(actor, options) {
 
         super(actor, options);
     }
 
-    async getData() {
+    async getData(options = {}) {
         
-        const data = super.getData();        
+        const data = await super.getData(options);
         
-        data.config = CONFIG.Masacre;
+        data.config = CONFIG.masacre;
         data.isGM = game.user.isGM;
 
         return data;
@@ -28,7 +28,7 @@ export class MasacreActorSheet extends ActorSheet {
     async setInitiative(initiativeValue) {
         if (game.combat) {
             
-            const combatant = this.token?.combatant ?? game.combat.combatants.find(c => c.actor.id === this.actor.id);
+            const combatant = this.token?.combatant ?? game.combat.combatants.find(c => c.actor?.id === this.actor.id);
 
             if (combatant) await game.combat.setInitiative(combatant.id, initiativeValue);
         }

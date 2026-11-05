@@ -15,7 +15,7 @@ export class CharacterSheet extends MasacreActorSheet {
     }
 
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             classes: ["masacre", "sheet", "characterSheet"],
             submitOnChange: true,
             width: 1200,
@@ -46,9 +46,9 @@ export class CharacterSheet extends MasacreActorSheet {
         html.find('.resource-used-toggle').change(this._onResourceUsedToggle.bind(this));
     }
 
-    async getData() {
+    async getData(options = {}) {
         
-        const data = super.getData();        
+        const data = await super.getData(options);
 
         return data;
     }
@@ -87,10 +87,10 @@ export class CharacterSheet extends MasacreActorSheet {
         if (!template) return;
         
         const templateData = { item: item.toObject() };
-        const content = await renderTemplate(template, templateData);
+        const content = await foundry.applications.handlebars.renderTemplate(template, templateData);
         
-        await ChatMessage.create({
-            type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+        await foundry.documents.ChatMessage.create({
+            style: CONST.CHAT_MESSAGE_STYLES.OTHER,
             speaker: {
                 actor: this.actor.id,
                 alias: this.actor.name

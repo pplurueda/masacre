@@ -1,6 +1,6 @@
 import {masacre} from "../config.js"
 
-export class RankSheet extends ItemSheet {
+export class RankSheet extends foundry.appv1.sheets.ItemSheet {
 
     constructor(actor, options) {
 
@@ -10,7 +10,7 @@ export class RankSheet extends ItemSheet {
     }
 
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             classes: ["masacre", "sheet", "rankSheet"],
             width: 550,
             height: 850
@@ -21,10 +21,10 @@ export class RankSheet extends ItemSheet {
         return `systems/masacre/templates/sheets/items/rankSheet.hbs`;
     } 
 
-    getData() {
-        const context = super.getData();        
+    async getData(options = {}) {
+        const context = await super.getData(options);
 
-        context.config = CONFIG.Masacre;
+        context.config = CONFIG.masacre;
         context.item = this.item;
         context.system = this.item.system;
         context.owner = this.item.isOwner;

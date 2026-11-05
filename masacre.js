@@ -45,7 +45,7 @@ async function preloadHandlebarsTemplates() {
         "systems/masacre/templates/partials/alien-hability-item.hbs"
     ];
 
-    return(loadTemplates(paths))
+    return foundry.applications.handlebars.loadTemplates(paths);
 }
 
 Hooks.once("init", function(){
@@ -69,17 +69,21 @@ Hooks.once("init", function(){
         medal: MedalDataModel
     };
 
-    Actors.unregisterSheet("core", ActorSheet);
-    Actors.registerSheet("masacre", CharacterSheet, {makeDefault: true, types: ["character"]});
-    Actors.registerSheet("masacre", AlienSheet, {makeDefault: true, types: ["alien"]});
+    const { DocumentSheetConfig } = foundry.applications.apps;
+    const { ActorSheetV2, ItemSheetV2 } = foundry.applications.sheets;
+    const { Actor, Item } = foundry.documents;
 
-    Items.unregisterSheet("core", ItemSheet);
-    Items.registerSheet("masacre", RankSheet, {types: ["rank"]});
-    Items.registerSheet("masacre", WeaponSheet, {types: ["weapon"]});
-    Items.registerSheet("masacre", AlienHabilitySheet, {types: ["alienHability"]});
-    Items.registerSheet("masacre", EquipmentSheet, {types: ["equipment"]});
-    Items.registerSheet("masacre", ResourceSheet, {types: ["resource"]});
-    Items.registerSheet("masacre", MedalSheet, {types: ["medal"]});
+    DocumentSheetConfig.unregisterSheet(Actor, "core", ActorSheetV2);
+    DocumentSheetConfig.registerSheet(Actor, "masacre", CharacterSheet, {makeDefault: true, types: ["character"]});
+    DocumentSheetConfig.registerSheet(Actor, "masacre", AlienSheet, {makeDefault: true, types: ["alien"]});
+
+    DocumentSheetConfig.unregisterSheet(Item, "core", ItemSheetV2);
+    DocumentSheetConfig.registerSheet(Item, "masacre", RankSheet, {makeDefault: true, types: ["rank"]});
+    DocumentSheetConfig.registerSheet(Item, "masacre", WeaponSheet, {makeDefault: true, types: ["weapon"]});
+    DocumentSheetConfig.registerSheet(Item, "masacre", AlienHabilitySheet, {makeDefault: true, types: ["alienHability"]});
+    DocumentSheetConfig.registerSheet(Item, "masacre", EquipmentSheet, {makeDefault: true, types: ["equipment"]});
+    DocumentSheetConfig.registerSheet(Item, "masacre", ResourceSheet, {makeDefault: true, types: ["resource"]});
+    DocumentSheetConfig.registerSheet(Item, "masacre", MedalSheet, {makeDefault: true, types: ["medal"]});
 
     preloadHandlebarsTemplates();
 
@@ -148,6 +152,11 @@ Hooks.on("renderChatMessageHTML", (message, html, data) => {
         const newCasualties = currentCasualties + casualties;
         
         await actor.update({ "system.deathAliens.current": newCasualties });
+
+        const totalCasualties = actor.system.deathAliens.total || 0;
+        const newTotalCasualties = totalCasualties + casualties;
+
+        await actor.update({ "system.deathAliens.total": newTotalCasualties });
         
         ui.notifications.info(`${casualties} bajas añadidas. Total: ${newCasualties}`);
     });

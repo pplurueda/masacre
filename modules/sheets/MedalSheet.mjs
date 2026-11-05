@@ -1,6 +1,6 @@
 import {masacre} from "../config.js"
 
-export class MedalSheet extends ItemSheet {
+export class MedalSheet extends foundry.appv1.sheets.ItemSheet {
 
     constructor(actor, options) {
 
@@ -8,7 +8,7 @@ export class MedalSheet extends ItemSheet {
     }
 
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             classes: ["masacre", "sheet", "medalSheet"],
             width: 700,
             height: 650
@@ -25,10 +25,10 @@ export class MedalSheet extends ItemSheet {
         html.find('[data-action="cycle-bars"]').click(this._onCycleBars.bind(this));
     }
 
-    getData() {
-        const data = super.getData();
+    async getData(options = {}) {
+        const data = await super.getData(options);
 
-        data.config = CONFIG.Masacre;
+        data.config = CONFIG.masacre;
 
         return data;
     }

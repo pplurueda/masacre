@@ -1,4 +1,4 @@
-export class MasacreActor extends Actor {
+export class MasacreActor extends foundry.documents.Actor {
     //async applyDamage(damage) { // Omitted for brevity. }
   
     prepareDerivedData() {

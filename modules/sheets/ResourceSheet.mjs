@@ -1,6 +1,6 @@
 import {masacre} from "../config.js"
 
-export class ResourceSheet extends ItemSheet {
+export class ResourceSheet extends foundry.appv1.sheets.ItemSheet {
 
     constructor(actor, options) {
 
@@ -8,7 +8,7 @@ export class ResourceSheet extends ItemSheet {
     }
 
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             classes: ["masacre", "sheet", "resourceSheet"],
             width: 650,
             height: 650
@@ -19,10 +19,10 @@ export class ResourceSheet extends ItemSheet {
         return `systems/masacre/templates/sheets/items/resourceSheet.hbs`;
     } 
 
-    getData() {
-        const data = super.getData();        
+    async getData(options = {}) {
+        const data = await super.getData(options);
 
-        data.config = CONFIG.Masacre;
+        data.config = CONFIG.masacre;
         
         return data;
     }
