@@ -1,3 +1,5 @@
-2026/03/31-14:30:38.755 2d38 Recovering log #8
-2026/03/31-14:30:38.769 2d38 Delete type=0 #8
-2026/03/31-14:30:38.769 2d38 Delete type=3 #6
+2026/11/05-16:20:11.253 a48 Log #14: 0 ops saved to Table #15 OK
+2026/11/05-16:20:11.254 a48 Archiving D:\FoundryVTTv14\Data\systems\masacre\packs\316-en-espanol/000014.log: OK
+2026/11/05-16:20:11.256 a48 Table #5: 84 entries OK
+2026/11/05-16:20:11.263 a48 Archiving D:\FoundryVTTv14\Data\systems\masacre\packs\316-en-espanol/MANIFEST-000012: OK
+2026/11/05-16:20:11.271 a48 **** Repaired leveldb D:\FoundryVTTv14\Data\systems\masacre\packs\316-en-espanol; recovered 1 files; 48349 bytes. Some data may have been lost. ****

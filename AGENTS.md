@@ -9,10 +9,11 @@ for UI and LESS for styling. There is no build step, bundler, or transpiler.
 
 - **Entry point:** `masacre.js` (registered via `system.json` as an ES module)
 - **Foundry compatibility:** v14 only
+- **System version:** `2.0.0` (see `system.json`)
 - **Languages:** Spanish (primary) and English
 
 ## Foundry VTT API documentation URL
-/https://foundryvtt.com/api/
+https://foundryvtt.com/api/
 
 ## Handlebars API documentation URL
 https://handlebarsjs.com/
@@ -56,6 +57,9 @@ node --test tests/foundry-v14.test.mjs
 ```
 
 The tests use Node's built-in runner and Foundry API doubles, not a running world.
+The six smoke tests cover initialization and manifest compatibility, sheet contexts,
+chat rolls and item messages, synchronous weapon preparation, and initiative lookup.
+Passing these tests does not establish full compatibility in a live Foundry world.
 See `docs/foundry-v14.md` for the manual integration checklist.
 
 ### Linting
@@ -69,6 +73,10 @@ respect the existing code style documented below.
 masacre.js                 # System entry point (hooks, registration)
 system.json                # Foundry system manifest
 masacre.css                # Compiled CSS (do not edit directly)
+docs/foundry-v14.md         # Migration notes and manual integration checklist
+tests/foundry-v14.test.mjs  # Node built-in runner tests with Foundry API doubles
+packs/316-en-espanol/      # Spanish Item compendium (LevelDB database)
+macros/                    # Standalone Foundry macros
 lang/                      # Localization (es.json, en.json)
 less/                      # LESS source stylesheets
 modules/
@@ -76,14 +84,15 @@ modules/
   utils.js                 # Utility functions (placeholder)
   dice.js                  # Dice logic (placeholder)
   dialog.js                # Dialog logic (placeholder)
+  realizarTiradas.js        # Ability/casualty rolls, chat messages, initiative
   documents/dataModels/    # TypeDataModel subclasses for actors/items
   objects/                 # Custom Actor/Item document classes
   sheets/                  # ActorSheet/ItemSheet subclasses
-  combat/                  # Combat logic (placeholder)
 templates/
   sheets/actors/           # Actor sheet Handlebars templates
   sheets/items/            # Item sheet Handlebars templates
   partials/                # Reusable Handlebars partial templates
+  messages/                # Item information and roll result chat templates
 ```
 
 ## Code Style
@@ -99,8 +108,10 @@ templates/
 - Always use **named imports**: `import { Foo } from './path.mjs';`
 - Always include **explicit file extensions** (`.js` or `.mjs`).
 - Use **relative paths** with `./` or `../` prefix.
-- Foundry globals (`foundry`, `Hooks`, `CONFIG`, `Actors`, `Items`, etc.) are
-  available globally — do not import them.
+- Foundry globals (`foundry`, `Hooks`, `CONFIG`, `game`, `ui`, `CONST`) are
+  provided by the runtime — do not import them.
+- Use namespaced APIs instead of legacy global aliases such as `ActorSheet`,
+  `ItemSheet`, `Actors`, `Items`, `mergeObject`, `renderTemplate`, or `loadTemplates`.
 
 ```javascript
 import { masacre } from './modules/config.js';
@@ -138,8 +149,10 @@ static defineSchema() {
 }
 ```
 
-**Document classes** (`MasacreActor`, `MasacreItem`) extend Foundry's `Actor`
-and `Item`. Override `prepareDerivedData()` for computed values.
+**Document classes** (`MasacreActor`, `MasacreItem`) extend `foundry.documents.Actor`
+and `foundry.documents.Item`. Override `prepareDerivedData()` for computed values.
+Keep data preparation synchronous, including weapon maximum-stat calculations;
+do not use async helpers or document updates during preparation.
 
 **Sheet classes** extend `foundry.appv1.sheets.ActorSheet` or
 `foundry.appv1.sheets.ItemSheet` (legacy sheets, still available in v14). Use the static getter
@@ -149,6 +162,11 @@ Await `super.getData(options)` before extending sheet context. Register sheets t
 (`foundry.applications.handlebars`) and chat messages (`foundry.documents.ChatMessage`).
 Chat rolls use `rolls: [roll]` and `style: CONST.CHAT_MESSAGE_STYLES.OTHER`, not legacy
 `roll` or `CONST.CHAT_MESSAGE_TYPES`.
+Use `foundry.dice.Roll` for dice and
+`foundry.documents.ChatMessage.getSpeaker({ actor })` for roll speakers.
+The configuration namespace is `CONFIG.masacre`, not `CONFIG.Masacre`.
+The current UI still uses legacy sheet listeners and jQuery; it has not been
+converted to ApplicationV2 and does not provide its native pop-out support.
 
 ### Handlebars Templates
 
@@ -196,17 +214,55 @@ Chat rolls use `rolls: [roll]` and `style: CONST.CHAT_MESSAGE_STYLES.OTHER`, not
 ## Document Types (from system.json)
 
 - **Actor types:** `character`, `alien`
-- **Item types:** `weapon`, `rank`, `flashback`
+- **Item types:** `weapon`, `rank`, `flashback`, `alienHability`, `equipment`,
+  `resource`, `medal`
 
-Each type should have a corresponding DataModel in `modules/documents/dataModels/`,
-a sheet in `modules/sheets/`, and a template in `templates/sheets/`.
+All types except `flashback` have a registered DataModel, sheet, and sheet template.
+`flashback` remains declared in the manifest but has no dedicated implementation;
+character flashbacks are stored in `system.flashbacks` instead. Do not assume a
+`FlashbackDataModel` or `FlashbackSheet` exists.
 
 ## Key Architectural Notes
 
 - `masacre.js` registers everything on the Foundry `Hooks.once("init", ...)` hook:
   document classes, data models, sheet classes, Handlebars helpers, and template preloads.
-- Custom Handlebars helpers: `eachProperty`, `concat`, `toLowerCase`, `toUpperCase`.
-- The character sheet auto-creates a "Brawl" weapon on first render and enforces
-  a single-rank constraint (deletes old rank when a new one is added).
+- The eight implemented actor/item sheets are registered as defaults for their
+  respective types via `DocumentSheetConfig`, replacing the core V2 sheets.
+- Custom Handlebars helpers: `eachProperty`, `concat`, `toLowerCase`, `toUpperCase`,
+  `eq`, `times`. Partial templates load via `foundry.applications.handlebars.loadTemplates`.
+- The character sheet initializes current weapon stats when weapons are added and
+  enforces a single-rank constraint (deletes old ranks when a new one is added).
+  Applying a rank updates actor/prototype-token images and synchronizes equipment
+  and resources from `#`-separated names, searching world items before Item packs.
+- `realizarTiradas.js` handles ability and casualty rolls. During combat, ability
+  rolls also set initiative. Preserve casualty formula strings such as `2d6`.
+- The `renderChatMessageHTML` hook uses native DOM listeners for the add-casualties
+  button and updates both `system.deathAliens.current` and `.total`.
+- The `combatRound` hook requests initiative resets when advancing a round.
 - `modules/config.js` exports a `masacre` object with flashback configuration
   constants used by the system's `CONFIG.masacre` namespace.
+
+## Compendium Safety
+
+- `system.json` declares the Item pack `316-en-espanol` at `packs/316-en-espanol`.
+  Keep the manifest declaration and the packaged directory consistent.
+- The pack is a LevelDB database, not a collection of independently mergeable files.
+  Foundry may change logs, manifests, and `CURRENT` merely by opening the pack.
+  Inspect such changes before including them in a code commit.
+- Close Foundry and back up the entire pack before copying, restoring, or resolving
+  database conflicts. Do not edit binary files or combine LevelDB files from
+  different revisions. Resolve conflicts using a complete, coherent database copy;
+  ask which copy to preserve when the intended content is unclear.
+- Do not delete or restore compendium files as routine Git cleanup. Preserve
+  unrelated user changes and stage only files relevant to the requested task.
+
+## Releases
+
+- Keep `version`, `manifest`, and `download` in `system.json` aligned with the
+  intended release tag. The current URLs target `v2.0.0/system.json` and
+  `v2.0.0/masacre.zip` under GitHub release downloads.
+- A Git commit or push does not publish release assets. When publishing a release,
+  upload both `system.json` and `masacre.zip` to the matching tag and verify the
+  manifest and download URLs work.
+- Include runtime files and the complete compendium in the archive; omit
+  development-only content such as `.git`, `node_modules`, and agent tooling.
